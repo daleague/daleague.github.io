@@ -1,0 +1,12 @@
+{
+  "leagueId": "mock-league-1",
+  "gameId": "mock-nfl-2026",
+  "season": 2026,
+  "name": "The League",
+  "numTeams": 8,
+  "currentWeek": 3,
+  "completedWeeks": [1, 2],
+  "timezone": "America/Chicago",
+  "isMockData": true,
+  "lastUpdatedAt": "2026-08-23T15:00:00.000Z"
+}

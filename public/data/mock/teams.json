@@ -1,0 +1,10 @@
+[
+  { "teamId": "1", "name": "Gridiron Gremlins", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=Gremlins", "managerName": "Dana" },
+  { "teamId": "2", "name": "Hurts So Good", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=HurtsSoGood", "managerName": "Marcus" },
+  { "teamId": "3", "name": "Custodio's Curse", "iconUrl": null, "managerName": "Priya" },
+  { "teamId": "4", "name": "Zero Dark Thirty", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=ZeroDarkThirty", "managerName": "Tomas" },
+  { "teamId": "5", "name": "The Algorithm", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=TheAlgorithm", "managerName": "Wei" },
+  { "teamId": "6", "name": "Da Bears Necessities", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=BearsNecessities", "managerName": "Colleen" },
+  { "teamId": "7", "name": "Chubb Sandwich", "iconUrl": "https://api.dicebear.com/7.x/shapes/svg?seed=ChubbSandwich", "managerName": "Andre" },
+  { "teamId": "8", "name": "Kelce Please", "iconUrl": null, "managerName": "Sofia" }
+]

@@ -1,0 +1,166 @@
+[
+  {
+    "matchupId": "2026-w3-m1",
+    "season": 2026,
+    "week": 3,
+    "status": "live",
+    "home": {
+      "teamId": "1",
+      "score": 96.4,
+      "projectedScore": 104.2,
+      "winProbability": 38,
+      "players": [
+        { "playerId": "p101", "name": "J. Castillo", "slot": "QB", "points": 18.4, "projectedPoints": 19.8, "isStarter": true },
+        { "playerId": "p102", "name": "D. Warren", "slot": "RB", "points": 14.2, "projectedPoints": 15.0, "isStarter": true },
+        { "playerId": "p103", "name": "T. Ellison", "slot": "RB", "points": 9.6, "projectedPoints": 12.4, "isStarter": true },
+        { "playerId": "p104", "name": "R. Voss", "slot": "WR", "points": 11.8, "projectedPoints": 13.1, "isStarter": true },
+        { "playerId": "p105", "name": "K. Marsh", "slot": "WR", "points": 13.3, "projectedPoints": 10.6, "isStarter": true },
+        { "playerId": "p106", "name": "P. Odom", "slot": "TE", "points": 5.2, "projectedPoints": 7.0, "isStarter": true },
+        { "playerId": "p107", "name": "A. Greer", "slot": "FLEX", "points": 8.9, "projectedPoints": 9.5, "isStarter": true },
+        { "playerId": "p108", "name": "Steel Curtain", "slot": "DEF", "points": 7.0, "projectedPoints": 7.2, "isStarter": true },
+        { "playerId": "p109", "name": "M. Ibarra", "slot": "K", "points": 8.0, "projectedPoints": 9.6, "isStarter": true }
+      ]
+    },
+    "away": {
+      "teamId": "2",
+      "score": 108.7,
+      "projectedScore": 101.5,
+      "winProbability": 62,
+      "players": [
+        { "playerId": "p201", "name": "N. Farro", "slot": "QB", "points": 24.6, "projectedPoints": 20.2, "isStarter": true },
+        { "playerId": "p202", "name": "B. Solis", "slot": "RB", "points": 16.8, "projectedPoints": 14.0, "isStarter": true },
+        { "playerId": "p203", "name": "C. Whitlock", "slot": "RB", "points": 12.1, "projectedPoints": 11.5, "isStarter": true },
+        { "playerId": "p204", "name": "J. Okafor", "slot": "WR", "points": 15.4, "projectedPoints": 12.8, "isStarter": true },
+        { "playerId": "p205", "name": "L. Bentz", "slot": "WR", "points": 9.0, "projectedPoints": 9.9, "isStarter": true },
+        { "playerId": "p206", "name": "H. Sowell", "slot": "TE", "points": 4.8, "projectedPoints": 6.1, "isStarter": true },
+        { "playerId": "p207", "name": "D. Pruitt", "slot": "FLEX", "points": 10.2, "projectedPoints": 9.0, "isStarter": true },
+        { "playerId": "p208", "name": "Bay Bridge", "slot": "DEF", "points": 9.0, "projectedPoints": 7.5, "isStarter": true },
+        { "playerId": "p209", "name": "R. Falk", "slot": "K", "points": 6.8, "projectedPoints": 8.5, "isStarter": true }
+      ]
+    },
+    "winnerTeamId": null
+  },
+  {
+    "matchupId": "2026-w3-m2",
+    "season": 2026,
+    "week": 3,
+    "status": "final",
+    "home": {
+      "teamId": "3",
+      "score": 118.2,
+      "projectedScore": 110.0,
+      "winProbability": 71,
+      "players": [
+        { "playerId": "p301", "name": "E. Marchetti", "slot": "QB", "points": 22.1, "projectedPoints": 21.0, "isStarter": true },
+        { "playerId": "p302", "name": "G. Tolliver", "slot": "RB", "points": 19.4, "projectedPoints": 14.8, "isStarter": true },
+        { "playerId": "p303", "name": "S. Kwan", "slot": "RB", "points": 8.6, "projectedPoints": 10.2, "isStarter": true },
+        { "playerId": "p304", "name": "V. Dunmore", "slot": "WR", "points": 13.8, "projectedPoints": 12.0, "isStarter": true },
+        { "playerId": "p305", "name": "A. Brisco", "slot": "WR", "points": 10.2, "projectedPoints": 11.4, "isStarter": true },
+        { "playerId": "p306", "name": "J. Halvorsen", "slot": "TE", "points": 6.4, "projectedPoints": 6.8, "isStarter": true },
+        { "playerId": "p307", "name": "O. Petway", "slot": "FLEX", "points": 11.0, "projectedPoints": 9.4, "isStarter": true },
+        { "playerId": "p308", "name": "Iron Gate", "slot": "DEF", "points": 12.0, "projectedPoints": 7.8, "isStarter": true },
+        { "playerId": "p309", "name": "T. Sancho", "slot": "K", "points": 14.7, "projectedPoints": 8.9, "isStarter": true }
+      ]
+    },
+    "away": {
+      "teamId": "4",
+      "score": 121.6,
+      "projectedScore": 98.4,
+      "winProbability": 29,
+      "players": [
+        { "playerId": "p401", "name": "M. Ferreira", "slot": "QB", "points": 31.2, "projectedPoints": 19.4, "isStarter": true },
+        { "playerId": "p402", "name": "C. Doss", "slot": "RB", "points": 14.6, "projectedPoints": 13.0, "isStarter": true },
+        { "playerId": "p403", "name": "J. Rembert", "slot": "RB", "points": 9.8, "projectedPoints": 10.6, "isStarter": true },
+        { "playerId": "p404", "name": "T. Vasko", "slot": "WR", "points": 18.4, "projectedPoints": 11.2, "isStarter": true },
+        { "playerId": "p405", "name": "N. Ashby", "slot": "WR", "points": 11.0, "projectedPoints": 10.0, "isStarter": true },
+        { "playerId": "p406", "name": "K. Loomis", "slot": "TE", "points": 3.6, "projectedPoints": 6.4, "isStarter": true },
+        { "playerId": "p407", "name": "B. Castillo Jr.", "slot": "FLEX", "points": 9.4, "projectedPoints": 8.8, "isStarter": true },
+        { "playerId": "p408", "name": "Night Watch", "slot": "DEF", "points": 15.0, "projectedPoints": 8.0, "isStarter": true },
+        { "playerId": "p409", "name": "F. Duarte", "slot": "K", "points": 8.6, "projectedPoints": 9.0, "isStarter": true }
+      ]
+    },
+    "winnerTeamId": "4"
+  },
+  {
+    "matchupId": "2026-w3-m3",
+    "season": 2026,
+    "week": 3,
+    "status": "final",
+    "home": {
+      "teamId": "5",
+      "score": 128.9,
+      "projectedScore": 115.0,
+      "winProbability": 82,
+      "players": [
+        { "playerId": "p501", "name": "D. Okonkwo", "slot": "QB", "points": 29.8, "projectedPoints": 22.6, "isStarter": true },
+        { "playerId": "p502", "name": "R. Sabatini", "slot": "RB", "points": 22.4, "projectedPoints": 16.0, "isStarter": true },
+        { "playerId": "p503", "name": "W. Trejo", "slot": "RB", "points": 16.2, "projectedPoints": 13.8, "isStarter": true },
+        { "playerId": "p504", "name": "H. Quinlan", "slot": "WR", "points": 14.6, "projectedPoints": 13.0, "isStarter": true },
+        { "playerId": "p505", "name": "M. Ezeoma", "slot": "WR", "points": 12.0, "projectedPoints": 11.6, "isStarter": true },
+        { "playerId": "p506", "name": "B. Strand", "slot": "TE", "points": 9.8, "projectedPoints": 7.4, "isStarter": true },
+        { "playerId": "p507", "name": "L. Vergara", "slot": "FLEX", "points": 10.1, "projectedPoints": 9.8, "isStarter": true },
+        { "playerId": "p508", "name": "Circuit Break", "slot": "DEF", "points": 8.0, "projectedPoints": 7.4, "isStarter": true },
+        { "playerId": "p509", "name": "Y. Kessler", "slot": "K", "points": 6.0, "projectedPoints": 8.2, "isStarter": true }
+      ]
+    },
+    "away": {
+      "teamId": "6",
+      "score": 79.3,
+      "projectedScore": 95.0,
+      "winProbability": 18,
+      "players": [
+        { "playerId": "p601", "name": "C. Renfro", "slot": "QB", "points": 14.2, "projectedPoints": 18.6, "isStarter": true },
+        { "playerId": "p602", "name": "A. Boudreau", "slot": "RB", "points": 9.6, "projectedPoints": 13.4, "isStarter": true },
+        { "playerId": "p603", "name": "P. Nakashima", "slot": "RB", "points": 6.4, "projectedPoints": 11.0, "isStarter": true },
+        { "playerId": "p604", "name": "E. Sarkis", "slot": "WR", "points": 11.0, "projectedPoints": 12.2, "isStarter": true },
+        { "playerId": "p605", "name": "J. Delgado", "slot": "WR", "points": 4.8, "projectedPoints": 9.6, "isStarter": true },
+        { "playerId": "p606", "name": "T. Winkler", "slot": "TE", "points": 2.2, "projectedPoints": 5.8, "isStarter": true },
+        { "playerId": "p607", "name": "M. Ochieng", "slot": "FLEX", "points": 7.9, "projectedPoints": 8.6, "isStarter": true },
+        { "playerId": "p608", "name": "Loose Change", "slot": "DEF", "points": 13.0, "projectedPoints": 7.0, "isStarter": true },
+        { "playerId": "p609", "name": "H. Provenzano", "slot": "K", "points": 10.2, "projectedPoints": 8.8, "isStarter": true }
+      ]
+    },
+    "winnerTeamId": "5"
+  },
+  {
+    "matchupId": "2026-w3-m4",
+    "season": 2026,
+    "week": 3,
+    "status": "live",
+    "home": {
+      "teamId": "7",
+      "score": 91.2,
+      "projectedScore": 98.0,
+      "winProbability": 53,
+      "players": [
+        { "playerId": "p701", "name": "S. Whittaker", "slot": "QB", "points": 19.8, "projectedPoints": 21.4, "isStarter": true },
+        { "playerId": "p702", "name": "J. Ambrose", "slot": "RB", "points": 11.4, "projectedPoints": 13.8, "isStarter": true },
+        { "playerId": "p703", "name": "D. Kiplagat", "slot": "RB", "points": 8.0, "projectedPoints": 10.2, "isStarter": true },
+        { "playerId": "p704", "name": "C. Renner", "slot": "WR", "points": 10.6, "projectedPoints": 11.8, "isStarter": true },
+        { "playerId": "p705", "name": "T. Osayande", "slot": "WR", "points": 7.2, "projectedPoints": 9.4, "isStarter": true },
+        { "playerId": "p706", "name": "M. Falzone", "slot": "TE", "points": 5.0, "projectedPoints": 6.6, "isStarter": true },
+        { "playerId": "p707", "name": "K. Duvalier", "slot": "FLEX", "points": 9.8, "projectedPoints": 9.0, "isStarter": true },
+        { "playerId": "p708", "name": "Red Zone", "slot": "DEF", "points": 11.0, "projectedPoints": 7.6, "isStarter": true },
+        { "playerId": "p709", "name": "A. Provost", "slot": "K", "points": 8.4, "projectedPoints": 8.2, "isStarter": true }
+      ]
+    },
+    "away": {
+      "teamId": "8",
+      "score": 90.8,
+      "projectedScore": 89.0,
+      "winProbability": 47,
+      "players": [
+        { "playerId": "p801", "name": "L. Marchand", "slot": "QB", "points": 22.0, "projectedPoints": 20.0, "isStarter": true },
+        { "playerId": "p802", "name": "J. Otieno", "slot": "RB", "points": 13.6, "projectedPoints": 12.4, "isStarter": true },
+        { "playerId": "p803", "name": "R. Beaulieu", "slot": "RB", "points": 7.8, "projectedPoints": 9.8, "isStarter": true },
+        { "playerId": "p804", "name": "B. Castellanos", "slot": "WR", "points": 9.4, "projectedPoints": 10.6, "isStarter": true },
+        { "playerId": "p805", "name": "N. Whitcomb", "slot": "WR", "points": 6.6, "projectedPoints": 8.8, "isStarter": true },
+        { "playerId": "p806", "name": "D. Prochaska", "slot": "TE", "points": 9.0, "projectedPoints": 6.2, "isStarter": true },
+        { "playerId": "p807", "name": "S. Iversen", "slot": "FLEX", "points": 6.4, "projectedPoints": 8.4, "isStarter": true },
+        { "playerId": "p808", "name": "Blitz Force", "slot": "DEF", "points": 10.0, "projectedPoints": 7.0, "isStarter": true },
+        { "playerId": "p809", "name": "V. Marlowe", "slot": "K", "points": 6.0, "projectedPoints": 7.8, "isStarter": true }
+      ]
+    },
+    "winnerTeamId": null
+  }
+]

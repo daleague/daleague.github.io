@@ -1,0 +1,13 @@
+[
+  { "id": "sup-team-of-week", "emoji": "🔥", "title": "Team of the Week", "description": "Highest team score this week.", "teamId": "5", "value": "128.9 pts", "week": 3, "season": 2026, "matchupId": "2026-w3-m3" },
+  { "id": "sup-dumpster-fire", "emoji": "💩", "title": "Dumpster Fire of the Week", "description": "Lowest team score this week.", "teamId": "6", "value": "79.3 pts", "week": 3, "season": 2026, "matchupId": "2026-w3-m3" },
+  { "id": "sup-pain-of-week", "emoji": "🫠", "title": "Pain of the Week", "description": "Highest-scoring team that still lost.", "teamId": "3", "value": "118.2 pts, still lost", "week": 3, "season": 2026, "matchupId": "2026-w3-m2" },
+  { "id": "sup-biggest-upset", "emoji": "🎰", "title": "Biggest Upset", "description": "Won despite the lowest pre-matchup win probability.", "teamId": "4", "value": "29% win prob → W", "week": 3, "season": 2026, "matchupId": "2026-w3-m2" },
+  { "id": "sup-biggest-choke", "emoji": "😬", "title": "Biggest Choke", "description": "Largest underperformance versus projection.", "teamId": "6", "value": "-15.7 vs projection", "week": 3, "season": 2026, "matchupId": "2026-w3-m3" },
+  { "id": "sup-ice-cold", "emoji": "🧊", "title": "Ice Cold", "description": "Lowest score among this week's winners.", "teamId": "4", "value": "121.6 pts, still won", "week": 3, "season": 2026, "matchupId": "2026-w3-m2" },
+  { "id": "sup-explosion", "emoji": "💣", "title": "Explosion", "description": "Largest jump above the team's season average.", "teamId": "3", "value": "+22.8 vs season avg", "week": 3, "season": 2026, "matchupId": "2026-w3-m2" },
+  { "id": "sup-trending-up", "emoji": "📈", "title": "Trending Up", "description": "Biggest improvement over last week's score.", "teamId": "3", "value": "+27.4 vs last week", "week": 3, "season": 2026, "matchupId": "2026-w3-m2" },
+  { "id": "sup-trending-down", "emoji": "📉", "title": "Trending Down", "description": "Biggest decline versus last week's score.", "teamId": "1", "value": "-21.6 vs last week", "week": 3, "season": 2026, "matchupId": "2026-w3-m1" },
+  { "id": "sup-brick-wall", "emoji": "🧱", "title": "Brick Wall", "description": "Fewest points allowed this week.", "teamId": "5", "value": "79.3 pts allowed", "week": 3, "season": 2026, "matchupId": "2026-w3-m3" },
+  { "id": "sup-statement-win", "emoji": "👑", "title": "Statement Win", "description": "Largest margin of victory this week.", "teamId": "5", "value": "won by 49.6", "week": 3, "season": 2026, "matchupId": "2026-w3-m3" }
+]
