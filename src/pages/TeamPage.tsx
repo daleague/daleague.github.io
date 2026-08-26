@@ -1,4 +1,5 @@
 import { Link, useOutletContext, useParams } from "react-router-dom";
+import type { ReactNode } from "react";
 import type { LeagueBundle } from "@/hooks/useLeagueData";
 import type { Matchup } from "@/types/league";
 import { teamById } from "@/lib/teams";
@@ -57,7 +58,9 @@ export function TeamPage() {
       {thisWeekMatchup && (
         <section>
           <SectionTitle>THIS WEEK</SectionTitle>
-          <MatchupRow matchup={thisWeekMatchup} teamId={teamId!} teams={teams} />
+          <div className="mt-3">
+            <MatchupRow matchup={thisWeekMatchup} teamId={teamId!} teams={teams} />
+          </div>
         </section>
       )}
 
@@ -154,7 +157,7 @@ function MatchupRow({ matchup, teamId, teams }: { matchup: Matchup; teamId: stri
   );
 }
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
+function SectionTitle({ children }: { children: ReactNode }) {
   return <h2 className="font-display text-sm font-semibold tracking-[0.25em] text-faint">{children}</h2>;
 }
 
