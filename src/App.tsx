@@ -4,6 +4,7 @@ import { Dashboard } from "@/pages/Dashboard";
 import { Standings } from "@/pages/Standings";
 import { MatchupDetail } from "@/pages/MatchupDetail";
 import { TeamPage } from "@/pages/TeamPage";
+import { Teams } from "@/pages/Teams";
 import { PowerRankings } from "@/pages/PowerRankings";
 import { RecordBook } from "@/pages/RecordBook";
 
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/week/:week" element={<Dashboard />} />
           <Route path="/matchup/:matchupId" element={<MatchupDetail />} />
           <Route path="/standings" element={<Standings />} />
+          <Route path="/teams" element={<Teams />} />
           <Route path="/team/:teamId" element={<TeamPage />} />
           <Route path="/power-rankings" element={<PowerRankings />} />
           <Route path="/records" element={<RecordBook />} />

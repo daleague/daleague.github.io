@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchJson } from "@/data/dataSource";
 import type { League, Team, TeamStanding, Matchup, Superlative } from "@/types/league";
+import type { Transaction } from "@/types/transaction";
 
 export interface LeagueBundle {
   league: League;
@@ -8,12 +9,21 @@ export interface LeagueBundle {
   standings: TeamStanding[];
   matchups: Matchup[];
   superlatives: Superlative[];
+  transactions: Transaction[];
 }
 
 interface UseLeagueDataResult {
   data: LeagueBundle | null;
   loading: boolean;
   error: string | null;
+}
+
+async function fetchOptional<T>(file: string, fallback: T): Promise<T> {
+  try {
+    return await fetchJson<T>(file);
+  } catch {
+    return fallback;
+  }
 }
 
 export function useLeagueData(): UseLeagueDataResult {
@@ -26,15 +36,25 @@ export function useLeagueData(): UseLeagueDataResult {
 
     async function load() {
       try {
-        const [league, teams, standings, matchups, superlatives] = await Promise.all([
+        const [league, teams, standings, matchups, superlatives, history, transactions] = await Promise.all([
           fetchJson<League>("league.json"),
           fetchJson<Team[]>("teams.json"),
           fetchJson<TeamStanding[]>("standings.json"),
           fetchJson<Matchup[]>("matchups-current.json"),
           fetchJson<Superlative[]>("superlatives-current.json"),
+          fetchOptional<Matchup[]>("matchups-history.json", []),
+          fetchOptional<Transaction[]>("transactions.json", []),
         ]);
+
         if (!cancelled) {
-          setData({ league, teams, standings, matchups, superlatives });
+          setData({
+            league,
+            teams,
+            standings,
+            matchups: history.length ? history : matchups,
+            superlatives,
+            transactions,
+          });
           setLoading(false);
         }
       } catch (err) {

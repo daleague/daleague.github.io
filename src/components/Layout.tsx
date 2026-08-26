@@ -4,6 +4,7 @@ import { useLeagueData } from "@/hooks/useLeagueData";
 const NAV_ITEMS = [
   { to: "/", label: "This Week" },
   { to: "/standings", label: "Standings" },
+  { to: "/teams", label: "Teams" },
   { to: "/power-rankings", label: "Power Rankings" },
   { to: "/records", label: "Record Book" },
 ];
