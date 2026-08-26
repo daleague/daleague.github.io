@@ -1,15 +1,22 @@
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import type { LeagueBundle } from "@/hooks/useLeagueData";
+import type { Matchup } from "@/types/league";
 import { teamById } from "@/lib/teams";
 import { TeamBadge } from "@/components/TeamBadge";
 
 export function TeamPage() {
-  const { teams, standings, matchups } = useOutletContext<LeagueBundle>();
+  const { teams, standings, matchups, transactions } = useOutletContext<LeagueBundle>();
   const { teamId } = useParams<{ teamId: string }>();
 
   const team = teamId ? teamById(teams, teamId) : undefined;
   const standing = standings.find((s) => s.teamId === teamId);
-  const thisWeekMatchup = matchups.find((m) => m.home.teamId === teamId || m.away.teamId === teamId);
+  const teamMatchups = matchups
+    .filter((m) => m.home.teamId === teamId || m.away.teamId === teamId)
+    .sort((a, b) => b.week - a.week);
+  const teamTransactions = transactions
+    .filter((t) => t.teamId === teamId)
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+  const thisWeekMatchup = teamMatchups[0];
 
   if (!team || !standing) {
     return (
@@ -22,16 +29,16 @@ export function TeamPage() {
     );
   }
 
-  const avgScore = standing.wins + standing.losses + standing.ties > 0
-    ? standing.pointsFor / (standing.wins + standing.losses + standing.ties)
-    : 0;
+  const games = standing.wins + standing.losses + standing.ties;
+  const avgScore = games > 0 ? standing.pointsFor / games : 0;
 
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap items-center gap-4">
         <TeamBadge team={team} size="lg" />
         <div>
-          <h1 className="font-display text-3xl font-semibold text-ink">{team.name}</h1>
+          <p className="font-display text-xs tracking-[0.3em] text-faint">TEAM PROFILE</p>
+          <h1 className="mt-1 font-display text-3xl font-semibold text-ink">{team.name}</h1>
           {team.managerName && <p className="text-sm text-muted">Managed by {team.managerName}</p>}
         </div>
       </div>
@@ -48,25 +55,111 @@ export function TeamPage() {
       </div>
 
       {thisWeekMatchup && (
-        <div>
-          <h2 className="mb-3 font-display text-sm font-semibold tracking-[0.25em] text-faint">THIS WEEK</h2>
-          <Link
-            to={`/matchup/${thisWeekMatchup.matchupId}`}
-            className="block rounded-2xl border border-hairline bg-card p-4 text-sm text-muted transition hover:border-gold/40 hover:text-ink"
-          >
-            View the full box score for Week {thisWeekMatchup.week} →
-          </Link>
-        </div>
+        <section>
+          <SectionTitle>THIS WEEK</SectionTitle>
+          <MatchupRow matchup={thisWeekMatchup} teamId={teamId!} teams={teams} />
+        </section>
       )}
 
-      <div className="rounded-2xl border border-dashed border-hairline bg-card/40 p-6 text-center">
-        <p className="text-sm text-muted">
-          Season timeline, best/worst weeks, and streak history will appear here once weekly snapshots start
-          accumulating.
-        </p>
-      </div>
+      <section>
+        <div className="mb-3 flex items-end justify-between gap-4">
+          <SectionTitle>MATCHUP HISTORY</SectionTitle>
+          <span className="text-xs text-faint">{teamMatchups.length} weeks</span>
+        </div>
+        {teamMatchups.length > 0 ? (
+          <div className="space-y-2">
+            {teamMatchups.map((matchup) => (
+              <MatchupRow key={matchup.matchupId} matchup={matchup} teamId={teamId!} teams={teams} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState text="Weekly matchup history will appear here once Yahoo data is connected." />
+        )}
+      </section>
+
+      <section>
+        <div className="mb-3 flex items-end justify-between gap-4">
+          <SectionTitle>TRANSACTION HISTORY</SectionTitle>
+          <span className="text-xs text-faint">{teamTransactions.length} transactions</span>
+        </div>
+        {teamTransactions.length > 0 ? (
+          <div className="overflow-x-auto rounded-2xl border border-hairline bg-card shadow-card">
+            <table className="w-full min-w-[680px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-hairline text-left font-display text-xs tracking-wider text-faint">
+                  <th className="px-4 py-3 font-semibold">Date</th>
+                  <th className="px-4 py-3 font-semibold">Type</th>
+                  <th className="px-4 py-3 font-semibold">Added</th>
+                  <th className="px-4 py-3 font-semibold">Dropped</th>
+                  <th className="px-4 py-3 font-semibold text-right">FAAB</th>
+                </tr>
+              </thead>
+              <tbody>
+                {teamTransactions.map((transaction) => (
+                  <tr key={transaction.transactionId} className="border-b border-hairline/60 last:border-0">
+                    <td className="px-4 py-3 font-mono text-muted">
+                      {new Date(transaction.timestamp).toLocaleDateString(undefined, {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </td>
+                    <td className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-wide text-ink">
+                      {transaction.type}
+                    </td>
+                    <td className="px-4 py-3 text-muted">{transaction.playersAdded.map((p) => p.name).join(", ") || "—"}</td>
+                    <td className="px-4 py-3 text-muted">{transaction.playersDropped.map((p) => p.name).join(", ") || "—"}</td>
+                    <td className="px-4 py-3 text-right font-mono text-muted">
+                      {transaction.faabAmount != null ? `$${transaction.faabAmount}` : "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <EmptyState text="Transactions will appear here when the Yahoo ingestion pipeline starts publishing transaction data." />
+        )}
+      </section>
     </div>
   );
+}
+
+function MatchupRow({ matchup, teamId, teams }: { matchup: Matchup; teamId: string; teams: LeagueBundle["teams"] }) {
+  const isHome = matchup.home.teamId === teamId;
+  const own = isHome ? matchup.home : matchup.away;
+  const opponent = isHome ? matchup.away : matchup.home;
+  const opponentTeam = teamById(teams, opponent.teamId);
+  const result = matchup.status === "final"
+    ? matchup.winnerTeamId === teamId ? "W" : matchup.winnerTeamId ? "L" : "T"
+    : matchup.status.toUpperCase();
+  const resultClass = result === "W" ? "text-win" : result === "L" ? "text-live" : "text-gold";
+
+  return (
+    <Link
+      to={`/matchup/${matchup.matchupId}`}
+      className="grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border border-hairline bg-card p-4 transition hover:border-gold/40"
+    >
+      <div className="text-center">
+        <p className="font-display text-[10px] tracking-wider text-faint">WEEK</p>
+        <p className="score-num text-lg text-ink">{matchup.week}</p>
+      </div>
+      <div className="min-w-0">
+        <p className="text-xs text-faint">{isHome ? "vs." : "@"} {opponentTeam?.name ?? "Unknown team"}</p>
+        <p className="mt-1 truncate font-display text-sm text-ink">
+          {own.score.toFixed(1)} <span className="text-faint">—</span> {opponent.score.toFixed(1)}
+        </p>
+      </div>
+      <span className={`font-display text-sm font-bold ${resultClass}`}>{result}</span>
+    </Link>
+  );
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="font-display text-sm font-semibold tracking-[0.25em] text-faint">{children}</h2>;
+}
+
+function EmptyState({ text }: { text: string }) {
+  return <div className="rounded-2xl border border-dashed border-hairline bg-card/40 p-6 text-center text-sm text-muted">{text}</div>;
 }
 
 function Stat({ label, value }: { label: string; value: string }) {
