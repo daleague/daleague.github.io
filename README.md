@@ -15,6 +15,7 @@ calculation-heavy pages (Power Rankings, Record Book, historical snapshots) are 
 - Matchup detail / box score pages with full starter-by-starter scoring
 - League standings with playoff-status indicators
 - Team pages (current record/rank; season timeline arrives with historical snapshots)
+- Yahoo-style manager profiles and matchup manager comparisons, backed by mock data for now
 - A weekly superlatives engine's *output* — the actual weekly calculation engine is a Phase 2 item,
   but the data shape and UI are real
 - A mock-data mode so the entire UI can be built and reviewed without ever touching Yahoo's API
@@ -41,6 +42,10 @@ either the mock files in `public/data/mock/` (local dev) or the generated files 
 Teams are identified everywhere by **stable Yahoo team ID**, never by name — see
 `src/types/league.ts`. Names/icons can change; the ID cannot.
 
+Manager profile data is kept in its own `manager-profiles.json` dataset and joined to a team through
+`managerId`. This deliberately keeps the frontend independent of Yahoo's eventual source shape. The
+Yahoo ingestion layer only needs to emit the same normalized `ManagerProfile` contract.
+
 ```
 .github/workflows/     CI (data refresh + Pages deploy) — Phase 2
 scripts/
@@ -50,12 +55,12 @@ data/
   current/               Generated JSON consumed by the production build (empty for now)
   historical/             Immutable per-week snapshots (empty for now)
 src/
-  types/league.ts        Shared domain types
-  data/dataSource.ts      Mock-vs-production data switch
+  types/league.ts        Shared domain types, including ManagerProfile
+  data/dataSource.ts      Mock-vs-production data switch + manager-profile feature flag
   hooks/useLeagueData.ts  Loads + bundles league data for the app
-  components/             TeamBadge, ScoreTicker, MatchupCard, WeekSelector, SuperlativeCard, Layout
+  components/             TeamBadge, ManagerProfile, ScoreTicker, MatchupCard, WeekSelector, SuperlativeCard, Layout
   pages/                  Dashboard, Standings, MatchupDetail, TeamPage, PowerRankings, RecordBook
-public/data/mock/         Hand-authored realistic mock JSON (8 teams, Week 3, live + final games)
+public/data/mock/         Hand-authored realistic mock JSON, including manager-profiles.json
 ```
 
 ## Local development
@@ -70,21 +75,36 @@ npm run preview   # preview the production build locally
 No Yahoo account or credentials are needed for any of the above — `VITE_USE_MOCK_DATA` defaults to
 `true`, and the app reads from `public/data/mock/`.
 
+Manager profiles are enabled by default. Set `VITE_ENABLE_MANAGER_PROFILES=false` in `.env` to hide
+the UI locally.
+
 `npm run fetch:yahoo` and `npm run generate` are wired up as commands but are placeholder stubs right
 now; they print a clear message and exit rather than fail confusingly. They'll become real in Phase 2.
 
 ## Mock data
 
 Everything under `public/data/mock/` is fabricated: 8 teams, a Week 3 with two live and two final
-matchups, full starter-by-starter scoring, standings through Week 2, and a set of Week 3 superlatives.
-`league.json` carries `"isMockData": true`, which the UI surfaces as a visible banner — you should
-never see that banner once real Yahoo data is flowing.
+matchups, full starter-by-starter scoring, standings through Week 2, a set of Week 3 superlatives, and
+manager profile histories. `league.json` carries `"isMockData": true`, which the UI surfaces as a visible
+banner — you should never see that banner once real Yahoo data is flowing.
 
 ## Configuration
 
-Copy `.env.example` to `.env` for local overrides. The only frontend-facing variable is
-`VITE_USE_MOCK_DATA`. Everything else (league ID, game ID, season, and eventually Yahoo credentials)
-is server-side/CI-side configuration — see the security section below.
+Copy `.env.example` to `.env` for local overrides. The frontend-facing variables are
+`VITE_USE_MOCK_DATA` and `VITE_ENABLE_MANAGER_PROFILES`. Everything else (league ID, game ID, season,
+and eventually Yahoo credentials) is server-side/CI-side configuration — see the security section below.
+
+### Manager profile feature toggle
+
+The GitHub Pages workflow maps the GitHub Actions **repository variable**
+`MANAGER_PROFILES_ENABLED` to `VITE_ENABLE_MANAGER_PROFILES`. The feature defaults to **on** when the
+GitHub variable is absent.
+
+To disable the feature for the deployed site, create or edit:
+
+`Repository → Settings → Secrets and variables → Actions → Variables → MANAGER_PROFILES_ENABLED`
+
+Set its value to `false`, then rerun or push a build. No code change is required.
 
 ## Connecting Yahoo Fantasy
 
