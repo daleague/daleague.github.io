@@ -17,6 +17,9 @@ concurrency:
 
 env:
   NODE_VERSION: 22
+  # Create a GitHub Actions repository variable named MANAGER_PROFILES_ENABLED
+  # to override this. The feature defaults to on when the variable is absent.
+  VITE_ENABLE_MANAGER_PROFILES: ${{ vars.MANAGER_PROFILES_ENABLED || 'true' }}
 
 jobs:
   build:
