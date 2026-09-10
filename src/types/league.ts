@@ -25,11 +25,31 @@ export interface League {
   lastUpdatedAt: string; // ISO timestamp
 }
 
+export interface ManagerProfile {
+  /** Stable Yahoo user/manager identifier when available. */
+  managerId: string;
+  managerName: string;
+  level: string | null;
+  rating: number | null;
+  wins: number;
+  losses: number;
+  ties: number;
+  winPct: number | null;
+  trophiesWon: number;
+  firstPlaceTrophies: number;
+  bestSeasonFinish: string | null;
+  playingSince: number | null;
+  teamsManaged: number;
+  profileUrl?: string | null;
+}
+
 export interface Team {
   teamId: TeamId;
   name: string;
   iconUrl: string | null;
   managerName?: string;
+  /** Stable Yahoo manager/user identifier used to join against manager profiles. */
+  managerId?: string | null;
   divisionId?: string | null;
   divisionName?: string | null;
 }
