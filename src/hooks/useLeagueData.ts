@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchJson } from "@/data/dataSource";
+import { fetchJson, IS_MANAGER_PROFILE_ENABLED } from "@/data/dataSource";
 import type { League, Team, TeamStanding, Matchup, Superlative, ManagerProfile } from "@/types/league";
 import type { Transaction } from "@/types/transaction";
 
@@ -37,6 +37,10 @@ export function useLeagueData(): UseLeagueDataResult {
 
     async function load() {
       try {
+        const managerProfilesPromise = IS_MANAGER_PROFILE_ENABLED
+          ? fetchOptional<ManagerProfile[]>("manager-profiles.json", [])
+          : Promise.resolve<ManagerProfile[]>([]);
+
         const [league, teams, standings, matchups, superlatives, history, transactions, managerProfiles] = await Promise.all([
           fetchJson<League>("league.json"),
           fetchJson<Team[]>("teams.json"),
@@ -45,7 +49,7 @@ export function useLeagueData(): UseLeagueDataResult {
           fetchJson<Superlative[]>("superlatives-current.json"),
           fetchOptional<Matchup[]>("matchups-history.json", []),
           fetchOptional<Transaction[]>("transactions.json", []),
-          fetchOptional<ManagerProfile[]>("manager-profiles.json", []),
+          managerProfilesPromise,
         ]);
 
         if (!cancelled) {
