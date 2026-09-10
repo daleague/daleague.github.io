@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchJson } from "@/data/dataSource";
-import type { League, Team, TeamStanding, Matchup, Superlative } from "@/types/league";
+import type { League, Team, TeamStanding, Matchup, Superlative, ManagerProfile } from "@/types/league";
 import type { Transaction } from "@/types/transaction";
 
 export interface LeagueBundle {
@@ -10,6 +10,7 @@ export interface LeagueBundle {
   matchups: Matchup[];
   superlatives: Superlative[];
   transactions: Transaction[];
+  managerProfiles: ManagerProfile[];
 }
 
 interface UseLeagueDataResult {
@@ -36,7 +37,7 @@ export function useLeagueData(): UseLeagueDataResult {
 
     async function load() {
       try {
-        const [league, teams, standings, matchups, superlatives, history, transactions] = await Promise.all([
+        const [league, teams, standings, matchups, superlatives, history, transactions, managerProfiles] = await Promise.all([
           fetchJson<League>("league.json"),
           fetchJson<Team[]>("teams.json"),
           fetchJson<TeamStanding[]>("standings.json"),
@@ -44,6 +45,7 @@ export function useLeagueData(): UseLeagueDataResult {
           fetchJson<Superlative[]>("superlatives-current.json"),
           fetchOptional<Matchup[]>("matchups-history.json", []),
           fetchOptional<Transaction[]>("transactions.json", []),
+          fetchOptional<ManagerProfile[]>("manager-profiles.json", []),
         ]);
 
         if (!cancelled) {
@@ -54,6 +56,7 @@ export function useLeagueData(): UseLeagueDataResult {
             matchups: history.length ? history : matchups,
             superlatives,
             transactions,
+            managerProfiles,
           });
           setLoading(false);
         }
