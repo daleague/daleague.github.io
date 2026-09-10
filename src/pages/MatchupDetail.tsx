@@ -1,8 +1,10 @@
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import type { LeagueBundle } from "@/hooks/useLeagueData";
 import type { PlayerScore } from "@/types/league";
+import { IS_MANAGER_PROFILE_ENABLED } from "@/data/dataSource";
 import { teamById } from "@/lib/teams";
 import { TeamBadge } from "@/components/TeamBadge";
+import { ManagerComparison } from "@/components/ManagerProfile";
 
 function bySlotOrder(a: PlayerScore, b: PlayerScore): number {
   const order = ["QB", "RB", "WR", "TE", "FLEX", "W/R/T", "DEF", "K", "BN", "IR"];
@@ -12,7 +14,7 @@ function bySlotOrder(a: PlayerScore, b: PlayerScore): number {
 }
 
 export function MatchupDetail() {
-  const { teams, matchups } = useOutletContext<LeagueBundle>();
+  const { teams, matchups, managerProfiles } = useOutletContext<LeagueBundle>();
   const { matchupId } = useParams<{ matchupId: string }>();
   const matchup = matchups.find((m) => m.matchupId === matchupId);
 
@@ -32,6 +34,8 @@ export function MatchupDetail() {
 
   const home = teamById(teams, matchup.home.teamId);
   const away = teamById(teams, matchup.away.teamId);
+  const homeManager = home?.managerId ? managerProfiles.find((manager) => manager.managerId === home.managerId) : undefined;
+  const awayManager = away?.managerId ? managerProfiles.find((manager) => manager.managerId === away.managerId) : undefined;
   const margin = Math.abs(matchup.home.score - matchup.away.score);
   const homeStarters = [...matchup.home.players].filter((p) => p.isStarter).sort(bySlotOrder);
   const awayStarters = [...matchup.away.players].filter((p) => p.isStarter).sort(bySlotOrder);
@@ -66,6 +70,10 @@ export function MatchupDetail() {
           </p>
         )}
       </div>
+
+      {IS_MANAGER_PROFILE_ENABLED && (homeManager || awayManager) && (
+        <ManagerComparison left={awayManager} right={homeManager} />
+      )}
 
       <div className="grid gap-4 lg:grid-cols-2">
         <RosterTable label={away?.name ?? "Away"} players={awayStarters} />
