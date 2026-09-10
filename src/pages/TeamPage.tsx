@@ -2,15 +2,20 @@ import { Link, useOutletContext, useParams } from "react-router-dom";
 import type { ReactNode } from "react";
 import type { LeagueBundle } from "@/hooks/useLeagueData";
 import type { Matchup } from "@/types/league";
+import { IS_MANAGER_PROFILE_ENABLED } from "@/data/dataSource";
 import { teamById } from "@/lib/teams";
 import { TeamBadge } from "@/components/TeamBadge";
+import { ManagerProfile } from "@/components/ManagerProfile";
 
 export function TeamPage() {
-  const { teams, standings, matchups, transactions } = useOutletContext<LeagueBundle>();
+  const { teams, standings, matchups, transactions, managerProfiles } = useOutletContext<LeagueBundle>();
   const { teamId } = useParams<{ teamId: string }>();
 
   const team = teamId ? teamById(teams, teamId) : undefined;
   const standing = standings.find((s) => s.teamId === teamId);
+  const managerProfile = team?.managerId
+    ? managerProfiles.find((manager) => manager.managerId === team.managerId)
+    : undefined;
   const teamMatchups = matchups
     .filter((m) => m.home.teamId === teamId || m.away.teamId === teamId)
     .sort((a, b) => b.week - a.week);
@@ -54,6 +59,8 @@ export function TeamPage() {
         <Stat label="Win %" value={`${(standing.winPct * 100).toFixed(0)}%`} />
         <Stat label="Playoff Status" value={standing.playoffStatus.toUpperCase()} />
       </div>
+
+      {IS_MANAGER_PROFILE_ENABLED && managerProfile && <ManagerProfile manager={managerProfile} />}
 
       {thisWeekMatchup && (
         <section>
