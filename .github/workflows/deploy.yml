@@ -26,6 +26,8 @@ env:
 
 jobs:
   build:
+    environment:
+      name: general
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
