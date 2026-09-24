@@ -3,7 +3,7 @@ import type {
   League, Team, TeamStanding, Matchup, PlayerScore, Superlative, MatchupSide,
 } from "../../src/types/league.js";
 import type { Transaction } from "../../src/types/transaction.js";
-import { findObjects, value } from "../yahoo/client.js";
+import { findObjects, recordsWithKey, value } from "../yahoo/client.js";
 
 interface RawData {
   fetchedAt: string;
@@ -41,7 +41,7 @@ function findByKey(node: unknown, key: string, wanted: string): Record<string, u
 }
 
 function parseTeams(raw: unknown): Team[] {
-  const teams = findObjects(raw, "team_key");
+  const teams = recordsWithKey(raw, "team_key");
   const seen = new Set<string>();
   return teams.flatMap((team) => {
     const teamId = str(team.team_id || team.team_key);
@@ -64,7 +64,7 @@ function parseTeams(raw: unknown): Team[] {
 }
 
 function parseStandings(raw: unknown, teams: Team[], currentWeek: number): TeamStanding[] {
-  const teamObjects = findObjects(raw, "team_key");
+  const teamObjects = recordsWithKey(raw, "team_key");
   const seen = new Set<string>();
   const result: TeamStanding[] = [];
   for (const team of teamObjects) {
@@ -99,7 +99,7 @@ function parseStandings(raw: unknown, teams: Team[], currentWeek: number): TeamS
 }
 
 function parsePlayerScores(raw: unknown): PlayerScore[] {
-  const players = findObjects(raw, "player_key");
+  const players = recordsWithKey(raw, "player_key");
   const seen = new Set<string>();
   return players.flatMap((p) => {
     const playerId = str(p.player_id || p.player_key);
@@ -179,7 +179,7 @@ function parseTransactions(raw: unknown): Transaction[] {
       "commissioner";
     const playersAdded = [];
     const playersDropped = [];
-    for (const p of findObjects(t, "player_key")) {
+    for (const p of recordsWithKey(t, "player_key")) {
       const data = findObjects(p, "transaction_data")[0] || {};
       const player = {
         playerId: str(p.player_id || p.player_key),
@@ -190,8 +190,8 @@ function parseTransactions(raw: unknown): Transaction[] {
       if (playerType === "drop") playersDropped.push(player);
       else playersAdded.push(player);
     }
-    const teamKey = str(findObjects(t, "destination_team_key")[0]?.destination_team_key, "")
-      || str(findObjects(t, "source_team_key")[0]?.source_team_key, "");
+    const teamKey = str(value(t, "destination_team_key") || "", "")
+      || str(value(t, "source_team_key") || "", "");
     return [{
       transactionId,
       timestamp: new Date(num(t.timestamp) * 1000).toISOString(),
