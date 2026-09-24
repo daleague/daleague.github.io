@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "fetch:yahoo": "tsx scripts/yahoo/run.ts",
-    "generate": "tsx scripts/transform/run.ts"
+    "generate": "tsx scripts/transform/run.ts",
+    "yahoo:auth": "tsx scripts/yahoo/auth.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
