@@ -108,21 +108,48 @@ Set its value to `false`, then rerun or push a build. No code change is required
 
 ## Connecting Yahoo Fantasy
 
-Not wired up yet — this section will be filled in as part of Phase 2 (Yahoo OAuth + ingestion), with
-step-by-step instructions for registering a Yahoo application, completing the OAuth flow, obtaining a
-refresh token, and storing everything in **GitHub Actions repository secrets**
-(Repository → Settings → Secrets and variables → Actions). Planned secret/config names:
+The repository includes a local OAuth authorization helper. Yahoo's authorization-code flow returns both an access token and a refresh token; the refresh token is what the GitHub Actions ingestion job will use for long-lived access. citeturn0search2
+
+### 1. Set your Yahoo credentials locally
+
+In your terminal, set the credentials for this one-time authorization step:
+
+```bash
+export YAHOO_CLIENT_ID="your-client-id"
+export YAHOO_CLIENT_SECRET="your-client-secret"
+```
+
+Do not put either value in a committed file.
+
+### 2. Run the authorization helper
+
+```bash
+npm install
+npm run yahoo:auth
+```
+
+The command prints a Yahoo authorization URL. Open it, sign in with the Yahoo account that owns the fantasy league, approve the application, and paste the resulting authorization code into the terminal.
+
+The script exchanges that code for tokens and prints the refresh token. Yahoo documents that the access token expires after about one hour and that the refresh token is used to obtain new access tokens. citeturn0search2
+
+### 3. Store the refresh token in GitHub
+
+Create this **repository secret**:
+
+`YAHOO_REFRESH_TOKEN`
+
+Also create these server-side values/secrets as appropriate:
 
 | Name | Type | Notes |
 |---|---|---|
-| `YAHOO_CLIENT_ID` | secret or config | Yahoo app client ID |
-| `YAHOO_CLIENT_SECRET` | **secret** | Never committed, never logged |
-| `YAHOO_REFRESH_TOKEN` | **secret** | Never committed, never logged |
-| `YAHOO_LEAGUE_ID` | config | Not sensitive |
-| `YAHOO_GAME_ID` | config | Not sensitive |
-| `YAHOO_SEASON` | config | Not sensitive |
+| `YAHOO_CLIENT_ID` | secret/config | Yahoo app client ID |
+| `YAHOO_CLIENT_SECRET` | **secret** | Never committed or logged |
+| `YAHOO_REFRESH_TOKEN` | **secret** | Never committed or logged |
+| `YAHOO_LEAGUE_ID` | variable/config | Not sensitive |
+| `YAHOO_GAME_ID` | variable/config | `nfl` |
+| `YAHOO_SEASON` | variable/config | `2026` |
 
-No secret will ever be prefixed `VITE_` or otherwise exposed to the frontend build.
+The browser must never receive the Yahoo client secret or refresh token. Yahoo's Fantasy API uses OAuth 2.0 for access to private fantasy data. citeturn0search0
 
 ## Roadmap
 
