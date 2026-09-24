@@ -168,21 +168,40 @@ function parseMatchups(raw: unknown, season: number): Matchup[] {
 
 function parseTransactions(raw: unknown): Transaction[] {
   return findObjects(raw, "transaction_key").flatMap((t) => {
-    const key = str(t.transaction_key);
-    if (!key) return [];
-    const players = findObjects(t, "player_key").map((p) => ({
-      playerKey: str(p.player_key),
-      playerName: str(findObjects(p, "name")[0]?.full || p.name, "Unknown player"),
-      type: str(findObjects(p, "transaction_data")[0]?.type || p.type, "unknown"),
-      sourceTeamKey: str(findObjects(p, "transaction_data")[0]?.source_team_key, "") || null,
-      destinationTeamKey: str(findObjects(p, "transaction_data")[0]?.destination_team_key, "") || null,
-    }));
+    const transactionId = str(t.transaction_key);
+    if (!transactionId) return [];
+    const typeRaw = str(t.type, "add/drop").toLowerCase();
+    const type: Transaction["type"] =
+      typeRaw === "add" ? "add" :
+      typeRaw === "drop" ? "drop" :
+      typeRaw === "waiver" ? "waiver" :
+      typeRaw === "trade" || typeRaw === "pending_trade" ? "trade" :
+      "commissioner";
+    const playersAdded = [];
+    const playersDropped = [];
+    for (const p of findObjects(t, "player_key")) {
+      const data = findObjects(p, "transaction_data")[0] || {};
+      const player = {
+        playerId: str(p.player_id || p.player_key),
+        name: str(findObjects(p, "name")[0]?.full || p.name, "Unknown player"),
+        nflTeam: str(p.editorial_team_abbr, "") || undefined,
+      };
+      const playerType = str(data.type || p.type, "").toLowerCase();
+      if (playerType === "drop") playersDropped.push(player);
+      else playersAdded.push(player);
+    }
+    const teamKey = str(findObjects(t, "destination_team_key")[0]?.destination_team_key, "")
+      || str(findObjects(t, "source_team_key")[0]?.source_team_key, "");
     return [{
-      transactionKey: key,
-      type: str(t.type, "unknown"),
-      status: str(t.status, "unknown"),
-      timestamp: num(t.timestamp),
-      players,
+      transactionId,
+      timestamp: new Date(num(t.timestamp) * 1000).toISOString(),
+      type,
+      teamId: teamKey.includes(".t.") ? teamKey.split(".t.")[1] : teamKey,
+      playersAdded,
+      playersDropped,
+      relatedTeamId: null,
+      faabAmount: num(t.faab_bid, NaN),
+      note: null,
     }];
   });
 }
