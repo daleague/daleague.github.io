@@ -129,7 +129,7 @@ function parsePlayerScores(raw: unknown): PlayerScore[] {
 
 function parseMatchups(raw: unknown, season: number): Matchup[] {
   return findObjects(raw, "matchup").flatMap((m, index) => {
-    const teams = findObjects(m, "team_key").filter((x) => x.team_key);
+    const teams = recordsWithKey(m, "team_key").filter((x) => x.team_key);
     const unique = new Map<string, Record<string, unknown>>();
     for (const t of teams) unique.set(str(t.team_key), t);
     const sides = [...unique.values()].slice(0, 2);
