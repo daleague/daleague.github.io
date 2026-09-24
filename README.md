@@ -108,7 +108,7 @@ Set its value to `false`, then rerun or push a build. No code change is required
 
 ## Connecting Yahoo Fantasy
 
-The repository includes a local OAuth authorization helper. Yahoo's authorization-code flow returns both an access token and a refresh token; the refresh token is what the GitHub Actions ingestion job will use for long-lived access. citeturn0search2
+The repository includes a local OAuth authorization helper. Yahoo's authorization-code flow returns both an access token and a refresh token; the refresh token is what the GitHub Actions ingestion job will use for long-lived access.
 
 ### 1. Set your Yahoo credentials locally
 
@@ -130,7 +130,7 @@ npm run yahoo:auth
 
 The command prints a Yahoo authorization URL. Open it, sign in with the Yahoo account that owns the fantasy league, approve the application, and paste the resulting authorization code into the terminal.
 
-The script exchanges that code for tokens and prints the refresh token. Yahoo documents that the access token expires after about one hour and that the refresh token is used to obtain new access tokens. citeturn0search2
+The script exchanges that code for tokens and prints the refresh token. Yahoo documents that the access token expires after about one hour and that the refresh token is used to obtain new access tokens.
 
 ### 3. Store the refresh token in GitHub
 
@@ -149,7 +149,7 @@ Also create these server-side values/secrets as appropriate:
 | `YAHOO_GAME_ID` | variable/config | `nfl` |
 | `YAHOO_SEASON` | variable/config | `2026` |
 
-The browser must never receive the Yahoo client secret or refresh token. Yahoo's Fantasy API uses OAuth 2.0 for access to private fantasy data. citeturn0search0
+The browser must never receive the Yahoo client secret or refresh token. Yahoo's Fantasy API uses OAuth 2.0 for access to private fantasy data.
 
 ## Roadmap
 
