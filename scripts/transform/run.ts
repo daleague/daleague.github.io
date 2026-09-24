@@ -167,7 +167,7 @@ function parseMatchups(raw: unknown, season: number): Matchup[] {
 }
 
 function parseTransactions(raw: unknown): Transaction[] {
-  return findObjects(raw, "transaction_key").flatMap((t) => {
+  return recordsWithKey(raw, "transaction_key").flatMap((t) => {
     const transactionId = str(t.transaction_key);
     if (!transactionId) return [];
     const typeRaw = str(t.type, "add/drop").toLowerCase();
