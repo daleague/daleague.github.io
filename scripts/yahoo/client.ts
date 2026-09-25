@@ -127,6 +127,11 @@ export function value(node: unknown, key: string): string | number | boolean | n
 }
 
 export async function fetchYahooData(): Promise<YahooRawData> {
+  if (process.env.YAHOO_API_ENABLED !== "true") {
+    console.log("[fetch:yahoo] Yahoo API disabled (set YAHOO_API_ENABLED=true to enable it).");
+    throw new Error("Yahoo API is disabled by YAHOO_API_ENABLED.");
+  }
+
   const season = required("YAHOO_SEASON");
   const gameCode = process.env.YAHOO_GAME_ID || "nfl";
   const configuredLeague = required("YAHOO_LEAGUE_ID");
