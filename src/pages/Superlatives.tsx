@@ -60,7 +60,7 @@ export function Superlatives() {
 
       <div className="space-y-10">
         {titles.map((title) => {
-          const awards = [...(byTitle.get(title) ?? [])].sort((a, b) => b.week - a.week);
+          const awards = [...(byTitle.get(title) ?? [])].sort((a, b) => a.week - b.week);
           const description = awards[0]?.description ?? "No award has been recorded for this superlative yet.";
           const emoji = SUPERLATIVE_EMOJIS[title] ?? awards[0]?.emoji ?? "🏆";
 
