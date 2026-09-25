@@ -30,10 +30,6 @@ function bool(v: unknown): boolean {
 function first(node: unknown, key: string): unknown {
   return value(node, key);
 }
-function findByKey(node: unknown, key: string, wanted: string): Record<string, unknown> | null {
-  return findObjects(node, key).find((x) => str(x[key]) === wanted) ?? null;
-}
-
 function parseTeams(raw: unknown): Team[] {
   const teams = recordsWithKey(raw, "team_key");
   const seen = new Set<string>();
@@ -57,7 +53,7 @@ function parseTeams(raw: unknown): Team[] {
   });
 }
 
-function parseStandings(raw: unknown, teams: Team[], currentWeek: number): TeamStanding[] {
+function parseStandings(raw: unknown): TeamStanding[] {
   const teamObjects = recordsWithKey(raw, "team_key");
   const seen = new Set<string>();
   const result: TeamStanding[] = [];
@@ -360,7 +356,7 @@ async function main() {
   const season = num(first(metadata, "season"), Number(process.env.YAHOO_SEASON || new Date().getFullYear()));
   const currentWeek = num(first(metadata, "current_week"), 1);
   const teams = parseTeams(raw.teams);
-  const standings = parseStandings(raw.standings, teams, currentWeek);
+  const standings = parseStandings(raw.standings);
 
   const matchupsByWeek = Object.entries(raw.scoreboards).flatMap(([week, body]) =>
     parseMatchups(body, season).map((m) => ({ ...m, week: Number(week) })),
