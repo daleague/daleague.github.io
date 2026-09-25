@@ -1,5 +1,10 @@
 import { fetchYahooData } from "./client.js";
 
+if (process.env.YAHOO_API_ENABLED !== "true") {
+  console.log("[fetch:yahoo] Yahoo API disabled; skipping fetch.");
+  process.exit(0);
+}
+
 try {
   await fetchYahooData();
 } catch (error) {
