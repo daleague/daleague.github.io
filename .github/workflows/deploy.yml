@@ -23,6 +23,7 @@ env:
   YAHOO_GAME_ID: ${{ vars.YAHOO_GAME_ID || 'nfl' }}
   YAHOO_SEASON: ${{ vars.YAHOO_SEASON || '2026' }}
   YAHOO_LEAGUE_ID: ${{ vars.YAHOO_LEAGUE_ID }}
+  YAHOO_API_ENABLED: ${{ vars.YAHOO_API_ENABLED || 'false' }}
 
 jobs:
   build:
@@ -42,6 +43,7 @@ jobs:
         run: npm install
 
       - name: Fetch Yahoo data
+        if: env.YAHOO_API_ENABLED == 'true'
         env:
           YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
           YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
@@ -49,9 +51,11 @@ jobs:
         run: npm run fetch:yahoo
 
       - name: Generate production data
+        if: env.YAHOO_API_ENABLED == 'true'
         run: npm run generate
 
       - name: Copy generated data into the static site
+        if: env.YAHOO_API_ENABLED == 'true'
         run: |
           rm -rf public/data/current
           mkdir -p public/data
@@ -59,7 +63,7 @@ jobs:
 
       - name: Build
         env:
-          VITE_USE_MOCK_DATA: "false"
+          VITE_USE_MOCK_DATA: ${{ env.YAHOO_API_ENABLED == 'true' && 'false' || 'true' }}
         run: npm run build
 
       - name: Setup Pages
