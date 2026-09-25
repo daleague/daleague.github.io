@@ -7,7 +7,6 @@
  */
 
 export type TeamId = string;
-
 export type PlayoffStatus = "clinched" | "in" | "bubble" | "out" | "eliminated" | "unknown";
 
 export interface League {
@@ -17,16 +16,13 @@ export interface League {
   name: string;
   numTeams: number;
   currentWeek: number;
-  /** Weeks 1..N that have official, final results and are safe to treat as immutable. */
   completedWeeks: number[];
   timezone: string;
-  /** True only for locally-generated sample data. Never true for real Yahoo data. */
   isMockData: boolean;
-  lastUpdatedAt: string; // ISO timestamp
+  lastUpdatedAt: string;
 }
 
 export interface ManagerProfile {
-  /** Stable Yahoo user/manager identifier when available. */
   managerId: string;
   managerName: string;
   level: string | null;
@@ -48,7 +44,6 @@ export interface Team {
   name: string;
   iconUrl: string | null;
   managerName?: string;
-  /** Stable Yahoo manager/user identifier used to join against manager profiles. */
   managerId?: string | null;
   divisionId?: string | null;
   divisionName?: string | null;
@@ -73,23 +68,13 @@ export interface TeamStanding {
   divisionId?: string | null;
 }
 
-export type RosterSlot =
-  | "QB"
-  | "RB"
-  | "WR"
-  | "TE"
-  | "FLEX"
-  | "W/R/T"
-  | "DEF"
-  | "K"
-  | "BN"
-  | "IR"
-  | string;
+export type RosterSlot = "QB" | "RB" | "WR" | "TE" | "FLEX" | "W/R/T" | "DEF" | "K" | "BN" | "IR" | string;
 
 export interface PlayerScore {
   playerId: string;
   name: string;
   slot: RosterSlot;
+  actualPosition?: "QB" | "RB" | "WR" | "TE" | string;
   nflTeam?: string;
   opponent?: string;
   points: number;
@@ -102,7 +87,7 @@ export interface MatchupSide {
   teamId: TeamId;
   score: number;
   projectedScore?: number;
-  winProbability?: number; // 0-100
+  winProbability?: number;
   players: PlayerScore[];
 }
 
@@ -136,8 +121,8 @@ export interface PowerRankingEntry {
   teamId: TeamId;
   rank: number;
   previousRank: number | null;
-  rating: number; // 0-100 composite
-  movement: number; // rank - previousRank, positive = moved up
+  rating: number;
+  movement: number;
 }
 
 export interface LuckEntry {
@@ -146,7 +131,7 @@ export interface LuckEntry {
   actualLosses: number;
   expectedWins: number;
   expectedLosses: number;
-  luckDifferential: number; // actualWins - expectedWins
+  luckDifferential: number;
 }
 
 export interface RecordEntry {

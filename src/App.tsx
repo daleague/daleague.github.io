@@ -7,9 +7,8 @@ import { TeamPage } from "@/pages/TeamPage";
 import { Teams } from "@/pages/Teams";
 import { PowerRankings } from "@/pages/PowerRankings";
 import { RecordBook } from "@/pages/RecordBook";
+import { Superlatives } from "@/pages/Superlatives";
 
-// HashRouter is used so the site works cleanly as a static GitHub Pages
-// project site (no server-side rewrites needed for deep links).
 export default function App() {
   return (
     <HashRouter>
@@ -23,6 +22,7 @@ export default function App() {
           <Route path="/team/:teamId" element={<TeamPage />} />
           <Route path="/power-rankings" element={<PowerRankings />} />
           <Route path="/records" element={<RecordBook />} />
+          <Route path="/superlatives" element={<Superlatives />} />
         </Route>
       </Routes>
     </HashRouter>

@@ -45,12 +45,8 @@ async function getAccessToken(): Promise<string> {
     throw new Error(`Yahoo token refresh failed (${response.status}): ${text.slice(0, 500)}`);
   }
 
-  const body = JSON.parse(text) as { access_token?: string; refresh_token?: string };
+  const body = JSON.parse(text) as { access_token?: string };
   if (!body.access_token) throw new Error("Yahoo token response did not contain access_token.");
-
-  // Yahoo can rotate refresh tokens. The new token cannot safely be persisted from a
-  // scheduled GitHub Actions job, so the original repository secret remains the source
-  // of truth. Yahoo's docs indicate the server may issue a replacement token.
   return body.access_token;
 }
 
@@ -136,8 +132,6 @@ export async function fetchYahooData(): Promise<YahooRawData> {
   const configuredLeague = required("YAHOO_LEAGUE_ID");
   const accessToken = await getAccessToken();
 
-  // Resolve a numeric league ID into the season-specific Yahoo league key.
-  // A full key such as 470.l.12345 is accepted unchanged.
   let leagueKey = configuredLeague;
   let gameKey = gameCode;
   if (!configuredLeague.includes(".l.")) {
@@ -166,12 +160,16 @@ export async function fetchYahooData(): Promise<YahooRawData> {
     .map((team) => String(team.team_key ?? ""))
     .filter(Boolean);
 
+  // Keep a roster snapshot for every completed/current week so historical
+  // matchup data can explain awards such as Donkey of the Week.
   const rosters: Record<string, unknown> = {};
-  for (const teamKey of teamKeys) {
-    rosters[teamKey] = await yahooJson(
-      accessToken,
-      `/team/${teamKey}/roster;week=${currentWeek}`,
-    );
+  for (let week = 1; week <= currentWeek; week++) {
+    for (const teamKey of teamKeys) {
+      rosters[`${week}|${teamKey}`] = await yahooJson(
+        accessToken,
+        `/team/${teamKey}/roster;week=${week}`,
+      );
+    }
   }
 
   const data: YahooRawData = {
@@ -188,7 +186,7 @@ export async function fetchYahooData(): Promise<YahooRawData> {
 
   await mkdir(".cache/yahoo", { recursive: true });
   await writeFile(".cache/yahoo/raw.json", JSON.stringify(data), "utf8");
-  console.log(`[fetch:yahoo] fetched ${leagueKey}, week ${currentWeek}, ${teamKeys.length} teams`);
+  console.log(`[fetch:yahoo] fetched ${leagueKey}, week ${currentWeek}, ${teamKeys.length} teams and ${currentWeek * teamKeys.length} weekly roster snapshots`);
   return data;
 }
 

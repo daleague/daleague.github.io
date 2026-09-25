@@ -30,12 +30,6 @@ function bool(v: unknown): boolean {
 function first(node: unknown, key: string): unknown {
   return value(node, key);
 }
-function child(node: Record<string, unknown>, key: string): unknown {
-  return node[key];
-}
-function nestedNumber(node: unknown, key: string): number {
-  return num(first(node, key));
-}
 function findByKey(node: unknown, key: string, wanted: string): Record<string, unknown> | null {
   return findObjects(node, key).find((x) => str(x[key]) === wanted) ?? null;
 }
@@ -75,10 +69,7 @@ function parseStandings(raw: unknown, teams: Team[], currentWeek: number): TeamS
     const streak = findObjects(standing, "streak")[0];
     const wins = num(outcomes?.wins), losses = num(outcomes?.losses), ties = num(outcomes?.ties);
     const pct = num(outcomes?.percentage, wins + losses + ties ? wins / (wins + losses + ties) : 0);
-    const playoffStatus = bool(team.clinched_playoffs)
-      ? "clinched"
-      : currentWeek < 1 ? "unknown"
-      : "unknown";
+    const playoffStatus = bool(team.clinched_playoffs) ? "clinched" : "unknown";
     seen.add(teamId);
     result.push({
       teamId,
@@ -109,18 +100,22 @@ function parsePlayerScores(raw: unknown): PlayerScore[] {
     const points = findObjects(p, "player_points")[0];
     const nameObj = findObjects(p, "name")[0];
     const name = str(nameObj?.full || p.full_name || p.name, `Player ${playerId}`);
-    const slot = str(selected?.position || p.selected_position || p.position, "BN");
+    const slot = str(selected?.position || p.selected_position || p.slot, "BN");
+    const rawActualPosition = first(p, "display_position") || first(p, "position") || first(p, "primary_position");
+    const actualPosition = str(rawActualPosition, "") || undefined;
     const gameStatus = str(p.status, "").toLowerCase().includes("post") ? "final"
       : str(p.status, "").toLowerCase().includes("in") ? "in_progress"
       : undefined;
+    const projected = findObjects(p, "player_projected_points")[0]?.total;
     return [{
       playerId,
       name,
       slot,
+      actualPosition,
       nflTeam: str(p.editorial_team_abbr, "") || undefined,
       opponent: str(p.opponent, "") || undefined,
       points: num(points?.total, num(p.points)),
-      projectedPoints: num(findObjects(p, "player_projected_points")[0]?.total, undefined as never),
+      projectedPoints: projected === undefined ? undefined : num(projected),
       isStarter: !["BN", "IR"].includes(slot),
       gameStatus,
     }];
@@ -206,23 +201,156 @@ function parseTransactions(raw: unknown): Transaction[] {
   });
 }
 
+function award(
+  week: number,
+  season: number,
+  key: string,
+  emoji: string,
+  title: string,
+  description: string,
+  teamId: string,
+  value: string,
+  matchupId?: string,
+): Superlative {
+  return { id: `sup-${key}-w${week}`, emoji, title, description, teamId, value, week, season, matchupId };
+}
+
+function eligibleStarterSlots(player: PlayerScore): string[] {
+  const position = String(player.actualPosition || "").toUpperCase();
+  if (position === "QB") return ["QB"];
+  if (position === "RB") return ["RB", "FLEX"];
+  if (position === "WR") return ["WR", "FLEX"];
+  if (position === "TE") return ["TE", "FLEX"];
+  return [];
+}
+
+function findDonkey(matchups: Matchup[], week: number, season: number): Superlative | null {
+  const finalMatchups = matchups.filter((m) => m.week === week && m.status === "final");
+  let best: { teamId: string; matchupId: string; player: PlayerScore; gain: number; wouldWinBy: number } | null = null;
+
+  for (const matchup of finalMatchups) {
+    for (const [own, opponent] of [[matchup.home, matchup.away], [matchup.away, matchup.home]]) {
+      if (own.score >= opponent.score) continue;
+
+      const starters = own.players.filter((p) => p.isStarter && !["BN", "IR"].includes(String(p.slot).toUpperCase()));
+      const bench = own.players.filter((p) => !p.isStarter || ["BN", "IR"].includes(String(p.slot).toUpperCase()));
+
+      for (const player of bench) {
+        const slots = eligibleStarterSlots(player);
+        if (slots.length === 0) continue;
+        const replaceable = starters.filter((starter) => slots.includes(String(starter.slot).toUpperCase()));
+        if (replaceable.length === 0) continue;
+
+        const replaced = replaceable.reduce((lowest, current) => current.points < lowest.points ? current : lowest);
+        const gain = player.points - replaced.points;
+        const wouldWinBy = own.score + gain - opponent.score;
+        if (gain <= 0 || wouldWinBy <= 0) continue;
+
+        if (!best || wouldWinBy > best.wouldWinBy || (wouldWinBy === best.wouldWinBy && gain > best.gain)) {
+          best = { teamId: own.teamId, matchupId: matchup.matchupId, player, gain, wouldWinBy };
+        }
+      }
+    }
+  }
+
+  if (!best) return null;
+  return award(
+    week,
+    season,
+    "donkey-of-the-week",
+    "🫏",
+    "Donkey of the Week",
+    "A losing team had a bench player who was eligible for a starter slot, scored more than the lowest-scoring eligible starter, and the extra points would have turned the loss into a win. Only completed matchups count; if nobody qualifies, no Donkey is awarded.",
+    best.teamId,
+    `${best.player.name}: +${best.gain.toFixed(1)} pts → would win by ${best.wouldWinBy.toFixed(1)}`,
+    best.matchupId,
+  );
+}
+
 function makeSuperlatives(matchups: Matchup[], season: number): Superlative[] {
-  const completed = matchups.filter((m) => m.status === "final");
+  const completedWeeks = [...new Set(matchups.filter((m) => m.status === "final").map((m) => m.week))].sort((a, b) => a - b);
   const result: Superlative[] = [];
-  const highest = [...completed].sort((a,b) => Math.max(b.home.score,b.away.score)-Math.max(a.home.score,a.away.score))[0];
-  if (highest) {
-    const side = highest.home.score >= highest.away.score ? highest.home : highest.away;
-    result.push({ id:"highest-score", emoji:"🔥", title:"Highest Score", description:"Highest team score in the fetched season", teamId:side.teamId, value:side.score.toFixed(2), week:highest.week, season, matchupId:highest.matchupId });
+
+  for (const week of completedWeeks) {
+    const completed = matchups.filter((m) => m.status === "final" && m.week === week);
+    const sides = completed.flatMap((m) => [
+      { side: m.home, opponent: m.away, matchup: m },
+      { side: m.away, opponent: m.home, matchup: m },
+    ]);
+    const winners = sides.filter(({ side, matchup }) => matchup.winnerTeamId === side.teamId);
+    const losers = sides.filter(({ side, matchup }) => matchup.winnerTeamId && matchup.winnerTeamId !== side.teamId);
+
+    const highest = [...sides].sort((a, b) => b.side.score - a.side.score)[0];
+    if (highest) result.push(award(week, season, "team-of-the-week", "🔥", "Team of the Week", "Highest team score in the completed week.", highest.side.teamId, `${highest.side.score.toFixed(1)} pts`, highest.matchup.matchupId));
+
+    const lowest = [...sides].sort((a, b) => a.side.score - b.side.score)[0];
+    if (lowest) result.push(award(week, season, "dumpster-fire", "💩", "Dumpster Fire of the Week", "Lowest team score in the completed week.", lowest.side.teamId, `${lowest.side.score.toFixed(1)} pts`, lowest.matchup.matchupId));
+
+    const pain = [...losers].sort((a, b) => b.side.score - a.side.score)[0];
+    if (pain) result.push(award(week, season, "pain-of-week", "🫠", "Pain of the Week", "Highest-scoring team that still lost its matchup.", pain.side.teamId, `${pain.side.score.toFixed(1)} pts, still lost`, pain.matchup.matchupId));
+
+    const upset = [...winners]
+      .filter(({ side }) => side.winProbability != null)
+      .sort((a, b) => (a.side.winProbability ?? 101) - (b.side.winProbability ?? 101))[0];
+    if (upset) result.push(award(week, season, "biggest-upset", "🎰", "Biggest Upset", "Winner with the lowest pre-matchup Yahoo win probability.", upset.side.teamId, `${(upset.side.winProbability ?? 0).toFixed(0)}% win prob → W`, upset.matchup.matchupId));
+
+    const choke = [...sides]
+      .filter(({ side }) => side.projectedScore != null)
+      .sort((a, b) => ((a.side.score - (a.side.projectedScore ?? a.side.score)) - (b.side.score - (b.side.projectedScore ?? b.side.score))))[0];
+    if (choke) result.push(award(week, season, "biggest-choke", "😬", "Biggest Choke", "Largest negative difference between actual score and pre-matchup projected score.", choke.side.teamId, `${(choke.side.score - (choke.side.projectedScore ?? choke.side.score)).toFixed(1)} vs projection`, choke.matchup.matchupId));
+
+    const iceCold = [...winners].sort((a, b) => a.side.score - b.side.score)[0];
+    if (iceCold) result.push(award(week, season, "ice-cold", "🧊", "Ice Cold", "Lowest score among the week's winners.", iceCold.side.teamId, `${iceCold.side.score.toFixed(1)} pts, still won`, iceCold.matchup.matchupId));
+
+    const statement = [...winners]
+      .map((entry) => ({ ...entry, margin: entry.side.score - entry.opponent.score }))
+      .sort((a, b) => b.margin - a.margin)[0];
+    if (statement) result.push(award(week, season, "statement-win", "👑", "Statement Win", "Largest margin of victory in the completed week.", statement.side.teamId, `won by ${statement.margin.toFixed(1)}`, statement.matchup.matchupId));
+
+    const brickWall = [...sides].sort((a, b) => a.opponent.score - b.opponent.score)[0];
+    if (brickWall) result.push(award(week, season, "brick-wall", "🧱", "Brick Wall", "Fewest points allowed by a team in the completed week.", brickWall.side.teamId, `${brickWall.opponent.score.toFixed(1)} pts allowed`, brickWall.matchup.matchupId));
+
+    const priorMatchups = matchups.filter((m) => m.status === "final" && m.week < week);
+    const priorScores = new Map<string, number[]>();
+    for (const m of priorMatchups) {
+      for (const side of [m.home, m.away]) {
+        const scores = priorScores.get(side.teamId) ?? [];
+        scores.push(side.score);
+        priorScores.set(side.teamId, scores);
+      }
+    }
+
+    const explosion = [...sides]
+      .map((entry) => {
+        const scores = priorScores.get(entry.side.teamId) ?? [];
+        const avg = scores.length ? scores.reduce((sum, score) => sum + score, 0) / scores.length : null;
+        return avg == null ? null : { ...entry, delta: entry.side.score - avg, avg };
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
+      .sort((a, b) => b.delta - a.delta)[0];
+    if (explosion) result.push(award(week, season, "explosion", "💣", "Explosion", "Largest jump above the team's average score from prior completed weeks.", explosion.side.teamId, `+${explosion.delta.toFixed(1)} vs season avg`, explosion.matchup.matchupId));
+
+    const previousWeekScores = new Map<string, number>();
+    for (const m of matchups.filter((m) => m.status === "final" && m.week === week - 1)) {
+      previousWeekScores.set(m.home.teamId, m.home.score);
+      previousWeekScores.set(m.away.teamId, m.away.score);
+    }
+    const changes = [...sides]
+      .map((entry) => previousWeekScores.has(entry.side.teamId) ? ({ ...entry, delta: entry.side.score - previousWeekScores.get(entry.side.teamId)! }) : null)
+      .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+    const up = [...changes].sort((a, b) => b.delta - a.delta)[0];
+    const down = [...changes].sort((a, b) => a.delta - b.delta)[0];
+    if (up) result.push(award(week, season, "trending-up", "📈", "Trending Up", "Biggest improvement over the team's immediately preceding completed-week score.", up.side.teamId, `+${up.delta.toFixed(1)} vs last week`, up.matchup.matchupId));
+    if (down) result.push(award(week, season, "trending-down", "📉", "Trending Down", "Biggest decline versus the team's immediately preceding completed-week score.", down.side.teamId, `${down.delta.toFixed(1)} vs last week`, down.matchup.matchupId));
+
+    const donkey = findDonkey(matchups, week, season);
+    if (donkey) result.push(donkey);
   }
-  const lowest = [...completed].sort((a,b) => Math.min(a.home.score,a.away.score)-Math.min(b.home.score,b.away.score))[0];
-  if (lowest) {
-    const side = lowest.home.score <= lowest.away.score ? lowest.home : lowest.away;
-    result.push({ id:"lowest-score", emoji:"🧊", title:"Lowest Score", description:"Lowest team score in the fetched season", teamId:side.teamId, value:side.score.toFixed(2), week:lowest.week, season, matchupId:lowest.matchupId });
-  }
+
   return result;
 }
 
-function parseRosterForTeam(raw: unknown, teamId: string): PlayerScore[] {
+function parseRosterForTeam(raw: unknown): PlayerScore[] {
   return parsePlayerScores(raw);
 }
 
@@ -239,18 +367,20 @@ async function main() {
   );
   const deduped = [...new Map(matchupsByWeek.map((m) => [m.matchupId, m])).values()];
 
-  const rosters = new Map<string, PlayerScore[]>();
-  for (const [teamKey, body] of Object.entries(raw.rosters)) {
-    const teamId = teamKey.split(".t.")[1] || teamKey;
-    rosters.set(teamId, parseRosterForTeam(body, teamId));
+  const rosterByWeekAndTeam = new Map<string, PlayerScore[]>();
+  for (const [key, body] of Object.entries(raw.rosters)) {
+    const [week, teamKey] = key.split("|");
+    const teamId = teamKey?.split(".t.")[1] || teamKey;
+    if (week && teamId) rosterByWeekAndTeam.set(`${week}|${teamId}`, parseRosterForTeam(body));
   }
 
-  const currentMatchups = deduped.filter((m) => m.week === currentWeek).map((m) => ({
+  const history = deduped.map((m) => ({
     ...m,
-    home: { ...m.home, players: rosters.get(m.home.teamId) || [] },
-    away: { ...m.away, players: rosters.get(m.away.teamId) || [] },
+    home: { ...m.home, players: rosterByWeekAndTeam.get(`${m.week}|${m.home.teamId}`) || [] },
+    away: { ...m.away, players: rosterByWeekAndTeam.get(`${m.week}|${m.away.teamId}`) || [] },
   }));
 
+  const currentMatchups = history.filter((m) => m.week === currentWeek);
   const league: League = {
     leagueId: str(first(metadata, "league_id"), raw.leagueKey.split(".l.").pop() || raw.leagueKey),
     gameId: raw.gameKey,
@@ -258,15 +388,15 @@ async function main() {
     name: str(first(metadata, "name"), "The League"),
     numTeams: num(first(metadata, "num_teams"), teams.length),
     currentWeek,
-    completedWeeks: Array.from({ length: Math.max(0, currentWeek - 1) }, (_, i) => i + 1),
+    completedWeeks: [...new Set(history.filter((m) => m.status === "final").map((m) => m.week))].sort((a, b) => a - b),
     timezone: str(first(metadata, "timezone"), "America/Chicago"),
     isMockData: false,
     lastUpdatedAt: raw.fetchedAt,
   };
 
-  const history = deduped.map((m) => ({ ...m, home: { ...m.home, players: [] }, away: { ...m.away, players: [] } }));
   const transactions = parseTransactions(raw.transactions);
-  const superlatives = makeSuperlatives(deduped, season);
+  const superlativeHistory = makeSuperlatives(history, season);
+  const superlatives = superlativeHistory.filter((s) => s.week === currentWeek);
 
   await mkdir("data/current", { recursive: true });
   await mkdir("data/historical", { recursive: true });
@@ -276,15 +406,18 @@ async function main() {
   await writeFile("data/current/matchups-current.json", JSON.stringify(currentMatchups, null, 2));
   await writeFile("data/current/matchups-history.json", JSON.stringify(history, null, 2));
   await writeFile("data/current/superlatives-current.json", JSON.stringify(superlatives, null, 2));
+  await writeFile("data/current/superlatives-history.json", JSON.stringify(superlativeHistory, null, 2));
   await writeFile("data/current/transactions.json", JSON.stringify(transactions, null, 2));
   await writeFile("data/current/manager-profiles.json", JSON.stringify([], null, 2));
 
   for (const week of league.completedWeeks) {
-    await writeFile(`data/historical/${season}-week-${week}.json`,
-      JSON.stringify(history.filter((m) => m.week === week), null, 2));
+    await writeFile(
+      `data/historical/${season}-week-${week}.json`,
+      JSON.stringify(history.filter((m) => m.week === week), null, 2),
+    );
   }
 
-  console.log(`[generate] wrote real Yahoo data for ${league.name}, week ${currentWeek}`);
+  console.log(`[generate] wrote real Yahoo data for ${league.name}, week ${currentWeek}, with ${league.completedWeeks.length} completed weekly snapshots and ${superlativeHistory.length} superlatives`);
 }
 
 main().catch((error) => {

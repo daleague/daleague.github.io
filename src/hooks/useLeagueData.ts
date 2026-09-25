@@ -9,6 +9,7 @@ export interface LeagueBundle {
   standings: TeamStanding[];
   matchups: Matchup[];
   superlatives: Superlative[];
+  superlativeHistory: Superlative[];
   transactions: Transaction[];
   managerProfiles: ManagerProfile[];
 }
@@ -41,12 +42,13 @@ export function useLeagueData(): UseLeagueDataResult {
           ? fetchOptional<ManagerProfile[]>("manager-profiles.json", [])
           : Promise.resolve<ManagerProfile[]>([]);
 
-        const [league, teams, standings, matchups, superlatives, history, transactions, managerProfiles] = await Promise.all([
+        const [league, teams, standings, matchups, superlatives, superlativeHistory, history, transactions, managerProfiles] = await Promise.all([
           fetchJson<League>("league.json"),
           fetchJson<Team[]>("teams.json"),
           fetchJson<TeamStanding[]>("standings.json"),
           fetchJson<Matchup[]>("matchups-current.json"),
           fetchJson<Superlative[]>("superlatives-current.json"),
+          fetchOptional<Superlative[]>("superlatives-history.json", []),
           fetchOptional<Matchup[]>("matchups-history.json", []),
           fetchOptional<Transaction[]>("transactions.json", []),
           managerProfilesPromise,
@@ -59,6 +61,7 @@ export function useLeagueData(): UseLeagueDataResult {
             standings,
             matchups: history.length ? history : matchups,
             superlatives,
+            superlativeHistory: superlativeHistory.length ? superlativeHistory : superlatives,
             transactions,
             managerProfiles,
           });
