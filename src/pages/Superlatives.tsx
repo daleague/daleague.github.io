@@ -29,7 +29,7 @@ export function Superlatives() {
   }
 
   const titles = [
-    ...SUPERLATIVE_ORDER.filter((title) => byTitle.has(title)),
+    ...SUPERLATIVE_ORDER,
     ...[...byTitle.keys()].filter((title) => !SUPERLATIVE_ORDER.includes(title)),
   ];
 
