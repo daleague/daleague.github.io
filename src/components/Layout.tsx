@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { to: "/standings", label: "Standings" },
   { to: "/teams", label: "Teams" },
   { to: "/power-rankings", label: "Power Rankings" },
+  { to: "/superlatives", label: "Superlatives" },
   { to: "/records", label: "Record Book" },
 ];
 
