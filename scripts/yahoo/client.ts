@@ -90,10 +90,38 @@ function firstValue(node: unknown, key: string): string | number | boolean | nul
 export function recordsWithKey(node: unknown, key: string): Record<string, unknown>[] {
   const result: Record<string, unknown>[] = [];
   if (!node || typeof node !== "object") return result;
+
   if (Array.isArray(node)) {
+    // Yahoo commonly encodes a single logical record as an array of
+    // one-property objects, e.g.:
+    // [{ team_key: "..." }, { team_id: "..." }, { name: "..." }, ...]
+    // Treat that array as one record instead of treating every property
+    // object as a separate record.
+    if (
+      node.length > 0 &&
+      node.every(
+        (item) =>
+          item &&
+          typeof item === "object" &&
+          !Array.isArray(item) &&
+          Object.keys(item as Record<string, unknown>).length === 1,
+      )
+    ) {
+      const merged = Object.assign(
+        {},
+        ...(node as Record<string, unknown>[]),
+      ) as Record<string, unknown>;
+      if (key in merged) result.push(merged);
+      for (const value of Object.values(merged)) {
+        result.push(...recordsWithKey(value, key));
+      }
+      return result;
+    }
+
     for (const item of node) result.push(...recordsWithKey(item, key));
     return result;
   }
+
   const obj = node as Record<string, unknown>;
   if (key in obj) result.push(obj);
   for (const value of Object.values(obj)) result.push(...recordsWithKey(value, key));
