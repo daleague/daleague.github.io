@@ -28,7 +28,6 @@ export function RosterTable({
             <tr className="border-b border-hairline text-left font-display text-[11px] tracking-wider text-faint">
               <th className="px-4 py-2 font-semibold">Slot</th>
               <th className="px-4 py-2 font-semibold">Player</th>
-              <th className="px-4 py-2 text-right font-semibold">Proj</th>
               <th className="px-4 py-2 text-right font-semibold">Pts</th>
             </tr>
           </thead>
@@ -37,12 +36,10 @@ export function RosterTable({
               <tr key={p.playerId} className="border-b border-hairline/60 last:border-0">
                 <td className="px-4 py-2 font-mono text-xs text-faint">{p.slot}</td>
                 <td className="px-4 py-2 text-ink">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-card-raised text-[10px] text-faint mr-2" aria-hidden="true">{p.actualPosition?.slice(0, 2) ?? "—"}</span>
-                  {p.name}
-                  {p.nflTeam && <span className="ml-2 text-xs text-faint">{p.nflTeam}</span>}
-                </td>
-                <td className="px-4 py-2 text-right font-mono text-faint">
-                  {p.projectedPoints !== undefined ? p.projectedPoints.toFixed(1) : "—"}
+                  <div className="flex items-center gap-2">
+                    {p.headshotUrl ? <img src={p.headshotUrl} alt="" className="h-9 w-9 rounded-full object-cover bg-card-raised" loading="lazy" /> : <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-card-raised text-[10px] text-faint" aria-hidden="true">{p.actualPosition?.slice(0, 2) ?? "—"}</span>}
+                    <span>{p.name}{p.nflTeam && <span className="ml-2 text-xs text-faint">{p.nflTeam}</span>}</span>
+                  </div>
                 </td>
                 <td className="px-4 py-2 text-right font-mono text-ink">{p.points.toFixed(1)}</td>
               </tr>
