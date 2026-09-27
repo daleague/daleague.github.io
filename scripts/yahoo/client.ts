@@ -184,34 +184,33 @@ export async function fetchYahooData(): Promise<YahooRawData> {
   const currentWeek = Number(value(metadata, "current_week") || 1);
   const teams = await yahooJson(accessToken, `/league/${leagueKey}/teams`);
   const standings = await yahooJson(accessToken, `/league/${leagueKey}/standings`);
-  const transactions = await yahooJson(accessToken, `/league/${leagueKey}/transactions`);
+  const transactions = await yahooJson(accessToken, `/league/${leagueKey}/transactions;count=100`);
 
   const scoreboards: Record<string, unknown> = {};
-  const maxWeek = Math.max(currentWeek, 1);
-  for (let week = 1; week <= maxWeek; week++) {
+  for (let week = 1; week <= currentWeek; week++) {
     scoreboards[String(week)] = await yahooJson(
       accessToken,
       `/league/${leagueKey}/scoreboard;week=${week}`,
     );
   }
 
-  // Roster data per team (best-effort; failures are non-fatal for a team)
+  const teamKeys = recordsWithKey(teams, "team_key")
+    .map((team) => String(team.team_key ?? ""))
+    .filter((teamKey, index, all) => teamKey && all.indexOf(teamKey) === index);
+
+  // Keep a roster snapshot for every completed/current week so historical
+  // matchup data can explain awards such as Donkey of the Week.
   const rosters: Record<string, unknown> = {};
-  const teamKeys: string[] = [];
-  // Collect team keys from teams payload via recordsWithKey
-  for (const t of recordsWithKey(teams, "team_key")) {
-    const k = String(t.team_key || "");
-    if (k) teamKeys.push(k);
-  }
-  for (const teamKey of teamKeys) {
-    try {
-      rosters[teamKey] = await yahooJson(accessToken, `/team/${teamKey}/roster`);
-    } catch (err) {
-      console.warn(`[fetch:yahoo] roster fetch failed for ${teamKey}:`, err instanceof Error ? err.message : err);
+  for (let week = 1; week <= currentWeek; week++) {
+    for (const teamKey of teamKeys) {
+      rosters[`${week}|${teamKey}`] = await yahooJson(
+        accessToken,
+        `/team/${teamKey}/roster;week=${week}`,
+      );
     }
   }
 
-  const payload: YahooRawData = {
+  const data: YahooRawData = {
     fetchedAt: new Date().toISOString(),
     gameKey,
     leagueKey,
@@ -223,8 +222,12 @@ export async function fetchYahooData(): Promise<YahooRawData> {
     transactions,
   };
 
-  await mkdir("data/raw", { recursive: true });
-  await writeFile("data/raw/yahoo.json", JSON.stringify(payload, null, 2));
-  console.log(`[fetch:yahoo] wrote data/raw/yahoo.json (week ${currentWeek}, ${teamKeys.length} teams)`);
-  return payload;
+  await mkdir(".cache/yahoo", { recursive: true });
+  await writeFile(".cache/yahoo/raw.json", JSON.stringify(data), "utf8");
+  console.log(`[fetch:yahoo] fetched ${leagueKey}, week ${currentWeek}, ${teamKeys.length} teams and ${currentWeek * teamKeys.length} weekly roster snapshots`);
+  return data;
+}
+
+if (process.argv[1]?.endsWith("scripts/yahoo/run.ts")) {
+  await fetchYahooData();
 }
