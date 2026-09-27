@@ -37,8 +37,8 @@ export function MatchupDetail() {
   const homeShown = homeStarters.length ? homeStarters : [...matchup.home.players].sort(bySlotOrder);
   const awayShown = awayStarters.length ? awayStarters : [...matchup.away.players].sort(bySlotOrder);
 
-  const homeTop = [...matchup.home.players].sort((a, b) => b.points - a.points)[0];
-  const awayTop = [...matchup.away.players].sort((a, b) => b.points - a.points)[0];
+  const homeTop = [...matchup.home.players].filter((p) => p.points > 0).sort((a, b) => b.points - a.points)[0];
+  const awayTop = [...matchup.away.players].filter((p) => p.points > 0).sort((a, b) => b.points - a.points)[0];
   const topOverall = homeTop && awayTop ? (homeTop.points >= awayTop.points ? homeTop : awayTop) : homeTop ?? awayTop;
 
   return (
@@ -52,9 +52,9 @@ export function MatchupDetail() {
           WEEK {matchup.week} {matchup.status === "final" ? "· FINAL" : matchup.status === "live" ? "· LIVE" : ""}
         </p>
         <div className="mt-4 flex items-center justify-center gap-6 sm:gap-12">
-          <TeamHeader team={away} score={matchup.away.score} isWinner={matchup.winnerTeamId === away?.teamId} />
+          <TeamHeader team={away} score={matchup.away.score} isWinner={matchup.winnerTeamId === away?.teamId} winProbability={matchup.away.winProbability} />
           <span className="font-display text-sm text-faint">VS</span>
-          <TeamHeader team={home} score={matchup.home.score} isWinner={matchup.winnerTeamId === home?.teamId} />
+          <TeamHeader team={home} score={matchup.home.score} isWinner={matchup.winnerTeamId === home?.teamId} winProbability={matchup.home.winProbability} />
         </div>
         {matchup.status === "final" && (
           <p className="mt-6 text-center font-display text-sm tracking-wide text-win">
@@ -82,12 +82,13 @@ export function MatchupDetail() {
   );
 }
 
-function TeamHeader({ team, score, isWinner }: { team: ReturnType<typeof teamById>; score: number; isWinner: boolean }) {
+function TeamHeader({ team, score, isWinner, winProbability }: { team: ReturnType<typeof teamById>; score: number; isWinner: boolean; winProbability?: number }) {
   return (
     <div className="flex flex-col items-center gap-2">
       <TeamBadge team={team} size="lg" />
       <p className={`font-display text-sm ${isWinner ? "text-ink" : "text-muted"}`}>{team?.name ?? "TBD"}</p>
       <p className={`score-num text-5xl sm:text-6xl ${isWinner ? "text-gold" : "text-ink/80"}`}>{score.toFixed(1)}</p>
+      {winProbability !== undefined && <p className="text-xs text-faint">{winProbability}% win prob</p>}
     </div>
   );
 }

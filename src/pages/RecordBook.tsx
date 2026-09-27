@@ -23,12 +23,14 @@ function bestSingleWeek(matchups: Matchup[]): { teamId: string; score: number; w
   return best;
 }
 
-function biggestBlowout(matchups: Matchup[]): { teamId: string; margin: number; week: number } | null {
-  let best: { teamId: string; margin: number; week: number } | null = null;
+function biggestBlowout(matchups: Matchup[]): { winnerTeamId: string; loserTeamId: string; margin: number; week: number } | null {
+  let best: { winnerTeamId: string; loserTeamId: string; margin: number; week: number } | null = null;
   for (const m of matchups.filter((x) => x.status === "final" && x.winnerTeamId)) {
     const margin = Math.abs(m.home.score - m.away.score);
+    const winnerTeamId = m.winnerTeamId!;
+    const loserTeamId = winnerTeamId === m.home.teamId ? m.away.teamId : m.home.teamId;
     if (!best || margin > best.margin) {
-      best = { teamId: m.winnerTeamId!, margin, week: m.week };
+      best = { winnerTeamId, loserTeamId, margin, week: m.week };
     }
   }
   return best;
@@ -91,8 +93,8 @@ export function RecordBook() {
     rows.push({
       label: "Biggest blowout",
       value: `+${blowout.margin.toFixed(1)}`,
-      teamId: blowout.teamId,
-      detail: `Week ${blowout.week}`,
+      teamId: blowout.winnerTeamId,
+      detail: `Week ${blowout.week} · ${teamById(teams, blowout.winnerTeamId)?.name} beats ${teamById(teams, blowout.loserTeamId)?.name}`,
     });
   }
   const ice = lowestWinningScore(finals);
