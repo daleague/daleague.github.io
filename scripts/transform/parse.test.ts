@@ -203,7 +203,7 @@ describe("superlatives", () => {
     playerId: id, name, slot, actualPosition: actual, points, isStarter: slot !== "BN",
   });
 
-  it("awards team of the week, dumpster fire, pain, statement, ice cold, brick wall", () => {
+  it("awards team of the week, dumpster fire, pain, statement, ice cold", () => {
     const matchups = [
       matchup(1, side("1", 160), side("2", 155), "1"),
       matchup(1, side("3", 70), side("4", 90), "4"),
@@ -215,7 +215,7 @@ describe("superlatives", () => {
     expect(byTitle["Pain of the Week"].teamId).toBe("2");
     expect(byTitle["Statement Win"].teamId).toBe("4");
     expect(byTitle["Ice Cold"].teamId).toBe("4");
-    expect(byTitle["Brick Wall"].teamId).toBe("4");
+    expect(byTitle["Brick Wall"]).toBeUndefined();
   });
 
   it("does not award zero-delta explosion/trending or 0-0 weeks", () => {
