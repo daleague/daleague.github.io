@@ -424,6 +424,8 @@ function eligibleStarterSlots(player: PlayerScore): string[] {
   if (position === "RB") return ["RB", "FLEX", "W/R/T"];
   if (position === "WR") return ["WR", "FLEX", "W/R/T"];
   if (position === "TE") return ["TE", "FLEX", "W/R/T"];
+  if (position === "DEF" || position === "D/ST") return ["DEF"];
+  if (position === "K") return ["K"];
   return [];
 }
 
@@ -460,7 +462,7 @@ export function findDonkey(matchups: Matchup[], week: number, season: number): S
     "donkey-of-the-week",
     "🫏",
     "Donkey of the Week",
-    "A losing team had a bench player who was eligible for a starter slot, scored more than the lowest-scoring eligible starter, and the extra points would have turned the loss into a win. Only completed matchups count; if nobody qualifies, no Donkey is awarded.",
+    "A losing team made a start/sit decision that cost it a win. Each bench player is compared only with starters at positions that player is eligible to fill; the award goes to the swap producing the largest winning margin. Only completed matchups count.",
     best.teamId,
     `${best.player.name}: +${best.gain.toFixed(1)} pts → would win by ${best.wouldWinBy.toFixed(1)}`,
     best.matchupId,
