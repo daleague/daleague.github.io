@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchJson, IS_MANAGER_PROFILE_ENABLED } from "@/data/dataSource";
-import type { League, Team, TeamStanding, Matchup, Superlative, ManagerProfile } from "@/types/league";
+import type { League, Team, TeamStanding, Matchup, Superlative, ManagerProfile, PlayerScore } from "@/types/league";
 import type { Transaction } from "@/types/transaction";
 
 export interface LeagueBundle {
@@ -12,6 +12,7 @@ export interface LeagueBundle {
   superlativeHistory: Superlative[];
   transactions: Transaction[];
   managerProfiles: ManagerProfile[];
+  rosters: Record<string, PlayerScore[]>;
 }
 
 interface UseLeagueDataResult {
@@ -42,7 +43,7 @@ export function useLeagueData(): UseLeagueDataResult {
           ? fetchOptional<ManagerProfile[]>("manager-profiles.json", [])
           : Promise.resolve<ManagerProfile[]>([]);
 
-        const [league, teams, standings, matchups, superlatives, superlativeHistory, history, transactions, managerProfiles] = await Promise.all([
+        const [league, teams, standings, matchups, superlatives, superlativeHistory, history, transactions, managerProfiles, rosters] = await Promise.all([
           fetchJson<League>("league.json"),
           fetchJson<Team[]>("teams.json"),
           fetchJson<TeamStanding[]>("standings.json"),
@@ -52,6 +53,7 @@ export function useLeagueData(): UseLeagueDataResult {
           fetchOptional<Matchup[]>("matchups-history.json", []),
           fetchOptional<Transaction[]>("transactions.json", []),
           managerProfilesPromise,
+          fetchOptional<Record<string, PlayerScore[]>>("rosters.json", {}),
         ]);
 
         if (!cancelled) {
@@ -64,6 +66,7 @@ export function useLeagueData(): UseLeagueDataResult {
             superlativeHistory: superlativeHistory.length ? superlativeHistory : superlatives,
             transactions,
             managerProfiles,
+            rosters,
           });
           setLoading(false);
         }

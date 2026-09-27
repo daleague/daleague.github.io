@@ -1,14 +1,15 @@
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import type { ReactNode } from "react";
 import type { LeagueBundle } from "@/hooks/useLeagueData";
-import type { Matchup } from "@/types/league";
+import type { Matchup, PlayerScore } from "@/types/league";
 import { IS_MANAGER_PROFILE_ENABLED } from "@/data/dataSource";
 import { teamById } from "@/lib/teams";
 import { TeamBadge } from "@/components/TeamBadge";
 import { ManagerProfile } from "@/components/ManagerProfile";
+import { RosterTable, bySlotOrder } from "@/components/RosterTable";
 
 export function TeamPage() {
-  const { teams, standings, matchups, transactions, managerProfiles } = useOutletContext<LeagueBundle>();
+  const { league, teams, standings, matchups, transactions, managerProfiles, rosters } = useOutletContext<LeagueBundle>();
   const { teamId } = useParams<{ teamId: string }>();
 
   const team = teamId ? teamById(teams, teamId) : undefined;
@@ -22,7 +23,8 @@ export function TeamPage() {
   const teamTransactions = transactions
     .filter((t) => t.teamId === teamId)
     .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
-  const thisWeekMatchup = teamMatchups[0];
+  const thisWeekMatchup = teamMatchups.find((m) => m.week === league.currentWeek) ?? teamMatchups[0];
+  const rosterPlayers = resolveRoster(teamId, rosters, thisWeekMatchup);
 
   if (!team || !standing) {
     return (
@@ -37,6 +39,8 @@ export function TeamPage() {
 
   const games = standing.wins + standing.losses + standing.ties;
   const avgScore = games > 0 ? standing.pointsFor / games : 0;
+  const starters = rosterPlayers.filter((p) => p.isStarter).sort(bySlotOrder);
+  const bench = rosterPlayers.filter((p) => !p.isStarter).sort(bySlotOrder);
 
   return (
     <div className="space-y-8">
@@ -61,6 +65,21 @@ export function TeamPage() {
       </div>
 
       {IS_MANAGER_PROFILE_ENABLED && managerProfile && <ManagerProfile manager={managerProfile} />}
+
+      <section>
+        <div className="mb-3 flex items-end justify-between gap-4">
+          <SectionTitle>CURRENT ROSTER</SectionTitle>
+          <span className="text-xs text-faint">Week {league.currentWeek} · {rosterPlayers.length} players</span>
+        </div>
+        {rosterPlayers.length > 0 ? (
+          <div className="grid gap-4 lg:grid-cols-2">
+            <RosterTable label="Starters" players={starters.length ? starters : rosterPlayers} empty="No starters published for this week." />
+            <RosterTable label="Bench" players={starters.length ? bench : []} empty="No bench players." />
+          </div>
+        ) : (
+          <EmptyState text="Roster will appear here once Yahoo lineup data is available for this team." />
+        )}
+      </section>
 
       {thisWeekMatchup && (
         <section>
@@ -132,6 +151,17 @@ export function TeamPage() {
       </section>
     </div>
   );
+}
+
+function resolveRoster(
+  teamId: string | undefined,
+  rosters: Record<string, PlayerScore[]>,
+  matchup: Matchup | undefined,
+): PlayerScore[] {
+  if (!teamId) return [];
+  if (rosters[teamId]?.length) return rosters[teamId];
+  if (!matchup) return [];
+  return matchup.home.teamId === teamId ? matchup.home.players : matchup.away.players;
 }
 
 function MatchupRow({ matchup, teamId, teams }: { matchup: Matchup; teamId: string; teams: LeagueBundle["teams"] }) {

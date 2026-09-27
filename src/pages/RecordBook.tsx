@@ -25,7 +25,7 @@ function bestSingleWeek(matchups: Matchup[]): { teamId: string; score: number; w
 
 function biggestBlowout(matchups: Matchup[]): { teamId: string; margin: number; week: number } | null {
   let best: { teamId: string; margin: number; week: number } | null = null;
-  for (const m of matchups.filter((x) => x.status === "final" && m.winnerTeamId)) {
+  for (const m of matchups.filter((x) => x.status === "final" && x.winnerTeamId)) {
     const margin = Math.abs(m.home.score - m.away.score);
     if (!best || margin > best.margin) {
       best = { teamId: m.winnerTeamId!, margin, week: m.week };

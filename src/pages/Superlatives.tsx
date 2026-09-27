@@ -98,6 +98,7 @@ export function Superlatives() {
                       <span className="truncate text-sm text-ink">
                         {teamById(teams, superlative.teamId)?.name ?? "Unknown"}
                       </span>
+                      <span className="ml-auto shrink-0 font-mono text-xs text-muted">{superlative.value}</span>
                     </div>
                   ))}
                 </div>

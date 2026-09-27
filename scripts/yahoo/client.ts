@@ -1,4 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
+import { recordsWithKey, value } from "./yahooJson.js";
+
+export { findObjects, recordsWithKey, value } from "./yahooJson.js";
 
 const API_BASE = "https://fantasysports.yahooapis.com/fantasy/v2";
 const TOKEN_URL = "https://api.login.yahoo.com/oauth2/get_token";
@@ -67,96 +70,16 @@ async function yahooJson(accessToken: string, path: string): Promise<unknown> {
   }
 }
 
-function firstValue(node: unknown, key: string): string | number | boolean | null {
-  if (!node || typeof node !== "object") return null;
-  if (Array.isArray(node)) {
-    for (const item of node) {
-      const value = firstValue(item, key);
-      if (value !== null) return value;
-    }
-    return null;
-  }
-  const obj = node as Record<string, unknown>;
-  if (key in obj && (typeof obj[key] === "string" || typeof obj[key] === "number" || typeof obj[key] === "boolean")) {
-    return obj[key] as string | number | boolean;
-  }
-  for (const value of Object.values(obj)) {
-    const found = firstValue(value, key);
-    if (found !== null) return found;
-  }
-  return null;
-}
-
-export function recordsWithKey(node: unknown, key: string): Record<string, unknown>[] {
-  const result: Record<string, unknown>[] = [];
-  if (!node || typeof node !== "object") return result;
-
-  if (Array.isArray(node)) {
-    // Yahoo encodes a logical record as an array of property bags, often
-    // interspersed with empty arrays [] (XML→JSON artifact). Filter those
-    // placeholders out first. Remaining plain objects are merged into one
-    // record, e.g.:
-    // [{ team_key: "..." }, { team_id: "..." }, { name: "..." }, [], { managers: [...] }, ...]
-    // → { team_key, team_id, name, managers, ... }
-    const isNoise = (item: unknown): boolean =>
-      item == null ||
-      (Array.isArray(item) && item.length === 0) ||
-      (typeof item === "object" &&
-        !Array.isArray(item) &&
-        Object.keys(item as Record<string, unknown>).length === 0);
-
-    const parts = node.filter(
-      (item) =>
-        !isNoise(item) &&
-        typeof item === "object" &&
-        !Array.isArray(item),
-    ) as Record<string, unknown>[];
-
-    const meaningfulCount = node.filter((item) => !isNoise(item)).length;
-
-    if (parts.length > 0 && parts.length === meaningfulCount) {
-      const merged = Object.assign({}, ...parts) as Record<string, unknown>;
-      if (key in merged) result.push(merged);
-      for (const value of Object.values(merged)) {
-        result.push(...recordsWithKey(value, key));
-      }
-      return result;
-    }
-
-    for (const item of node) result.push(...recordsWithKey(item, key));
-    return result;
-  }
-
-  const obj = node as Record<string, unknown>;
-  if (key in obj) result.push(obj);
-  for (const value of Object.values(obj)) result.push(...recordsWithKey(value, key));
-  return result;
-}
-
-export function findObjects(node: unknown, key: string): Record<string, unknown>[] {
-  const result: Record<string, unknown>[] = [];
-  if (!node || typeof node !== "object") return result;
-  if (Array.isArray(node)) {
-    for (const item of node) result.push(...findObjects(item, key));
-    return result;
-  }
-  const obj = node as Record<string, unknown>;
-  if (key in obj) {
-    const value = obj[key];
-    if (Array.isArray(value)) {
-      for (const item of value) {
-        if (item && typeof item === "object" && !Array.isArray(item)) result.push(item as Record<string, unknown>);
-      }
-    } else if (value && typeof value === "object" && !Array.isArray(value)) {
-      result.push(value as Record<string, unknown>);
+async function yahooJsonFallback(accessToken: string, paths: string[]): Promise<unknown> {
+  let lastError: Error | undefined;
+  for (const path of paths) {
+    try {
+      return await yahooJson(accessToken, path);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
     }
   }
-  for (const value of Object.values(obj)) result.push(...findObjects(value, key));
-  return result;
-}
-
-export function value(node: unknown, key: string): string | number | boolean | null {
-  return firstValue(node, key);
+  throw lastError ?? new Error("Yahoo request failed");
 }
 
 export async function fetchYahooData(): Promise<YahooRawData> {
@@ -184,7 +107,7 @@ export async function fetchYahooData(): Promise<YahooRawData> {
   const currentWeek = Number(value(metadata, "current_week") || 1);
   const teams = await yahooJson(accessToken, `/league/${leagueKey}/teams`);
   const standings = await yahooJson(accessToken, `/league/${leagueKey}/standings`);
-  const transactions = await yahooJson(accessToken, `/league/${leagueKey}/transactions;count=100`);
+  const transactions = await yahooJson(accessToken, `/league/${leagueKey}/transactions;count=250`);
 
   const scoreboards: Record<string, unknown> = {};
   for (let week = 1; week <= currentWeek; week++) {
@@ -198,15 +121,20 @@ export async function fetchYahooData(): Promise<YahooRawData> {
     .map((team) => String(team.team_key ?? ""))
     .filter((teamKey, index, all) => teamKey && all.indexOf(teamKey) === index);
 
-  // Keep a roster snapshot for every completed/current week so historical
-  // matchup data can explain awards such as Donkey of the Week.
   const rosters: Record<string, unknown> = {};
   for (let week = 1; week <= currentWeek; week++) {
-    for (const teamKey of teamKeys) {
-      rosters[`${week}|${teamKey}`] = await yahooJson(
+    try {
+      rosters[`${week}|all`] = await yahooJson(
         accessToken,
-        `/team/${teamKey}/roster;week=${week}`,
+        `/league/${leagueKey}/teams/roster;week=${week}/players/stats;type=week;week=${week}`,
       );
+    } catch {
+      for (const teamKey of teamKeys) {
+        rosters[`${week}|${teamKey}`] = await yahooJsonFallback(accessToken, [
+          `/team/${teamKey}/roster;week=${week}/players/stats;type=week;week=${week}`,
+          `/team/${teamKey}/roster;week=${week}`,
+        ]);
+      }
     }
   }
 
@@ -224,10 +152,10 @@ export async function fetchYahooData(): Promise<YahooRawData> {
 
   await mkdir(".cache/yahoo", { recursive: true });
   await writeFile(".cache/yahoo/raw.json", JSON.stringify(data), "utf8");
-  console.log(`[fetch:yahoo] fetched ${leagueKey}, week ${currentWeek}, ${teamKeys.length} teams and ${currentWeek * teamKeys.length} weekly roster snapshots`);
+  console.log(`[fetch:yahoo] fetched ${leagueKey}, week ${currentWeek}, ${teamKeys.length} teams and ${currentWeek} weekly roster snapshots`);
   return data;
 }
 
-if (process.argv[1]?.endsWith("scripts/yahoo/run.ts")) {
+if (process.argv[1]?.endsWith("scripts/yahoo/client.ts")) {
   await fetchYahooData();
 }

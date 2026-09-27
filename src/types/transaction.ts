@@ -1,4 +1,4 @@
-export type TransactionType = "add" | "drop" | "waiver" | "trade" | "commissioner";
+export type TransactionType = "add" | "drop" | "add/drop" | "waiver" | "trade" | "commissioner";
 
 export interface TransactionPlayer {
   playerId: string;
