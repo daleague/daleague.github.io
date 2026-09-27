@@ -189,9 +189,9 @@ export async function fetchYahooData(): Promise<YahooRawData> {
     );
   }
 
-  const teamKeys = findObjects(teams, "team_key")
+  const teamKeys = recordsWithKey(teams, "team_key")
     .map((team) => String(team.team_key ?? ""))
-    .filter(Boolean);
+    .filter((teamKey, index, all) => teamKey && all.indexOf(teamKey) === index);
 
   // Keep a roster snapshot for every completed/current week so historical
   // matchup data can explain awards such as Donkey of the Week.
