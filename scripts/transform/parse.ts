@@ -494,10 +494,12 @@ export function makeSuperlatives(matchups: Matchup[], season: number): Superlati
       result.push(award(week, season, "team-of-the-week", "🔥", "Team of the Week", "Highest team score in the completed week.", highest.side.teamId, `${highest.side.score.toFixed(1)} pts`, highest.matchup.matchupId));
     }
 
+    // Only one side can be strictly lowest when scores differ; when the whole
+    // week ties, `highest` and `lowest` resolve to the same side and neither
+    // "highest" nor "lowest" is a meaningful distinction, so skip the award
+    // rather than crediting one team arbitrarily.
     const lowest = [...sides].sort((a, b) => a.side.score - b.side.score)[0];
-    if (lowest && lowest.side.teamId !== highest?.side.teamId) {
-      result.push(award(week, season, "dumpster-fire", "💩", "Dumpster Fire of the Week", "Lowest team score in the completed week.", lowest.side.teamId, `${lowest.side.score.toFixed(1)} pts`, lowest.matchup.matchupId));
-    } else if (lowest && lowest.side.score < (highest?.side.score ?? 0)) {
+    if (lowest && highest && lowest.side.teamId !== highest.side.teamId) {
       result.push(award(week, season, "dumpster-fire", "💩", "Dumpster Fire of the Week", "Lowest team score in the completed week.", lowest.side.teamId, `${lowest.side.score.toFixed(1)} pts`, lowest.matchup.matchupId));
     }
 
