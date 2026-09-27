@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from "node:fs/promises";
-import { recordsWithKey, value } from "./yahooJson.js";
+import { hasResolvableTotal, recordsWithKey, value } from "./yahooJson.js";
 
 export { findObjects, recordsWithKey, value } from "./yahooJson.js";
 
@@ -123,18 +123,50 @@ export async function fetchYahooData(): Promise<YahooRawData> {
 
   const rosters: Record<string, unknown> = {};
   for (let week = 1; week <= currentWeek; week++) {
+    let usedFallback = false;
     try {
-      rosters[`${week}|all`] = await yahooJson(
+      const bulk = await yahooJson(
         accessToken,
         `/league/${leagueKey}/teams/roster;week=${week}/players/stats;type=week;week=${week}`,
       );
-    } catch {
+      // Yahoo can return HTTP 200 here with every player present but the
+      // `stats` sub-resource silently missing (a known quirk when it's
+      // chained three levels deep across the `teams` collection). That looks
+      // like a successful fetch, so a try/catch around the request alone
+      // won't catch it — check that at least one player actually has a
+      // resolvable player_points total before trusting this response.
+      const players = recordsWithKey(bulk, "player_key");
+      const pointsCameThrough = players.length > 0 && players.some((p) => hasResolvableTotal(p, "player_points"));
+      if (!pointsCameThrough) {
+        throw new Error(
+          `Bulk roster fetch for week ${week} returned ${players.length} players with no resolvable player_points — falling back to per-team requests.`,
+        );
+      }
+      rosters[`${week}|all`] = bulk;
+    } catch (error) {
+      usedFallback = true;
+      console.warn(`[fetch:yahoo] ${error instanceof Error ? error.message : String(error)}`);
       for (const teamKey of teamKeys) {
-        rosters[`${week}|${teamKey}`] = await yahooJsonFallback(accessToken, [
+        const body = await yahooJsonFallback(accessToken, [
           `/team/${teamKey}/roster;week=${week}/players/stats;type=week;week=${week}`,
           `/team/${teamKey}/roster;week=${week}`,
         ]);
+        const players = recordsWithKey(body, "player_key");
+        const pointsCameThrough = players.length > 0 && players.some((p) => hasResolvableTotal(p, "player_points"));
+        if (!pointsCameThrough) {
+          // Every stats-bearing path failed for this team; we still record
+          // the roster (slots/names/positions) rather than dropping it, but
+          // flag it loudly so a silent zero-points regression is visible in
+          // CI logs instead of only showing up as a quiet UI discrepancy.
+          console.warn(
+            `[fetch:yahoo] Week ${week} team ${teamKey}: roster fetched but no player_points came through in any attempted request. Player points will show as 0 for this team/week.`,
+          );
+        }
+        rosters[`${week}|${teamKey}`] = body;
       }
+    }
+    if (usedFallback) {
+      console.log(`[fetch:yahoo] week ${week}: used per-team roster fallback for ${teamKeys.length} teams.`);
     }
   }
 

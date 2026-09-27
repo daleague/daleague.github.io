@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  hasResolvableTotal,
   mergeYahooRecord,
   nestedTotal,
   normalizeTeamId,
@@ -80,5 +81,12 @@ describe("yahoo JSON merge", () => {
     expect(normalizeTeamId("470.l.344338.t.12", "12")).toBe("12");
     expect(normalizeTeamId("470.l.344338.t.2")).toBe("2");
     expect(normalizeTeamId("", "7")).toBe("7");
+  });
+
+  it("distinguishes a real (possibly zero) total from a field that never came through", () => {
+    const withPoints = { player_points: [{ coverage_type: "week" }, { total: "0.00" }] };
+    const withoutStatsSubResource = { name: { full: "Jalen Hurts" }, display_position: "QB" };
+    expect(hasResolvableTotal(withPoints, "player_points")).toBe(true);
+    expect(hasResolvableTotal(withoutStatsSubResource, "player_points")).toBe(false);
   });
 });

@@ -232,6 +232,25 @@ export function pointsFrom(record: Record<string, unknown>, key: string): number
   return 0;
 }
 
+/**
+ * True if `key` (e.g. "player_points") resolves to an actual total anywhere
+ * under `node`, as opposed to being structurally absent.
+ *
+ * Yahoo's API can return HTTP 200 for a roster request where the `stats`
+ * sub-resource silently didn't attach (a known quirk when `stats` is chained
+ * three levels deep across a `teams` collection, e.g.
+ * `/league/{league_key}/teams/roster/players/stats`). That response still has
+ * every player, so callers relying on network errors alone to detect a bad
+ * fetch won't catch it — the points are just missing. This lets a caller
+ * distinguish "the field is present with a real (possibly zero) total" from
+ * "the field never came through," so it can fall back to a more reliable
+ * per-team request instead of silently caching zeroed-out points.
+ */
+export function hasResolvableTotal(record: Record<string, unknown>, key: string): boolean {
+  if (nestedTotal(record[key]) !== undefined) return true;
+  return findObjects(record, key).some((found) => nestedTotal(found) !== undefined);
+}
+
 export function richerRecord(
   a: Record<string, unknown> | undefined,
   b: Record<string, unknown>,
