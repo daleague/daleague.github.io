@@ -531,11 +531,6 @@ export function makeSuperlatives(matchups: Matchup[], season: number): Superlati
       result.push(award(week, season, "statement-win", "👑", "Statement Win", "Largest margin of victory in the completed week.", statement.side.teamId, `won by ${statement.margin.toFixed(1)}`, statement.matchup.matchupId));
     }
 
-    const brickWall = [...sides].sort((a, b) => a.opponent.score - b.opponent.score)[0];
-    if (brickWall) {
-      result.push(award(week, season, "brick-wall", "🧱", "Brick Wall", "Fewest points allowed by a team in the completed week.", brickWall.side.teamId, `${brickWall.opponent.score.toFixed(1)} pts allowed`, brickWall.matchup.matchupId));
-    }
-
     const priorMatchups = matchups.filter((m) => m.status === "final" && m.week < week);
     const priorScores = new Map<string, number[]>();
     for (const m of priorMatchups) {
