@@ -152,8 +152,8 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
     const slot = slotOf(p);
     const actual = str(first(p, "display_position") || first(p, "primary_position") || "", "") || undefined;
     const points = pointsFrom(p, "player_points");
-    const projectedNode = findObjects(p, "player_projected_points")[0] || p.player_projected_points;
-    const projected = nestedTotal(projectedNode);
+    const headshot = findObjects(p, "headshot")[0] || (p.headshot && typeof p.headshot === "object" ? mergeYahooRecord(p.headshot) : undefined);
+    const headshotUrl = str(headshot?.url || p.headshot_url, "") || undefined;
     const statusRaw = str(p.status, "").toLowerCase();
     const gameStatus = statusRaw.includes("post") || statusRaw === "final"
       ? "final" as const
@@ -167,8 +167,8 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
       actualPosition: actual,
       nflTeam: str(p.editorial_team_abbr, "") || undefined,
       opponent: str(p.opponent, "") || undefined,
-      points: points || num(p.points),
-      projectedPoints: projected,
+      points: points !== 0 ? points : num(p.points),
+      headshotUrl,
       isStarter: !["BN", "IR", "IR+", "NA"].includes(slot.toUpperCase()),
       gameStatus,
     };
