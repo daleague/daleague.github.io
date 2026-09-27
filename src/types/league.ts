@@ -78,7 +78,7 @@ export interface PlayerScore {
   nflTeam?: string;
   opponent?: string;
   points: number;
-  projectedPoints?: number;
+  headshotUrl?: string;
   isStarter: boolean;
   gameStatus?: "not_started" | "in_progress" | "final" | "bye";
 }
