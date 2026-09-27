@@ -7,7 +7,7 @@ import { WeekSelector } from "@/components/WeekSelector";
 import { SuperlativeCard } from "@/components/SuperlativeCard";
 
 export function Dashboard() {
-  const { league, teams, matchups, superlatives } = useOutletContext<LeagueBundle>();
+  const { league, teams, matchups, superlatives, superlativeHistory } = useOutletContext<LeagueBundle>();
   const params = useParams<{ week?: string }>();
 
   const requestedWeek = params.week ? Number(params.week) : league.currentWeek;
@@ -15,6 +15,14 @@ export function Dashboard() {
   const isFutureWeek = requestedWeek > league.currentWeek;
   const weekMatchups = matchups.filter((m) => m.week === requestedWeek);
   const isCurrentWeek = requestedWeek === league.currentWeek;
+  // Prefer history for past weeks; fall back to current-week superlatives payload.
+  const weekSuperlatives = (
+    superlativeHistory.length
+      ? superlativeHistory.filter((s) => s.week === requestedWeek)
+      : isCurrentWeek
+        ? superlatives
+        : []
+  );
 
   return (
     <div className="space-y-8">
@@ -57,13 +65,13 @@ export function Dashboard() {
         </div>
       )}
 
-      {isCurrentWeek && superlatives.length > 0 && (
+      {!isFutureWeek && weekSuperlatives.length > 0 && (
         <section>
           <h2 className="mb-3 font-display text-sm font-semibold tracking-[0.25em] text-faint">
             WEEK {requestedWeek} SUPERLATIVES
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {superlatives.map((s) => (
+            {weekSuperlatives.map((s) => (
               <SuperlativeCard key={s.id} superlative={s} team={teamById(teams, s.teamId)} />
             ))}
           </div>
