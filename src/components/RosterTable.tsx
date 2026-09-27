@@ -2,12 +2,6 @@ import type { PlayerScore } from "@/types/league";
 
 const SLOT_ORDER = ["QB", "RB", "WR", "TE", "FLEX", "W/R/T", "DEF", "K", "BN", "IR", "IR+", "NA"];
 
-function playerImageUrl(player: PlayerScore): string {
-  // Generate a player avatar URL using dicebear based on player name
-  const seed = player.name.replace(/[^a-zA-Z]/g, "").toLowerCase() || player.playerId;
-  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}`;
-}
-
 export function bySlotOrder(a: PlayerScore, b: PlayerScore): number {
   const ai = SLOT_ORDER.indexOf(a.slot);
   const bi = SLOT_ORDER.indexOf(b.slot);
@@ -43,11 +37,7 @@ export function RosterTable({
               <tr key={p.playerId} className="border-b border-hairline/60 last:border-0">
                 <td className="px-4 py-2 font-mono text-xs text-faint">{p.slot}</td>
                 <td className="px-4 py-2 text-ink">
-                  <img
-                    src={playerImageUrl(p)}
-                    alt={p.name}
-                    className="h-6 w-6 rounded mr-2"
-                  />
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-card-raised text-[10px] text-faint mr-2" aria-hidden="true">{p.actualPosition?.slice(0, 2) ?? "—"}</span>
                   {p.name}
                   {p.nflTeam && <span className="ml-2 text-xs text-faint">{p.nflTeam}</span>}
                 </td>
