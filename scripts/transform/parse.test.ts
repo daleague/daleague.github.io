@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Matchup, PlayerScore } from "../../src/types/league";
 import {
+  applyPlayoffStatuses,
   deriveStandings,
   findDonkey,
   makeSuperlatives,
@@ -240,6 +241,29 @@ describe("superlatives", () => {
     expect(byTitle["Statement Win"].teamId).toBe("4");
     expect(byTitle["Ice Cold"].teamId).toBe("4");
     expect(byTitle["Brick Wall"]).toBeUndefined();
+  });
+
+  it("derives standings status from configured playoff-team count", () => {
+    const standings = [
+      {
+        teamId: "1", rank: 1, wins: 2, losses: 0, ties: 0, pointsFor: 200, pointsAgainst: 150,
+        winPct: 1, streak: { type: "W" as const, count: 2 }, playoffStatus: "unknown" as const,
+      },
+      {
+        teamId: "2", rank: 2, wins: 1, losses: 1, ties: 0, pointsFor: 180, pointsAgainst: 170,
+        winPct: 0.5, streak: { type: "L" as const, count: 1 }, playoffStatus: "unknown" as const,
+      },
+      {
+        teamId: "3", rank: 3, wins: 1, losses: 1, ties: 0, pointsFor: 170, pointsAgainst: 180,
+        winPct: 0.5, streak: { type: "L" as const, count: 1 }, playoffStatus: "unknown" as const,
+      },
+      {
+        teamId: "4", rank: 4, wins: 0, losses: 2, ties: 0, pointsFor: 140, pointsAgainst: 190,
+        winPct: 0, streak: { type: "L" as const, count: 2 }, playoffStatus: "unknown" as const,
+      },
+    ];
+    const statused = applyPlayoffStatuses(standings, { num_playoff_teams: 2 });
+    expect(statused.map((row) => row.playoffStatus)).toEqual(["in", "in", "bubble", "out"]);
   });
 
   it("does not award zero-delta explosion/trending or 0-0 weeks", () => {

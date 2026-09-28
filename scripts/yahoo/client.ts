@@ -186,6 +186,7 @@ export async function fetchYahooData(): Promise<YahooRawData> {
     metadata,
     teams,
     standings,
+    settings,
     scoreboards,
     rosters,
     transactions,

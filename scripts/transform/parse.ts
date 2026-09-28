@@ -26,6 +26,7 @@ export interface RawData {
   metadata: unknown;
   teams: unknown;
   standings: unknown;
+  settings?: unknown;
   scoreboards: Record<string, unknown>;
   rosters: Record<string, unknown>;
   transactions: unknown;

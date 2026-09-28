@@ -6,6 +6,18 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Persist fetched league settings for standings-status derivation
+
+### Correction
+- The prior standings commit added `YahooRawData.settings` but did not yet include the fetched settings object in the serialized `.cache/yahoo/raw.json` payload, and `RawData` had not declared the optional field.
+- This follow-up persists `settings` in the fetch result and adds `settings?: unknown` to the transform input contract.
+- Added a focused test covering `num_playoff_teams = 2` → `IN / IN / BUBBLE / OUT`.
+
+### Commit
+This correction is intentionally separate so the previous commit remains recoverable and its integration issue is explicit.
+
+---
+
 ## 2026-09-27 — Populate empty Standings status from league settings
 
 ### Root cause
