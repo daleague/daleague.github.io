@@ -6,6 +6,50 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-28 — Add provider-agnostic weekly newsletter generator and Tuesday schedule
+
+### Implementation
+Added `scripts/newsletter/generate.ts`, which:
+- reads the existing normalized Yahoo data from `data/current/`
+- identifies the latest completed fantasy week
+- builds a compact per-week JSON context in `newsletter/data/week-N.json`
+- adds lineup signals such as top bench scorers and lowest-scoring starters to help explain start/sit decisions
+- includes recent transactions from the preceding seven days
+- loads `newsletter/TEMPLATE.md`
+- supports `NEWSLETTER_PROVIDER=openai` or `NEWSLETTER_PROVIDER=gemini`
+- enables provider web search for NFL-side explanations and appends returned source links
+- writes exactly one `newsletter/output/week-N.md` per week unless `NEWSLETTER_FORCE=true`
+
+### GitHub Actions
+Added `.github/workflows/newsletter.yml`:
+- runs Tuesdays at 12:05 AM in `America/Chicago`
+- reuses the existing Yahoo credentials/data pipeline
+- generates the weekly newsletter and commits the data/output back to `main`
+- uses a non-canceling concurrency group so newsletter runs are not silently superseded
+- is gated by repository variable `NEWSLETTER_ENABLED=true`; it remains dormant otherwise
+
+### Configuration
+Required repository variable when activating:
+- `NEWSLETTER_ENABLED=true`
+- `NEWSLETTER_PROVIDER=openai` or `gemini`
+- `NEWSLETTER_MODEL=<provider-supported-model>`
+
+Required secret for the selected provider:
+- OpenAI → `OPENAI_API_KEY`
+- Gemini → `GEMINI_API_KEY`
+
+The generator deliberately does not hard-code a model name because model availability changes independently of the repository.
+
+### Provider/web-search design
+OpenAI's current Responses API exposes built-in web search. Gemini supports Google Search grounding through its API. The repository keeps those integrations behind the same provider switch so the newsletter template and data package are provider-independent.
+
+### Commits
+- `1a5acf9` — provider-agnostic generator
+- `2864084` — npm script
+- `3db4d3f` — Tuesday GitHub Actions workflow
+
+---
+
 ## 2026-09-28 — Add weekly newsletter specification and storage layout
 
 ### Feature contract
