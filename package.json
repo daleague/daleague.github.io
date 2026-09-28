@@ -10,6 +10,7 @@
     "test": "vitest run",
     "fetch:yahoo": "tsx scripts/yahoo/run.ts",
     "generate": "tsx scripts/transform/run.ts",
+    "newsletter:generate": "tsx scripts/newsletter/generate.ts",
     "yahoo:auth": "tsx scripts/yahoo/auth.ts"
   },
   "dependencies": {
