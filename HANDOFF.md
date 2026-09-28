@@ -2,6 +2,45 @@
 
 ---
 
+## 2026-09-28 — Replace Power Rankings with Fantasy Power Score (FPS)
+
+### Old behavior
+Power Rankings previously sorted teams by points per game, then win percentage, then team ID. This made scoring volume the effective ranking metric and did not explicitly model dominance, momentum, or schedule luck.
+
+### New algorithm
+The production ranking now uses:
+```
+FPS = (WP × 35) + (PFZ × 30) + (MOV × 15) + (STK × 10) + (AWP × 10)
+```
+All five components are normalized to 0–1, so the resulting FPS is a 0–100 score.
+
+- **WP (35%)** — winning percentage from completed matchups; ties count as half a win.
+- **PFZ (30%)** — team points-per-game converted to a league-wide population z-score, then min-max normalized across teams. PPG is used instead of cumulative points so unequal games played do not distort the metric.
+- **MOV (15%)** — average signed margin of victory/loss across completed games, min-max normalized across the league. This fixes the earlier issue where dividing by the best MOV could produce values below -1.
+- **STK (10%)** — current completed-game streak, capped at ±5 games and mapped to 0.0–1.0. A 5+ win streak = 1.0, neutral/tie streak = 0.5, and a 5+ losing streak = 0.0.
+- **AWP (10%)** — all-play / against-the-wall percentage: for every completed week, each team is compared against every other team that week; wins count as 1, ties as 0.5, and losses as 0.
+
+### Ranking behavior
+- The ranking is calculated through the latest completed fantasy week; live/upcoming scores do not directly change the current FPS until the week is complete.
+- Previous-rank movement is recalculated from the same FPS formula using only matchups through the immediately preceding completed week.
+- This explicitly allows a team with a worse head-to-head record to rank above a team with a better record when its scoring strength and/or margins are materially stronger.
+- The UI now shows the FPS score plus record, points/game, average MOV, current streak, and the five normalized component values.
+
+### Tests
+Added `src/pages/PowerRankings.test.ts` covering:
+- Worse record but materially stronger scoring/margins ranking higher.
+- Separate streak/momentum scoring.
+- All-play percentage across completed weeks.
+- Five-game streak cap.
+
+### Commits
+- `4bd51ca` — replace points-per-game Power Rankings with FPS
+- `cb62f22` — add FPS ranking tests
+
+---
+
+---
+
 ## 2026-09-28 — Fix GitHub Actions build failure from unused import
 
 ### Root cause
