@@ -1,4 +1,4 @@
-import type { Matchup, PlayerScore, Team } from "@/types/league";
+import type { Matchup, Team } from "@/types/league";
 import { teamById } from "@/lib/teams";
 
 interface ScoreTickerProps {
