@@ -139,6 +139,30 @@ describe("domain parsers", () => {
     expect(bench.isStarter).toBe(false);
   });
 
+  it("parses explicit player game status when Yahoo provides it", () => {
+    const raw = {
+      roster: {
+        players: {
+          0: {
+            player: [
+              [
+                { player_key: "470.p.3" },
+                { player_id: "3" },
+                { name: { full: "Finished Player" } },
+                { display_position: "WR" },
+                { game_status: "postgame" },
+              ],
+              { selected_position: [{ position: "WR" }] },
+              { player_points: [{ total: "12.0" }] },
+            ],
+          },
+        },
+      },
+    };
+    const players = parsePlayerScores(raw);
+    expect(players[0].gameStatus).toBe("final");
+  });
+
   it("classifies add/drop transactions and records dropped players", () => {
     const raw = {
       transactions: {

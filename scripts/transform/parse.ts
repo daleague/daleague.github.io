@@ -154,12 +154,22 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
     const points = pointsFrom(p, "player_points");
     const headshot = findObjects(p, "headshot")[0] || (p.headshot && typeof p.headshot === "object" ? mergeYahooRecord(p.headshot) : undefined);
     const headshotUrl = str(headshot?.url || p.headshot_url, "") || undefined;
-    const statusRaw = str(p.status, "").toLowerCase();
-    const gameStatus = statusRaw.includes("post") || statusRaw === "final"
-      ? "final" as const
-      : statusRaw.includes("in") || statusRaw.includes("live")
-        ? "in_progress" as const
-        : undefined;
+    const gameStatusRaw = str(
+      first(p, "game_status") ||
+      first(p, "player_game_status") ||
+      first(p, "gameStatus") ||
+      "",
+      "",
+    ).toLowerCase();
+    const gameStatus = gameStatusRaw.includes("bye")
+      ? "bye" as const
+      : gameStatusRaw.includes("post") || gameStatusRaw === "final" || gameStatusRaw.includes("complete")
+        ? "final" as const
+        : gameStatusRaw.includes("pre") || gameStatusRaw.includes("scheduled") || gameStatusRaw.includes("upcoming")
+          ? "not_started" as const
+          : gameStatusRaw.includes("in") || gameStatusRaw.includes("live") || gameStatusRaw.includes("progress")
+            ? "in_progress" as const
+            : undefined;
     const parsed: PlayerScore = {
       playerId,
       name,

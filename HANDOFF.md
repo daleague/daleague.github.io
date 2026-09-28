@@ -6,6 +6,22 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Make the landing-page ticker resolve final matchups from player state
+
+### Fix
+- `scripts/transform/parse.ts` now recognizes explicit player game-status fields when Yahoo supplies them (`game_status`, `player_game_status`, or `gameStatus`).
+- `src/components/ScoreTicker.tsx` considers a matchup final when Yahoo already marks it final, or when every starter has a known terminal player state (`final`/ `bye`).
+- A live ticker label is shown only while the matchup is not final and Yahoo still reports the matchup as live.
+- Once final, the ticker highlights the winner. If Yahoo did not provide `winnerTeamId`, it derives the winner from the final score.
+- Bench/IR players do not keep a matchup live because only starting slots count.
+- When the current production data has no per-player game statuses, the ticker safely falls back to the existing matchup-level status rather than guessing from a player's point total. This means future refreshes gain the more precise behavior as soon as player game-status data is present.
+- Added a parser test for an explicit terminal player status.
+
+### Commit
+This section is recorded in the same commit as the parser, ticker, and test changes.
+
+---
+
 ## 2026-09-27 — Add week-over-week movement to Power Rankings
 
 ### Fix
