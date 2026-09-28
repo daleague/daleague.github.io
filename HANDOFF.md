@@ -6,6 +6,30 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Populate empty Standings status from league settings
+
+### Root cause
+- `src/pages/Standings.tsx` was already rendering `TeamStanding.playoffStatus`.
+- `scripts/transform/parse.ts` only set that field to `clinched` when Yahoo explicitly supplied `clinched_playoffs`; otherwise it left every team as `unknown`.
+- The derived-standings fallback also hard-coded `playoffStatus: "unknown"`.
+- The current production artifact therefore correctly displayed an em dash for every team because the transform never supplied a meaningful status.
+
+### Fix
+- `scripts/yahoo/client.ts` now fetches the Yahoo league `/settings` endpoint and persists the response into the raw data. Failure is non-fatal and logs a warning.
+- `scripts/transform/parse.ts` now derives statuses from Yahoo's `num_playoff_teams` setting when Yahoo did not provide an explicit clinched flag:
+  - rank <= playoff-team count → `IN`
+  - first team outside the playoff field → `BUBBLE`
+  - remaining teams → `OUT`
+  - zero playoff teams → `ACTIVE`
+- Explicit Yahoo `clinched_playoffs` values continue to win over the derived status.
+- `src/types/league.ts` adds `active` to `PlayoffStatus`, and `src/pages/Standings.tsx` renders it as `ACTIVE`.
+- If league settings cannot be read, the status remains `—` rather than inventing playoff semantics.
+
+### Commit
+This section is recorded in the same commit as the ingestion, transform, type, and UI changes.
+
+---
+
 ## 2026-09-27 — Make the landing-page ticker resolve final matchups from player state
 
 ### Fix

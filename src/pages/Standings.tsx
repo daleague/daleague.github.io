@@ -10,6 +10,7 @@ const STATUS_STYLES: Record<PlayoffStatus, { label: string; className: string }>
   bubble: { label: "BUBBLE", className: "bg-gold/15 text-gold" },
   out: { label: "OUT", className: "bg-card-raised text-muted" },
   eliminated: { label: "ELIMINATED", className: "bg-live/15 text-live" },
+  active: { label: "ACTIVE", className: "bg-card-raised text-muted" },
   unknown: { label: "—", className: "bg-card-raised text-faint" },
 };
 

@@ -13,6 +13,7 @@ export interface YahooRawData {
   metadata: unknown;
   teams: unknown;
   standings: unknown;
+  settings?: unknown;
   scoreboards: Record<string, unknown>;
   rosters: Record<string, unknown>;
   transactions: unknown;
@@ -107,6 +108,14 @@ export async function fetchYahooData(): Promise<YahooRawData> {
   const currentWeek = Number(value(metadata, "current_week") || 1);
   const teams = await yahooJson(accessToken, `/league/${leagueKey}/teams`);
   const standings = await yahooJson(accessToken, `/league/${leagueKey}/standings`);
+  let settings: unknown = null;
+  try {
+    settings = await yahooJson(accessToken, `/league/${leagueKey}/settings`);
+  } catch (error) {
+    console.warn(
+      `[fetch:yahoo] league settings unavailable; playoff-status derivation will be skipped: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
   const transactions = await yahooJson(accessToken, `/league/${leagueKey}/transactions;count=250`);
 
   const scoreboards: Record<string, unknown> = {};

@@ -644,6 +644,35 @@ export function attachRosters(matchups: Matchup[], rosterByWeekAndTeam: Map<stri
   });
 }
 
+
+
+function playoffTeamCount(raw: unknown): number | null {
+  const parsed = Number(first(raw, "num_playoff_teams"));
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+}
+
+export function applyPlayoffStatuses(
+  standings: TeamStanding[],
+  rawSettings: unknown,
+): TeamStanding[] {
+  const playoffTeams = playoffTeamCount(rawSettings);
+  if (playoffTeams == null) return standings;
+
+  return standings.map((standing) => {
+    if (standing.playoffStatus !== "unknown") return standing;
+    if (playoffTeams === 0) {
+      return { ...standing, playoffStatus: "active" };
+    }
+    if (standing.rank <= playoffTeams) {
+      return { ...standing, playoffStatus: "in" };
+    }
+    if (standing.rank === playoffTeams + 1) {
+      return { ...standing, playoffStatus: "bubble" };
+    }
+    return { ...standing, playoffStatus: "out" };
+  });
+}
+
 export function buildLeagueBundle(raw: RawData) {
   const metadata = raw.metadata;
   const season = num(first(metadata, "season"), Number(process.env.YAHOO_SEASON || new Date().getFullYear()));
@@ -671,7 +700,10 @@ export function buildLeagueBundle(raw: RawData) {
 
   const history = attachRosters(deduped, rosterByWeekAndTeam);
   const parsedStandings = parseStandings(raw.standings);
-  const standings = deriveStandings(teams, parsedStandings, history);
+  const standings = applyPlayoffStatuses(
+    deriveStandings(teams, parsedStandings, history),
+    raw.settings,
+  );
   const currentMatchups = history.filter((m) => m.week === currentWeek);
   const league: League = {
     leagueId: str(first(metadata, "league_id"), raw.leagueKey.split(".l.").pop() || raw.leagueKey),

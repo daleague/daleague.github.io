@@ -7,7 +7,7 @@
  */
 
 export type TeamId = string;
-export type PlayoffStatus = "clinched" | "in" | "bubble" | "out" | "eliminated" | "unknown";
+export type PlayoffStatus = "clinched" | "in" | "bubble" | "out" | "eliminated" | "active" | "unknown";
 
 export interface League {
   leagueId: string;
