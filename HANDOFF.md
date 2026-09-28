@@ -6,6 +6,44 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-28 — Add weekly newsletter specification and storage layout
+
+### Feature contract
+Added a provider-agnostic newsletter template under `newsletter/TEMPLATE.md`.
+
+Required newsletter structure:
+1. **This Week in the League** — league-wide recap in a witty, dry, sarcastic columnist voice.
+2. **Matchup Summaries** — one section per previous-week matchup covering what happened, consequential manager moves, and evidence-backed NFL context.
+3. **Next Week Preview** — the upcoming week's matchups and storylines, including current injury/weather/coaching context where available.
+
+### Data/storage contract
+Created:
+- `newsletter/TEMPLATE.md` — canonical generation prompt.
+- `newsletter/README.md` — pipeline documentation.
+- `newsletter/data/week-N.json` — per-week sanitized generation input.
+- `newsletter/output/week-N.md` — one generated newsletter per week.
+
+### External research requirement
+The template explicitly instructs the AI to use web search for injuries, weather, coaching/usage, player availability, suspensions, and related NFL context, while treating Yahoo-derived fantasy data as authoritative for scores, rosters, standings, transactions, and matchup results.
+
+### Scheduling design
+The planned GitHub Actions job runs shortly after midnight Tuesday in `America/Chicago`, after the Monday-night fantasy week has ended. The workflow will be timezone-aware so the schedule follows Chicago daylight-saving changes.
+
+### Provider design
+The AI layer will be provider-agnostic:
+- `NEWSLETTER_PROVIDER=openai`
+- `NEWSLETTER_PROVIDER=gemini`
+
+Credentials remain GitHub Actions secrets. The model is configured independently so the provider can be changed without changing the newsletter template or data contract.
+
+### Commits
+- `10ef7c2` — newsletter template
+- `a37e319` — pipeline documentation
+- `5ac071f` — data directory
+- `ac8df0f` — output directory
+
+---
+
 ## 2026-09-27 — Persist fetched league settings for standings-status derivation
 
 ### Correction
