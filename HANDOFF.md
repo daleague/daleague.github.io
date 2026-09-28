@@ -6,6 +6,28 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Fix Biggest Upset for completed Yahoo snapshots
+
+### Validation
+The latest successful production Pages artifact (workflow run 36359945202, generated September 27, 2026) was inspected directly. Weeks 1 and 2 had winProbability values of exactly 0%/100% on every completed matchup, even though projected scores still contained pregame expectations. Those terminal probabilities explain why the existing Biggest Upset logic produced no award: it only accepts winners below 50%, and the postgame snapshot turns the winning side into 100% and the losing side into 0%.
+
+For the same artifact:
+- Week 1 had one projected-score underdog who won: Team 2, projected 113.8 vs Team 11 at 115.2 (about a 1.4-point deficit).
+- Week 2 had no projected-score underdog winners.
+
+Therefore an empty Biggest Upset section was not evidence that there had been no upset; it was a data-contract issue in the historical snapshot.
+
+### Fix
+- scripts/transform/parse.ts: Biggest Upset now uses strict interior Yahoo win probabilities (0 < probability < 100) when they are available and below 50%.
+- Terminal 0%/100% probabilities from completed snapshots are treated as unusable pregame odds.
+- When no usable pregame probability exists, the calculation falls back to the largest positive projected-score deficit among the week's winners.
+- The award description/value identify which source was used.
+- scripts/transform/parse.test.ts: added coverage for the 0%/100% historical-snapshot case.
+
+### Commit
+This section is recorded in the same commit as the code/test changes so the handoff is recoverable from the repository history.
+
+---
 ## 2026-09-27 — Session: player-points bug + superlative audit
 
 ### Reported symptom

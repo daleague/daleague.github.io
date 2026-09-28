@@ -222,6 +222,20 @@ describe("superlatives", () => {
     const zeros = [matchup(1, side("1", 0), side("2", 0), "1")];
     expect(makeSuperlatives(zeros, 2026)).toEqual([]);
   });
+  it("uses projected-score underdog when a completed Yahoo snapshot only has terminal 0/100 probabilities", () => {
+    const matchups = [
+      matchup(
+        1,
+        side("1", 120, [], { projectedScore: 105, winProbability: 0 }),
+        side("2", 80, [], { projectedScore: 115, winProbability: 100 }),
+        "1",
+      ),
+    ];
+    const awards = makeSuperlatives(matchups, 2026);
+    const upset = awards.find((a) => a.title === "Biggest Upset");
+    expect(upset?.teamId).toBe("1");
+    expect(upset?.value).toBe("10.0 pts projected underdog → W");
+  });
 
   it("awards Donkey of the Week only when a bench swap would flip a loss", () => {
     const loserPlayers = [

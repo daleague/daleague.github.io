@@ -508,11 +508,50 @@ export function makeSuperlatives(matchups: Matchup[], season: number): Superlati
       result.push(award(week, season, "pain-of-week", "🫠", "Pain of the Week", "Highest-scoring team that still lost its matchup.", pain.side.teamId, `${pain.side.score.toFixed(1)} pts, still lost`, pain.matchup.matchupId));
     }
 
-    const upset = [...winners]
-      .filter(({ side }) => side.winProbability != null)
+    // Completed Yahoo scoreboards can overwrite the pre-matchup win probability with
+    // a terminal 0%/100% value. Those boundary values cannot tell us who was
+    // actually favored before kickoff, so only strict interior probabilities
+    // are treated as pre-matchup odds. For historical snapshots with no usable
+    // probability, fall back to the matchup's projected-score deficit.
+    const pregameUpsets = [...winners]
+      .filter(({ side }) => side.winProbability != null && side.winProbability > 0 && side.winProbability < 100 && side.winProbability < 50)
       .sort((a, b) => (a.side.winProbability ?? 101) - (b.side.winProbability ?? 101))[0];
-    if (upset && (upset.side.winProbability ?? 100) < 50) {
-      result.push(award(week, season, "biggest-upset", "🎰", "Biggest Upset", "Winner with the lowest pre-matchup Yahoo win probability.", upset.side.teamId, `${(upset.side.winProbability ?? 0).toFixed(0)}% win prob → W`, upset.matchup.matchupId));
+    if (pregameUpsets) {
+      result.push(award(
+        week,
+        season,
+        "biggest-upset",
+        "🎰",
+        "Biggest Upset",
+        "Winner with the lowest pre-matchup Yahoo win probability. Completed snapshots that overwrite the probability with terminal 0%/100% use projected score instead.",
+        pregameUpsets.side.teamId,
+        String(pregameUpsets.side.winProbability!.toFixed(0)) + "% win prob → W",
+        pregameUpsets.matchup.matchupId,
+      ));
+    } else {
+      const projectedUpset = [...winners]
+        .map((entry) => {
+          const winnerProjection = entry.side.projectedScore;
+          const opponentProjection = entry.opponent.projectedScore;
+          return winnerProjection != null && opponentProjection != null
+            ? { ...entry, projectedDeficit: opponentProjection - winnerProjection }
+            : null;
+        })
+        .filter((entry): entry is NonNullable<typeof entry> => entry !== null && entry.projectedDeficit > 0)
+        .sort((a, b) => b.projectedDeficit - a.projectedDeficit)[0];
+      if (projectedUpset) {
+        result.push(award(
+          week,
+          season,
+          "biggest-upset",
+          "🎰",
+          "Biggest Upset",
+          "Biggest projected-score underdog that still won, used when Yahoo's completed snapshot no longer contains usable pre-matchup win probability.",
+          projectedUpset.side.teamId,
+          projectedUpset.projectedDeficit.toFixed(1) + " pts projected underdog → W",
+          projectedUpset.matchup.matchupId,
+        ));
+      }
     }
 
     const choke = [...sides]
