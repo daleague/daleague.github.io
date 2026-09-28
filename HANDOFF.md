@@ -6,6 +6,19 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Show N/A for trend superlatives without enough history
+
+### Fix
+- `src/pages/Superlatives.tsx` now treats Explosion, Trending Up, and Trending Down as weekly-history sections, just like Donkey of the Week.
+- Every completed week is rendered for those sections. If the calculation has no award for that week, the row explicitly shows `N/A`.
+- This keeps Week 1 visible even though there is no prior completed week from which to calculate a trend.
+- The transform data remains sparse; the UI does not invent a team or fake award record just to fill the row.
+
+### Commit
+This section is recorded in the same commit as the UI change so the handoff is recoverable from repository history.
+
+---
+
 ## 2026-09-27 — Fix Biggest Upset for completed Yahoo snapshots
 
 ### Validation
