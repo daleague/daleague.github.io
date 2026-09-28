@@ -1,0 +1,88 @@
+name: Weekly Newsletter
+
+on:
+  schedule:
+    # 12:05 AM Central every Tuesday. A few minutes after midnight avoids
+    # putting another scheduled job exactly on the hour.
+    - cron: "5 0 * * 2"
+      timezone: "America/Chicago"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-newsletter
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: 22
+  NEWSLETTER_ENABLED: ${{ vars.NEWSLETTER_ENABLED || 'false' }}
+  NEWSLETTER_PROVIDER: ${{ vars.NEWSLETTER_PROVIDER || 'openai' }}
+  NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL }}
+  YAHOO_GAME_ID: ${{ vars.YAHOO_GAME_ID || 'nfl' }}
+  YAHOO_SEASON: ${{ vars.YAHOO_SEASON || '2026' }}
+  YAHOO_LEAGUE_ID: ${{ vars.YAHOO_LEAGUE_ID }}
+  YAHOO_API_ENABLED: ${{ vars.YAHOO_API_ENABLED || 'false' }}
+
+jobs:
+  generate:
+    if: vars.NEWSLETTER_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: general
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch Yahoo data
+        if: env.YAHOO_API_ENABLED == 'true'
+        env:
+          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
+          YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
+          YAHOO_REFRESH_TOKEN: ${{ secrets.YAHOO_REFRESH_TOKEN }}
+        run: npm run fetch:yahoo
+
+      - name: Validate Yahoo data is enabled
+        run: |
+          if [ "${YAHOO_API_ENABLED}" != "true" ]; then
+            echo "NEWSLETTER_ENABLED is true, but YAHOO_API_ENABLED is not true."
+            echo "Enable the Yahoo data pipeline before enabling weekly newsletters."
+            exit 1
+          fi
+
+      - name: Generate normalized data
+        run: npm run generate
+
+      - name: Generate newsletter
+        env:
+          NEWSLETTER_ENABLED: ${{ env.NEWSLETTER_ENABLED }}
+          NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
+          NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run newsletter:generate
+
+      - name: Commit newsletter
+        run: |
+          if git diff --quiet -- newsletter/data newsletter/output; then
+            echo "No newsletter files changed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add newsletter/data newsletter/output
+          git commit -m "feat: publish weekly league newsletter"
+          git push origin main
