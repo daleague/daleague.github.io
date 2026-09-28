@@ -6,6 +6,19 @@ Newest entries at the top.
 
 ---
 
+## 2026-09-27 — Add week-over-week movement to Power Rankings
+
+### Fix
+- `src/pages/PowerRankings.tsx` now calculates the same power-ranking order for the immediately preceding completed week using the historical matchups.
+- Each current row shows `↑N` when the team moved up N spots, `↓N` when it moved down N spots, and `—` when it did not move (or there is no prior completed ranking).
+- Movement is based on the site's existing power-ranking formula (points per completed game, then win percentage, then team ID), not Yahoo's standings rank.
+- A team with no previous-week data gets a dash rather than a misleading movement value.
+
+### Commit
+This section is recorded in the same commit as the Power Rankings UI change so the handoff is recoverable from repository history.
+
+---
+
 ## 2026-09-27 — Show N/A for trend superlatives without enough history
 
 ### Fix
