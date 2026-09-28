@@ -1,5 +1,28 @@
 # Handoff doc — The League (daleague/daleague.github.io)
 
+---
+
+## 2026-09-28 — Fix GitHub Actions build failure from unused import
+
+### Root cause
+The latest Deploy to GitHub Pages runs (workflow runs `36363864488` and `36362930321`) both reached the build step successfully after Yahoo data generation, then failed TypeScript compilation with:
+```
+src/components/ScoreTicker.tsx(1,24): error TS6196: 'PlayerScore' is declared but never used.
+```
+
+### Fix
+- Removed the unused `PlayerScore` type import from `src/components/ScoreTicker.tsx`.
+- No runtime behavior changes; the ticker logic is unchanged.
+
+### Validation
+The failure was reproduced directly from the GitHub Actions build logs. The next push should re-run the Deploy workflow and verify the TypeScript build completes.
+
+### Commit
+- `374d3770d3ce4c0e2d46092d6a9a3f604eeffdff` — remove unused ScoreTicker type import
+
+---
+
+
 Purpose: pick up this work in a fresh session (any assistant — GPT, Claude, Grok) without
 re-deriving context. Update this file as you complete steps; keep entries dated and specific.
 Newest entries at the top.
