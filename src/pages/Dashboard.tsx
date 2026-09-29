@@ -11,7 +11,9 @@ export function Dashboard() {
   const params = useParams<{ week?: string }>();
 
   const requestedWeek = params.week ? Number(params.week) : league.currentWeek;
-  const availableWeeks = [...league.completedWeeks, league.currentWeek].sort((a, b) => a - b);
+  // The current week may also be present in completedWeeks after its games finish.
+  // Deduplicate before rendering the selector so it appears only once.
+  const availableWeeks = [...new Set([...league.completedWeeks, league.currentWeek])].sort((a, b) => a - b);
   const isFutureWeek = requestedWeek > league.currentWeek;
   const weekMatchups = matchups.filter((m) => m.week === requestedWeek);
   const isCurrentWeek = requestedWeek === league.currentWeek;
