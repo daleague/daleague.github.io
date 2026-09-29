@@ -106,13 +106,13 @@ export function RecordBook() {
       label: "☣️🚀 Tactical Nuke",
       value: single.score.toFixed(1),
       teamId: single.teamId,
-      detail: "Highest scoring week of the year",
+      detail: "Highest scoring week of the season",
     });
   }
   const blowout = biggestBlowout(finals);
   if (blowout) {
     rows.push({
-      label: "Beatdown of the year",
+      label: "Beatdown of the season",
       value: `+${blowout.margin.toFixed(1)}`,
       teamId: blowout.winnerTeamId,
       detail: `Week ${blowout.week} · ${teamById(teams, blowout.winnerTeamId)?.name} beats ${teamById(teams, blowout.loserTeamId)?.name}`,
@@ -133,6 +133,7 @@ export function RecordBook() {
       label: "Punching bag",
       value: punchingBag.median.toFixed(1),
       teamId: punchingBag.teamId,
+      detail: "Highest median points scored against",
     });
   }
   const pain = highestLosingScore(finals);
@@ -141,7 +142,7 @@ export function RecordBook() {
       label: "The Biggest Loser",
       value: pain.score.toFixed(1),
       teamId: pain.teamId,
-      detail: "highest losing score of the year",
+      detail: "Highest losing score of the season",
     });
   }
 
