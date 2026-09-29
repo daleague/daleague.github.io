@@ -36,6 +36,27 @@ function biggestBlowout(matchups: Matchup[]): { winnerTeamId: string; loserTeamI
   return best;
 }
 
+function highestMedianPointsAgainst(matchups: Matchup[]): { teamId: string; median: number; games: number } | null {
+  const against = new Map<string, number[]>();
+  for (const m of matchups.filter((x) => x.status === "final")) {
+    const home = against.get(m.home.teamId) ?? [];
+    home.push(m.away.score);
+    against.set(m.home.teamId, home);
+    const away = against.get(m.away.teamId) ?? [];
+    away.push(m.home.score);
+    against.set(m.away.teamId, away);
+  }
+  let best: { teamId: string; median: number; games: number } | null = null;
+  for (const [teamId, scores] of against) {
+    if (!scores.length) continue;
+    const sorted = [...scores].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    const median = sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+    if (!best || median > best.median) best = { teamId, median, games: scores.length };
+  }
+  return best;
+}
+
 function lowestWinningScore(matchups: Matchup[]): { teamId: string; score: number; week: number } | null {
   let best: { teamId: string; score: number; week: number } | null = null;
   for (const m of matchups.filter((x) => x.status === "final" && x.winnerTeamId)) {
@@ -82,7 +103,7 @@ export function RecordBook() {
   const single = bestSingleWeek(finals);
   if (single) {
     rows.push({
-      label: "Highest single-week score",
+      label: "☣️🚀 Tactical Nuke",
       value: single.score.toFixed(1),
       teamId: single.teamId,
       detail: `Week ${single.week}`,
@@ -91,7 +112,7 @@ export function RecordBook() {
   const blowout = biggestBlowout(finals);
   if (blowout) {
     rows.push({
-      label: "Biggest blowout",
+      label: "Pounding of the season",
       value: `+${blowout.margin.toFixed(1)}`,
       teamId: blowout.winnerTeamId,
       detail: `Week ${blowout.week} · ${teamById(teams, blowout.winnerTeamId)?.name} beats ${teamById(teams, blowout.loserTeamId)?.name}`,
@@ -100,16 +121,25 @@ export function RecordBook() {
   const ice = lowestWinningScore(finals);
   if (ice) {
     rows.push({
-      label: "Lowest winning score",
+      label: "King of the Frauds",
       value: ice.score.toFixed(1),
       teamId: ice.teamId,
       detail: `Week ${ice.week}`,
     });
   }
+  const punchingBag = highestMedianPointsAgainst(finals);
+  if (punchingBag) {
+    rows.push({
+      label: "Punching bag",
+      value: punchingBag.median.toFixed(1),
+      teamId: punchingBag.teamId,
+      detail: `Median points against across ${punchingBag.games} completed matchups`,
+    });
+  }
   const pain = highestLosingScore(finals);
   if (pain) {
     rows.push({
-      label: "Highest losing score",
+      label: "The Biggest Loser",
       value: pain.score.toFixed(1),
       teamId: pain.teamId,
       detail: `Week ${pain.week}`,
