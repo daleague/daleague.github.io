@@ -106,7 +106,7 @@ export function RecordBook() {
       label: "☣️🚀 Tactical Nuke",
       value: single.score.toFixed(1),
       teamId: single.teamId,
-      detail: `Week ${single.week}`,
+      detail: "Highest scoring week of the year",
     });
   }
   const blowout = biggestBlowout(finals);
