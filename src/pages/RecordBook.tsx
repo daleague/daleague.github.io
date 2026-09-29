@@ -36,7 +36,7 @@ function biggestBlowout(matchups: Matchup[]): { winnerTeamId: string; loserTeamI
   return best;
 }
 
-function highestMedianPointsAgainst(matchups: Matchup[]): { teamId: string; median: number; games: number } | null {
+function highestMedianPointsAgainst(matchups: Matchup[]): { teamId: string; median: number } | null {
   const against = new Map<string, number[]>();
   for (const m of matchups.filter((x) => x.status === "final")) {
     const home = against.get(m.home.teamId) ?? [];
@@ -46,13 +46,13 @@ function highestMedianPointsAgainst(matchups: Matchup[]): { teamId: string; medi
     away.push(m.home.score);
     against.set(m.away.teamId, away);
   }
-  let best: { teamId: string; median: number; games: number } | null = null;
+  let best: { teamId: string; median: number } | null = null;
   for (const [teamId, scores] of against) {
     if (!scores.length) continue;
     const sorted = [...scores].sort((a, b) => a - b);
     const mid = Math.floor(sorted.length / 2);
     const median = sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
-    if (!best || median > best.median) best = { teamId, median, games: scores.length };
+    if (!best || median > best.median) best = { teamId, median };
   }
   return best;
 }
@@ -133,7 +133,6 @@ export function RecordBook() {
       label: "Punching bag",
       value: punchingBag.median.toFixed(1),
       teamId: punchingBag.teamId,
-      detail: `Median points against across ${punchingBag.games} completed matchups`,
     });
   }
   const pain = highestLosingScore(finals);
