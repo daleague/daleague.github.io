@@ -124,7 +124,7 @@ export function RecordBook() {
       label: "King of the Frauds",
       value: ice.score.toFixed(1),
       teamId: ice.teamId,
-      detail: `Week ${ice.week}`,
+      detail: "Lowest winning score of the season",
     });
   }
   const punchingBag = highestMedianPointsAgainst(finals);
