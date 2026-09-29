@@ -112,7 +112,7 @@ export function RecordBook() {
   const blowout = biggestBlowout(finals);
   if (blowout) {
     rows.push({
-      label: "Pounding of the season",
+      label: "Beatdown of the year",
       value: `+${blowout.margin.toFixed(1)}`,
       teamId: blowout.winnerTeamId,
       detail: `Week ${blowout.week} · ${teamById(teams, blowout.winnerTeamId)?.name} beats ${teamById(teams, blowout.loserTeamId)?.name}`,
