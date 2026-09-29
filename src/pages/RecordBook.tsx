@@ -141,7 +141,7 @@ export function RecordBook() {
       label: "The Biggest Loser",
       value: pain.score.toFixed(1),
       teamId: pain.teamId,
-      detail: `Week ${pain.week}`,
+      detail: "highest losing score of the year",
     });
   }
 
