@@ -516,7 +516,7 @@ export function makeSuperlatives(matchups: Matchup[], season: number): Superlati
 
     const pain = [...losers].sort((a, b) => b.side.score - a.side.score)[0];
     if (pain) {
-      result.push(award(week, season, "pain-of-week", "🫠", "Pain of the Week", "Highest-scoring team that still lost its matchup.", pain.side.teamId, `${pain.side.score.toFixed(1)} pts, still lost`, pain.matchup.matchupId));
+      result.push(award(week, season, "pain-of-week", "🫠", "Not Good Enough", "Highest-scoring team that still lost its matchup.", pain.side.teamId, `${pain.side.score.toFixed(1)} pts, still lost`, pain.matchup.matchupId));
     }
 
     // Completed Yahoo scoreboards can overwrite the pre-matchup win probability with
@@ -575,7 +575,7 @@ export function makeSuperlatives(matchups: Matchup[], season: number): Superlati
 
     const iceCold = [...winners].sort((a, b) => a.side.score - b.side.score)[0];
     if (iceCold) {
-      result.push(award(week, season, "ice-cold", "🧊", "Ice Cold", "Lowest score among the week's winners.", iceCold.side.teamId, `${iceCold.side.score.toFixed(1)} pts, still won`, iceCold.matchup.matchupId));
+      result.push(award(week, season, "ice-cold", "🧊", "The Fraud", "Lowest score among the week's winners.", iceCold.side.teamId, `${iceCold.side.score.toFixed(1)} pts, still won`, iceCold.matchup.matchupId));
     }
 
     const statement = [...winners]
