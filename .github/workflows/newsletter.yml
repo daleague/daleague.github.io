@@ -83,6 +83,7 @@ jobs:
           NEWSLETTER_BACKFILL_WEEKS: ${{ inputs.backfill_weeks }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_ENABLE_SEARCH: ${{ vars.GEMINI_ENABLE_SEARCH || 'false' }}
         run: |
           if [ -n "$NEWSLETTER_BACKFILL_WEEKS" ]; then
             latest=$(node -e 'const l=require("./data/current/league.json"); console.log(Math.max(...(l.completedWeeks || [])))')
