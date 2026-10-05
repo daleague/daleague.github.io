@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: weekly-newsletter
@@ -104,6 +105,8 @@ jobs:
           fi
       - name: Commit newsletter
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ -z "$(git status --porcelain -- newsletter/data newsletter/output)" ]; then
             echo "No newsletter files changed."
@@ -115,3 +118,6 @@ jobs:
           git add newsletter/data newsletter/output
           git commit -m "feat: publish weekly league newsletter"
           git push origin main
+
+          echo "Triggering GitHub Pages deployment..."
+          gh workflow run deploy.yml --ref main
