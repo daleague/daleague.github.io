@@ -217,7 +217,8 @@ function buildNarrativeContext(
       type: "streak", priority: Number(trend.streak.count) * 10,
       team: trend.teamName, evidence: String(trend.streak.count) + "-game " + String(trend.streak.type) + " streak."
     });
-    if (String(trend.record).startsWith("0-") === false && Number(trend.seasonAvg) >= 130 && String(trend.record).split("-")[0] < String(trend.record).split("-")[1]) candidates.push({
+    const [wins, losses] = String(trend.record).split("-").map(Number);
+    if (Number.isFinite(wins) && Number.isFinite(losses) && losses > wins && Number(trend.seasonAvg) >= 130) candidates.push({
       type: "high_scoring_bad_luck", priority: Number(trend.seasonAvg),
       team: trend.teamName, evidence: "A losing record despite averaging " + Number(trend.seasonAvg) + " points per game."
     });
