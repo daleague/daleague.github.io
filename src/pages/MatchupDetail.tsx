@@ -5,9 +5,10 @@ import { teamById } from "@/lib/teams";
 import { TeamBadge } from "@/components/TeamBadge";
 import { ManagerComparison } from "@/components/ManagerProfile";
 import { RosterTable, bySlotOrder } from "@/components/RosterTable";
+import { LastUpdated } from "@/components/LastUpdated";
 
 export function MatchupDetail() {
-  const { teams, matchups, managerProfiles } = useOutletContext<LeagueBundle>();
+  const { league, teams, matchups, managerProfiles } = useOutletContext<LeagueBundle>();
   const { matchupId } = useParams<{ matchupId: string }>();
   const matchup = matchups.find((m) => m.matchupId === matchupId);
 
@@ -46,6 +47,8 @@ export function MatchupDetail() {
       <Link to={`/week/${matchup.week}`} className="font-display text-xs tracking-wide text-muted hover:text-ink">
         ← Back to Week {matchup.week}
       </Link>
+
+      <LastUpdated league={league} className="-mt-5" />
 
       <div className="rounded-2xl border border-hairline bg-card p-6 shadow-card sm:p-8">
         <p className="text-center font-display text-xs font-semibold tracking-[0.25em] text-faint">
