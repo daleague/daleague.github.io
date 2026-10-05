@@ -85,6 +85,8 @@ export interface PlayerScore {
 
 export interface MatchupSide {
   teamId: TeamId;
+  /** Team nickname from the Yahoo snapshot for this matchup/week. */
+  teamName?: string;
   score: number;
   projectedScore?: number;
   winProbability?: number;
