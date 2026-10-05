@@ -403,6 +403,25 @@ function previewMatchup(matchup: Json, teamById: Map<string, Json>, useManagerNa
   };
 }
 
+function buildCurrentEventsContext(generatedAt: string): Json {
+  const date = new Date(generatedAt);
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
+  const holidays: string[] = [];
+  if (month === 11 && day >= 20 && day <= 30) holidays.push("Thanksgiving season");
+  if (month === 12 && day >= 15 && day <= 31) holidays.push("Christmas/holiday season");
+  if (month === 1 && day <= 7) holidays.push("New Year season");
+  if (month === 10 && day >= 20 && day <= 31) holidays.push("Halloween season");
+  return {
+    enabled: process.env.NEWSLETTER_CURRENT_EVENTS_ENABLED === "true",
+    date: generatedAt,
+    calendarContext: holidays,
+    searchContext: process.env.GEMINI_ENABLE_SEARCH === "true"
+      ? "Live Google Search grounding is enabled; look for genuinely relevant current events such as major weather emergencies, hurricanes, natural disasters, national events, or holiday developments."
+      : "Live web search is disabled; do not claim awareness of current events beyond the deterministic calendar context supplied here.",
+  };
+}
+
 function replaceAll(template: string, values: Record<string, string>): string {
   return Object.entries(values).reduce(
     (result, [key, value]) => result.split(key).join(value),
@@ -698,6 +717,7 @@ async function main() {
       matchups: upcomingMatchups,
       rosters,
     },
+    currentEvents: buildCurrentEventsContext(generatedAt),
     teams: isBackfill
       ? teams.map((team) => ({ ...team, name: isBackfill ? String(team.managerName ?? "Unknown Manager") : String(team.name ?? "Unknown Team") }))
       : teams,
