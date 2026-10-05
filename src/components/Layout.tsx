@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { to: "/power-rankings", label: "Power Rankings" },
   { to: "/superlatives", label: "Superlatives" },
   { to: "/records", label: "Record Book" },
+  { to: "/newsletter", label: "Newsletter" },
 ];
 
 export function Layout() {
