@@ -58,31 +58,27 @@ function playerBrief(player: Json): Json {
   };
 }
 
-function matchupWithSignals(matchup: Json): Json {
+
+function matchupWithSignals(matchup: Json, teamById: Map<string, Json>): Json {
   const addSignals = (side: Json) => {
     const players = Array.isArray(side.players) ? (side.players as Json[]) : [];
     const starters = players.filter((player) => player.isStarter);
     const bench = players.filter((player) => !player.isStarter);
-
+    const team = teamById.get(String(side.teamId)) ?? {};
     return {
       teamId: side.teamId,
+      teamName: team.name,
+      managerName: team.managerName,
       score: side.score,
       projectedScore: side.projectedScore,
       winProbability: side.winProbability,
       players: players.map(playerBrief),
       lineupSignals: {
-        topBenchByPoints: [...bench]
-          .sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0))
-          .slice(0, 3)
-          .map(playerBrief),
-        lowestScoringStarters: [...starters]
-          .sort((a, b) => Number(a.points ?? 0) - Number(b.points ?? 0))
-          .slice(0, 3)
-          .map(playerBrief),
+        topBenchByPoints: [...bench].sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0)).slice(0, 3).map(playerBrief),
+        lowestScoringStarters: [...starters].sort((a, b) => Number(a.points ?? 0) - Number(b.points ?? 0)).slice(0, 3).map(playerBrief),
       },
     };
   };
-
   return {
     matchupId: matchup.matchupId,
     season: matchup.season,
@@ -94,6 +90,141 @@ function matchupWithSignals(matchup: Json): Json {
     home: addSignals(matchup.home as Json),
     away: addSignals(matchup.away as Json),
   };
+}
+
+function buildNarrativeContext(
+  history: Json[],
+  standings: Json[],
+  teams: Json[],
+  previousWeek: number,
+): Json {
+  const teamById = new Map(teams.map((team) => [String(team.teamId), team]));
+  const finals = history
+    .filter((m) => m.status === "final" && Number(m.week) <= previousWeek)
+    .sort((a, b) => Number(a.week) - Number(b.week));
+
+  const stats = new Map<string, { scores: number[]; results: string[]; pf: number; pa: number }>();
+  for (const m of finals) {
+    for (const key of ["home", "away"]) {
+      const side = m[key] as Json;
+      const opp = m[key === "home" ? "away" : "home"] as Json;
+      const id = String(side.teamId);
+      const row = stats.get(id) ?? { scores: [], results: [], pf: 0, pa: 0 };
+      row.scores.push(Number(side.score ?? 0));
+      row.results.push(String(m.winnerTeamId ?? "") === id ? "W" : "L");
+      row.pf += Number(side.score ?? 0);
+      row.pa += Number(opp.score ?? 0);
+      stats.set(id, row);
+    }
+  }
+
+  const round = (n: number) => Math.round(n * 10) / 10;
+  const teamTrends = teams.map((team) => {
+    const id = String(team.teamId);
+    const row = stats.get(id) ?? { scores: [], results: [], pf: 0, pa: 0 };
+    const recent = row.scores.slice(-4);
+    const recentAvg = recent.length ? recent.reduce((a, b) => a + b, 0) / recent.length : 0;
+    const seasonAvg = row.scores.length ? row.pf / row.scores.length : 0;
+    const streakResult = row.results.at(-1);
+    let streak = 0;
+    for (let i = row.results.length - 1; i >= 0 && row.results[i] === streakResult; i--) streak++;
+    return {
+      teamId: id,
+      teamName: team.name,
+      managerName: team.managerName,
+      rank: standings.find((s) => String(s.teamId) === id)?.rank ?? null,
+      record: String(row.results.filter((r) => r === "W").length) + "-" + String(row.results.filter((r) => r === "L").length),
+      seasonAvg: round(seasonAvg),
+      seasonPaAvg: round(row.scores.length ? row.pa / row.scores.length : 0),
+      recent4: recent.map((score, i) => ({ week: finals[finals.length - recent.length + i]?.week, points: round(score) })),
+      recent4Avg: round(recentAvg),
+      latestScore: recent.length ? round(recent.at(-1)!) : null,
+      priorScore: recent.length > 1 ? round(recent.at(-2)!) : null,
+      latestScoreDelta: recent.length > 1 ? round(recent.at(-1)! - recent.at(-2)!) : null,
+      streak: streakResult ? { type: streakResult, count: streak } : null,
+    };
+  });
+
+  const previous = finals.filter((m) => Number(m.week) === previousWeek);
+  const candidates: Json[] = [];
+
+  for (const m of previous) {
+    const home = m.home as Json, away = m.away as Json;
+    const winnerId = String(m.winnerTeamId ?? "");
+    const winner = winnerId === String(home.teamId) ? home : away;
+    const loser = winnerId === String(home.teamId) ? away : home;
+    const margin = Number(winner.score ?? 0) - Number(loser.score ?? 0);
+    const prob = Number(winner.winProbability ?? NaN);
+    const projectedDiff = Number(winner.projectedScore ?? NaN) - Number(loser.projectedScore ?? NaN);
+
+    if (Number.isFinite(prob) && prob < 50) candidates.push({
+      type: "upset", priority: round(50 - prob), team: teamById.get(String(winner.teamId))?.name,
+      evidence: "Won despite a " + round(prob) + "% pre-matchup win probability."
+    });
+    else if (Number.isFinite(projectedDiff) && projectedDiff < 0) candidates.push({
+      type: "upset", priority: round(-projectedDiff), team: teamById.get(String(winner.teamId))?.name,
+      evidence: "Won while projected to score " + round(-projectedDiff) + " fewer points."
+    });
+
+    if (margin >= 30) candidates.push({
+      type: "blowout", priority: round(margin), team: teamById.get(String(winner.teamId))?.name,
+      evidence: "Won by " + round(margin) + " points."
+    });
+    if (margin <= 5) candidates.push({
+      type: "close_game", priority: round(5 - margin), team: teamById.get(String(winner.teamId))?.name,
+      evidence: "Won by only " + round(margin) + " points."
+    });
+
+    for (const side of [home, away]) {
+      const id = String(side.teamId);
+      const players = Array.isArray(side.players) ? side.players as Json[] : [];
+      const starters = players.filter((p) => p.isStarter);
+      const bench = players.filter((p) => !p.isStarter);
+      for (const benched of bench) {
+        const position = String(benched.actualPosition ?? "").toUpperCase();
+        const eligible = starters.filter((s) => {
+          const slot = String(s.slot ?? "").toUpperCase();
+          return (position === "QB" && slot === "QB") ||
+            (position === "RB" && ["RB", "FLEX", "W/R/T"].includes(slot)) ||
+            (position === "WR" && ["WR", "FLEX", "W/R/T"].includes(slot)) ||
+            (position === "TE" && ["TE", "FLEX", "W/R/T"].includes(slot)) ||
+            (["DEF", "D/ST"].includes(position) && slot === "DEF") || (position === "K" && slot === "K");
+        });
+        if (!eligible.length) continue;
+        const replacement = [...eligible].sort((a, b) => Number(a.points ?? 0) - Number(b.points ?? 0))[0];
+        const gain = Number(benched.points ?? 0) - Number(replacement.points ?? 0);
+        if (gain >= 8) candidates.push({
+          type: "bench_mistake", priority: round(gain), team: teamById.get(id)?.name,
+          evidence: "Left " + String(benched.name) + " (" + round(Number(benched.points ?? 0)) + ") on the bench for " +
+            String(replacement.name) + " (" + round(Number(replacement.points ?? 0)) + "), a " + round(gain) + "-point swing.",
+          wouldHaveChangedResult: winnerId !== id && Number(side.score ?? 0) + gain > Number((winnerId === String(home.teamId) ? away : home).score ?? 0)
+        });
+      }
+    }
+  }
+
+  for (const trend of teamTrends) {
+    const recent = Array.isArray(trend.recent4) ? trend.recent4 : [];
+    if (recent.length >= 3 && Number(trend.latestScoreDelta ?? 0) <= -20) candidates.push({
+      type: "scoring_drop", priority: Math.abs(Number(trend.latestScoreDelta)),
+      team: trend.teamName, evidence: "Latest score fell " + Math.abs(Number(trend.latestScoreDelta)) + " points from the prior week."
+    });
+    if (recent.length >= 3 && Number(trend.latestScoreDelta ?? 0) >= 20) candidates.push({
+      type: "scoring_surge", priority: Number(trend.latestScoreDelta),
+      team: trend.teamName, evidence: "Latest score rose " + Number(trend.latestScoreDelta) + " points from the prior week."
+    });
+    if (trend.streak && Number(trend.streak.count) >= 3) candidates.push({
+      type: "streak", priority: Number(trend.streak.count) * 10,
+      team: trend.teamName, evidence: String(trend.streak.count) + "-game " + String(trend.streak.type) + " streak."
+    });
+    if (String(trend.record).startsWith("0-") === false && Number(trend.seasonAvg) >= 130 && String(trend.record).split("-")[0] < String(trend.record).split("-")[1]) candidates.push({
+      type: "high_scoring_bad_luck", priority: Number(trend.seasonAvg),
+      team: trend.teamName, evidence: "A losing record despite averaging " + Number(trend.seasonAvg) + " points per game."
+    });
+  }
+
+  candidates.sort((a, b) => Number(b.priority ?? 0) - Number(a.priority ?? 0));
+  return { teamTrends, storyCandidates: candidates.slice(0, 20) };
 }
 
 function replaceAll(template: string, values: Record<string, string>): string {
@@ -303,6 +434,7 @@ async function main() {
   const rosters = (await readJson<Json>(
     join(root, "data/current/rosters.json"),
   )) as Record<string, Json[]>;
+  const teamById = new Map(teams.map((team) => [String(team.teamId), team]));
 
   const completedWeeks = Array.isArray(league.completedWeeks)
     ? (league.completedWeeks as number[])
@@ -340,7 +472,7 @@ async function main() {
 
   const previousMatchups = matchupsHistory
     .filter((matchup) => Number(matchup.week) === previousWeek)
-    .map(matchupWithSignals);
+    .map((matchup) => matchupWithSignals(matchup, teamById));
   const upcomingMatchups = matchupsCurrent
     .filter((matchup) => Number(matchup.week) === upcomingWeek)
     .map(matchupWithSignals);
@@ -389,6 +521,7 @@ async function main() {
       rosters,
     },
     teams,
+    narrativeContext: buildNarrativeContext(matchupsHistory, standings, teams, previousWeek),
   };
 
   await writeFile(dataPath, JSON.stringify(context, null, 2) + "\n", "utf8");
