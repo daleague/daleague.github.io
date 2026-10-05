@@ -57,6 +57,7 @@ function transactionInPreviousWeek(
 
 function playerBrief(player: Json): Json {
   return {
+    playerId: player.playerId,
     name: player.name,
     slot: player.slot,
     actualPosition: player.actualPosition,
@@ -99,6 +100,105 @@ function matchupWithSignals(matchup: Json, teamById: Map<string, Json>): Json {
     home: addSignals(matchup.home as Json),
     away: addSignals(matchup.away as Json),
   };
+}
+
+function buildMultiWeekStoryCandidates(finals: Json[], transactions: Json[], teams: Json[], previousWeek: number): Json[] {
+  const round = (n: number) => Math.round(n * 10) / 10;
+  const teamById = new Map(teams.map((t) => [String(t.teamId), t]));
+  const playerWeeks = new Map<string, Json[]>();
+  const lineupMistakes = new Map<string, Json[]>();
+  for (const matchup of finals) {
+    const week = Number(matchup.week);
+    if (week > previousWeek) continue;
+    for (const side of [matchup.home, matchup.away] as Json[]) {
+      const teamId = String(side.teamId);
+      const teamName = String(side.teamName ?? teamById.get(teamId)?.name ?? "Unknown Team");
+      const players = Array.isArray(side.players) ? side.players as Json[] : [];
+      for (const player of players) {
+        const playerId = String(player.playerId ?? player.name ?? "");
+        if (!playerId) continue;
+        const rows = playerWeeks.get(playerId) ?? [];
+        rows.push({ week, teamId, teamName, points: Number(player.points ?? 0), started: Boolean(player.isStarter), name: player.name });
+        playerWeeks.set(playerId, rows);
+      }
+      const starters = players.filter((p) => p.isStarter);
+      const bench = players.filter((p) => !p.isStarter);
+      for (const benched of bench) {
+        const pos = String(benched.actualPosition ?? "").toUpperCase();
+        const eligible = starters.filter((s) => {
+          const slot = String(s.slot ?? "").toUpperCase();
+          return (pos === "QB" && slot === "QB") || (pos === "RB" && ["RB", "FLEX", "W/R/T"].includes(slot)) ||
+            (pos === "WR" && ["WR", "FLEX", "W/R/T"].includes(slot)) || (pos === "TE" && ["TE", "FLEX", "W/R/T"].includes(slot)) ||
+            (["DEF", "D/ST"].includes(pos) && slot === "DEF") || (pos === "K" && slot === "K");
+        });
+        if (!eligible.length) continue;
+        const replacement = [...eligible].sort((a,b) => Number(a.points ?? 0) - Number(b.points ?? 0))[0];
+        const gain = Number(benched.points ?? 0) - Number(replacement.points ?? 0);
+        if (gain < 8) continue;
+        const rows = lineupMistakes.get(teamId) ?? [];
+        rows.push({ week, gain, bench: String(benched.name), starter: String(replacement.name), teamName });
+        lineupMistakes.set(teamId, rows);
+      }
+    }
+  }
+  const candidates: Json[] = [];
+  for (const [teamId, mistakes] of lineupMistakes) {
+    if (mistakes.length >= 2) {
+      const total = mistakes.reduce((s, x) => s + Number(x.gain), 0);
+      candidates.push({
+        type: "repeated_start_sit_mistakes",
+        priority: round(total + mistakes.length * 10),
+        team: String(mistakes[0].teamName ?? teamById.get(teamId)?.name ?? "Unknown Team"),
+        evidence: mistakes.map((x) => "Week " + x.week + ": left " + x.bench + " on the bench for " + x.starter + ", costing " + round(Number(x.gain)) + " points").join("; "),
+        occurrences: mistakes.length,
+        pointsLeft: round(total),
+      });
+    }
+  }
+  for (const [playerId, rows] of playerWeeks) {
+    const byTeam = new Map<string, Json[]>();
+    for (const row of rows) {
+      const arr = byTeam.get(String(row.teamId)) ?? [];
+      arr.push(row); byTeam.set(String(row.teamId), arr);
+    }
+    for (const teamRows of byTeam.values()) {
+      const recent = teamRows.filter((r) => Number(r.week) >= previousWeek - 2).sort((a,b) => Number(a.week)-Number(b.week));
+      if (recent.length < 3) continue;
+      const avg = recent.reduce((s,r) => s + Number(r.points), 0) / recent.length;
+      if (avg >= 25 && recent.every((r) => Boolean(r.started))) {
+        candidates.push({
+          type: "player_carry",
+          priority: round(avg * recent.length),
+          team: String(recent[0].teamName),
+          player: String(recent[0].name ?? playerId),
+          evidence: "Scored " + recent.map(r => round(Number(r.points))).join(", ") + " over Weeks " + recent.map(r => r.week).join(", ") + ", averaging " + round(avg) + ".",
+        });
+      }
+    }
+  }
+  const txs = [...transactions].sort((a,b) => Date.parse(String(a.timestamp ?? "")) - Date.parse(String(b.timestamp ?? "")));
+  for (const tx of txs) {
+    const teamId = String(tx.teamId ?? "");
+    const adds = Array.isArray(tx.playersAdded) ? tx.playersAdded as Json[] : [];
+    if (!teamId || !adds.length) continue;
+    for (const added of adds) {
+      const playerId = String(added.playerId ?? "");
+      if (!playerId) continue;
+      const post = (playerWeeks.get(playerId) ?? []).filter(r => String(r.teamId) === teamId && Number(r.week) <= previousWeek).sort((a,b) => Number(a.week)-Number(b.week)).slice(-3);
+      if (post.length < 2) continue;
+      const avg = post.reduce((s,r) => s + Number(r.points), 0) / post.length;
+      if (avg >= 15) {
+        candidates.push({
+          type: "pickup_payoff",
+          priority: round(avg * post.length),
+          team: String(post[post.length - 1].teamName),
+          player: String(added.name ?? playerId),
+          evidence: "After being acquired, " + String(added.name ?? playerId) + " scored " + post.map(r => round(Number(r.points))).join(", ") + " across " + post.length + " weeks, averaging " + round(avg) + ".",
+        });
+      }
+    }
+  }
+  return candidates;
 }
 
 function buildNarrativeContext(
@@ -233,8 +333,9 @@ function buildNarrativeContext(
     });
   }
 
+  candidates.push(...buildMultiWeekStoryCandidates(finals, transactions, teams, previousWeek));
   candidates.sort((a, b) => Number(b.priority ?? 0) - Number(a.priority ?? 0));
-  return { teamTrends, storyCandidates: candidates.slice(0, 20) };
+  return { teamTrends, storyCandidates: candidates.slice(0, 30) };
 }
 
 function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: number): Json[] {
@@ -588,6 +689,7 @@ async function main() {
       standings: isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
       superlatives: previousSuperlatives,
       transactions: previousWeekTransactions,
+      allTransactionsThroughWeek: transactions,
     },
     upcomingWeek: {
       week: upcomingWeek,
