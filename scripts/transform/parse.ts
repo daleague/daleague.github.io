@@ -216,6 +216,7 @@ export function parseMatchups(raw: unknown, season: number, weekFallback?: numbe
       const projected = nestedTotal(team.team_projected_points) ?? nestedTotal(findObjects(team, "team_projected_points")[0]);
       return {
         teamId: normalizeTeamId(team.team_key, team.team_id),
+        teamName: str(team.name, "") || undefined,
         score: pointsFrom(team, "team_points"),
         projectedScore: projected,
         winProbability: winProbPct(team.win_probability ?? first(team, "win_probability")),
