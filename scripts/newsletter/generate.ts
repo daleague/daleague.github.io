@@ -517,7 +517,6 @@ async function main() {
   }
 
   const isBackfill = Boolean(process.env.NEWSLETTER_WEEK);
-  const currentWeek = Number(league.currentWeek);
   const upcomingWeek = previousWeek + 1;
   const generatedAt =
     typeof league.lastUpdatedAt === "string"
