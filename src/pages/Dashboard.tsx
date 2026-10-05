@@ -5,6 +5,7 @@ import { ScoreTicker } from "@/components/ScoreTicker";
 import { MatchupCard } from "@/components/MatchupCard";
 import { WeekSelector } from "@/components/WeekSelector";
 import { SuperlativeCard } from "@/components/SuperlativeCard";
+import { LastUpdated } from "@/components/LastUpdated";
 
 export function Dashboard() {
   const { league, teams, matchups, superlatives, superlativeHistory } = useOutletContext<LeagueBundle>();
@@ -44,6 +45,8 @@ export function Dashboard() {
           </span>
         )}
       </div>
+
+      <LastUpdated league={league} className="-mt-5" />
 
       <WeekSelector weeks={availableWeeks} currentWeek={league.currentWeek} selectedWeek={requestedWeek} />
 
