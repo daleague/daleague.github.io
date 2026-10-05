@@ -98,6 +98,7 @@ jobs:
             npm run newsletter:generate
           fi
       - name: Commit newsletter
+        if: always()
         run: |
           if git diff --quiet -- newsletter/data newsletter/output; then
             echo "No newsletter files changed."
