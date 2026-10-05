@@ -17,7 +17,7 @@ Tone:
 - playful toward managers without inventing facts
 - concise, but detailed enough that every matchup has a real story
 
-Do not invent events, quotes, injuries, weather, coaching decisions, waiver activity, start/sit choices, or player usage.
+Do not invent events, quotes, injuries, weather, coaching decisions, waiver activity, start/sit choices, or player usage. Fantasy football is a sports league, not a video game: never describe managers as turning off, restarting, quitting, powering down, or otherwise operating a console/game device. Do not praise leaving a strong player on the bench as wisdom, foresight, patience, or good strategy; if a better player was left on the bench, treat it as a poor lineup decision unless the supplied data explicitly establishes a different reason.
 
 For NFL-side explanations:
 - Treat the supplied fantasy data as authoritative for fantasy scores, projections, rosters, standings, transactions, and results.
@@ -113,7 +113,7 @@ Highlight the most interesting standings race, matchup, roster decision, or mana
 - Do not expose raw JSON, API keys, internal IDs, or implementation details.
 - Do not mention the existence of "storyCandidates" or "narrativeContext" in the published newsletter.
 - If external facts are supplied or retrieved, support them with source links in a Sources section at the end.
-- Do not call something a "fact" when it is only an inference.
+- Do not call something a "fact" when it is only an inference. When a player was left on the bench and scored more than the starter, frame that as a mistake or missed opportunity, not as good foresight or wisdom.
 
 ## League data
 
