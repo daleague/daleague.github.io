@@ -103,20 +103,24 @@ function Markdown({ markdown }: { markdown: string }) {
 
 export function Newsletter() {
   const { league } = useOutletContext<LeagueContext>();
-  const completedWeeks = useMemo(
-    () => [...(league.completedWeeks ?? [])].sort((a, b) => b - a),
+  const maxWeek = useMemo(
+    () => Math.max(0, ...(league.completedWeeks ?? [])),
     [league.completedWeeks],
   );
-  const [week, setWeek] = useState<number | null>(completedWeeks[0] ?? null);
+  const weeks = useMemo(
+    () => Array.from({ length: maxWeek }, (_, index) => index + 1),
+    [maxWeek],
+  );
+  const [week, setWeek] = useState<number | null>(maxWeek || null);
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(false);
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
-    if (completedWeeks.length && !completedWeeks.includes(week ?? -1)) {
-      setWeek(completedWeeks[0]);
+    if (maxWeek && (!week || week > maxWeek)) {
+      setWeek(maxWeek);
     }
-  }, [completedWeeks, week]);
+  }, [maxWeek, week]);
 
   useEffect(() => {
     if (!week) return;
@@ -145,7 +149,7 @@ export function Newsletter() {
 
   return (
     <section>
-      <div className="mb-8 flex flex-col gap-4 border-b border-hairline pb-6 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-8 border-b border-hairline pb-6">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">The League Press</p>
           <h1 className="mt-1 font-display text-4xl font-semibold tracking-wide text-ink">Weekly Newsletter</h1>
@@ -153,17 +157,30 @@ export function Newsletter() {
             The league's weekly recap and preview, written after Monday Night Football.
           </p>
         </div>
-        {completedWeeks.length > 0 && (
-          <label className="flex items-center gap-3 text-xs font-mono uppercase tracking-wide text-muted">
-            Week
-            <select
-              value={week ?? ""}
-              onChange={(event) => setWeek(Number(event.target.value))}
-              className="rounded-lg border border-hairline bg-base px-3 py-2 text-ink"
-            >
-              {completedWeeks.map((value) => <option key={value} value={value}>{value}</option>)}
-            </select>
-          </label>
+
+        {weeks.length > 0 && (
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-xs font-mono uppercase tracking-wide text-muted">Week</span>
+            {weeks.map((value) => {
+              const selected = value === week;
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setWeek(value)}
+                  className={`min-w-9 rounded-lg border px-3 py-2 text-sm font-mono transition-colors ${
+                    selected
+                      ? "border-gold bg-gold text-base"
+                      : "border-hairline bg-base text-muted hover:border-gold/60 hover:text-ink"
+                  }`}
+                  aria-pressed={selected}
+                  aria-label={`Load Week ${value} newsletter`}
+                >
+                  {value}
+                </button>
+              );
+            })}
+          </div>
         )}
       </div>
 
@@ -172,7 +189,7 @@ export function Newsletter() {
       {!loading && missing && (
         <div className="rounded-2xl border border-hairline bg-base/60 p-8 text-center">
           <p className="font-display text-lg text-ink">Week {week} has not been published yet.</p>
-          <p className="mt-2 text-sm text-muted">Once the Tuesday newsletter job generates it, it will appear here.</p>
+          <p className="mt-2 text-sm text-muted">Once the newsletter job generates it, it will appear here.</p>
         </div>
       )}
 
