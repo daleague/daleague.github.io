@@ -31,6 +31,15 @@ function latestWeek(weeks: number[]): number {
   return weeks.length ? Math.max(...weeks) : 0;
 }
 
+function historicalTeamName(history: Json[], teamId: string, week: number, fallback: string): string {
+  for (const matchup of history.filter((m) => Number(m.week) === week)) {
+    for (const side of [matchup.home, matchup.away] as Json[]) {
+      if (String(side.teamId) === teamId && typeof side.teamName === "string" && side.teamName) return side.teamName;
+    }
+  }
+  return fallback;
+}
+
 function transactionInPreviousWeek(
   transaction: Json,
   generatedAt: string,
@@ -67,7 +76,7 @@ function matchupWithSignals(matchup: Json, teamById: Map<string, Json>): Json {
     const team = teamById.get(String(side.teamId)) ?? {};
     return {
       teamId: side.teamId,
-      teamName: team.name,
+      teamName: String(side.teamName ?? team.name),
       managerName: team.managerName,
       score: side.score,
       projectedScore: side.projectedScore,
@@ -130,7 +139,7 @@ function buildNarrativeContext(
     for (let i = row.results.length - 1; i >= 0 && row.results[i] === streakResult; i--) streak++;
     return {
       teamId: id,
-      teamName: team.name,
+      teamName: historicalTeamName(finals, id, previousWeek, team.name),
       managerName: team.managerName,
       rank: standings.find((s) => String(s.teamId) === id)?.rank ?? null,
       record: String(row.results.filter((r) => r === "W").length) + "-" + String(row.results.filter((r) => r === "L").length),
@@ -158,20 +167,20 @@ function buildNarrativeContext(
     const projectedDiff = Number(winner.projectedScore ?? NaN) - Number(loser.projectedScore ?? NaN);
 
     if (Number.isFinite(prob) && prob < 50) candidates.push({
-      type: "upset", priority: round(50 - prob), team: teamById.get(String(winner.teamId))?.name,
+      type: "upset", priority: round(50 - prob), team: String(winner.teamName ?? teamById.get(String(winner.teamId))?.name ?? "Unknown Team"),
       evidence: "Won despite a " + round(prob) + "% pre-matchup win probability."
     });
     else if (Number.isFinite(projectedDiff) && projectedDiff < 0) candidates.push({
-      type: "upset", priority: round(-projectedDiff), team: teamById.get(String(winner.teamId))?.name,
+      type: "upset", priority: round(-projectedDiff), team: String(winner.teamName ?? teamById.get(String(winner.teamId))?.name ?? "Unknown Team"),
       evidence: "Won while projected to score " + round(-projectedDiff) + " fewer points."
     });
 
     if (margin >= 30) candidates.push({
-      type: "blowout", priority: round(margin), team: teamById.get(String(winner.teamId))?.name,
+      type: "blowout", priority: round(margin), team: String(winner.teamName ?? teamById.get(String(winner.teamId))?.name ?? "Unknown Team"),
       evidence: "Won by " + round(margin) + " points."
     });
     if (margin <= 5) candidates.push({
-      type: "close_game", priority: round(5 - margin), team: teamById.get(String(winner.teamId))?.name,
+      type: "close_game", priority: round(5 - margin), team: String(winner.teamName ?? teamById.get(String(winner.teamId))?.name ?? "Unknown Team"),
       evidence: "Won by only " + round(margin) + " points."
     });
 
@@ -194,7 +203,7 @@ function buildNarrativeContext(
         const replacement = [...eligible].sort((a, b) => Number(a.points ?? 0) - Number(b.points ?? 0))[0];
         const gain = Number(benched.points ?? 0) - Number(replacement.points ?? 0);
         if (gain >= 8) candidates.push({
-          type: "bench_mistake", priority: round(gain), team: teamById.get(id)?.name,
+          type: "bench_mistake", priority: round(gain), team: String(side.teamName ?? teamById.get(id)?.name ?? "Unknown Team"),
           evidence: "Left " + String(benched.name) + " (" + round(Number(benched.points ?? 0)) + ") on the bench for " +
             String(replacement.name) + " (" + round(Number(replacement.points ?? 0)) + "), a " + round(gain) + "-point swing.",
           wouldHaveChangedResult: winnerId !== id && Number(side.score ?? 0) + gain > Number((winnerId === String(home.teamId) ? away : home).score ?? 0)
@@ -251,7 +260,7 @@ function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: n
       const row = rows.get(id) ?? { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
       return {
         teamId: id,
-        teamName: team.name,
+        teamName: historicalTeamName(history, id, throughWeek, team.name),
         managerName: team.managerName,
         wins: row.wins,
         losses: row.losses,
@@ -270,7 +279,7 @@ function previewMatchup(matchup: Json, teamById: Map<string, Json>): Json {
     const players = Array.isArray(side.players) ? side.players as Json[] : [];
     return {
       teamId: side.teamId,
-      teamName: team.name,
+      teamName: String(side.teamName ?? team.name),
       managerName: team.managerName,
       players: players.map((player) => ({
         name: player.name,
@@ -585,7 +594,9 @@ async function main() {
       matchups: upcomingMatchups,
       rosters,
     },
-    teams,
+    teams: isBackfill
+      ? teams.map((team) => ({ ...team, name: historicalTeamName(matchupsHistory, String(team.teamId), previousWeek, team.name) }))
+      : teams,
     narrativeContext: buildNarrativeContext(
       matchupsHistory,
       isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
