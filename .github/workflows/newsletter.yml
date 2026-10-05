@@ -7,6 +7,15 @@ on:
     - cron: "5 0 * * 2"
       timezone: "America/Chicago"
   workflow_dispatch:
+    inputs:
+      newsletter_week:
+        description: "Generate one specific completed week (leave blank for latest)"
+        required: false
+        type: string
+      backfill_weeks:
+        description: "Generate this many most-recent completed weeks (leave blank for normal weekly run)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -19,7 +28,7 @@ env:
   NODE_VERSION: 22
   NEWSLETTER_ENABLED: ${{ vars.NEWSLETTER_ENABLED || 'false' }}
   NEWSLETTER_PROVIDER: ${{ vars.NEWSLETTER_PROVIDER || 'openai' }}
-  NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL }}
+  NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL || 'gemini-3.5-flash-lite' }}
   YAHOO_GAME_ID: ${{ vars.YAHOO_GAME_ID || 'nfl' }}
   YAHOO_SEASON: ${{ vars.YAHOO_SEASON || '2026' }}
   YAHOO_LEAGUE_ID: ${{ vars.YAHOO_LEAGUE_ID }}
@@ -70,10 +79,21 @@ jobs:
           NEWSLETTER_ENABLED: ${{ env.NEWSLETTER_ENABLED }}
           NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
           NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
+          NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
+          NEWSLETTER_BACKFILL_WEEKS: ${{ inputs.backfill_weeks }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: npm run newsletter:generate
-
+        run: |
+          if [ -n "$NEWSLETTER_BACKFILL_WEEKS" ]; then
+            latest=$(node -e 'const l=require("./data/current/league.json"); console.log(Math.max(...(l.completedWeeks || [])))')
+            start=$((latest - NEWSLETTER_BACKFILL_WEEKS + 1))
+            for week in $(seq "$start" "$latest"); do
+              echo "Generating newsletter for Week $week"
+              NEWSLETTER_WEEK="$week" NEWSLETTER_FORCE=true npm run newsletter:generate
+            done
+          else
+            npm run newsletter:generate
+          fi
       - name: Commit newsletter
         run: |
           if git diff --quiet -- newsletter/data newsletter/output; then
