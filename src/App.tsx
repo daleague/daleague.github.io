@@ -8,6 +8,7 @@ import { Teams } from "@/pages/Teams";
 import { PowerRankings } from "@/pages/PowerRankings";
 import { RecordBook } from "@/pages/RecordBook";
 import { Superlatives } from "@/pages/Superlatives";
+import { Newsletter } from "@/pages/Newsletter";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/power-rankings" element={<PowerRankings />} />
           <Route path="/records" element={<RecordBook />} />
           <Route path="/superlatives" element={<Superlatives />} />
+          <Route path="/newsletter" element={<Newsletter />} />
         </Route>
       </Routes>
     </HashRouter>
