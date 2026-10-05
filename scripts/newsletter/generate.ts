@@ -240,7 +240,7 @@ function buildNarrativeContext(
     for (let i = row.results.length - 1; i >= 0 && row.results[i] === streakResult; i--) streak++;
     return {
       teamId: id,
-      teamName: historicalTeamName(finals, id, previousWeek, team.name),
+      teamName: historicalTeamName(finals, id, previousWeek, String(team.name ?? "Unknown Team")),
       managerName: team.managerName,
       rank: standings.find((s) => String(s.teamId) === id)?.rank ?? null,
       record: String(row.results.filter((r) => r === "W").length) + "-" + String(row.results.filter((r) => r === "L").length),
@@ -362,7 +362,7 @@ function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: n
       const row = rows.get(id) ?? { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
       return {
         teamId: id,
-        teamName: historicalTeamName(history, id, throughWeek, team.name),
+        teamName: historicalTeamName(history, id, throughWeek, String(team.name ?? "Unknown Team")),
         managerName: team.managerName,
         wins: row.wins,
         losses: row.losses,
@@ -698,7 +698,7 @@ async function main() {
       rosters,
     },
     teams: isBackfill
-      ? teams.map((team) => ({ ...team, name: historicalTeamName(matchupsHistory, String(team.teamId), previousWeek, team.name) }))
+      ? teams.map((team) => ({ ...team, name: historicalTeamName(matchupsHistory, String(team.teamId), previousWeek, String(team.name ?? "Unknown Team")) }))
       : teams,
     narrativeContext: buildNarrativeContext(
       matchupsHistory,
