@@ -29,6 +29,8 @@ env:
   NEWSLETTER_ENABLED: ${{ vars.NEWSLETTER_ENABLED || 'false' }}
   NEWSLETTER_PROVIDER: ${{ vars.NEWSLETTER_PROVIDER || 'gemini' }}
   NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL || 'gemini-3.5-flash-lite' }}
+  # Current-events enrichment is opt-in. Google Search grounding is separately opt-in because Gemini API Search grounding is not available on the free API tier.
+  NEWSLETTER_CURRENT_EVENTS_ENABLED: ${{ vars.NEWSLETTER_CURRENT_EVENTS_ENABLED || 'false' }}
   YAHOO_GAME_ID: ${{ vars.YAHOO_GAME_ID || 'nfl' }}
   YAHOO_SEASON: ${{ vars.YAHOO_SEASON || '2026' }}
   YAHOO_LEAGUE_ID: ${{ vars.YAHOO_LEAGUE_ID }}
@@ -86,6 +88,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_ENABLE_SEARCH: ${{ vars.GEMINI_ENABLE_SEARCH || 'false' }}
+          NEWSLETTER_CURRENT_EVENTS_ENABLED: ${{ vars.NEWSLETTER_CURRENT_EVENTS_ENABLED || 'false' }}
         run: |
           if [ -n "$NEWSLETTER_BACKFILL_WEEKS" ]; then
             latest=$(node -e 'const l=require("./data/current/league.json"); console.log(Math.max(...(l.completedWeeks || [])))')
