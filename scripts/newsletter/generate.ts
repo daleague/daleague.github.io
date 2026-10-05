@@ -476,7 +476,7 @@ async function main() {
     .map((matchup) => matchupWithSignals(matchup, teamById));
   const upcomingMatchups = matchupsCurrent
     .filter((matchup) => Number(matchup.week) === upcomingWeek)
-    .map(matchupWithSignals);
+    .map((matchup) => matchupWithSignals(matchup, teamById));
 
   const previousSuperlatives = superlativesHistory.filter(
     (superlative) => Number(superlative.week) === previousWeek,
