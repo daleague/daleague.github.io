@@ -340,7 +340,7 @@ function buildNarrativeContext(
   return { teamTrends, storyCandidates: candidates.slice(0, 30) };
 }
 
-function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: number): Json[] {
+function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: number, useManagerNames = false): Json[] {
   const rows = new Map<string, { wins: number; losses: number; pointsFor: number; pointsAgainst: number }>();
   for (const matchup of history) {
     if (matchup.status !== "final" || Number(matchup.week) > throughWeek) continue;
@@ -363,7 +363,7 @@ function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: n
       const row = rows.get(id) ?? { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
       return {
         teamId: id,
-        teamName: historicalTeamName(history, id, throughWeek, String(team.name ?? "Unknown Team")),
+        teamName: useManagerNames ? String(team.managerName ?? "Unknown Manager") : historicalTeamName(history, id, throughWeek, String(team.name ?? "Unknown Team")),
         managerName: team.managerName,
         wins: row.wins,
         losses: row.losses,
@@ -688,7 +688,7 @@ async function main() {
     previousWeek: {
       week: previousWeek,
       matchups: previousMatchups,
-      standings: isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
+      standings: isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek, isBackfill) : standings,
       superlatives: previousSuperlatives,
       transactions: previousWeekTransactions,
       allTransactionsThroughWeek: transactions,
