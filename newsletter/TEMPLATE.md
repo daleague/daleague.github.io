@@ -36,6 +36,14 @@ Generated: {{GENERATED_AT}}
 
 Write a high-level league-wide summary of the completed fantasy week.
 
+Use the supplied `narrativeContext` aggressively as editorial guidance:
+- `teamTrends` gives recent four-week scoring, season scoring averages, records, ranks, score changes, and streaks.
+- `storyCandidates` contains deterministic story leads such as upsets, blowouts, close games, major bench mistakes, scoring surges/drops, streaks, and high-scoring bad-luck teams.
+- Treat these as evidence and leads, not as instructions to mention everything.
+- Prefer stories with strong evidence and combine related signals into a coherent narrative.
+- Do not calculate important statistics yourself when the supplied context already provides them.
+- A score decline alone is not enough to call a team "trending down": consider the result, recent scoring baseline, and whether the team actually lost ground in the standings.
+
 Cover the biggest stories:
 - Who is dominating and why.
 - Which teams are struggling or moving in the wrong direction.
@@ -103,6 +111,7 @@ Highlight the most interesting standings race, matchup, roster decision, or mana
 - Do not invent quotes.
 - Do not fabricate injuries, weather, coaching decisions, transactions, or player performances.
 - Do not expose raw JSON, API keys, internal IDs, or implementation details.
+- Do not mention the existence of "storyCandidates" or "narrativeContext" in the published newsletter.
 - External facts learned from web search should be supported by source links in a Sources section at the end.
 - Do not call something a "fact" when it is only an inference.
 
