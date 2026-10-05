@@ -1,132 +1,139 @@
 # The League — Week 1 Recap / Week 2 Preview
 
-Generated: 2026-10-05T05:58:46.997Z
+Generated: 2026-10-05T23:01:44.930Z
 
 ## 1. This Week in the League
 
-Week 1 is in the books, and the Derrick Rose Fan Club has officially transformed into a support group for managers who refuse to check their starting lineups. We kicked off the 2026 campaign with a buffet of absolute blowouts, hilarious self-sabotage, and enough points left on benches to populate an entire Pro Bowl roster. 
+Welcome to the grand opening of the fantasy infirmary, where good intentions go to die and bench-warming masterclasses rule the land. Week 1 of The Derrick Rose Fan Club gifted us everything a cynical sports columnist could ever dream of: jaw-dropping offensive explosions, catastrophic lineup malpractice, and enough self-inflicted wounds to keep the waiver wire buzzing until November. 
 
-At the summit sit Abraar Kazi’s *Swole Boy* and Zain’s *RKO the shit out of Syed*, who flexed with 161.6 and 147.2 points respectively to claim the top two spots in the standings. Abraar’s squad obliterated the competition behind Caleb Williams’ 41.3-point eruption, proving that drafting for upside actually pays off—when you don't accidentally bench your best players. 
+At the mountaintop sits Abraar Kazi, planting a flag at Rank 1 after lighting up the scoreboard with a league-high 161.6 points. Right behind him, Zain, Bilal, and Owais flexed their muscle with statement blowouts, proving that some managers actually looked at their rosters before kickoff. Owais delivered the most ruthless execution of the week, hanging a 60.7-point thrashing on Isbah that belongs in a museum of modern pain.
 
-Down in the basement, Isbah’s *I ❤️ Packers* (*77.4 pts*) and Farhan’s *Auto draft nonsense* (*77.7 pts*) endured masterclasses in offensive ineptitude, staking their claims as early-season dumpster fires. But the true tragedy of the week belongs to Shaun’s *Calendar MAN*, who posted a very respectable 122.9 points only to lose a heartbreaker because he decided his bench was a museum of better football players. Week 1 is done, the panic is real, and nobody knows what they're doing yet. Perfect.
+Meanwhile, the basement dwellers are already staring into the abyss. Isbah, Farhan, and Sameer occupy the bottom three rungs after failing to crack the century mark. But the true tragedy of Week 1 belongs to Shaun and Ammar, who both managed to put up respectable point totals (122.9 and 116.5, respectively) only to watch their opponents waltz away with the W while they left game-winning points rotting on their benches. If leaving 27.7 points on the pine is an art form, Shaun is practically Picasso. Grab your popcorn, folks—the early-season panic is officially underway.
 
 ## 2. Matchup Summaries
 
-### Muslim McCaffrey 91.72 — Suck the Sag 138.36
+### Bilal 138.4 — Sameer 91.7
 
 **What happened**
 
-Sameer’s *Muslim McCaffrey* ran headfirst into a buzzsaw named Josh Allen. While Sameer managed a decent 30.7 points from Jalen Hurts and 20 from Trey McBride, the rest of the starting lineup completely fell asleep at the wheel—culminating in a disastrous -2 points from the Texans defense and a measly 4.1 from Davante Adams. Bilal’s *Suck the Sag*, meanwhile, looked like an All-Pro factory, fueled by Josh Allen’s monster 39.6-point explosion, 31.9 from D'Andre Swift, and 22.2 from Jaxon Smith-Njigba. 
+Bilal rolled into Week 1 and immediately turned Sameer's roster into a crime scene, paced by an absurd 39.66-point masterclass from Josh Allen and a 31.9-point explosion from D'Andre Swift. Sameer actually got some solid work out of Jalen Hurts (30.72) and Trey McBride (20), but the rest of the starting lineup flatlined, capped off by a hilariously disastrous -2 points from the Texans defense.
 
 **Manager moves**
 
-Sameer left Dontayvion Wicks’ 14.3 points rotting on the bench while trotting out Davante Adams’ 4.1-point dud. Meanwhile, Bilal resisted the urge to panic-drop anyone important and let his high-end construction do the heavy lifting, despite getting almost zero from Quinshon Judkins and Harold Fannin Jr.
+Sameer’s bench gave a masterclass in regret, specifically by leaving Dontayvion Wicks’s 14.3 points sitting comfortably on the pine while trusting Davante Adams to do... well, pretty much nothing (4.1 points). A 10.2-point swing wouldn't have bridged the massive gap Bilal created, but it certainly would have made the scoreboard look less embarrassing.
 
 **Why it happened**
 
-Josh Allen did what Josh Allen does, treating the opposing defense like traffic cones, while Sameer’s roster construction suffered from a classic case of "star players failing to show up on the same afternoon." When your defense scores negative points, you aren't just losing—you're actively assisting the enemy.
+When your quarterback drops nearly 40 fantasy points and your running back breaks the slate, you don't need much else to secure a win. Bilal simply caught lightning in a bottle while Sameer's supporting cast decided to take the week off.
 
-> **Verdict:** Sameer built a roster called Muslim McCaffrey, but forgot to actually install any McCaffrey-level heroics in the starting lineup.
+> **Verdict:** Sameer built a house of cards, and Josh Allen brought a bulldozer.
 
-### Calandar MAN 104.66 — Auto draft nonsense 77.66
-
-**What happened**
-
-A battle of the lowest-scoring victors resulted in WC’s *Calandar MAN* scraping past Farhan’s auto-piloted squad in a game that felt more like a defensive struggle in a monsoon than modern fantasy football. WC survived thanks to Isaiah Likely’s surprising 23.8-point tight end masterclass and steady games from Joe Burrow and Chase Brown, while Farhan’s team flatlined outside of Lamar Jackson’s 27.0-point heroics and Tyler Loop’s 15.2 points from the kicker spot.
-
-**Manager moves**
-
-Farhan left Tucker Kraft’s 8 points and Bo Nix’s 8.4 points on the bench, but let’s be honest—when your starting tight end (Colston Loveland) and starting receiver (Drake London) combine for a cool zero points, you are at the mercy of the computer gods. WC wisely stashed Jacory Croskey-Merritt and Jordan Mason on the bench where they safely outscored most of the active lineup.
-
-**Why it_happened**
-
-Farhan’s auto-drafted roster lived down to every single stereotype associated with letting an algorithm make your picks. When Ja'Marr Chase and Drake London combine for 6.7 points, your weekly ceiling is roughly that of a slightly damp cardboard box.
-
-> **Verdict:** Farhan proved that an automated draft is just a very slow, methodical way to lose by 27 points.
-
-### Calendar MAN 122.86 — MASOOD the SHIT out of zain 128.40
+### WC 104.7 — Farhan 77.7
 
 **What happened**
 
-The Game of the Week delivered maximum drama and maximum pain. Shaun’s *Calendar MAN* put up a stellar 122.9 points—good enough to beat almost anyone else in the league—only to run into Sydaddy’s *MASOOD the SHIT out of zain*. Sydaddy rode massive performances from Trevor Lawrence (34.1), Jahmyr Gibbs (31.1), and Kyren Williams (14.0) to outpace Shaun’s strong efforts from Ashton Jeanty (29.7) and Justin Jefferson (27.2).
+In a matchup that can only be described as a race down a very muddy hill, WC narrowly out-sludged Farhan to secure a victory despite failing to clear 105 points. Isaiah Likely saved WC's bacon with a massive 23.8-point tight end performance, rescuing an otherwise grim starting lineup where three different players failed to crack nine points. Farhan, meanwhile, got 26.96 points from Lamar Jackson and then watched the rest of his team collectively unplug their controllers.
 
 **Manager moves**
 
-This was a crime scene of managerial malpractice. Shaun left Jalen Coker’s staggering 29.8 points sitting comfortably on the bench while starting Courtland Sutton’s pitiful 2.1 points. A simple swap would have turned a heartbreaking loss into a 22.2-point victory. To make matters worse, Shaun also benched Travis Kelce for a goose egg from Kyle Pitts Sr. 
+Farhan left 8 points of Tucker Kraft on the bench while Colston Loveland put up a glorious zero in the starting tight end slot. Not that it mattered much when Ja'Marr Chase and Drake London combined for a stunning 6.7 points of total output. 
 
 **Why it happened**
 
-Shaun managed to assemble a championship-caliber score while simultaneously locking half of it in the trophy case. You simply cannot bench a 29-point receiver and expect the fantasy gods to spare you from Sydaddy’s wrath.
+Farhan's lineup suffered from an alarming lack of actual football being played by his wide receivers and tight ends, proving that having a superstar quarterback like Lamar Jackson doesn't mean much when your pass-catchers decide to play hide-and-seek.
 
-> **Verdict:** Shaun invented a brand-new way to lose: scoring 122 points while actively trying to keep his best players out of the game.
+> **Verdict:** Winning with 104 points is like winning a street fight by throwing a single wet sponge.
 
-### RKO the shit out of Syed 147.20 — Calander MAN 116.50
-
-**What happened**
-
-Zain’s *RKO the shit out of Syed* pulled off the week's biggest upset by projection, crushing Ammar’s *Calander MAN* by over 30 points. Zain’s running backs absolutely feasted, with Kenneth Walker III going nuclear for 32.6 points and Javonte Williams adding 21.7. Ammar got a fantastic 32.6 points out of Jaxson Dart, but his starting wideouts and tight end completely vanished.
-
-**Manager moves**
-
-Ammar committed the cardinal sin of benching Christian Watson’s massive 29.7-point explosion in favor of DeVonta Smith’s 6.8 points. Meanwhile, Zain played it smart by letting Dalton Kincaid (15.5) and Mike Evans (13.9) safely marinate on the bench while his starters did the heavy lifting anyway.
-
-**Why it happened**
-
-Kenneth Walker III decided to treat Week 1 like an audition for the hall of fame, dragging Zain’s projected underdog status behind the woodshed and beating it with a folding chair. Ammar's bench points were elite, but fantasy matches aren't won by the guys wearing baseball caps on the sidelines.
-
-> **Verdict:** Ammar left 29 points on the bench like a man who hates winning free money.
-
-### I ❤️ Packers 77.42 — Lovebirds 138.16
+### Sydaddy 128.4 — Shaun 122.9
 
 **What happened**
 
-Isbah’s *I ❤️ Packers* experienced a complete structural collapse, limping to a pathetic 77.4 points and earning the undisputed Dumpster Fire of the Week crown. Owais’s *Lovebirds* didn't even need to sweat, cruising to a statement victory behind Derrick Henry’s vintage 34.8-point demolition, Amon-Ra St. Brown (23.7), and Chris Olave (23.2).
+This was the undisputed heartbreaker of the week. Shaun posted a very respectable 122.86 points behind monster games from Ashton Jeanty (29.7) and Justin Jefferson (27.2), but it wasn't enough to stop Sydaddy. Armed with Trevor Lawrence’s 34.1-point aerial show and Jahmyr Gibbs churning out 31.1 points on the ground, Sydaddy stole a thrilling victory in a heavyweight shootout.
 
 **Manager moves**
 
-Isbah left Jakobi Meyers’ 11.2 points on the bench while Jaylen Waddle put up a majestic 0.7 points in the starting lineup. Owais, meanwhile, enjoyed a peaceful week where even his worst starters outscored Isbah's entire top tier.
+Shaun earned the crown jewel of managerial malpractice this week. Jalen Coker sat on the bench scoring 29.8 points while Courtland Sutton trotted out to score a meager 2.1 points—a catastrophic 27.7-point swing. Add in Travis Kelce’s 8.6 bench points over Kyle Pitts Sr.'s zero, and Shaun gift-wrapped a win for the ages to the opposition.
 
 **Why it happened**
 
-When your kicker (Brandon Aubrey) and defense (Broncos) combine for 5 points and your starting receiver gives you less than a single point, you aren't playing fantasy football—you're participating in a charity event. Derrick Henry simply ran over whatever was left of Isbah’s playoff hopes in Week 1.
+Sydaddy leaned heavily on explosive running back and quarterback play, but let's be entirely honest: Shaun beat Shaun by a landslide before the Sunday night games even kicked off.
 
-> **Verdict:** Isbah loves the Packers, but her fantasy team definitely loves the waiver wire.
+> **Verdict:** Leaving 36 points on your bench is a bold strategy; losing by five points because of it is pure poetry.
 
-### Tuten Brown Shite 106.84 — Swole Boy 161.56
+### Zain 147.2 — Ammar 116.5
 
 **What happened**
 
-Abraar Kazi’s *Swole Boy* put on an absolute clinic, dropping a league-high 161.6 points to dismantle Faizan’s *Tuten Brown Shite*. Abraar was powered by Caleb Williams’ ridiculous 41.26-point masterclass, alongside massive games from Bijan Robinson (27.3), David Montgomery (27.4), and Zay Flowers (23.5). Faizan fought hard with Jonathan Taylor (23.6) and Dallas Goedert (21.7), but was buried by an absolute ghost town from his wide receiver corps.
+Zain pulled off a stunning upset as a projected underdog, detonating for a massive 147.2 points. Kenneth Walker III led the charge with a scorching 32.6-point performance, backed up by solid double-digit floors across almost every single starting slot. Ammar put up a fight with Jaxson Dart throwing up 32.6 points, but the high-flying attack ultimately fell well short.
 
 **Manager moves**
 
-Faizan left Deebo Samuel Sr.’s 15 points on the bench while enduring A.J. Brown’s 4.1-point dud. Abraar, meanwhile, had Kyle Monangai’s 19.4 points sitting on the pine—though with 161 points already on the board, it hardly mattered whether Monangai was active or selling popcorn in the stands.
+Ammar suffered from premier bench regret, leaving Christian Watson's 30-point explosion (29.7) to rot on the bench while DeVonta Smith scrounged up 6.8 points. Fixing that single swap would have completely flipped the script and handed Ammar the win.
 
 **Why it happened**
 
-Caleb Williams and the Atlanta/Detroit backfield tandem turned Faizan’s defense into a speed bump. When your opponent’s quarterback outscores two of your starting wide receivers combined, you just tip your cap and log off.
+Zain's balanced, high-scoring machine simply overwhelmed Ammar's top-heavy roster, turning a projected deficit into a statement victory.
 
-> **Verdict:** Abraar brought a bazooka to a knife fight and left Faizan searching for the wreckage.
+> **Verdict:** Projections are just polite guesses, and Zain took those guesses personally.
+
+### Owais 138.2 — Isbah 77.4
+
+**What happened**
+
+Owais authored the most one-sided demolition of the week, cruising to a breezy 60.7-point victory. Derrick Henry turned back the clock for a monstrous 34.8-point masterclass, while Amon-Ra St. Brown and Chris Olave chipped in over 23 points each. Isbah's squad hit a brick wall, getting virtually zero production from Jaylen Waddle (0.7) and a dismal showing across the board.
+
+**Manager moves**
+
+Isbah tried to patch the bleeding with Jakobi Meyers's 11.2 bench points, but it was like bringing a squirt gun to a forest fire when your starting wide receiver gives you less than a single fantasy point.
+
+**Why it happened**
+
+Derrick Henry and the Detroit/New Orleans passing connection operated at maximum efficiency, while Isbah's lineup went completely dormant.
+
+> **Verdict:** Calling this a blowout feels insulting to actual storms; this was a total structural collapse.
+
+### Abraar Kazi 161.6 — Faizan 106.8
+
+**What happened**
+
+Abraar Kazi wasted no time planting his flag as the undisputed titan of Week 1, putting up a league-high 161.56 points. Caleb Williams led the offensive avalanche with 41.26 points, while Bijan Robinson and David Montgomery combined for over 54 points of pure running back dominance. Faizan managed a decent 106.8 points behind Jonathan Taylor and Dallas Goedert, but ran squarely into a buzzsaw.
+
+**Manager moves**
+
+Faizan left Deebo Samuel Sr.'s 15 points parked on the bench in favor of A.J. Brown's 4.1-point stinker. While a 10.9-point swing would have made the final score closer, it still wouldn't have been enough to slow down Abraar's runaway freight train.
+
+**Why it happened**
+
+Caleb Williams and a backfield tandem putting up video-game numbers will win you a matchup in almost any universe. Abraar simply built a superteam and let it rip.
+
+> **Verdict:** Playing Abraar in Week 1 was less of a fantasy matchup and more of an unprovoked tax audit.
 
 ## 3. Next Week Preview
 
-### Muslim McCaffrey vs. Calandar MAN (Sameer vs. WC)
-Sameer is looking to bounce back from a brutal Week 1 opener against a WC squad that backed into a win. Expect Sameer to finally unleash Dontayvion Wicks from the bench after watching him outscore half the starting lineup last week, while WC hopes Joe Burrow can keep the chain moving.
+### Sameer (0-1) vs. WC (1-0)
 
-### Calendar MAN vs. Suck the Sag (Shaun vs. Bilal)
-If Shaun doesn't start Jalen Coker this week, the league should hold an emergency intervention. Facing Bilal's juggernaut—led by Josh Allen—means Shaun cannot afford another masterclass in bench-stashing if he wants to avoid an 0-2 start.
+Sameer is looking to bounce back from a dismal Week 1 debut, but drawing WC—who snuck away with a win despite scoring just 104.7 points—presents an awkward test. Expect Sameer to lean heavily on Jalen Hurts and Christian McCaffrey to right the ship, while WC hopes Joe Burrow can string together another solid outing without needing a multi-touchdown bailout from his tight end.
 
-### RKO the shit out of Syed vs. Lovebirds (Zain vs. Owais)
-Matchup of the heavyweights. Zain's running backs carried him last week, but Owais is coming off a 60-point blowout where Derrick Henry looked unstoppable. Expect fireworks and plenty of trash talk in the chat.
+### Shaun (0-1) vs. Bilal (1-0)
 
-### I ❤️ Packers vs. Tuten Brown Shite (Isbah vs. Faizan)
-The battle for survival between two Week 1 losers. Both managers left crucial points on their benches last week and need their wide receiver groups to wake up immediately unless they enjoy sitting at the bottom of the standings.
+Ah, the "Donkey of the Week" bowl. Shaun enters Week 2 with an absolute mountain of motivation after leaving nearly 36 points on his bench in a heartbreaking Week 1 loss. Unfortunately for him, he runs into Bilal, whose squad is fresh off a blistering 138.4-point statement. If Shaun doesn't start his actual best players this time around, the collective groaning from the group chat might actually break the server.
 
-### Calandar MAN vs. Auto draft nonsense (Ammar vs. Farhan)
-Ammar has to be kicking himself after benching Christian Watson, while Farhan is hoping his auto-drafted roster accidentally remembers how to play football. Neither team can afford a second straight stinker.
+### Zain (1-0) vs. Owais (1-0)
 
-### MASOOD the SHIT out of zain vs. Swole Boy (Sydaddy vs. Abraar Kazi)
-Abraar is coming off a massive 161-point scoring explosion, but Sydaddy quietly posted a very solid 128-point win of his own. This clash features two of the sharpest looking mid-tier rosters going head-to-head for early dominance.
+This is the heavyweight clash of the undefeateds. Zain pulled off a stunning upset last week behind a 147.2-point explosion, while Owais casually murdered Isbah by 60 points. Both managers are rolling with lethal offensive cores, making this easily the marquee matchup of the slate. 
+
+### Isbah (0-1) vs. Faizan (0-1)
+
+Two wounded animals looking for their first victory of the young season. Isbah is desperately searching for someone—anyone—to step up alongside Chuba Hubbard and CeeDee Lamb, while Faizan tries to clean up a start-sit routine that left Deebo Samuel on the bench. Someone has to get into the win column, but neither team can afford another sluggish start.
+
+### Ammar (0-1) vs. Farhan (0-1)
+
+A battle of managers carrying profound Week 1 PTSD. Ammar left nearly 30 points on his bench, and Farhan watched his squad crater to a league-low 77.7 points. Both rosters possess high-end talent that completely underperformed relative to their projections, meaning this week's adjustments will be heavily scrutinized.
+
+### Sydaddy (1-0) vs. Abraar Kazi (1-0)
+
+Abraar enters Week 2 riding high after hanging a ridiculous 161.6 points on the board, while Sydaddy quietly secured a gritty 128.4-point win. Can Caleb Williams and the high-powered Abraar machine keep up their stratospheric scoring pace, or will Sydaddy’s balanced attack pop the balloon? 
 
 ### League Watch
-All eyes are locked on Shaun (*Calendar MAN*), who currently holds the patent for "Most Points Left on the Bench by a Defeated Manager." If he repeats his Week 1 blunders against Bilal, the league chat might officially revoke his manager privileges.
+
+All eyes are locked on Shaun’s lineup tab. After a masterclass in overthinking Week 1, the entire league is waiting to see if he actually pushes the right buttons or treats his bench like a museum of high-scoring artifacts.

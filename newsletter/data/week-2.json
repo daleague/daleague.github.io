@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T05:58:46.997Z",
+  "generatedAt": "2026-10-05T23:01:44.930Z",
   "season": 2026,
   "league": {
     "name": "The Derrick Rose Fan Club",
@@ -25,7 +25,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "1",
-          "teamName": "Muslim McCaffrey",
+          "teamName": "Sameer",
           "managerName": "Sameer",
           "score": 122.86,
           "projectedScore": 115.74,
@@ -217,7 +217,7 @@
         },
         "away": {
           "teamId": "2",
-          "teamName": "Calandar MAN",
+          "teamName": "WC",
           "managerName": "WC",
           "score": 100.48,
           "projectedScore": 108.26,
@@ -410,7 +410,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "3",
-          "teamName": "Calendar MAN",
+          "teamName": "Shaun",
           "managerName": "Shaun",
           "score": 87.44,
           "projectedScore": 108.88,
@@ -586,7 +586,7 @@
         },
         "away": {
           "teamId": "6",
-          "teamName": "Suck the Sag",
+          "teamName": "Bilal",
           "managerName": "Bilal",
           "score": 139.32,
           "projectedScore": 110.84,
@@ -787,7 +787,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "4",
-          "teamName": "RKO the shit out of Syed",
+          "teamName": "Zain",
           "managerName": "Zain",
           "score": 126.16,
           "projectedScore": 112.61,
@@ -971,7 +971,7 @@
         },
         "away": {
           "teamId": "12",
-          "teamName": "Lovebirds",
+          "teamName": "Owais",
           "managerName": "Owais",
           "score": 115.88,
           "projectedScore": 107.6,
@@ -1156,7 +1156,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "5",
-          "teamName": "I ❤️ Packers",
+          "teamName": "Isbah",
           "managerName": "Isbah",
           "score": 135.32,
           "projectedScore": 113.51,
@@ -1332,7 +1332,7 @@
         },
         "away": {
           "teamId": "8",
-          "teamName": "Tuten Brown Shite",
+          "teamName": "Faizan",
           "managerName": "Faizan",
           "score": 106.68,
           "projectedScore": 103.77,
@@ -1525,7 +1525,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "7",
-          "teamName": "Calander MAN",
+          "teamName": "Ammar",
           "managerName": "Ammar",
           "score": 99.3,
           "projectedScore": 98.84,
@@ -1717,7 +1717,7 @@
         },
         "away": {
           "teamId": "11",
-          "teamName": "Auto draft nonsense",
+          "teamName": "Farhan",
           "managerName": "Farhan",
           "score": 69.1,
           "projectedScore": 108.62,
@@ -1902,7 +1902,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "9",
-          "teamName": "MASOOD the SHIT out of zain",
+          "teamName": "Sydaddy",
           "managerName": "Sydaddy",
           "score": 136.88,
           "projectedScore": 116.93,
@@ -2086,7 +2086,7 @@
         },
         "away": {
           "teamId": "10",
-          "teamName": "Swole Boy",
+          "teamName": "Abraar Kazi",
           "managerName": "Abraar Kazi",
           "score": 62.62,
           "projectedScore": 106.9,
@@ -2265,7 +2265,7 @@
     "standings": [
       {
         "teamId": "6",
-        "teamName": "Suck the Sag",
+        "teamName": "Bilal",
         "managerName": "Bilal",
         "wins": 2,
         "losses": 0,
@@ -2276,7 +2276,7 @@
       },
       {
         "teamId": "4",
-        "teamName": "RKO the shit out of Syed",
+        "teamName": "Zain",
         "managerName": "Zain",
         "wins": 2,
         "losses": 0,
@@ -2287,7 +2287,7 @@
       },
       {
         "teamId": "9",
-        "teamName": "MASOOD the SHIT out of zain",
+        "teamName": "Sydaddy",
         "managerName": "Sydaddy",
         "wins": 2,
         "losses": 0,
@@ -2298,7 +2298,7 @@
       },
       {
         "teamId": "12",
-        "teamName": "Lovebirds",
+        "teamName": "Owais",
         "managerName": "Owais",
         "wins": 1,
         "losses": 1,
@@ -2309,7 +2309,7 @@
       },
       {
         "teamId": "10",
-        "teamName": "Swole Boy",
+        "teamName": "Abraar Kazi",
         "managerName": "Abraar Kazi",
         "wins": 1,
         "losses": 1,
@@ -2320,7 +2320,7 @@
       },
       {
         "teamId": "7",
-        "teamName": "Calander MAN",
+        "teamName": "Ammar",
         "managerName": "Ammar",
         "wins": 1,
         "losses": 1,
@@ -2331,7 +2331,7 @@
       },
       {
         "teamId": "1",
-        "teamName": "Muslim McCaffrey",
+        "teamName": "Sameer",
         "managerName": "Sameer",
         "wins": 1,
         "losses": 1,
@@ -2342,7 +2342,7 @@
       },
       {
         "teamId": "5",
-        "teamName": "I ❤️ Packers",
+        "teamName": "Isbah",
         "managerName": "Isbah",
         "wins": 1,
         "losses": 1,
@@ -2353,7 +2353,7 @@
       },
       {
         "teamId": "2",
-        "teamName": "Calandar MAN",
+        "teamName": "WC",
         "managerName": "WC",
         "wins": 1,
         "losses": 1,
@@ -2364,7 +2364,7 @@
       },
       {
         "teamId": "8",
-        "teamName": "Tuten Brown Shite",
+        "teamName": "Faizan",
         "managerName": "Faizan",
         "wins": 0,
         "losses": 2,
@@ -2375,7 +2375,7 @@
       },
       {
         "teamId": "3",
-        "teamName": "Calendar MAN",
+        "teamName": "Shaun",
         "managerName": "Shaun",
         "wins": 0,
         "losses": 2,
@@ -2386,7 +2386,7 @@
       },
       {
         "teamId": "11",
-        "teamName": "Auto draft nonsense",
+        "teamName": "Farhan",
         "managerName": "Farhan",
         "wins": 0,
         "losses": 2,
@@ -2732,7 +2732,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Hou"
+            "nflTeam": "Sea"
           }
         ],
         "relatedTeamId": null,
@@ -2799,7 +2799,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Hou"
+            "nflTeam": "Sea"
           }
         ],
         "playersDropped": [],
@@ -5494,7 +5494,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "1",
-          "teamName": "Muslim McCaffrey",
+          "teamName": "Sameer",
           "managerName": "Sameer",
           "players": [
             {
@@ -5597,7 +5597,7 @@
         },
         "away": {
           "teamId": "7",
-          "teamName": "Calander MAN",
+          "teamName": "Ammar",
           "managerName": "Ammar",
           "players": [
             {
@@ -5706,7 +5706,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "2",
-          "teamName": "Calandar MAN",
+          "teamName": "WC",
           "managerName": "WC",
           "players": [
             {
@@ -5809,7 +5809,7 @@
         },
         "away": {
           "teamId": "6",
-          "teamName": "Suck the Sag",
+          "teamName": "Bilal",
           "managerName": "Bilal",
           "players": [
             {
@@ -5918,7 +5918,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "3",
-          "teamName": "Calendar MAN",
+          "teamName": "Shaun",
           "managerName": "Shaun",
           "players": [
             {
@@ -6009,7 +6009,7 @@
         },
         "away": {
           "teamId": "10",
-          "teamName": "Swole Boy",
+          "teamName": "Abraar Kazi",
           "managerName": "Abraar Kazi",
           "players": [
             {
@@ -6106,7 +6106,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "4",
-          "teamName": "RKO the shit out of Syed",
+          "teamName": "Zain",
           "managerName": "Zain",
           "players": [
             {
@@ -6203,7 +6203,7 @@
         },
         "away": {
           "teamId": "8",
-          "teamName": "Tuten Brown Shite",
+          "teamName": "Faizan",
           "managerName": "Faizan",
           "players": [
             {
@@ -6312,7 +6312,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "5",
-          "teamName": "I ❤️ Packers",
+          "teamName": "Isbah",
           "managerName": "Isbah",
           "players": [
             {
@@ -6403,7 +6403,7 @@
         },
         "away": {
           "teamId": "9",
-          "teamName": "MASOOD the SHIT out of zain",
+          "teamName": "Sydaddy",
           "managerName": "Sydaddy",
           "players": [
             {
@@ -6494,7 +6494,7 @@
         "status": "upcoming",
         "home": {
           "teamId": "11",
-          "teamName": "Auto draft nonsense",
+          "teamName": "Farhan",
           "managerName": "Farhan",
           "players": [
             {
@@ -6585,7 +6585,7 @@
         },
         "away": {
           "teamId": "12",
-          "teamName": "Lovebirds",
+          "teamName": "Owais",
           "managerName": "Owais",
           "players": [
             {
@@ -8503,10 +8503,16 @@
       ]
     }
   },
+  "currentEvents": {
+    "enabled": false,
+    "date": "2026-10-05T23:01:44.930Z",
+    "calendarContext": [],
+    "searchContext": "Live web search is not part of the newsletter configuration; use only the supplied calendar context and available fantasy/NFL data."
+  },
   "teams": [
     {
       "teamId": "1",
-      "name": "Muslim McCaffrey",
+      "name": "Sameer",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/5927a9065767e23eb2aa603a1e30fc07776d3b24c965d6c6ceba6a37c3ee28ef.jpg",
       "managerName": "Sameer",
       "managerId": "1",
@@ -8515,7 +8521,7 @@
     },
     {
       "teamId": "2",
-      "name": "Calandar MAN",
+      "name": "WC",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/3d4ef4c1b9ec6449d09c8462ea9413a967cc51df772714d596eea23c44e70f74.jpg",
       "managerName": "WC",
       "managerId": "2",
@@ -8524,7 +8530,7 @@
     },
     {
       "teamId": "3",
-      "name": "Calendar MAN",
+      "name": "Shaun",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/05ec0618719965fa6a5e13ea63e377b51d9c81cdae325d0f189d2a239c2400f4.jpg",
       "managerName": "Shaun",
       "managerId": "3",
@@ -8533,7 +8539,7 @@
     },
     {
       "teamId": "4",
-      "name": "RKO the shit out of Syed",
+      "name": "Zain",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/2b20d2fac29b2686c96820ef90ffa4a5f0538b921cf55595df7ae43d94a2e4ff.jpg",
       "managerName": "Zain",
       "managerId": "4",
@@ -8542,7 +8548,7 @@
     },
     {
       "teamId": "5",
-      "name": "I ❤️ Packers",
+      "name": "Isbah",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/56481370781_2dc035.jpg",
       "managerName": "Isbah",
       "managerId": "5",
@@ -8551,7 +8557,7 @@
     },
     {
       "teamId": "6",
-      "name": "Suck the Sag",
+      "name": "Bilal",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/ed2fdca35c343c250d1e289db07f55e69deb429a4b9f5fc74043d50ded9d03a3.png",
       "managerName": "Bilal",
       "managerId": "6",
@@ -8560,7 +8566,7 @@
     },
     {
       "teamId": "7",
-      "name": "Calander MAN",
+      "name": "Ammar",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/0e5efa145578709b082d086f9a029d52c5d54c9bf2bc18ac3dd28d3b1563c4fa.png",
       "managerName": "Ammar",
       "managerId": "7",
@@ -8569,7 +8575,7 @@
     },
     {
       "teamId": "8",
-      "name": "Tuten Brown Shite",
+      "name": "Faizan",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/9851e2120b5510c0d3b7157fec4a18fa7a259b0a97b804efcf71a60a7cf21be7.jpg",
       "managerName": "Faizan",
       "managerId": "8",
@@ -8578,7 +8584,7 @@
     },
     {
       "teamId": "9",
-      "name": "MASOOD the SHIT out of zain",
+      "name": "Sydaddy",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/a8543c9e5627bc4cde728c33982e24fc158efbb05baac36aa3d3067b67d02c6d.jpg",
       "managerName": "Sydaddy",
       "managerId": "9",
@@ -8587,7 +8593,7 @@
     },
     {
       "teamId": "10",
-      "name": "Swole Boy",
+      "name": "Abraar Kazi",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/dafed6d4da49d548f33cdcd39967717dc944a0106b6b294017ac670197ff63df.jpg",
       "managerName": "Abraar Kazi",
       "managerId": "10",
@@ -8596,7 +8602,7 @@
     },
     {
       "teamId": "11",
-      "name": "Auto draft nonsense",
+      "name": "Farhan",
       "iconUrl": "https://s.yimg.com/ep/cx/blendr/v2/image-long-bomb-png_1721175265895.png",
       "managerName": "Farhan",
       "managerId": "11",
@@ -8605,7 +8611,7 @@
     },
     {
       "teamId": "12",
-      "name": "Lovebirds",
+      "name": "Owais",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/95fa02d9623478a70227b9fecb800129d128cb7d1bf1e1deb7b177eb8cbdc45f.jpg",
       "managerName": "Owais",
       "managerId": "12",
@@ -8617,7 +8623,7 @@
     "teamTrends": [
       {
         "teamId": "1",
-        "teamName": "Muslim McCaffrey",
+        "teamName": "Sameer",
         "managerName": "Sameer",
         "rank": 7,
         "record": "1-1",
@@ -8644,7 +8650,7 @@
       },
       {
         "teamId": "2",
-        "teamName": "Calandar MAN",
+        "teamName": "WC",
         "managerName": "WC",
         "rank": 9,
         "record": "1-1",
@@ -8671,7 +8677,7 @@
       },
       {
         "teamId": "3",
-        "teamName": "Calendar MAN",
+        "teamName": "Shaun",
         "managerName": "Shaun",
         "rank": 11,
         "record": "0-2",
@@ -8698,7 +8704,7 @@
       },
       {
         "teamId": "4",
-        "teamName": "RKO the shit out of Syed",
+        "teamName": "Zain",
         "managerName": "Zain",
         "rank": 2,
         "record": "2-0",
@@ -8725,7 +8731,7 @@
       },
       {
         "teamId": "5",
-        "teamName": "I ❤️ Packers",
+        "teamName": "Isbah",
         "managerName": "Isbah",
         "rank": 8,
         "record": "1-1",
@@ -8752,7 +8758,7 @@
       },
       {
         "teamId": "6",
-        "teamName": "Suck the Sag",
+        "teamName": "Bilal",
         "managerName": "Bilal",
         "rank": 1,
         "record": "2-0",
@@ -8779,7 +8785,7 @@
       },
       {
         "teamId": "7",
-        "teamName": "Calander MAN",
+        "teamName": "Ammar",
         "managerName": "Ammar",
         "rank": 6,
         "record": "1-1",
@@ -8806,7 +8812,7 @@
       },
       {
         "teamId": "8",
-        "teamName": "Tuten Brown Shite",
+        "teamName": "Faizan",
         "managerName": "Faizan",
         "rank": 10,
         "record": "0-2",
@@ -8833,7 +8839,7 @@
       },
       {
         "teamId": "9",
-        "teamName": "MASOOD the SHIT out of zain",
+        "teamName": "Sydaddy",
         "managerName": "Sydaddy",
         "rank": 3,
         "record": "2-0",
@@ -8860,7 +8866,7 @@
       },
       {
         "teamId": "10",
-        "teamName": "Swole Boy",
+        "teamName": "Abraar Kazi",
         "managerName": "Abraar Kazi",
         "rank": 5,
         "record": "1-1",
@@ -8887,7 +8893,7 @@
       },
       {
         "teamId": "11",
-        "teamName": "Auto draft nonsense",
+        "teamName": "Farhan",
         "managerName": "Farhan",
         "rank": 12,
         "record": "0-2",
@@ -8914,7 +8920,7 @@
       },
       {
         "teamId": "12",
-        "teamName": "Lovebirds",
+        "teamName": "Owais",
         "managerName": "Owais",
         "rank": 4,
         "record": "1-1",
@@ -8950,7 +8956,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 58,
-        "team": "Calander MAN",
+        "team": "Ammar",
         "evidence": "Week 1: left Christian Watson on the bench for DeVonta Smith, costing 22.9 points; Week 2: left George Kittle on the bench for Devin Singletary, costing 15.1 points",
         "occurrences": 2,
         "pointsLeft": 38
@@ -8958,7 +8964,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 56.3,
-        "team": "Calendar MAN",
+        "team": "Shaun",
         "evidence": "Week 1: left Jalen Coker on the bench for Courtland Sutton, costing 27.7 points; Week 1: left Travis Kelce on the bench for Kyle Pitts Sr., costing 8.6 points",
         "occurrences": 2,
         "pointsLeft": 36.3
@@ -8972,14 +8978,14 @@
       {
         "type": "pickup_payoff",
         "priority": 50,
-        "team": "Swole Boy",
+        "team": "Abraar Kazi",
         "player": "Caleb Williams",
         "evidence": "After being acquired, Caleb Williams scored 41.3, 8.7 across 2 weeks, averaging 25."
       },
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 38.2,
-        "team": "Auto draft nonsense",
+        "team": "Farhan",
         "evidence": "Week 1: left Tucker Kraft on the bench for Colston Loveland, costing 8 points; Week 2: left Tank Bigsby on the bench for Malik Nabers, costing 10.2 points",
         "occurrences": 2,
         "pointsLeft": 18.2
@@ -8993,35 +8999,35 @@
       {
         "type": "bench_mistake",
         "priority": 15.8,
-        "team": "Calandar MAN",
+        "team": "WC",
         "evidence": "Left Matthew Stafford (36) on the bench for Joe Burrow (20.2), a 15.8-point swing.",
         "wouldHaveChangedResult": true
       },
       {
         "type": "bench_mistake",
         "priority": 15.1,
-        "team": "Calander MAN",
+        "team": "Ammar",
         "evidence": "Left George Kittle (16) on the bench for Devin Singletary (0.9), a 15.1-point swing.",
         "wouldHaveChangedResult": false
       },
       {
         "type": "bench_mistake",
         "priority": 12.8,
-        "team": "Lovebirds",
+        "team": "Owais",
         "evidence": "Left Jake Ferguson (18.3) on the bench for Brian Thomas Jr. (5.5), a 12.8-point swing.",
         "wouldHaveChangedResult": true
       },
       {
         "type": "bench_mistake",
         "priority": 10.2,
-        "team": "Auto draft nonsense",
+        "team": "Farhan",
         "evidence": "Left Tank Bigsby (10.8) on the bench for Malik Nabers (0.6), a 10.2-point swing.",
         "wouldHaveChangedResult": true
       },
       {
         "type": "upset",
         "priority": 9.8,
-        "team": "Calander MAN",
+        "team": "Ammar",
         "evidence": "Won while projected to score 9.8 fewer points."
       }
     ]
