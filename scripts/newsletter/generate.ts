@@ -416,9 +416,7 @@ function buildCurrentEventsContext(generatedAt: string): Json {
     enabled: process.env.NEWSLETTER_CURRENT_EVENTS_ENABLED === "true",
     date: generatedAt,
     calendarContext: holidays,
-    searchContext: process.env.GEMINI_ENABLE_SEARCH === "true"
-      ? "Live Google Search grounding is enabled; look for genuinely relevant current events such as major weather emergencies, hurricanes, natural disasters, national events, or holiday developments."
-      : "Live web search is disabled; do not claim awareness of current events beyond the deterministic calendar context supplied here.",
+    searchContext: "Live web search is not part of the newsletter configuration; use only the supplied calendar context and available fantasy/NFL data.",
   };
 }
 
