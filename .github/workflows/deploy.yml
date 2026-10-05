@@ -61,6 +61,12 @@ jobs:
           mkdir -p public/data
           cp -R data/current public/data/current
 
+      - name: Copy published newsletters into the static site
+        run: |
+          rm -rf public/newsletter
+          mkdir -p public/newsletter/output
+          if [ -d newsletter/output ]; then cp -R newsletter/output/. public/newsletter/output/; fi
+
       - name: Build
         env:
           VITE_USE_MOCK_DATA: ${{ env.YAHOO_API_ENABLED == 'true' && 'false' || 'true' }}
