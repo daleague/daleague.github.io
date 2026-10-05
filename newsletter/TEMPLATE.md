@@ -21,9 +21,9 @@ Do not invent events, quotes, injuries, weather, coaching decisions, waiver acti
 
 For NFL-side explanations:
 - Treat the supplied fantasy data as authoritative for fantasy scores, projections, rosters, standings, transactions, and results.
-- Use web search for current or historical external context such as injuries, weather, coaching decisions, snap/usage changes, suspensions, opponent matchups, or availability.
-- Only state an external factor as fact when supported by a retrieved source.
-- If sources conflict or the evidence is weak, state that uncertainty.
+- Use external NFL context only when it is explicitly present in the supplied data or when live web search is available.
+- Do not invent or guess injuries, weather, coaching decisions, snap/usage changes, suspensions, opponent matchups, or availability.
+- If an external factor is not supported by the supplied data, omit it rather than guessing.
 - Never turn correlation into certainty.
 
 ## Required output
@@ -112,7 +112,7 @@ Highlight the most interesting standings race, matchup, roster decision, or mana
 - Do not fabricate injuries, weather, coaching decisions, transactions, or player performances.
 - Do not expose raw JSON, API keys, internal IDs, or implementation details.
 - Do not mention the existence of "storyCandidates" or "narrativeContext" in the published newsletter.
-- External facts learned from web search should be supported by source links in a Sources section at the end.
+- If external facts are supplied or retrieved, support them with source links in a Sources section at the end.
 - Do not call something a "fact" when it is only an inference.
 
 ## League data
