@@ -228,6 +228,69 @@ function buildNarrativeContext(
   return { teamTrends, storyCandidates: candidates.slice(0, 20) };
 }
 
+function buildHistoricalStandings(history: Json[], teams: Json[], throughWeek: number): Json[] {
+  const rows = new Map<string, { wins: number; losses: number; pointsFor: number; pointsAgainst: number }>();
+  for (const matchup of history) {
+    if (matchup.status !== "final" || Number(matchup.week) > throughWeek) continue;
+    const home = matchup.home as Json;
+    const away = matchup.away as Json;
+    for (const [side, opponent] of [[home, away], [away, home]] as Json[][]) {
+      const id = String(side.teamId);
+      const row = rows.get(id) ?? { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
+      row.pointsFor += Number(side.score ?? 0);
+      row.pointsAgainst += Number(opponent.score ?? 0);
+      if (String(matchup.winnerTeamId ?? "") === id) row.wins += 1;
+      else row.losses += 1;
+      rows.set(id, row);
+    }
+  }
+
+  return teams
+    .map((team) => {
+      const id = String(team.teamId);
+      const row = rows.get(id) ?? { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
+      return {
+        teamId: id,
+        teamName: team.name,
+        managerName: team.managerName,
+        wins: row.wins,
+        losses: row.losses,
+        ties: 0,
+        pointsFor: Math.round(row.pointsFor * 10) / 10,
+        pointsAgainst: Math.round(row.pointsAgainst * 10) / 10,
+      };
+    })
+    .sort((a, b) => Number(b.wins) - Number(a.wins) || Number(b.pointsFor) - Number(a.pointsFor))
+    .map((row, index) => ({ ...row, rank: index + 1 }));
+}
+
+function previewMatchup(matchup: Json, teamById: Map<string, Json>): Json {
+  const previewSide = (side: Json) => {
+    const team = teamById.get(String(side.teamId)) ?? {};
+    const players = Array.isArray(side.players) ? side.players as Json[] : [];
+    return {
+      teamId: side.teamId,
+      teamName: team.name,
+      managerName: team.managerName,
+      players: players.map((player) => ({
+        name: player.name,
+        actualPosition: player.actualPosition,
+        slot: player.slot,
+        nflTeam: player.nflTeam,
+        opponent: player.opponent,
+      })),
+    };
+  };
+  return {
+    matchupId: matchup.matchupId,
+    season: matchup.season,
+    week: matchup.week,
+    status: "upcoming",
+    home: previewSide(matchup.home as Json),
+    away: previewSide(matchup.away as Json),
+  };
+}
+
 function replaceAll(template: string, values: Record<string, string>): string {
   return Object.entries(values).reduce(
     (result, [key, value]) => result.split(key).join(value),
@@ -453,11 +516,9 @@ async function main() {
     );
   }
 
+  const isBackfill = Boolean(process.env.NEWSLETTER_WEEK);
   const currentWeek = Number(league.currentWeek);
-  const upcomingWeek =
-    Number.isInteger(currentWeek) && currentWeek > previousWeek
-      ? currentWeek
-      : previousWeek + 1;
+  const upcomingWeek = previousWeek + 1;
   const generatedAt =
     typeof league.lastUpdatedAt === "string"
       ? league.lastUpdatedAt
@@ -474,18 +535,22 @@ async function main() {
   const previousMatchups = matchupsHistory
     .filter((matchup) => Number(matchup.week) === previousWeek)
     .map((matchup) => matchupWithSignals(matchup, teamById));
-  const upcomingMatchups = matchupsCurrent
-    .filter((matchup) => Number(matchup.week) === upcomingWeek)
-    .map((matchup) => matchupWithSignals(matchup, teamById));
+  const upcomingMatchups = isBackfill
+    ? matchupsHistory
+        .filter((matchup) => Number(matchup.week) === upcomingWeek)
+        .map((matchup) => previewMatchup(matchup, teamById))
+    : matchupsCurrent
+        .filter((matchup) => Number(matchup.week) === upcomingWeek)
+        .map((matchup) => matchupWithSignals(matchup, teamById));
 
   const previousSuperlatives = superlativesHistory.filter(
     (superlative) => Number(superlative.week) === previousWeek,
   );
 
-  const previousWeekTransactions = transactions
+  const previousWeekTransactions = (isBackfill ? [] : transactions
     .filter((transaction) =>
       transactionInPreviousWeek(transaction, generatedAt),
-    )
+    ))
     .map((transaction) => ({
       timestamp: transaction.timestamp,
       type: transaction.type,
@@ -512,7 +577,7 @@ async function main() {
     previousWeek: {
       week: previousWeek,
       matchups: previousMatchups,
-      standings,
+      standings: isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
       superlatives: previousSuperlatives,
       transactions: previousWeekTransactions,
     },
@@ -522,7 +587,12 @@ async function main() {
       rosters,
     },
     teams,
-    narrativeContext: buildNarrativeContext(matchupsHistory, standings, teams, previousWeek),
+    narrativeContext: buildNarrativeContext(
+      matchupsHistory,
+      isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
+      teams,
+      previousWeek,
+    ),
   };
 
   await writeFile(dataPath, JSON.stringify(context, null, 2) + "\n", "utf8");
