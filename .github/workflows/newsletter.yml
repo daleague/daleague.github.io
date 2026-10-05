@@ -106,7 +106,7 @@ jobs:
       - name: Commit newsletter
         if: always()
         run: |
-          if git diff --quiet -- newsletter/data newsletter/output; then
+          if [ -z "$(git status --porcelain -- newsletter/data newsletter/output)" ]; then
             echo "No newsletter files changed."
             exit 0
           fi
