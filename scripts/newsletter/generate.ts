@@ -440,7 +440,7 @@ async function generateWithGemini(
       },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-        tools: [{ google_search: {} }],
+        ...(process.env.GEMINI_ENABLE_SEARCH === "true" ? { tools: [{ google_search: {} }] } : {}),
       }),
     },
   );
