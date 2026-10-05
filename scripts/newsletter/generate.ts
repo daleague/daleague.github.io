@@ -206,6 +206,7 @@ function buildNarrativeContext(
   standings: Json[],
   teams: Json[],
   previousWeek: number,
+  transactions: Json[] = [],
 ): Json {
   const teamById = new Map(teams.map((team) => [String(team.teamId), team]));
   const finals = history
@@ -704,6 +705,7 @@ async function main() {
       isBackfill ? buildHistoricalStandings(matchupsHistory, teams, previousWeek) : standings,
       teams,
       previousWeek,
+      transactions,
     ),
   };
 
