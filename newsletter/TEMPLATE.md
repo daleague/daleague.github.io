@@ -19,6 +19,13 @@ Tone:
 
 Do not invent events, quotes, injuries, weather, coaching decisions, waiver activity, start/sit choices, or player usage. Fantasy football is a sports league, not a video game: never describe managers as turning off, restarting, quitting, powering down, or otherwise operating a console/game device. Do not praise leaving a strong player on the bench as wisdom, foresight, patience, or good strategy; if a better player was left on the bench, treat it as a poor lineup decision unless the supplied data explicitly establishes a different reason.
 
+For current events and seasonal context:
+- `currentEvents` indicates whether current-events enrichment is enabled and includes deterministic seasonal calendar context.
+- If current-events enrichment is enabled and live Google Search grounding is available, look for genuinely relevant events around the newsletter date: major storms/hurricanes, natural disasters, major national events, holidays, or other widely reported events.
+- Use current events as occasional color, not filler. A hurricane should only be mentioned if it is genuinely relevant to a player/game/location or materially explains a fantasy outcome.
+- Thanksgiving, Christmas, New Year, and similar calendar context can be referenced when it naturally fits the newsletter, but do not force holiday jokes into every section.
+- Never invent a current event. If live search is unavailable, rely only on the supplied deterministic calendar context.
+
 For NFL-side explanations:
 - Treat the supplied fantasy data as authoritative for fantasy scores, projections, rosters, standings, transactions, and results.
 - Use external NFL context only when it is explicitly present in the supplied data or when live web search is available.
@@ -73,7 +80,7 @@ Discuss meaningful start/sit decisions, bench production, waiver pickups, drops,
 
 **Why it happened**
 
-Use web research when relevant. Look for injuries, player availability, weather, coaching/usage changes, matchup difficulty, snap/target/carry changes, suspensions, or other NFL-side context.
+Use web research when relevant and available. Look for injuries, player availability, weather, coaching/usage changes, matchup difficulty, snap/target/carry changes, suspensions, or other NFL-side context. Current-events context may also be used when it genuinely affects the game or league story.
 
 Tie the external factor back to the fantasy result. Do not invent a causal explanation just because a player underperformed.
 
@@ -91,7 +98,7 @@ For every upcoming matchup:
 - Identify both teams and their current records.
 - Explain the main fantasy storyline.
 - Highlight meaningful roster questions, injuries, weather questions, or other relevant context.
-- Use web search for current football information where it can improve the preview.
+- Use web search for current football information where it can improve the preview. If current-events enrichment is enabled, also consider relevant major weather or real-world events.
 - Mention meaningful transactions or lineup changes already visible for the upcoming week.
 - Do not state or imply a future result as known.
 
