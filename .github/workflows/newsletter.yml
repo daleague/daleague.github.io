@@ -29,7 +29,8 @@ env:
   NODE_VERSION: 22
   NEWSLETTER_ENABLED: ${{ vars.NEWSLETTER_ENABLED || 'false' }}
   NEWSLETTER_PROVIDER: ${{ vars.NEWSLETTER_PROVIDER || 'gemini' }}
-  NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL || 'gemini-3.5-flash-lite' }}
+  NEWSLETTER_MODEL: ${{ vars.NEWSLETTER_MODEL || 'gemini-3.8-flash' }}
+  NEWSLETTER_FALLBACK_MODEL: ${{ vars.NEWSLETTER_FALLBACK_MODEL || 'gemini-3.5-flash-lite' }}
   YAHOO_GAME_ID: ${{ vars.YAHOO_GAME_ID || 'nfl' }}
   YAHOO_SEASON: ${{ vars.YAHOO_SEASON || '2026' }}
   YAHOO_LEAGUE_ID: ${{ vars.YAHOO_LEAGUE_ID }}
@@ -82,6 +83,7 @@ jobs:
           NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '') && 'true' || 'false' }}
           NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
           NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
+          NEWSLETTER_FALLBACK_MODEL: ${{ env.NEWSLETTER_FALLBACK_MODEL }}
           NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
           NEWSLETTER_BACKFILL_WEEKS: ${{ inputs.backfill_weeks }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
