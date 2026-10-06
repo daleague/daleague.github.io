@@ -559,32 +559,45 @@ async function generateWithGemini(
   model: string,
   apiKey: string,
 ): Promise<{ text: string; sources: Source[] }> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
-    {
-      method: "POST",
-      headers: {
-        "x-goog-api-key": apiKey,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        ...(process.env.GEMINI_ENABLE_SEARCH === "true" ? { tools: [{ google_search: {} }] } : {}),
-      }),
-    },
-  );
+  const maxAttempts = 4;
+  const retryableStatuses = new Set([429, 500, 502, 503, 504]);
 
-  const body = (await response.json()) as Json;
-  if (!response.ok) {
-    throw new Error(
-      `Gemini newsletter generation failed (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`,
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+      {
+        method: "POST",
+        headers: {
+          "x-goog-api-key": apiKey,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+        }),
+      },
     );
+
+    const body = (await response.json()) as Json;
+    if (response.ok) {
+      const text = extractGeminiText(body);
+      if (!text) throw new Error("Gemini returned no newsletter text.");
+      return { text, sources: uniqueSources(collectSources(body)) };
+    }
+
+    if (!retryableStatuses.has(response.status) || attempt === maxAttempts) {
+      throw new Error(
+        `Gemini newsletter generation failed (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`,
+      );
+    }
+
+    const delayMs = 5000 * 2 ** (attempt - 1);
+    console.log(
+      `[newsletter] Gemini returned ${response.status}; retrying in ${delayMs / 1000}s (attempt ${attempt + 1}/${maxAttempts})...`,
+    );
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
 
-  const text = extractGeminiText(body);
-  if (!text) throw new Error("Gemini returned no newsletter text.");
-
-  return { text, sources: uniqueSources(collectSources(body)) };
+  throw new Error("Gemini newsletter generation exhausted all retry attempts.");
 }
 
 function appendSources(markdown: string, sources: Source[]): string {
