@@ -2,9 +2,9 @@ name: Weekly Newsletter
 
 on:
   schedule:
-    # 8:00 AM Central every Tuesday, after Monday Night Football and record-book updates have had time to finish.
+    # 8:05 AM Central every Tuesday, after Monday Night Football and record-book updates have had time to finish.
     # This intentionally runs Tuesday rather than immediately after the Monday game.
-    - cron: "0 8 * * 2"
+    - cron: "5 8 * * 2"
       timezone: "America/Chicago"
   workflow_dispatch:
     inputs:
