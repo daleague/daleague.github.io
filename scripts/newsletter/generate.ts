@@ -575,7 +575,7 @@ function geminiRetryDelayMs(response: Response, body: Json, attempt: number): nu
       typeof detail.retryDelay === "string",
   );
   if (retryInfo) {
-    const match = String(retryInfo.retryDelay).match(/^(\\d+(?:\\.\\d+)?)s$/);
+    const match = String(retryInfo.retryDelay).match(/^(\d+(?:\.\d+)?)s$/);
     if (match) {
       return Math.min(Math.max(Number(match[1]) * 1000, 1000), 5 * 60 * 1000);
     }
