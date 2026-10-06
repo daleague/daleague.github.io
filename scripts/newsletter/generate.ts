@@ -666,6 +666,69 @@ async function generateWithGemini(
   throw new Error("Gemini newsletter generation exhausted all retry attempts.");
 }
 
+function buildNewsletterPromptContext(context: Json): Json {
+  const league = context.league as Json;
+  const previousWeek = context.previousWeek as Json;
+  const upcomingWeek = context.upcomingWeek as Json;
+  const teams = Array.isArray(context.teams) ? context.teams as Json[] : [];
+  const previousTransactions = Array.isArray(previousWeek.transactions)
+    ? previousWeek.transactions as Json[]
+    : [];
+
+  const transactionBrief = (transaction: Json): Json => ({
+    timestamp: transaction.timestamp,
+    type: transaction.type,
+    teamId: transaction.teamId,
+    playersAdded: Array.isArray(transaction.playersAdded)
+      ? (transaction.playersAdded as Json[]).map((player) => ({
+          playerId: player.playerId,
+          name: player.name,
+          actualPosition: player.actualPosition,
+          nflTeam: player.nflTeam,
+        }))
+      : [],
+    playersDropped: Array.isArray(transaction.playersDropped)
+      ? (transaction.playersDropped as Json[]).map((player) => ({
+          playerId: player.playerId,
+          name: player.name,
+          actualPosition: player.actualPosition,
+          nflTeam: player.nflTeam,
+        }))
+      : [],
+    faabAmount: transaction.faabAmount,
+    note: transaction.note,
+  });
+
+  return {
+    generatedAt: context.generatedAt,
+    season: context.season,
+    league: {
+      name: league.name,
+      numTeams: league.numTeams,
+      currentWeek: league.currentWeek,
+      timezone: league.timezone,
+    },
+    previousWeek: {
+      week: previousWeek.week,
+      matchups: previousWeek.matchups,
+      standings: previousWeek.standings,
+      superlatives: previousWeek.superlatives,
+      transactions: previousTransactions.map(transactionBrief),
+    },
+    upcomingWeek: {
+      week: upcomingWeek.week,
+      matchups: upcomingWeek.matchups,
+    },
+    currentEvents: context.currentEvents,
+    teams: teams.map((team) => ({
+      teamId: team.teamId,
+      name: team.name,
+      managerName: team.managerName,
+    })),
+    narrativeContext: context.narrativeContext,
+  };
+}
+
 function appendSources(markdown: string, sources: Source[]): string {
   if (sources.length === 0 || /(^|\n)## Sources\s*$/m.test(markdown)) {
     return markdown.trimEnd() + "\n";
@@ -819,11 +882,36 @@ async function main() {
     join(root, "newsletter/TEMPLATE.md"),
     "utf8",
   );
+
+  // Keep the full context in newsletter/data for debugging and downstream use,
+  // but only send the model the fields needed to write the newsletter.
+  const promptContext = buildNewsletterPromptContext(context);
+  const serializedPromptContext = JSON.stringify(promptContext);
+  const estimatedInputTokens = Math.ceil(serializedPromptContext.length / 4);
+  const maxEstimatedInputTokens = Number(
+    process.env.NEWSLETTER_MAX_ESTIMATED_INPUT_TOKENS ?? 100_000,
+  );
+
+  console.log(
+    `[newsletter] prompt payload: ${serializedPromptContext.length.toLocaleString()} chars (~${estimatedInputTokens.toLocaleString()} estimated tokens)`,
+  );
+
+  if (
+    Number.isFinite(maxEstimatedInputTokens) &&
+    maxEstimatedInputTokens > 0 &&
+    estimatedInputTokens > maxEstimatedInputTokens
+  ) {
+    throw new Error(
+      `Newsletter prompt is too large: ~${estimatedInputTokens.toLocaleString()} estimated input tokens ` +
+      `(limit ${maxEstimatedInputTokens.toLocaleString()}). Reduce prompt context before calling the model.`,
+    );
+  }
+
   const prompt = replaceAll(template, {
     "{{PREVIOUS_WEEK}}": String(previousWeek),
     "{{CURRENT_WEEK}}": String(upcomingWeek),
     "{{GENERATED_AT}}": generatedAt,
-    "{{LEAGUE_DATA}}": JSON.stringify(context, null, 2),
+    "{{LEAGUE_DATA}}": serializedPromptContext,
   });
 
   const provider = (process.env.NEWSLETTER_PROVIDER || "openai").toLowerCase();
