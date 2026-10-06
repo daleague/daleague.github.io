@@ -589,14 +589,25 @@ function geminiRetryDelayMs(response: Response, body: Json, attempt: number): nu
   return Math.min(exponentialMs + jitterMs, 5 * 60 * 1000);
 }
 
+class GeminiGenerationError extends Error {
+  constructor(
+    readonly status: number,
+    message: string,
+  ) {
+    super(message);
+    this.name = "GeminiGenerationError";
+  }
+}
+
 async function generateWithGemini(
   prompt: string,
   model: string,
   apiKey: string,
+  options: { maxAttempts?: number } = {},
 ): Promise<{ text: string; sources: Source[] }> {
-  // Gemini free-tier capacity/rate-limit errors can persist for several minutes.
-  // Seven attempts gives transient 429/503 responses enough time to recover.
-  const maxAttempts = 7;
+  // Retry transient capacity errors briefly, but do not spend several minutes
+  // retrying a model that is already returning quota/rate-limit responses.
+  const maxAttempts = options.maxAttempts ?? 3;
   const retryableStatuses = new Set([429, 500, 502, 503, 504]);
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -621,15 +632,33 @@ async function generateWithGemini(
       return { text, sources: uniqueSources(collectSources(body)) };
     }
 
-    if (!retryableStatuses.has(response.status) || attempt === maxAttempts) {
-      throw new Error(
+    if (!retryableStatuses.has(response.status)) {
+      throw new GeminiGenerationError(
+        response.status,
         `Gemini newsletter generation failed (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`,
+      );
+    }
+
+    // A 429 may be a daily/project quota exhaustion rather than a transient
+    // burst limit. Trying the same model again is unlikely to help, so fail
+    // over to the configured fallback model immediately.
+    if (response.status === 429) {
+      throw new GeminiGenerationError(
+        response.status,
+        `Gemini newsletter generation rate-limited (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`,
+      );
+    }
+
+    if (attempt === maxAttempts) {
+      throw new GeminiGenerationError(
+        response.status,
+        `Gemini newsletter generation failed after ${maxAttempts} attempts (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`,
       );
     }
 
     const delayMs = geminiRetryDelayMs(response, body, attempt);
     console.log(
-      `[newsletter] Gemini returned ${response.status}; retrying in ${Math.ceil(delayMs / 1000)}s (attempt ${attempt + 1}/${maxAttempts})...`,
+      `[newsletter] Gemini ${model} returned ${response.status}; retrying in ${Math.ceil(delayMs / 1000)}s (attempt ${attempt + 1}/${maxAttempts})...`,
     );
     await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
@@ -800,16 +829,30 @@ async function main() {
   const provider = (process.env.NEWSLETTER_PROVIDER || "openai").toLowerCase();
   const model = required("NEWSLETTER_MODEL");
 
-  const generated =
-    provider === "openai"
-      ? await generateWithOpenAI(prompt, model, required("OPENAI_API_KEY"))
-      : provider === "gemini"
-        ? await generateWithGemini(prompt, model, required("GEMINI_API_KEY"))
-        : (() => {
-            throw new Error(
-              `Unsupported NEWSLETTER_PROVIDER="${provider}". Use "openai" or "gemini".`,
-            );
-          })();
+  let generated;
+  if (provider === "openai") {
+    generated = await generateWithOpenAI(prompt, model, required("OPENAI_API_KEY"));
+  } else if (provider === "gemini") {
+    const apiKey = required("GEMINI_API_KEY");
+    const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
+
+    try {
+      generated = await generateWithGemini(prompt, model, apiKey);
+    } catch (error) {
+      if (!fallbackModel || fallbackModel === model) throw error;
+
+      console.warn(
+        `[newsletter] Gemini ${model} failed; falling back to ${fallbackModel}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      generated = await generateWithGemini(prompt, fallbackModel, apiKey, {
+        maxAttempts: 2,
+      });
+    }
+  } else {
+    throw new Error(
+      `Unsupported NEWSLETTER_PROVIDER="${provider}". Use "openai" or "gemini".`,
+    );
+  }
 
   const newsletter = appendSources(generated.text, generated.sources);
   await writeFile(outputPath, newsletter, "utf8");
