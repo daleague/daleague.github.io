@@ -554,12 +554,49 @@ async function generateWithOpenAI(
   return { text, sources: uniqueSources(collectSources(body)) };
 }
 
+function geminiRetryDelayMs(response: Response, body: Json, attempt: number): number {
+  // Prefer the server's explicit retry guidance when available.
+  const retryAfter = response.headers.get("retry-after");
+  if (retryAfter) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return Math.min(Math.max(seconds * 1000, 1000), 5 * 60 * 1000);
+    }
+  }
+
+  // Gemini commonly returns google.rpc.RetryInfo.retryDelay for 429/503 responses.
+  const details = Array.isArray((body.error as Json | undefined)?.details)
+    ? ((body.error as Json).details as Json[])
+    : [];
+  const retryInfo = details.find(
+    (detail) =>
+      typeof detail["@type"] === "string" &&
+      detail["@type"].includes("RetryInfo") &&
+      typeof detail.retryDelay === "string",
+  );
+  if (retryInfo) {
+    const match = String(retryInfo.retryDelay).match(/^(\\d+(?:\\.\\d+)?)s$/);
+    if (match) {
+      return Math.min(Math.max(Number(match[1]) * 1000, 1000), 5 * 60 * 1000);
+    }
+  }
+
+  // Free-tier 429s often need a full minute to reset; 503s benefit from
+  // progressively longer backoff when the model is under heavy demand.
+  const baseMs = response.status === 429 ? 60_000 : 30_000;
+  const exponentialMs = baseMs * 2 ** (attempt - 1);
+  const jitterMs = Math.floor(Math.random() * 5_000);
+  return Math.min(exponentialMs + jitterMs, 5 * 60 * 1000);
+}
+
 async function generateWithGemini(
   prompt: string,
   model: string,
   apiKey: string,
 ): Promise<{ text: string; sources: Source[] }> {
-  const maxAttempts = 4;
+  // Gemini free-tier capacity/rate-limit errors can persist for several minutes.
+  // Seven attempts gives transient 429/503 responses enough time to recover.
+  const maxAttempts = 7;
   const retryableStatuses = new Set([429, 500, 502, 503, 504]);
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -590,9 +627,9 @@ async function generateWithGemini(
       );
     }
 
-    const delayMs = 5000 * 2 ** (attempt - 1);
+    const delayMs = geminiRetryDelayMs(response, body, attempt);
     console.log(
-      `[newsletter] Gemini returned ${response.status}; retrying in ${delayMs / 1000}s (attempt ${attempt + 1}/${maxAttempts})...`,
+      `[newsletter] Gemini returned ${response.status}; retrying in ${Math.ceil(delayMs / 1000)}s (attempt ${attempt + 1}/${maxAttempts})...`,
     );
     await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
