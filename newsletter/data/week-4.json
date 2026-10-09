@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T15:30:25.161Z",
+  "generatedAt": "2026-10-09T17:14:53.394Z",
   "season": 2026,
   "league": {
     "name": "The Derrick Rose Fan Club",
@@ -403,7 +403,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "2",
-          "teamName": "Calandar MAN",
+          "teamName": "Not a pussy unlike y'all",
           "managerName": "WC",
           "score": 113.02,
           "projectedScore": 110.36,
@@ -595,7 +595,7 @@
         },
         "away": {
           "teamId": "3",
-          "teamName": "Calendar MAN",
+          "teamName": "MY LEG!!!",
           "managerName": "Shaun",
           "score": 68.98,
           "projectedScore": 103.33,
@@ -788,7 +788,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "4",
-          "teamName": "RKO the shit out of Syed",
+          "teamName": "RKO Abraar",
           "managerName": "Zain",
           "score": 102,
           "projectedScore": 110.39,
@@ -980,7 +980,7 @@
         },
         "away": {
           "teamId": "9",
-          "teamName": "MASOOD the SHIT out of zain",
+          "teamName": "The Purdverts",
           "managerName": "Sydaddy",
           "score": 133.38,
           "projectedScore": 120.62,
@@ -1349,7 +1349,7 @@
         },
         "away": {
           "teamId": "10",
-          "teamName": "Swole Boy",
+          "teamName": "Slap City",
           "managerName": "Abraar Kazi",
           "score": 118.28,
           "projectedScore": 107.88,
@@ -1534,7 +1534,7 @@
         "playoffRound": null,
         "home": {
           "teamId": "6",
-          "teamName": "Suck the Sag",
+          "teamName": "BigBird",
           "managerName": "Bilal",
           "score": 121.22,
           "projectedScore": 126.41,
@@ -1726,7 +1726,7 @@
         },
         "away": {
           "teamId": "7",
-          "teamName": "Calander MAN",
+          "teamName": "Not a halal gap unlike y'all",
           "managerName": "Ammar",
           "score": 99.94,
           "projectedScore": 116.61,
@@ -2587,426 +2587,6 @@
     ],
     "transactions": [
       {
-        "timestamp": "2026-09-29T22:55:15.000Z",
-        "type": "drop",
-        "teamId": "8",
-        "playersAdded": [],
-        "playersDropped": [
-          {
-            "playerId": "30971",
-            "name": "Baker Mayfield",
-            "nflTeam": "TB"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-29T22:56:37.000Z",
-        "type": "drop",
-        "teamId": "8",
-        "playersAdded": [],
-        "playersDropped": [
-          {
-            "playerId": "26658",
-            "name": "Zach Ertz",
-            "nflTeam": "Phi"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add",
-        "teamId": "9",
-        "playersAdded": [
-          {
-            "playerId": "33998",
-            "name": "Wan'Dale Robinson",
-            "nflTeam": "Ten"
-          }
-        ],
-        "playersDropped": [],
-        "faabAmount": 0,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "8",
-        "playersAdded": [
-          {
-            "playerId": "100022",
-            "name": "Cardinals",
-            "nflTeam": "Ari"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "100004",
-            "name": "Bengals",
-            "nflTeam": "Cin"
-          }
-        ],
-        "faabAmount": 3,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "1",
-        "playersAdded": [
-          {
-            "playerId": "42716",
-            "name": "Chris Bell",
-            "nflTeam": "Mia"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40051",
-            "name": "Quentin Johnston",
-            "nflTeam": "LAC"
-          }
-        ],
-        "faabAmount": 5,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "3",
-        "playersAdded": [
-          {
-            "playerId": "100014",
-            "name": "Rams",
-            "nflTeam": "LAR"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "100030",
-            "name": "Jaguars",
-            "nflTeam": "Jax"
-          }
-        ],
-        "faabAmount": 7,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "7",
-        "playersAdded": [
-          {
-            "playerId": "41010",
-            "name": "Jaylen Wright",
-            "nflTeam": "Mia"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "33415",
-            "name": "Rashod Bateman",
-            "nflTeam": "Bal"
-          }
-        ],
-        "faabAmount": 12,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "3",
-        "playersAdded": [
-          {
-            "playerId": "9265",
-            "name": "Matthew Stafford",
-            "nflTeam": "LAR"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40896",
-            "name": "Jayden Daniels",
-            "nflTeam": "Was"
-          }
-        ],
-        "faabAmount": 17,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T08:27:38.000Z",
-        "type": "add/drop",
-        "teamId": "11",
-        "playersAdded": [
-          {
-            "playerId": "41969",
-            "name": "Ollie Gordon II",
-            "nflTeam": "Mia"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "42642",
-            "name": "Makai Lemon",
-            "nflTeam": "Phi"
-          }
-        ],
-        "faabAmount": 36,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T12:12:49.000Z",
-        "type": "add/drop",
-        "teamId": "2",
-        "playersAdded": [
-          {
-            "playerId": "34054",
-            "name": "Brian Robinson",
-            "nflTeam": "Atl"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40118",
-            "name": "De'Von Achane",
-            "nflTeam": "Mia"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T12:21:20.000Z",
-        "type": "add",
-        "teamId": "4",
-        "playersAdded": [
-          {
-            "playerId": "34107",
-            "name": "Tyler Allgeier",
-            "nflTeam": "Ari"
-          }
-        ],
-        "playersDropped": [],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T14:30:12.000Z",
-        "type": "add/drop",
-        "teamId": "5",
-        "playersAdded": [
-          {
-            "playerId": "30973",
-            "name": "Sam Darnold",
-            "nflTeam": "Sea"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40881",
-            "name": "Drake Maye",
-            "nflTeam": "NE"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T15:40:08.000Z",
-        "type": "add/drop",
-        "teamId": "4",
-        "playersAdded": [
-          {
-            "playerId": "41058",
-            "name": "Malik Washington",
-            "nflTeam": "Mia"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "34107",
-            "name": "Tyler Allgeier",
-            "nflTeam": "Ari"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T15:40:49.000Z",
-        "type": "add",
-        "teamId": "9",
-        "playersAdded": [
-          {
-            "playerId": "42626",
-            "name": "Carnell Tate",
-            "nflTeam": "Ten"
-          }
-        ],
-        "playersDropped": [],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-09-30T18:29:38.000Z",
-        "type": "add/drop",
-        "teamId": "3",
-        "playersAdded": [
-          {
-            "playerId": "29399",
-            "name": "Tyreek Hill",
-            "nflTeam": "Mia"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "31010",
-            "name": "Courtland Sutton",
-            "nflTeam": "Den"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-01T14:18:27.000Z",
-        "type": "add/drop",
-        "teamId": "1",
-        "playersAdded": [
-          {
-            "playerId": "33100",
-            "name": "Rico Dowdle",
-            "nflTeam": "Pit"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40998",
-            "name": "Isaac Guerendo",
-            "nflTeam": "SF"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-01T14:33:29.000Z",
-        "type": "add/drop",
-        "teamId": "11",
-        "playersAdded": [
-          {
-            "playerId": "100003",
-            "name": "Bears",
-            "nflTeam": "Chi"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "100021",
-            "name": "Eagles",
-            "nflTeam": "Phi"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-01T14:40:39.000Z",
-        "type": "add/drop",
-        "teamId": "2",
-        "playersAdded": [
-          {
-            "playerId": "42646",
-            "name": "KC Concepcion Jr.",
-            "nflTeam": "Cle"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "40915",
-            "name": "Adonai Mitchell",
-            "nflTeam": "NYJ"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-01T20:36:37.000Z",
-        "type": "add/drop",
-        "teamId": "2",
-        "playersAdded": [
-          {
-            "playerId": "40108",
-            "name": "Kendre Miller",
-            "nflTeam": "NO"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "34054",
-            "name": "Brian Robinson",
-            "nflTeam": "Atl"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-02T01:58:11.000Z",
-        "type": "drop",
-        "teamId": "6",
-        "playersAdded": [],
-        "playersDropped": [
-          {
-            "playerId": "40063",
-            "name": "Jayden Reed",
-            "nflTeam": "GB"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-02T02:03:42.000Z",
-        "type": "add/drop",
-        "teamId": "6",
-        "playersAdded": [
-          {
-            "playerId": "100033",
-            "name": "Ravens",
-            "nflTeam": "Bal"
-          }
-        ],
-        "playersDropped": [
-          {
-            "playerId": "100008",
-            "name": "Lions",
-            "nflTeam": "Det"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
-      {
-        "timestamp": "2026-10-02T02:07:01.000Z",
-        "type": "add",
-        "teamId": "6",
-        "playersAdded": [
-          {
-            "playerId": "26699",
-            "name": "Keenan Allen",
-            "nflTeam": "Ind"
-          }
-        ],
-        "playersDropped": [],
-        "faabAmount": null,
-        "note": null
-      },
-      {
         "timestamp": "2026-10-02T18:38:59.000Z",
         "type": "add",
         "teamId": "3",
@@ -3029,7 +2609,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Sea"
+            "nflTeam": "Hou"
           }
         ],
         "playersDropped": [],
@@ -3096,7 +2676,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Sea"
+            "nflTeam": "Hou"
           }
         ],
         "faabAmount": null,
@@ -3278,9 +2858,1021 @@
         ],
         "faabAmount": null,
         "note": null
+      },
+      {
+        "timestamp": "2026-10-06T15:39:30.000Z",
+        "type": "drop",
+        "teamId": "3",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "40407",
+            "name": "Brycen Tremayne",
+            "nflTeam": "Car"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-06T20:46:30.000Z",
+        "type": "drop",
+        "teamId": "2",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "32417",
+            "name": "Chase McLaughlin",
+            "nflTeam": "TB"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:10:10.000Z",
+        "type": "add",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "41002",
+            "name": "Will Shipley",
+            "nflTeam": "Phi"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:15:38.000Z",
+        "type": "drop",
+        "teamId": "2",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "42654",
+            "name": "Jadarian Price",
+            "nflTeam": "Sea"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "100030",
+            "name": "Jaguars",
+            "nflTeam": "Jax"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "34054",
+            "name": "Brian Robinson",
+            "nflTeam": "Atl"
+          }
+        ],
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "31012",
+            "name": "Mike Gesicki",
+            "nflTeam": "Cin"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "6",
+        "playersAdded": [
+          {
+            "playerId": "40875",
+            "name": "Bo Nix",
+            "nflTeam": "Den"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40224",
+            "name": "Kayshon Boutte",
+            "nflTeam": "Hou"
+          }
+        ],
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "7",
+        "playersAdded": [
+          {
+            "playerId": "29325",
+            "name": "Jacoby Brissett",
+            "nflTeam": "Ari"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "42642",
+            "name": "Makai Lemon",
+            "nflTeam": "Phi"
+          }
+        ],
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "6",
+        "playersAdded": [
+          {
+            "playerId": "100005",
+            "name": "Browns",
+            "nflTeam": "Cle"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100033",
+            "name": "Ravens",
+            "nflTeam": "Bal"
+          }
+        ],
+        "faabAmount": 1,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "100004",
+            "name": "Bengals",
+            "nflTeam": "Cin"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100014",
+            "name": "Rams",
+            "nflTeam": "LAR"
+          }
+        ],
+        "faabAmount": 3,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "34344",
+            "name": "Cameron Dicker",
+            "nflTeam": "LAC"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "30346",
+            "name": "Harrison Butker",
+            "nflTeam": "KC"
+          }
+        ],
+        "faabAmount": 7,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "34107",
+            "name": "Tyler Allgeier",
+            "nflTeam": "Ari"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40108",
+            "name": "Kendre Miller",
+            "nflTeam": "NO"
+          }
+        ],
+        "faabAmount": 8,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "40078",
+            "name": "Brenton Strange",
+            "nflTeam": "Jax"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "33392",
+            "name": "Kyle Pitts Sr.",
+            "nflTeam": "Atl"
+          }
+        ],
+        "faabAmount": 12,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "1",
+        "playersAdded": [
+          {
+            "playerId": "40881",
+            "name": "Drake Maye",
+            "nflTeam": "NE"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41344",
+            "name": "George Holani",
+            "nflTeam": "Sea"
+          }
+        ],
+        "faabAmount": 15,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:27:17.000Z",
+        "type": "add",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "25812",
+            "name": "Kirk Cousins",
+            "nflTeam": "LV"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T08:32:38.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "34088",
+            "name": "Romeo Doubs",
+            "nflTeam": "NE"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40201",
+            "name": "Dontayvion Wicks",
+            "nflTeam": "Phi"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T11:28:59.000Z",
+        "type": "add/drop",
+        "teamId": "4",
+        "playersAdded": [
+          {
+            "playerId": "100006",
+            "name": "Cowboys",
+            "nflTeam": "Dal"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100002",
+            "name": "Bills",
+            "nflTeam": "Buf"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T13:43:00.000Z",
+        "type": "add/drop",
+        "teamId": "10",
+        "playersAdded": [
+          {
+            "playerId": "100019",
+            "name": "Giants",
+            "nflTeam": "NYG"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100012",
+            "name": "Chiefs",
+            "nflTeam": "KC"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T13:43:40.000Z",
+        "type": "add/drop",
+        "teamId": "10",
+        "playersAdded": [
+          {
+            "playerId": "40911",
+            "name": "Keon Coleman",
+            "nflTeam": "Buf"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "32704",
+            "name": "Michael Pittman Jr.",
+            "nflTeam": "Pit"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-07T17:25:26.000Z",
+        "type": "add",
+        "teamId": "11",
+        "playersAdded": [
+          {
+            "playerId": "7200",
+            "name": "Aaron Rodgers",
+            "nflTeam": "Pit"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-08T12:38:14.000Z",
+        "type": "add/drop",
+        "teamId": "4",
+        "playersAdded": [
+          {
+            "playerId": "31840",
+            "name": "T.J. Hockenson",
+            "nflTeam": "Min"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41058",
+            "name": "Malik Washington",
+            "nflTeam": "Mia"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-08T21:29:43.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "42744",
+            "name": "Mike Washington Jr.",
+            "nflTeam": "LV"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41902",
+            "name": "Woody Marks",
+            "nflTeam": "Hou"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-08T21:45:00.000Z",
+        "type": "drop",
+        "teamId": "9",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "100030",
+            "name": "Jaguars",
+            "nflTeam": "Jax"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-08T21:45:07.000Z",
+        "type": "drop",
+        "teamId": "9",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "31012",
+            "name": "Mike Gesicki",
+            "nflTeam": "Cin"
+          }
+        ],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-08T21:45:41.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "40952",
+            "name": "Roman Wilson",
+            "nflTeam": "Pit"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "timestamp": "2026-10-09T14:58:10.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "42693",
+            "name": "Antonio Williams",
+            "nflTeam": "Was"
+          }
+        ],
+        "playersDropped": [],
+        "faabAmount": null,
+        "note": null
       }
     ],
     "allTransactionsThroughWeek": [
+      {
+        "transactionId": "470.l.344338.tr.190",
+        "timestamp": "2026-10-09T14:58:10.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "42693",
+            "name": "Antonio Williams",
+            "nflTeam": "Was"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.189",
+        "timestamp": "2026-10-08T21:45:41.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "40952",
+            "name": "Roman Wilson",
+            "nflTeam": "Pit"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.188",
+        "timestamp": "2026-10-08T21:45:07.000Z",
+        "type": "drop",
+        "teamId": "9",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "31012",
+            "name": "Mike Gesicki",
+            "nflTeam": "Cin"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.187",
+        "timestamp": "2026-10-08T21:45:00.000Z",
+        "type": "drop",
+        "teamId": "9",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "100030",
+            "name": "Jaguars",
+            "nflTeam": "Jax"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.186",
+        "timestamp": "2026-10-08T21:29:43.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "42744",
+            "name": "Mike Washington Jr.",
+            "nflTeam": "LV"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41902",
+            "name": "Woody Marks",
+            "nflTeam": "Hou"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.185",
+        "timestamp": "2026-10-08T12:38:14.000Z",
+        "type": "add/drop",
+        "teamId": "4",
+        "playersAdded": [
+          {
+            "playerId": "31840",
+            "name": "T.J. Hockenson",
+            "nflTeam": "Min"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41058",
+            "name": "Malik Washington",
+            "nflTeam": "Mia"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.184",
+        "timestamp": "2026-10-07T17:25:26.000Z",
+        "type": "add",
+        "teamId": "11",
+        "playersAdded": [
+          {
+            "playerId": "7200",
+            "name": "Aaron Rodgers",
+            "nflTeam": "Pit"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.183",
+        "timestamp": "2026-10-07T13:43:40.000Z",
+        "type": "add/drop",
+        "teamId": "10",
+        "playersAdded": [
+          {
+            "playerId": "40911",
+            "name": "Keon Coleman",
+            "nflTeam": "Buf"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "32704",
+            "name": "Michael Pittman Jr.",
+            "nflTeam": "Pit"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.182",
+        "timestamp": "2026-10-07T13:43:00.000Z",
+        "type": "add/drop",
+        "teamId": "10",
+        "playersAdded": [
+          {
+            "playerId": "100019",
+            "name": "Giants",
+            "nflTeam": "NYG"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100012",
+            "name": "Chiefs",
+            "nflTeam": "KC"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.181",
+        "timestamp": "2026-10-07T11:28:59.000Z",
+        "type": "add/drop",
+        "teamId": "4",
+        "playersAdded": [
+          {
+            "playerId": "100006",
+            "name": "Cowboys",
+            "nflTeam": "Dal"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100002",
+            "name": "Bills",
+            "nflTeam": "Buf"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.180",
+        "timestamp": "2026-10-07T08:32:38.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "34088",
+            "name": "Romeo Doubs",
+            "nflTeam": "NE"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40201",
+            "name": "Dontayvion Wicks",
+            "nflTeam": "Phi"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.179",
+        "timestamp": "2026-10-07T08:27:17.000Z",
+        "type": "add",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "25812",
+            "name": "Kirk Cousins",
+            "nflTeam": "LV"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.175",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "100030",
+            "name": "Jaguars",
+            "nflTeam": "Jax"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "34054",
+            "name": "Brian Robinson",
+            "nflTeam": "Atl"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.174",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add",
+        "teamId": "9",
+        "playersAdded": [
+          {
+            "playerId": "31012",
+            "name": "Mike Gesicki",
+            "nflTeam": "Cin"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.173",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "6",
+        "playersAdded": [
+          {
+            "playerId": "40875",
+            "name": "Bo Nix",
+            "nflTeam": "Den"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40224",
+            "name": "Kayshon Boutte",
+            "nflTeam": "Hou"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.172",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "7",
+        "playersAdded": [
+          {
+            "playerId": "29325",
+            "name": "Jacoby Brissett",
+            "nflTeam": "Ari"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "42642",
+            "name": "Makai Lemon",
+            "nflTeam": "Phi"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 0,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.171",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "6",
+        "playersAdded": [
+          {
+            "playerId": "100005",
+            "name": "Browns",
+            "nflTeam": "Cle"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100033",
+            "name": "Ravens",
+            "nflTeam": "Bal"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 1,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.170",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "100004",
+            "name": "Bengals",
+            "nflTeam": "Cin"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "100014",
+            "name": "Rams",
+            "nflTeam": "LAR"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 3,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.169",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "34344",
+            "name": "Cameron Dicker",
+            "nflTeam": "LAC"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "30346",
+            "name": "Harrison Butker",
+            "nflTeam": "KC"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 7,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.168",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "34107",
+            "name": "Tyler Allgeier",
+            "nflTeam": "Ari"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "40108",
+            "name": "Kendre Miller",
+            "nflTeam": "NO"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 8,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.167",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "3",
+        "playersAdded": [
+          {
+            "playerId": "40078",
+            "name": "Brenton Strange",
+            "nflTeam": "Jax"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "33392",
+            "name": "Kyle Pitts Sr.",
+            "nflTeam": "Atl"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 12,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.166",
+        "timestamp": "2026-10-07T08:25:52.000Z",
+        "type": "add/drop",
+        "teamId": "1",
+        "playersAdded": [
+          {
+            "playerId": "40881",
+            "name": "Drake Maye",
+            "nflTeam": "NE"
+          }
+        ],
+        "playersDropped": [
+          {
+            "playerId": "41344",
+            "name": "George Holani",
+            "nflTeam": "Sea"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": 15,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.165",
+        "timestamp": "2026-10-07T08:15:38.000Z",
+        "type": "drop",
+        "teamId": "2",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "42654",
+            "name": "Jadarian Price",
+            "nflTeam": "Sea"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.164",
+        "timestamp": "2026-10-07T08:10:10.000Z",
+        "type": "add",
+        "teamId": "2",
+        "playersAdded": [
+          {
+            "playerId": "41002",
+            "name": "Will Shipley",
+            "nflTeam": "Phi"
+          }
+        ],
+        "playersDropped": [],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.163",
+        "timestamp": "2026-10-06T20:46:30.000Z",
+        "type": "drop",
+        "teamId": "2",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "32417",
+            "name": "Chase McLaughlin",
+            "nflTeam": "TB"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
+      {
+        "transactionId": "470.l.344338.tr.162",
+        "timestamp": "2026-10-06T15:39:30.000Z",
+        "type": "drop",
+        "teamId": "3",
+        "playersAdded": [],
+        "playersDropped": [
+          {
+            "playerId": "40407",
+            "name": "Brycen Tremayne",
+            "nflTeam": "Car"
+          }
+        ],
+        "relatedTeamId": null,
+        "faabAmount": null,
+        "note": null
+      },
       {
         "transactionId": "470.l.344338.tr.161",
         "timestamp": "2026-10-05T03:58:04.000Z",
@@ -3492,7 +4084,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Sea"
+            "nflTeam": "Hou"
           }
         ],
         "relatedTeamId": null,
@@ -3559,7 +4151,7 @@
           {
             "playerId": "30161",
             "name": "Joe Mixon",
-            "nflTeam": "Sea"
+            "nflTeam": "Hou"
           }
         ],
         "playersDropped": [],
@@ -6260,16 +6852,16 @@
           "teamName": "Muslim McCaffrey",
           "managerName": "Sameer",
           "score": 0,
-          "projectedScore": 105.22,
-          "winProbability": 53,
+          "projectedScore": 114.64,
+          "winProbability": 49,
           "players": [
             {
-              "playerId": "32723",
-              "name": "Jalen Hurts",
+              "playerId": "40881",
+              "name": "Drake Maye",
               "slot": "QB",
               "actualPosition": "QB",
               "points": 0,
-              "nflTeam": "Phi"
+              "nflTeam": "NE"
             },
             {
               "playerId": "30121",
@@ -6320,6 +6912,14 @@
               "nflTeam": "LAR"
             },
             {
+              "playerId": "32723",
+              "name": "Jalen Hurts",
+              "slot": "BN",
+              "actualPosition": "QB",
+              "points": 0,
+              "nflTeam": "Phi"
+            },
+            {
               "playerId": "30972",
               "name": "Saquon Barkley",
               "slot": "BN",
@@ -6350,14 +6950,6 @@
               "actualPosition": "WR",
               "points": 0,
               "nflTeam": "Mia"
-            },
-            {
-              "playerId": "41344",
-              "name": "George Holani",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Sea"
             },
             {
               "playerId": "41831",
@@ -6395,6 +6987,14 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
+                "playerId": "32723",
+                "name": "Jalen Hurts",
+                "slot": "BN",
+                "actualPosition": "QB",
+                "points": 0,
+                "nflTeam": "Phi"
+              },
+              {
                 "playerId": "30972",
                 "name": "Saquon Barkley",
                 "slot": "BN",
@@ -6409,24 +7009,16 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "KC"
-              },
-              {
-                "playerId": "42712",
-                "name": "Kaelon Black",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "SF"
               }
             ],
             "lowestScoringStarters": [
               {
-                "playerId": "32723",
-                "name": "Jalen Hurts",
+                "playerId": "40881",
+                "name": "Drake Maye",
                 "slot": "QB",
                 "actualPosition": "QB",
                 "points": 0,
-                "nflTeam": "Phi"
+                "nflTeam": "NE"
               },
               {
                 "playerId": "30121",
@@ -6451,9 +7043,9 @@
           "teamId": "8",
           "teamName": "Tuten Brown Shite",
           "managerName": "Faizan",
-          "score": 0,
-          "projectedScore": 102.22,
-          "winProbability": 47,
+          "score": 23.5,
+          "projectedScore": 104.68,
+          "winProbability": 51,
           "players": [
             {
               "playerId": "29235",
@@ -6484,7 +7076,7 @@
               "name": "George Pickens",
               "slot": "WR",
               "actualPosition": "WR",
-              "points": 0,
+              "points": 23.5,
               "nflTeam": "Dal"
             },
             {
@@ -6634,11 +7226,11 @@
         "playoffRound": null,
         "home": {
           "teamId": "2",
-          "teamName": "Calandar MAN",
+          "teamName": "Not a pussy unlike y'all",
           "managerName": "WC",
           "score": 0,
-          "projectedScore": 92.81,
-          "winProbability": 31,
+          "projectedScore": 90.06,
+          "winProbability": 12,
           "players": [
             {
               "playerId": "32671",
@@ -6673,12 +7265,12 @@
               "nflTeam": "Cle"
             },
             {
-              "playerId": "40201",
-              "name": "Dontayvion Wicks",
+              "playerId": "34088",
+              "name": "Romeo Doubs",
               "slot": "WR",
               "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "Phi"
+              "nflTeam": "NE"
             },
             {
               "playerId": "34095",
@@ -6689,9 +7281,17 @@
               "nflTeam": "NYG"
             },
             {
+              "playerId": "41002",
+              "name": "Will Shipley",
+              "slot": "W/R/T",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "Phi"
+            },
+            {
               "playerId": "41097",
               "name": "Devaughn Vele",
-              "slot": "W/R/T",
+              "slot": "BN",
               "actualPosition": "WR",
               "points": 0,
               "nflTeam": "NO"
@@ -6713,28 +7313,28 @@
               "nflTeam": "KC"
             },
             {
-              "playerId": "41902",
-              "name": "Woody Marks",
+              "playerId": "34107",
+              "name": "Tyler Allgeier",
               "slot": "BN",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "Hou"
+              "nflTeam": "Ari"
             },
             {
-              "playerId": "40108",
-              "name": "Kendre Miller",
+              "playerId": "25812",
+              "name": "Kirk Cousins",
               "slot": "BN",
-              "actualPosition": "RB",
+              "actualPosition": "QB",
               "points": 0,
-              "nflTeam": "NO"
+              "nflTeam": "LV"
             },
             {
-              "playerId": "42654",
-              "name": "Jadarian Price",
+              "playerId": "42744",
+              "name": "Mike Washington Jr.",
               "slot": "BN",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "Sea"
+              "nflTeam": "LV"
             },
             {
               "playerId": "42730",
@@ -6753,14 +7353,6 @@
               "nflTeam": "Min"
             },
             {
-              "playerId": "32417",
-              "name": "Chase McLaughlin",
-              "slot": "K",
-              "actualPosition": "K",
-              "points": 0,
-              "nflTeam": "TB"
-            },
-            {
               "playerId": "100013",
               "name": "Raiders",
               "slot": "DEF",
@@ -6771,6 +7363,14 @@
           ],
           "lineupSignals": {
             "topBenchByPoints": [
+              {
+                "playerId": "41097",
+                "name": "Devaughn Vele",
+                "slot": "BN",
+                "actualPosition": "WR",
+                "points": 0,
+                "nflTeam": "NO"
+              },
               {
                 "playerId": "41793",
                 "name": "Tetairoa McMillan",
@@ -6786,14 +7386,6 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "nflTeam": "KC"
-              },
-              {
-                "playerId": "41902",
-                "name": "Woody Marks",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Hou"
               }
             ],
             "lowestScoringStarters": [
@@ -6826,19 +7418,19 @@
         },
         "away": {
           "teamId": "7",
-          "teamName": "Calander MAN",
+          "teamName": "Not a halal gap unlike y'all",
           "managerName": "Ammar",
-          "score": 0,
-          "projectedScore": 113.47,
-          "winProbability": 69,
+          "score": 30.5,
+          "projectedScore": 120.85,
+          "winProbability": 88,
           "players": [
             {
-              "playerId": "41825",
-              "name": "Tyler Shough",
+              "playerId": "29325",
+              "name": "Jacoby Brissett",
               "slot": "QB",
               "actualPosition": "QB",
               "points": 0,
-              "nflTeam": "NO"
+              "nflTeam": "Ari"
             },
             {
               "playerId": "42625",
@@ -6849,12 +7441,12 @@
               "nflTeam": "Ari"
             },
             {
-              "playerId": "41807",
-              "name": "Omarion Hampton",
+              "playerId": "40993",
+              "name": "Bucky Irving",
               "slot": "RB",
               "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "LAC"
+              "points": 30.5,
+              "nflTeam": "TB"
             },
             {
               "playerId": "40121",
@@ -6889,12 +7481,20 @@
               "nflTeam": "LAR"
             },
             {
-              "playerId": "40993",
-              "name": "Bucky Irving",
+              "playerId": "41807",
+              "name": "Omarion Hampton",
               "slot": "BN",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "TB"
+              "nflTeam": "LAC"
+            },
+            {
+              "playerId": "41825",
+              "name": "Tyler Shough",
+              "slot": "BN",
+              "actualPosition": "QB",
+              "points": 0,
+              "nflTeam": "NO"
             },
             {
               "playerId": "33398",
@@ -6919,14 +7519,6 @@
               "actualPosition": "RB",
               "points": 0,
               "nflTeam": "Mia"
-            },
-            {
-              "playerId": "42642",
-              "name": "Makai Lemon",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Phi"
             },
             {
               "playerId": "34008",
@@ -6964,12 +7556,20 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
-                "playerId": "40993",
-                "name": "Bucky Irving",
+                "playerId": "41807",
+                "name": "Omarion Hampton",
                 "slot": "BN",
                 "actualPosition": "RB",
                 "points": 0,
-                "nflTeam": "TB"
+                "nflTeam": "LAC"
+              },
+              {
+                "playerId": "41825",
+                "name": "Tyler Shough",
+                "slot": "BN",
+                "actualPosition": "QB",
+                "points": 0,
+                "nflTeam": "NO"
               },
               {
                 "playerId": "33398",
@@ -6978,24 +7578,16 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "nflTeam": "Phi"
-              },
-              {
-                "playerId": "41845",
-                "name": "RJ Harvey",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Den"
               }
             ],
             "lowestScoringStarters": [
               {
-                "playerId": "41825",
-                "name": "Tyler Shough",
+                "playerId": "29325",
+                "name": "Jacoby Brissett",
                 "slot": "QB",
                 "actualPosition": "QB",
                 "points": 0,
-                "nflTeam": "NO"
+                "nflTeam": "Ari"
               },
               {
                 "playerId": "42625",
@@ -7006,12 +7598,12 @@
                 "nflTeam": "Ari"
               },
               {
-                "playerId": "41807",
-                "name": "Omarion Hampton",
-                "slot": "RB",
-                "actualPosition": "RB",
+                "playerId": "40121",
+                "name": "Michael Wilson",
+                "slot": "WR",
+                "actualPosition": "WR",
                 "points": 0,
-                "nflTeam": "LAC"
+                "nflTeam": "Ari"
               }
             ]
           }
@@ -7027,32 +7619,64 @@
         "playoffRound": null,
         "home": {
           "teamId": "3",
-          "teamName": "Calendar MAN",
+          "teamName": "MY LEG!!!",
           "managerName": "Shaun",
-          "score": 0,
-          "projectedScore": 6.49,
-          "winProbability": 1,
+          "score": 14.2,
+          "projectedScore": 104.86,
+          "winProbability": 71,
           "players": [
-            {
-              "playerId": "33392",
-              "name": "Kyle Pitts Sr.",
-              "slot": "TE",
-              "actualPosition": "TE",
-              "points": 0,
-              "nflTeam": "Atl"
-            },
             {
               "playerId": "9265",
               "name": "Matthew Stafford",
-              "slot": "BN",
+              "slot": "QB",
               "actualPosition": "QB",
               "points": 0,
               "nflTeam": "LAR"
             },
             {
+              "playerId": "30295",
+              "name": "Aaron Jones Sr.",
+              "slot": "RB",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "Min"
+            },
+            {
+              "playerId": "41823",
+              "name": "TreVeyon Henderson",
+              "slot": "RB",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "NE"
+            },
+            {
+              "playerId": "41804",
+              "name": "Emeka Egbuka",
+              "slot": "WR",
+              "actualPosition": "WR",
+              "points": 14.2,
+              "nflTeam": "TB"
+            },
+            {
+              "playerId": "32692",
+              "name": "Justin Jefferson",
+              "slot": "WR",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "Min"
+            },
+            {
+              "playerId": "40078",
+              "name": "Brenton Strange",
+              "slot": "TE",
+              "actualPosition": "TE",
+              "points": 0,
+              "nflTeam": "Jax"
+            },
+            {
               "playerId": "41922",
               "name": "Cam Skattebo",
-              "slot": "BN",
+              "slot": "W/R/T",
               "actualPosition": "RB",
               "points": 0,
               "nflTeam": "NYG"
@@ -7066,36 +7690,12 @@
               "nflTeam": "LV"
             },
             {
-              "playerId": "41804",
-              "name": "Emeka Egbuka",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "TB"
-            },
-            {
-              "playerId": "30295",
-              "name": "Aaron Jones Sr.",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Min"
-            },
-            {
               "playerId": "26686",
               "name": "Travis Kelce",
               "slot": "BN",
               "actualPosition": "TE",
               "points": 0,
               "nflTeam": "KC"
-            },
-            {
-              "playerId": "40407",
-              "name": "Brycen Tremayne",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Car"
             },
             {
               "playerId": "40029",
@@ -7106,22 +7706,6 @@
               "nflTeam": "Car"
             },
             {
-              "playerId": "41293",
-              "name": "Jalen Coker",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Car"
-            },
-            {
-              "playerId": "41823",
-              "name": "TreVeyon Henderson",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "NE"
-            },
-            {
               "playerId": "29399",
               "name": "Tyreek Hill",
               "slot": "BN",
@@ -7130,48 +7714,32 @@
               "nflTeam": "Mia"
             },
             {
-              "playerId": "32692",
-              "name": "Justin Jefferson",
-              "slot": "IR",
+              "playerId": "41293",
+              "name": "Jalen Coker",
+              "slot": "BN",
               "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "Min"
+              "nflTeam": "Car"
             },
             {
-              "playerId": "30346",
-              "name": "Harrison Butker",
-              "slot": "BN",
+              "playerId": "34344",
+              "name": "Cameron Dicker",
+              "slot": "K",
               "actualPosition": "K",
               "points": 0,
-              "nflTeam": "KC"
+              "nflTeam": "LAC"
             },
             {
-              "playerId": "100014",
-              "name": "Rams",
-              "slot": "BN",
+              "playerId": "100004",
+              "name": "Bengals",
+              "slot": "DEF",
               "actualPosition": "DEF",
               "points": 0,
-              "nflTeam": "LAR"
+              "nflTeam": "Cin"
             }
           ],
           "lineupSignals": {
             "topBenchByPoints": [
-              {
-                "playerId": "9265",
-                "name": "Matthew Stafford",
-                "slot": "BN",
-                "actualPosition": "QB",
-                "points": 0,
-                "nflTeam": "LAR"
-              },
-              {
-                "playerId": "41922",
-                "name": "Cam Skattebo",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "NYG"
-              },
               {
                 "playerId": "41791",
                 "name": "Ashton Jeanty",
@@ -7179,16 +7747,48 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "LV"
+              },
+              {
+                "playerId": "26686",
+                "name": "Travis Kelce",
+                "slot": "BN",
+                "actualPosition": "TE",
+                "points": 0,
+                "nflTeam": "KC"
+              },
+              {
+                "playerId": "40029",
+                "name": "Bryce Young",
+                "slot": "BN",
+                "actualPosition": "QB",
+                "points": 0,
+                "nflTeam": "Car"
               }
             ],
             "lowestScoringStarters": [
               {
-                "playerId": "33392",
-                "name": "Kyle Pitts Sr.",
-                "slot": "TE",
-                "actualPosition": "TE",
+                "playerId": "9265",
+                "name": "Matthew Stafford",
+                "slot": "QB",
+                "actualPosition": "QB",
                 "points": 0,
-                "nflTeam": "Atl"
+                "nflTeam": "LAR"
+              },
+              {
+                "playerId": "30295",
+                "name": "Aaron Jones Sr.",
+                "slot": "RB",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "Min"
+              },
+              {
+                "playerId": "41823",
+                "name": "TreVeyon Henderson",
+                "slot": "RB",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "NE"
               }
             ]
           }
@@ -7197,9 +7797,9 @@
           "teamId": "5",
           "teamName": "I ❤️ Packers",
           "managerName": "Isbah",
-          "score": 0,
-          "projectedScore": 98.35,
-          "winProbability": 99,
+          "score": 7,
+          "projectedScore": 110.07,
+          "winProbability": 29,
           "players": [
             {
               "playerId": "30973",
@@ -7218,19 +7818,19 @@
               "nflTeam": "Buf"
             },
             {
-              "playerId": "33514",
-              "name": "Chuba Hubbard",
+              "playerId": "34047",
+              "name": "Rachaad White",
               "slot": "RB",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "Car"
+              "nflTeam": "Was"
             },
             {
               "playerId": "32687",
               "name": "CeeDee Lamb",
               "slot": "WR",
               "actualPosition": "WR",
-              "points": 0,
+              "points": 1.9,
               "nflTeam": "Dal"
             },
             {
@@ -7250,20 +7850,28 @@
               "nflTeam": "Det"
             },
             {
+              "playerId": "33967",
+              "name": "Jameson Williams",
+              "slot": "W/R/T",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "Det"
+            },
+            {
               "playerId": "32231",
               "name": "Jakobi Meyers",
-              "slot": "W/R/T",
+              "slot": "BN",
               "actualPosition": "WR",
               "points": 0,
               "nflTeam": "Jax"
             },
             {
-              "playerId": "33967",
-              "name": "Jameson Williams",
+              "playerId": "33514",
+              "name": "Chuba Hubbard",
               "slot": "BN",
-              "actualPosition": "WR",
+              "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "Det"
+              "nflTeam": "Car"
             },
             {
               "playerId": "31056",
@@ -7290,19 +7898,11 @@
               "nflTeam": "KC"
             },
             {
-              "playerId": "34047",
-              "name": "Rachaad White",
-              "slot": "IR",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Was"
-            },
-            {
               "playerId": "40819",
               "name": "Brandon Aubrey",
               "slot": "K",
               "actualPosition": "K",
-              "points": 0,
+              "points": 5.1,
               "nflTeam": "Dal"
             },
             {
@@ -7317,12 +7917,20 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
-                "playerId": "33967",
-                "name": "Jameson Williams",
+                "playerId": "32231",
+                "name": "Jakobi Meyers",
                 "slot": "BN",
                 "actualPosition": "WR",
                 "points": 0,
-                "nflTeam": "Det"
+                "nflTeam": "Jax"
+              },
+              {
+                "playerId": "33514",
+                "name": "Chuba Hubbard",
+                "slot": "BN",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "Car"
               },
               {
                 "playerId": "31056",
@@ -7331,14 +7939,6 @@
                 "actualPosition": "TE",
                 "points": 0,
                 "nflTeam": "Bal"
-              },
-              {
-                "playerId": "31856",
-                "name": "Josh Jacobs",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "GB"
               }
             ],
             "lowestScoringStarters": [
@@ -7359,12 +7959,12 @@
                 "nflTeam": "Buf"
               },
               {
-                "playerId": "33514",
-                "name": "Chuba Hubbard",
+                "playerId": "34047",
+                "name": "Rachaad White",
                 "slot": "RB",
                 "actualPosition": "RB",
                 "points": 0,
-                "nflTeam": "Car"
+                "nflTeam": "Was"
               }
             ]
           }
@@ -7380,18 +7980,18 @@
         "playoffRound": null,
         "home": {
           "teamId": "4",
-          "teamName": "RKO the shit out of Syed",
+          "teamName": "RKO Abraar",
           "managerName": "Zain",
-          "score": 0,
-          "projectedScore": 100.81,
-          "winProbability": 55,
+          "score": 30.84,
+          "projectedScore": 105.93,
+          "winProbability": 34,
           "players": [
             {
               "playerId": "29369",
               "name": "Dak Prescott",
               "slot": "QB",
               "actualPosition": "QB",
-              "points": 0,
+              "points": 16.64,
               "nflTeam": "Dal"
             },
             {
@@ -7399,7 +7999,7 @@
               "name": "Javonte Williams",
               "slot": "RB",
               "actualPosition": "RB",
-              "points": 0,
+              "points": 13.2,
               "nflTeam": "Dal"
             },
             {
@@ -7427,12 +8027,12 @@
               "nflTeam": "GB"
             },
             {
-              "playerId": "40048",
-              "name": "Dalton Kincaid",
+              "playerId": "31840",
+              "name": "T.J. Hockenson",
               "slot": "TE",
               "actualPosition": "TE",
               "points": 0,
-              "nflTeam": "Buf"
+              "nflTeam": "Min"
             },
             {
               "playerId": "27535",
@@ -7441,6 +8041,22 @@
               "actualPosition": "WR",
               "points": 0,
               "nflTeam": "SF"
+            },
+            {
+              "playerId": "33538",
+              "name": "Kenny Gainwell",
+              "slot": "BN",
+              "actualPosition": "RB",
+              "points": 4.3,
+              "nflTeam": "TB"
+            },
+            {
+              "playerId": "40048",
+              "name": "Dalton Kincaid",
+              "slot": "BN",
+              "actualPosition": "TE",
+              "points": 0,
+              "nflTeam": "Buf"
             },
             {
               "playerId": "33996",
@@ -7467,22 +8083,6 @@
               "nflTeam": "KC"
             },
             {
-              "playerId": "33538",
-              "name": "Kenny Gainwell",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "TB"
-            },
-            {
-              "playerId": "41058",
-              "name": "Malik Washington",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Mia"
-            },
-            {
               "playerId": "33413",
               "name": "Travis Etienne Jr.",
               "slot": "IR",
@@ -7507,16 +8107,32 @@
               "nflTeam": "Cin"
             },
             {
-              "playerId": "100002",
-              "name": "Bills",
+              "playerId": "100006",
+              "name": "Cowboys",
               "slot": "DEF",
               "actualPosition": "DEF",
-              "points": 0,
-              "nflTeam": "Buf"
+              "points": 1,
+              "nflTeam": "Dal"
             }
           ],
           "lineupSignals": {
             "topBenchByPoints": [
+              {
+                "playerId": "33538",
+                "name": "Kenny Gainwell",
+                "slot": "BN",
+                "actualPosition": "RB",
+                "points": 4.3,
+                "nflTeam": "TB"
+              },
+              {
+                "playerId": "40048",
+                "name": "Dalton Kincaid",
+                "slot": "BN",
+                "actualPosition": "TE",
+                "points": 0,
+                "nflTeam": "Buf"
+              },
               {
                 "playerId": "33996",
                 "name": "Kenneth Walker III",
@@ -7524,41 +8140,9 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "KC"
-              },
-              {
-                "playerId": "40908",
-                "name": "Ladd McConkey",
-                "slot": "BN",
-                "actualPosition": "WR",
-                "points": 0,
-                "nflTeam": "LAC"
-              },
-              {
-                "playerId": "30123",
-                "name": "Patrick Mahomes",
-                "slot": "BN",
-                "actualPosition": "QB",
-                "points": 0,
-                "nflTeam": "KC"
               }
             ],
             "lowestScoringStarters": [
-              {
-                "playerId": "29369",
-                "name": "Dak Prescott",
-                "slot": "QB",
-                "actualPosition": "QB",
-                "points": 0,
-                "nflTeam": "Dal"
-              },
-              {
-                "playerId": "33423",
-                "name": "Javonte Williams",
-                "slot": "RB",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Dal"
-              },
               {
                 "playerId": "40962",
                 "name": "Blake Corum",
@@ -7566,17 +8150,33 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "LAR"
+              },
+              {
+                "playerId": "40234",
+                "name": "Parker Washington",
+                "slot": "WR",
+                "actualPosition": "WR",
+                "points": 0,
+                "nflTeam": "Jax"
+              },
+              {
+                "playerId": "41808",
+                "name": "Matthew Golden",
+                "slot": "WR",
+                "actualPosition": "WR",
+                "points": 0,
+                "nflTeam": "GB"
               }
             ]
           }
         },
         "away": {
           "teamId": "10",
-          "teamName": "Swole Boy",
+          "teamName": "Slap City",
           "managerName": "Abraar Kazi",
           "score": 0,
-          "projectedScore": 95.21,
-          "winProbability": 45,
+          "projectedScore": 104.2,
+          "winProbability": 66,
           "players": [
             {
               "playerId": "40030",
@@ -7611,12 +8211,12 @@
               "nflTeam": "Bal"
             },
             {
-              "playerId": "31908",
-              "name": "Terry McLaurin",
+              "playerId": "31896",
+              "name": "DK Metcalf",
               "slot": "WR",
               "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "Was"
+              "nflTeam": "Pit"
             },
             {
               "playerId": "40878",
@@ -7627,36 +8227,28 @@
               "nflTeam": "LV"
             },
             {
+              "playerId": "42025",
+              "name": "Kyle Monangai",
+              "slot": "W/R/T",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "Chi"
+            },
+            {
               "playerId": "42661",
               "name": "Denzel Boston",
-              "slot": "W/R/T",
+              "slot": "BN",
               "actualPosition": "WR",
               "points": 0,
               "nflTeam": "Cle"
             },
             {
-              "playerId": "31896",
-              "name": "DK Metcalf",
+              "playerId": "31908",
+              "name": "Terry McLaurin",
               "slot": "BN",
               "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "Pit"
-            },
-            {
-              "playerId": "32704",
-              "name": "Michael Pittman Jr.",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Pit"
-            },
-            {
-              "playerId": "42025",
-              "name": "Kyle Monangai",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Chi"
+              "nflTeam": "Was"
             },
             {
               "playerId": "28592",
@@ -7675,6 +8267,14 @@
               "nflTeam": "Chi"
             },
             {
+              "playerId": "40911",
+              "name": "Keon Coleman",
+              "slot": "BN",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "Buf"
+            },
+            {
               "playerId": "31482",
               "name": "Eddy Pineiro",
               "slot": "K",
@@ -7683,39 +8283,39 @@
               "nflTeam": "SF"
             },
             {
-              "playerId": "100012",
-              "name": "Chiefs",
+              "playerId": "100019",
+              "name": "Giants",
               "slot": "DEF",
               "actualPosition": "DEF",
               "points": 0,
-              "nflTeam": "KC"
+              "nflTeam": "NYG"
             }
           ],
           "lineupSignals": {
             "topBenchByPoints": [
               {
-                "playerId": "31896",
-                "name": "DK Metcalf",
+                "playerId": "42661",
+                "name": "Denzel Boston",
                 "slot": "BN",
                 "actualPosition": "WR",
                 "points": 0,
-                "nflTeam": "Pit"
+                "nflTeam": "Cle"
               },
               {
-                "playerId": "32704",
-                "name": "Michael Pittman Jr.",
+                "playerId": "31908",
+                "name": "Terry McLaurin",
                 "slot": "BN",
                 "actualPosition": "WR",
                 "points": 0,
-                "nflTeam": "Pit"
+                "nflTeam": "Was"
               },
               {
-                "playerId": "42025",
-                "name": "Kyle Monangai",
+                "playerId": "28592",
+                "name": "Darren Waller",
                 "slot": "BN",
-                "actualPosition": "RB",
+                "actualPosition": "TE",
                 "points": 0,
-                "nflTeam": "Chi"
+                "nflTeam": "Car"
               }
             ],
             "lowestScoringStarters": [
@@ -7757,11 +8357,11 @@
         "playoffRound": null,
         "home": {
           "teamId": "6",
-          "teamName": "Suck the Sag",
+          "teamName": "BigBird",
           "managerName": "Bilal",
           "score": 0,
-          "projectedScore": 115.92,
-          "winProbability": 56,
+          "projectedScore": 124.46,
+          "winProbability": 60,
           "players": [
             {
               "playerId": "30977",
@@ -7820,14 +8420,6 @@
               "nflTeam": "Pit"
             },
             {
-              "playerId": "40224",
-              "name": "Kayshon Boutte",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Hou"
-            },
-            {
               "playerId": "40971",
               "name": "MarShawn Lloyd",
               "slot": "BN",
@@ -7860,6 +8452,14 @@
               "nflTeam": "Ind"
             },
             {
+              "playerId": "40875",
+              "name": "Bo Nix",
+              "slot": "BN",
+              "actualPosition": "QB",
+              "points": 0,
+              "nflTeam": "Den"
+            },
+            {
               "playerId": "41907",
               "name": "Dylan Sampson",
               "slot": "IR",
@@ -7884,24 +8484,16 @@
               "nflTeam": "LAR"
             },
             {
-              "playerId": "100033",
-              "name": "Ravens",
+              "playerId": "100005",
+              "name": "Browns",
               "slot": "DEF",
               "actualPosition": "DEF",
               "points": 0,
-              "nflTeam": "Bal"
+              "nflTeam": "Cle"
             }
           ],
           "lineupSignals": {
             "topBenchByPoints": [
-              {
-                "playerId": "40224",
-                "name": "Kayshon Boutte",
-                "slot": "BN",
-                "actualPosition": "WR",
-                "points": 0,
-                "nflTeam": "Hou"
-              },
               {
                 "playerId": "40971",
                 "name": "MarShawn Lloyd",
@@ -7917,6 +8509,14 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "nflTeam": "Min"
+              },
+              {
+                "playerId": "40981",
+                "name": "Braelon Allen",
+                "slot": "BN",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "NYJ"
               }
             ],
             "lowestScoringStarters": [
@@ -7952,8 +8552,8 @@
           "teamName": "Lovebirds",
           "managerName": "Owais",
           "score": 0,
-          "projectedScore": 109.45,
-          "winProbability": 44,
+          "projectedScore": 112.48,
+          "winProbability": 40,
           "players": [
             {
               "playerId": "32696",
@@ -8040,7 +8640,7 @@
               "name": "Jake Ferguson",
               "slot": "BN",
               "actualPosition": "TE",
-              "points": 0,
+              "points": 3.4,
               "nflTeam": "Dal"
             },
             {
@@ -8071,6 +8671,14 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
+                "playerId": "34085",
+                "name": "Jake Ferguson",
+                "slot": "BN",
+                "actualPosition": "TE",
+                "points": 3.4,
+                "nflTeam": "Dal"
+              },
+              {
                 "playerId": "40883",
                 "name": "Brian Thomas Jr.",
                 "slot": "BN",
@@ -8085,14 +8693,6 @@
                 "actualPosition": "QB",
                 "points": 0,
                 "nflTeam": "LAC"
-              },
-              {
-                "playerId": "32725",
-                "name": "J.K. Dobbins",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Den"
               }
             ],
             "lowestScoringStarters": [
@@ -8134,11 +8734,11 @@
         "playoffRound": null,
         "home": {
           "teamId": "9",
-          "teamName": "MASOOD the SHIT out of zain",
+          "teamName": "The Purdverts",
           "managerName": "Sydaddy",
           "score": 0,
-          "projectedScore": 111.49,
-          "winProbability": 68,
+          "projectedScore": 118.55,
+          "winProbability": 58,
           "players": [
             {
               "playerId": "33389",
@@ -8197,20 +8797,20 @@
               "nflTeam": "Ten"
             },
             {
-              "playerId": "28534",
-              "name": "Stefon Diggs",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Was"
-            },
-            {
               "playerId": "34218",
               "name": "Brock Purdy",
               "slot": "BN",
               "actualPosition": "QB",
               "points": 0,
               "nflTeam": "SF"
+            },
+            {
+              "playerId": "28534",
+              "name": "Stefon Diggs",
+              "slot": "BN",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "Was"
             },
             {
               "playerId": "40893",
@@ -8221,12 +8821,20 @@
               "nflTeam": "Ari"
             },
             {
-              "playerId": "34054",
-              "name": "Brian Robinson",
+              "playerId": "40952",
+              "name": "Roman Wilson",
               "slot": "BN",
-              "actualPosition": "RB",
+              "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "Atl"
+              "nflTeam": "Pit"
+            },
+            {
+              "playerId": "42693",
+              "name": "Antonio Williams",
+              "slot": "BN",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "Was"
             },
             {
               "playerId": "33991",
@@ -8264,20 +8872,20 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
-                "playerId": "28534",
-                "name": "Stefon Diggs",
-                "slot": "BN",
-                "actualPosition": "WR",
-                "points": 0,
-                "nflTeam": "Was"
-              },
-              {
                 "playerId": "34218",
                 "name": "Brock Purdy",
                 "slot": "BN",
                 "actualPosition": "QB",
                 "points": 0,
                 "nflTeam": "SF"
+              },
+              {
+                "playerId": "28534",
+                "name": "Stefon Diggs",
+                "slot": "BN",
+                "actualPosition": "WR",
+                "points": 0,
+                "nflTeam": "Was"
               },
               {
                 "playerId": "40893",
@@ -8321,40 +8929,32 @@
           "teamName": "Auto draft nonsense",
           "managerName": "Farhan",
           "score": 0,
-          "projectedScore": 91.46,
-          "winProbability": 32,
+          "projectedScore": 108.83,
+          "winProbability": 42,
           "players": [
             {
-              "playerId": "31002",
-              "name": "Lamar Jackson",
+              "playerId": "7200",
+              "name": "Aaron Rodgers",
               "slot": "QB",
               "actualPosition": "QB",
               "points": 0,
-              "nflTeam": "Bal"
+              "nflTeam": "Pit"
             },
             {
-              "playerId": "33508",
-              "name": "Rhamondre Stevenson",
+              "playerId": "41969",
+              "name": "Ollie Gordon II",
               "slot": "RB",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "NE"
+              "nflTeam": "Mia"
             },
             {
-              "playerId": "31960",
-              "name": "Tony Pollard",
+              "playerId": "40707",
+              "name": "Emanuel Wilson",
               "slot": "RB",
               "actualPosition": "RB",
               "points": 0,
-              "nflTeam": "Ten"
-            },
-            {
-              "playerId": "33393",
-              "name": "Ja'Marr Chase",
-              "slot": "WR",
-              "actualPosition": "WR",
-              "points": 0,
-              "nflTeam": "Cin"
+              "nflTeam": "Sea"
             },
             {
               "playerId": "33963",
@@ -8365,6 +8965,14 @@
               "nflTeam": "Atl"
             },
             {
+              "playerId": "40899",
+              "name": "Malik Nabers",
+              "slot": "WR",
+              "actualPosition": "WR",
+              "points": 0,
+              "nflTeam": "NYG"
+            },
+            {
               "playerId": "40102",
               "name": "Tucker Kraft",
               "slot": "TE",
@@ -8373,12 +8981,36 @@
               "nflTeam": "GB"
             },
             {
-              "playerId": "40899",
-              "name": "Malik Nabers",
+              "playerId": "33393",
+              "name": "Ja'Marr Chase",
               "slot": "W/R/T",
               "actualPosition": "WR",
               "points": 0,
-              "nflTeam": "NYG"
+              "nflTeam": "Cin"
+            },
+            {
+              "playerId": "33508",
+              "name": "Rhamondre Stevenson",
+              "slot": "BN",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "NE"
+            },
+            {
+              "playerId": "31002",
+              "name": "Lamar Jackson",
+              "slot": "BN",
+              "actualPosition": "QB",
+              "points": 0,
+              "nflTeam": "Bal"
+            },
+            {
+              "playerId": "31960",
+              "name": "Tony Pollard",
+              "slot": "BN",
+              "actualPosition": "RB",
+              "points": 0,
+              "nflTeam": "Ten"
             },
             {
               "playerId": "41795",
@@ -8391,26 +9023,10 @@
             {
               "playerId": "40095",
               "name": "Tank Bigsby",
-              "slot": "BN",
+              "slot": "IR",
               "actualPosition": "RB",
               "points": 0,
               "nflTeam": "Phi"
-            },
-            {
-              "playerId": "40707",
-              "name": "Emanuel Wilson",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Sea"
-            },
-            {
-              "playerId": "41969",
-              "name": "Ollie Gordon II",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "nflTeam": "Mia"
             },
             {
               "playerId": "42655",
@@ -8440,54 +9056,54 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
-                "playerId": "41795",
-                "name": "Colston Loveland",
-                "slot": "BN",
-                "actualPosition": "TE",
-                "points": 0,
-                "nflTeam": "Chi"
-              },
-              {
-                "playerId": "40095",
-                "name": "Tank Bigsby",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Phi"
-              },
-              {
-                "playerId": "40707",
-                "name": "Emanuel Wilson",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "nflTeam": "Sea"
-              }
-            ],
-            "lowestScoringStarters": [
-              {
-                "playerId": "31002",
-                "name": "Lamar Jackson",
-                "slot": "QB",
-                "actualPosition": "QB",
-                "points": 0,
-                "nflTeam": "Bal"
-              },
-              {
                 "playerId": "33508",
                 "name": "Rhamondre Stevenson",
-                "slot": "RB",
+                "slot": "BN",
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "NE"
               },
               {
+                "playerId": "31002",
+                "name": "Lamar Jackson",
+                "slot": "BN",
+                "actualPosition": "QB",
+                "points": 0,
+                "nflTeam": "Bal"
+              },
+              {
                 "playerId": "31960",
                 "name": "Tony Pollard",
-                "slot": "RB",
+                "slot": "BN",
                 "actualPosition": "RB",
                 "points": 0,
                 "nflTeam": "Ten"
+              }
+            ],
+            "lowestScoringStarters": [
+              {
+                "playerId": "7200",
+                "name": "Aaron Rodgers",
+                "slot": "QB",
+                "actualPosition": "QB",
+                "points": 0,
+                "nflTeam": "Pit"
+              },
+              {
+                "playerId": "41969",
+                "name": "Ollie Gordon II",
+                "slot": "RB",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "Mia"
+              },
+              {
+                "playerId": "40707",
+                "name": "Emanuel Wilson",
+                "slot": "RB",
+                "actualPosition": "RB",
+                "points": 0,
+                "nflTeam": "Sea"
               }
             ]
           }
@@ -8497,13 +9113,13 @@
     "rosters": {
       "1": [
         {
-          "playerId": "32723",
-          "name": "Jalen Hurts",
+          "playerId": "40881",
+          "name": "Drake Maye",
           "slot": "QB",
           "actualPosition": "QB",
-          "nflTeam": "Phi",
+          "nflTeam": "NE",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/rxsu3cY0VkambYSUhFcSwA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/32723.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/3cTm93LmVVwV1Y1Wpli0KQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/40881.1.png",
           "isStarter": true
         },
         {
@@ -8567,6 +9183,16 @@
           "isStarter": true
         },
         {
+          "playerId": "32723",
+          "name": "Jalen Hurts",
+          "slot": "BN",
+          "actualPosition": "QB",
+          "nflTeam": "Phi",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/rxsu3cY0VkambYSUhFcSwA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/32723.1.png",
+          "isStarter": false
+        },
+        {
           "playerId": "30972",
           "name": "Saquon Barkley",
           "slot": "BN",
@@ -8604,16 +9230,6 @@
           "nflTeam": "Mia",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Lyi88vhcQwnDfFIhIL4lhg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/42716.2.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41344",
-          "name": "George Holani",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "Sea",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/E1NfHPdd.0IyCRG5aLlUYw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/41344.1.png",
           "isStarter": false
         },
         {
@@ -8699,13 +9315,13 @@
           "isStarter": true
         },
         {
-          "playerId": "40201",
-          "name": "Dontayvion Wicks",
+          "playerId": "34088",
+          "name": "Romeo Doubs",
           "slot": "WR",
           "actualPosition": "WR",
-          "nflTeam": "Phi",
+          "nflTeam": "NE",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Je3zH18yidY7ZI7qsqo1mw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/40201.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/iB9NZ9TKn576z7LoLfE_Lg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/34088.1.png",
           "isStarter": true
         },
         {
@@ -8719,14 +9335,24 @@
           "isStarter": true
         },
         {
+          "playerId": "41002",
+          "name": "Will Shipley",
+          "slot": "W/R/T",
+          "actualPosition": "RB",
+          "nflTeam": "Phi",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Gb51TGnJtOpDb2CDkqmmvw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/41002.1.png",
+          "isStarter": true
+        },
+        {
           "playerId": "41097",
           "name": "Devaughn Vele",
-          "slot": "W/R/T",
+          "slot": "BN",
           "actualPosition": "WR",
           "nflTeam": "NO",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/qlp8za7nKkeS6lvP_O8qdg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202026/41097.1.png",
-          "isStarter": true
+          "isStarter": false
         },
         {
           "playerId": "41793",
@@ -8749,33 +9375,33 @@
           "isStarter": false
         },
         {
-          "playerId": "41902",
-          "name": "Woody Marks",
+          "playerId": "34107",
+          "name": "Tyler Allgeier",
           "slot": "BN",
           "actualPosition": "RB",
-          "nflTeam": "Hou",
+          "nflTeam": "Ari",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/YmBtiLg_3bZPt6c51A6Ngg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08142026/41902.2.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/pC47EHB57nX4d9A.s1HYIw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08052026/34107.1.png",
           "isStarter": false
         },
         {
-          "playerId": "40108",
-          "name": "Kendre Miller",
+          "playerId": "25812",
+          "name": "Kirk Cousins",
           "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "NO",
+          "actualPosition": "QB",
+          "nflTeam": "LV",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Q2uPLwUHvBilbzvaFR_Tbw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202026/40108.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/lm3OckrP2_tiHJ4KqfDj9w--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/25812.2.png",
           "isStarter": false
         },
         {
-          "playerId": "42654",
-          "name": "Jadarian Price",
+          "playerId": "42744",
+          "name": "Mike Washington Jr.",
           "slot": "BN",
           "actualPosition": "RB",
-          "nflTeam": "Sea",
+          "nflTeam": "LV",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/hU4wrCOTpxi92OmU9C4hqQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/42654.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/zrteScQfXqFUkgsz.R1GKg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08262026/42744.1.png",
           "isStarter": false
         },
         {
@@ -8799,16 +9425,6 @@
           "isStarter": false
         },
         {
-          "playerId": "32417",
-          "name": "Chase McLaughlin",
-          "slot": "K",
-          "actualPosition": "K",
-          "nflTeam": "TB",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/mb.150a_xeHI5sOMynvzfA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/32417.1.png",
-          "isStarter": true
-        },
-        {
           "playerId": "100013",
           "name": "Raiders",
           "slot": "DEF",
@@ -8821,34 +9437,74 @@
       ],
       "3": [
         {
-          "playerId": "33392",
-          "name": "Kyle Pitts Sr.",
-          "slot": "TE",
-          "actualPosition": "TE",
-          "nflTeam": "Atl",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oXa30OfMZKt5hdoFxa2qeg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/33392.1.png",
-          "isStarter": true
-        },
-        {
           "playerId": "9265",
           "name": "Matthew Stafford",
-          "slot": "BN",
+          "slot": "QB",
           "actualPosition": "QB",
           "nflTeam": "LAR",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/WB0VYA2W5C4vPf8BtjcFdg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/9265.2.png",
-          "isStarter": false
+          "isStarter": true
+        },
+        {
+          "playerId": "30295",
+          "name": "Aaron Jones Sr.",
+          "slot": "RB",
+          "actualPosition": "RB",
+          "nflTeam": "Min",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/PghAktupcNVLfkjAyCUacQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08152025/30295.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "41823",
+          "name": "TreVeyon Henderson",
+          "slot": "RB",
+          "actualPosition": "RB",
+          "nflTeam": "NE",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/SGM4Z8veK9SctATKC_6Luw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/41823.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "41804",
+          "name": "Emeka Egbuka",
+          "slot": "WR",
+          "actualPosition": "WR",
+          "nflTeam": "TB",
+          "points": 14.2,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oa3IjOXHfHvlhvd8L3dGYQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/41804.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "32692",
+          "name": "Justin Jefferson",
+          "slot": "WR",
+          "actualPosition": "WR",
+          "nflTeam": "Min",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/JF1Q3UluAPM6YajgyY.MjA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/32692.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "40078",
+          "name": "Brenton Strange",
+          "slot": "TE",
+          "actualPosition": "TE",
+          "nflTeam": "Jax",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/gio_oOkx1ksBzSMFDiV3tg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08182026/40078.1.png",
+          "isStarter": true
         },
         {
           "playerId": "41922",
           "name": "Cam Skattebo",
-          "slot": "BN",
+          "slot": "W/R/T",
           "actualPosition": "RB",
           "nflTeam": "NYG",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/5C0WxNfiXvtIcIHk86i4EA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202026/41922.1.png",
-          "isStarter": false
+          "isStarter": true
         },
         {
           "playerId": "41791",
@@ -8858,26 +9514,6 @@
           "nflTeam": "LV",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/k2bG2c3Hj.AqkE8fsH7VQw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/07282025/41791.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41804",
-          "name": "Emeka Egbuka",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "TB",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oa3IjOXHfHvlhvd8L3dGYQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/41804.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "30295",
-          "name": "Aaron Jones Sr.",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "Min",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/PghAktupcNVLfkjAyCUacQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08152025/30295.png",
           "isStarter": false
         },
         {
@@ -8891,16 +9527,6 @@
           "isStarter": false
         },
         {
-          "playerId": "40407",
-          "name": "Brycen Tremayne",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Car",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/3oyuBBmcmeCg.LAaMw17jg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/40407.1.png",
-          "isStarter": false
-        },
-        {
           "playerId": "40029",
           "name": "Bryce Young",
           "slot": "BN",
@@ -8908,26 +9534,6 @@
           "nflTeam": "Car",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/V9fTWlvMZ92ho7Eny6yU6A--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/40029.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41293",
-          "name": "Jalen Coker",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Car",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/65k_7o4BvaoaSdVEIhckoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/41293.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41823",
-          "name": "TreVeyon Henderson",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "NE",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/SGM4Z8veK9SctATKC_6Luw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/41823.1.png",
           "isStarter": false
         },
         {
@@ -8941,34 +9547,34 @@
           "isStarter": false
         },
         {
-          "playerId": "32692",
-          "name": "Justin Jefferson",
-          "slot": "IR",
+          "playerId": "41293",
+          "name": "Jalen Coker",
+          "slot": "BN",
           "actualPosition": "WR",
-          "nflTeam": "Min",
+          "nflTeam": "Car",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/JF1Q3UluAPM6YajgyY.MjA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/32692.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/65k_7o4BvaoaSdVEIhckoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/41293.1.png",
           "isStarter": false
         },
         {
-          "playerId": "30346",
-          "name": "Harrison Butker",
-          "slot": "BN",
+          "playerId": "34344",
+          "name": "Cameron Dicker",
+          "slot": "K",
           "actualPosition": "K",
-          "nflTeam": "KC",
+          "nflTeam": "LAC",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/g6ka6HNX1pNj8nv3uCYYRA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/30346.png",
-          "isStarter": false
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/pZX.ilneMov14gFOC.lK.g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092026/34344.1.png",
+          "isStarter": true
         },
         {
-          "playerId": "100014",
-          "name": "Rams",
-          "slot": "BN",
+          "playerId": "100004",
+          "name": "Bengals",
+          "slot": "DEF",
           "actualPosition": "DEF",
-          "nflTeam": "LAR",
+          "nflTeam": "Cin",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/stl.gif",
-          "isStarter": false
+          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/cin_2.gif",
+          "isStarter": true
         }
       ],
       "4": [
@@ -8978,7 +9584,7 @@
           "slot": "QB",
           "actualPosition": "QB",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 16.64,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/7qieJGO_VZyuf0v74QNeEg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/29369.1.png",
           "isStarter": true
         },
@@ -8988,7 +9594,7 @@
           "slot": "RB",
           "actualPosition": "RB",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 13.2,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/DL1fPcbDhk5P_YDOYfDTZw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/33423.1.png",
           "isStarter": true
         },
@@ -9023,13 +9629,13 @@
           "isStarter": true
         },
         {
-          "playerId": "40048",
-          "name": "Dalton Kincaid",
+          "playerId": "31840",
+          "name": "T.J. Hockenson",
           "slot": "TE",
           "actualPosition": "TE",
-          "nflTeam": "Buf",
+          "nflTeam": "Min",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/2S58M4.ijx2yJ7WNMMBjyw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/40048.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/4bTd6dpu2Qf2Oxrn6U8saA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/31840.1.png",
           "isStarter": true
         },
         {
@@ -9041,6 +9647,26 @@
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/p0VIf5c2cdr0EjVuJakKvw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/27535.1.png",
           "isStarter": true
+        },
+        {
+          "playerId": "33538",
+          "name": "Kenny Gainwell",
+          "slot": "BN",
+          "actualPosition": "RB",
+          "nflTeam": "TB",
+          "points": 4.3,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/rxD6H5vuSS4JvG_obspF1Q--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08262026/33538.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "40048",
+          "name": "Dalton Kincaid",
+          "slot": "BN",
+          "actualPosition": "TE",
+          "nflTeam": "Buf",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/2S58M4.ijx2yJ7WNMMBjyw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/40048.1.png",
+          "isStarter": false
         },
         {
           "playerId": "33996",
@@ -9070,26 +9696,6 @@
           "nflTeam": "KC",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/.W3ZQBDoQG_ZvIlbaJbUqg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/30123.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "33538",
-          "name": "Kenny Gainwell",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "TB",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/rxD6H5vuSS4JvG_obspF1Q--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08262026/33538.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41058",
-          "name": "Malik Washington",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Mia",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Aux5pLH.2dLZT7F7oESocA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/41058.2.png",
           "isStarter": false
         },
         {
@@ -9123,13 +9729,13 @@
           "isStarter": true
         },
         {
-          "playerId": "100002",
-          "name": "Bills",
+          "playerId": "100006",
+          "name": "Cowboys",
           "slot": "DEF",
           "actualPosition": "DEF",
-          "nflTeam": "Buf",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/buf.gif",
+          "nflTeam": "Dal",
+          "points": 1,
+          "headshotUrl": "https://s.yimg.com/cv/apiv2/default/nfl/20200908/50x50/cr/cowboys.png",
           "isStarter": true
         }
       ],
@@ -9155,13 +9761,13 @@
           "isStarter": true
         },
         {
-          "playerId": "33514",
-          "name": "Chuba Hubbard",
+          "playerId": "34047",
+          "name": "Rachaad White",
           "slot": "RB",
           "actualPosition": "RB",
-          "nflTeam": "Car",
+          "nflTeam": "Was",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/84nO7y.ExPfjb.8M689CSQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/33514.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/QeZuoLZbQeAXC43hGJWcPQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/34047.1.png",
           "isStarter": true
         },
         {
@@ -9170,7 +9776,7 @@
           "slot": "WR",
           "actualPosition": "WR",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 1.9,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/sBp9juMSUtYIa4b6zogEcw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/32687.1.png",
           "isStarter": true
         },
@@ -9195,23 +9801,33 @@
           "isStarter": true
         },
         {
-          "playerId": "32231",
-          "name": "Jakobi Meyers",
-          "slot": "W/R/T",
-          "actualPosition": "WR",
-          "nflTeam": "Jax",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/LqmyofMYNUEds8U.CevMgg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08182026/32231.1.png",
-          "isStarter": true
-        },
-        {
           "playerId": "33967",
           "name": "Jameson Williams",
-          "slot": "BN",
+          "slot": "W/R/T",
           "actualPosition": "WR",
           "nflTeam": "Det",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/owMvSONLoM2eNK8dufTo8w--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/33967.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "32231",
+          "name": "Jakobi Meyers",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Jax",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/LqmyofMYNUEds8U.CevMgg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08182026/32231.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "33514",
+          "name": "Chuba Hubbard",
+          "slot": "BN",
+          "actualPosition": "RB",
+          "nflTeam": "Car",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/84nO7y.ExPfjb.8M689CSQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/33514.1.png",
           "isStarter": false
         },
         {
@@ -9245,22 +9861,12 @@
           "isStarter": false
         },
         {
-          "playerId": "34047",
-          "name": "Rachaad White",
-          "slot": "IR",
-          "actualPosition": "RB",
-          "nflTeam": "Was",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/QeZuoLZbQeAXC43hGJWcPQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/34047.1.png",
-          "isStarter": false
-        },
-        {
           "playerId": "40819",
           "name": "Brandon Aubrey",
           "slot": "K",
           "actualPosition": "K",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 5.1,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/QFhJ3YtUbKOBqoSm.lOY6Q--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/40819.1.png",
           "isStarter": true
         },
@@ -9347,16 +9953,6 @@
           "isStarter": true
         },
         {
-          "playerId": "40224",
-          "name": "Kayshon Boutte",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Hou",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/keYCee8h2dgGMwcrQ2.zAQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212025/40224.png",
-          "isStarter": false
-        },
-        {
           "playerId": "40971",
           "name": "MarShawn Lloyd",
           "slot": "BN",
@@ -9397,6 +9993,16 @@
           "isStarter": false
         },
         {
+          "playerId": "40875",
+          "name": "Bo Nix",
+          "slot": "BN",
+          "actualPosition": "QB",
+          "nflTeam": "Den",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/3YuKds1ZJjg51OHa8OArCg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/40875.1.png",
+          "isStarter": false
+        },
+        {
           "playerId": "41907",
           "name": "Dylan Sampson",
           "slot": "IR",
@@ -9427,25 +10033,25 @@
           "isStarter": true
         },
         {
-          "playerId": "100033",
-          "name": "Ravens",
+          "playerId": "100005",
+          "name": "Browns",
           "slot": "DEF",
           "actualPosition": "DEF",
-          "nflTeam": "Bal",
+          "nflTeam": "Cle",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/bal_2.gif",
+          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/cle.gif",
           "isStarter": true
         }
       ],
       "7": [
         {
-          "playerId": "41825",
-          "name": "Tyler Shough",
+          "playerId": "29325",
+          "name": "Jacoby Brissett",
           "slot": "QB",
           "actualPosition": "QB",
-          "nflTeam": "NO",
+          "nflTeam": "Ari",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/THgYM56gIICXgdIMCbs66w--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202026/41825.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/r7iPSr9Kdh_z1Iq2Of7lTw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08052026/29325.1.png",
           "isStarter": true
         },
         {
@@ -9459,13 +10065,13 @@
           "isStarter": true
         },
         {
-          "playerId": "41807",
-          "name": "Omarion Hampton",
+          "playerId": "40993",
+          "name": "Bucky Irving",
           "slot": "RB",
           "actualPosition": "RB",
-          "nflTeam": "LAC",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/E3OBtN4RVVXkZvnZCY7AiA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092026/41807.1.png",
+          "nflTeam": "TB",
+          "points": 30.5,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/m_qM8NCZ0Axr7R49oWPTwA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/40993.1.png",
           "isStarter": true
         },
         {
@@ -9509,13 +10115,23 @@
           "isStarter": true
         },
         {
-          "playerId": "40993",
-          "name": "Bucky Irving",
+          "playerId": "41807",
+          "name": "Omarion Hampton",
           "slot": "BN",
           "actualPosition": "RB",
-          "nflTeam": "TB",
+          "nflTeam": "LAC",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/m_qM8NCZ0Axr7R49oWPTwA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/40993.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/E3OBtN4RVVXkZvnZCY7AiA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092026/41807.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "41825",
+          "name": "Tyler Shough",
+          "slot": "BN",
+          "actualPosition": "QB",
+          "nflTeam": "NO",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/THgYM56gIICXgdIMCbs66w--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202026/41825.1.png",
           "isStarter": false
         },
         {
@@ -9546,16 +10162,6 @@
           "nflTeam": "Mia",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/kbCgoTeN7572CZFiN7MHjg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/41010.2.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "42642",
-          "name": "Makai Lemon",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Phi",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/w8pWbu3pal5BSGT3tA4CzA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/42642.1.png",
           "isStarter": false
         },
         {
@@ -9636,7 +10242,7 @@
           "slot": "WR",
           "actualPosition": "WR",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 23.5,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/tL4TO41aAirHrtd5rFiVBg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08072025/34007.png",
           "isStarter": true
         },
@@ -9647,7 +10253,7 @@
           "actualPosition": "WR",
           "nflTeam": "SF",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Qz3C_daeELabIZpMQKkRGA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/10052026/31868.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/9RqRBnThuWM8nmEJ73i5MA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/10062026/31868.1.png",
           "isStarter": true
         },
         {
@@ -9813,16 +10419,6 @@
           "isStarter": true
         },
         {
-          "playerId": "28534",
-          "name": "Stefon Diggs",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Was",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/2jXx5MZN2eJU2odJvRk8VQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09022026/28534.2.png",
-          "isStarter": false
-        },
-        {
           "playerId": "34218",
           "name": "Brock Purdy",
           "slot": "BN",
@@ -9830,6 +10426,16 @@
           "nflTeam": "SF",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/v43spyTnux57VJwfxJgwkg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/34218.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "28534",
+          "name": "Stefon Diggs",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Was",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/2jXx5MZN2eJU2odJvRk8VQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09022026/28534.2.png",
           "isStarter": false
         },
         {
@@ -9843,13 +10449,23 @@
           "isStarter": false
         },
         {
-          "playerId": "34054",
-          "name": "Brian Robinson",
+          "playerId": "40952",
+          "name": "Roman Wilson",
           "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "Atl",
+          "actualPosition": "WR",
+          "nflTeam": "Pit",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/eHMVrIdLlDHERehlHRFS7A--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/34054.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/YayQuQkYRHDZu2krKr9Vrw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/40952.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "42693",
+          "name": "Antonio Williams",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Was",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/iMp_n0ptAQqeYqF_mBWLsw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/42693.1.png",
           "isStarter": false
         },
         {
@@ -9935,13 +10551,13 @@
           "isStarter": true
         },
         {
-          "playerId": "31908",
-          "name": "Terry McLaurin",
+          "playerId": "31896",
+          "name": "DK Metcalf",
           "slot": "WR",
           "actualPosition": "WR",
-          "nflTeam": "Was",
+          "nflTeam": "Pit",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oOjiUdKATa9lZ_1mx_JpaA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/31908.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/xNQy._m0pGTaF4D.WKgjsA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/31896.1.png",
           "isStarter": true
         },
         {
@@ -9955,43 +10571,33 @@
           "isStarter": true
         },
         {
-          "playerId": "42661",
-          "name": "Denzel Boston",
-          "slot": "W/R/T",
-          "actualPosition": "WR",
-          "nflTeam": "Cle",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Ahmp6D7MimpQQdTFNlE2vg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/42661.1.png",
-          "isStarter": true
-        },
-        {
-          "playerId": "31896",
-          "name": "DK Metcalf",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Pit",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/xNQy._m0pGTaF4D.WKgjsA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/31896.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "32704",
-          "name": "Michael Pittman Jr.",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "nflTeam": "Pit",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/RbfOdQEOZa.kBRGSNDS2OQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/03132026/32704.1.png",
-          "isStarter": false
-        },
-        {
           "playerId": "42025",
           "name": "Kyle Monangai",
-          "slot": "BN",
+          "slot": "W/R/T",
           "actualPosition": "RB",
           "nflTeam": "Chi",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/YUTcqEGrvr2pHk80c6HhWg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/42025.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "42661",
+          "name": "Denzel Boston",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Cle",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Ahmp6D7MimpQQdTFNlE2vg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/42661.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "31908",
+          "name": "Terry McLaurin",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Was",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oOjiUdKATa9lZ_1mx_JpaA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/31908.1.png",
           "isStarter": false
         },
         {
@@ -10015,6 +10621,16 @@
           "isStarter": false
         },
         {
+          "playerId": "40911",
+          "name": "Keon Coleman",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "nflTeam": "Buf",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oxf0S.PoDsWaeyyPjmDZCw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/40911.1.png",
+          "isStarter": false
+        },
+        {
           "playerId": "31482",
           "name": "Eddy Pineiro",
           "slot": "K",
@@ -10025,55 +10641,45 @@
           "isStarter": true
         },
         {
-          "playerId": "100012",
-          "name": "Chiefs",
+          "playerId": "100019",
+          "name": "Giants",
           "slot": "DEF",
           "actualPosition": "DEF",
-          "nflTeam": "KC",
+          "nflTeam": "NYG",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/kan.gif",
+          "headshotUrl": "https://s.yimg.com/lq/i/us/sp/v/nfl/teams/1/50x50w/nyg_2.gif",
           "isStarter": true
         }
       ],
       "11": [
         {
-          "playerId": "31002",
-          "name": "Lamar Jackson",
+          "playerId": "7200",
+          "name": "Aaron Rodgers",
           "slot": "QB",
           "actualPosition": "QB",
-          "nflTeam": "Bal",
+          "nflTeam": "Pit",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/LlCKxy3ouhI2arFK1ZfnBw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/31002.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Oj.vpAoZybhxtVc2aGTr6A--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08202025/7200.png",
           "isStarter": true
         },
         {
-          "playerId": "33508",
-          "name": "Rhamondre Stevenson",
+          "playerId": "41969",
+          "name": "Ollie Gordon II",
           "slot": "RB",
           "actualPosition": "RB",
-          "nflTeam": "NE",
+          "nflTeam": "Mia",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/HK04kawluEOXeR62foha3g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/33508.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/eDlltI2Ax54R1N2.iy6UoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08272025/41969.png",
           "isStarter": true
         },
         {
-          "playerId": "31960",
-          "name": "Tony Pollard",
+          "playerId": "40707",
+          "name": "Emanuel Wilson",
           "slot": "RB",
           "actualPosition": "RB",
-          "nflTeam": "Ten",
+          "nflTeam": "Sea",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/XsoQGZvz8ZOH8aRKvCq03g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/31960.1.png",
-          "isStarter": true
-        },
-        {
-          "playerId": "33393",
-          "name": "Ja'Marr Chase",
-          "slot": "WR",
-          "actualPosition": "WR",
-          "nflTeam": "Cin",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/8DFQtQd4gJsvWGpzq0rbag--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/33393.1.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/uwIAfAUBowK9fnRyNL9IAw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/40707.1.png",
           "isStarter": true
         },
         {
@@ -10087,6 +10693,16 @@
           "isStarter": true
         },
         {
+          "playerId": "40899",
+          "name": "Malik Nabers",
+          "slot": "WR",
+          "actualPosition": "WR",
+          "nflTeam": "NYG",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Df0fqJ37.bWIf7UIcdW35g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092025/40899.png",
+          "isStarter": true
+        },
+        {
           "playerId": "40102",
           "name": "Tucker Kraft",
           "slot": "TE",
@@ -10097,14 +10713,44 @@
           "isStarter": true
         },
         {
-          "playerId": "40899",
-          "name": "Malik Nabers",
+          "playerId": "33393",
+          "name": "Ja'Marr Chase",
           "slot": "W/R/T",
           "actualPosition": "WR",
-          "nflTeam": "NYG",
+          "nflTeam": "Cin",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/Df0fqJ37.bWIf7UIcdW35g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092025/40899.png",
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/8DFQtQd4gJsvWGpzq0rbag--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/33393.1.png",
           "isStarter": true
+        },
+        {
+          "playerId": "33508",
+          "name": "Rhamondre Stevenson",
+          "slot": "BN",
+          "actualPosition": "RB",
+          "nflTeam": "NE",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/HK04kawluEOXeR62foha3g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/33508.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "31002",
+          "name": "Lamar Jackson",
+          "slot": "BN",
+          "actualPosition": "QB",
+          "nflTeam": "Bal",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/LlCKxy3ouhI2arFK1ZfnBw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/31002.1.png",
+          "isStarter": false
+        },
+        {
+          "playerId": "31960",
+          "name": "Tony Pollard",
+          "slot": "BN",
+          "actualPosition": "RB",
+          "nflTeam": "Ten",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/XsoQGZvz8ZOH8aRKvCq03g--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/31960.1.png",
+          "isStarter": false
         },
         {
           "playerId": "41795",
@@ -10119,31 +10765,11 @@
         {
           "playerId": "40095",
           "name": "Tank Bigsby",
-          "slot": "BN",
+          "slot": "IR",
           "actualPosition": "RB",
           "nflTeam": "Phi",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/zxaparDLFs_jiXxBIHLFBg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/40095.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "40707",
-          "name": "Emanuel Wilson",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "Sea",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/uwIAfAUBowK9fnRyNL9IAw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/40707.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41969",
-          "name": "Ollie Gordon II",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "nflTeam": "Mia",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/eDlltI2Ax54R1N2.iy6UoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08272025/41969.png",
           "isStarter": false
         },
         {
@@ -10284,7 +10910,7 @@
           "slot": "BN",
           "actualPosition": "TE",
           "nflTeam": "Dal",
-          "points": 0,
+          "points": 3.4,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/vckj4xMiULhV202McRbEHQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/34085.1.png",
           "isStarter": false
         },
@@ -10323,7 +10949,7 @@
   },
   "currentEvents": {
     "enabled": false,
-    "date": "2026-10-06T15:30:25.161Z",
+    "date": "2026-10-09T17:14:53.394Z",
     "calendarContext": [],
     "searchContext": "Live web search is not part of the newsletter configuration; use only the supplied calendar context and available fantasy/NFL data."
   },
@@ -10339,8 +10965,8 @@
     },
     {
       "teamId": "2",
-      "name": "Calandar MAN",
-      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/3d4ef4c1b9ec6449d09c8462ea9413a967cc51df772714d596eea23c44e70f74.jpg",
+      "name": "Not a pussy unlike y'all",
+      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/7e165980db5e181b3ec2b20f74939f76e42f536260fda2490c468a03e5d8d57e.jpg",
       "managerName": "WC",
       "managerId": "2",
       "divisionId": null,
@@ -10348,8 +10974,8 @@
     },
     {
       "teamId": "3",
-      "name": "Calendar MAN",
-      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/05ec0618719965fa6a5e13ea63e377b51d9c81cdae325d0f189d2a239c2400f4.jpg",
+      "name": "MY LEG!!!",
+      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/1856574bb85232168ae3d69120f8a9d63004f75ee5664156e8fd5e414d61fef1.jpg",
       "managerName": "Shaun",
       "managerId": "3",
       "divisionId": null,
@@ -10357,7 +10983,7 @@
     },
     {
       "teamId": "4",
-      "name": "RKO the shit out of Syed",
+      "name": "RKO Abraar",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/2b20d2fac29b2686c96820ef90ffa4a5f0538b921cf55595df7ae43d94a2e4ff.jpg",
       "managerName": "Zain",
       "managerId": "4",
@@ -10375,8 +11001,8 @@
     },
     {
       "teamId": "6",
-      "name": "Suck the Sag",
-      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/ed2fdca35c343c250d1e289db07f55e69deb429a4b9f5fc74043d50ded9d03a3.png",
+      "name": "BigBird",
+      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/e5992a0639f42e0e306d235e82e043bb002d5d2eae8e02a960ae6823eb67ffe1.png",
       "managerName": "Bilal",
       "managerId": "6",
       "divisionId": null,
@@ -10384,8 +11010,8 @@
     },
     {
       "teamId": "7",
-      "name": "Calander MAN",
-      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/0e5efa145578709b082d086f9a029d52c5d54c9bf2bc18ac3dd28d3b1563c4fa.png",
+      "name": "Not a halal gap unlike y'all",
+      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/07ed6b8210be773a02a68eb39ee74619d0219956f29967102aedf1ae7a8dde75.png",
       "managerName": "Ammar",
       "managerId": "7",
       "divisionId": null,
@@ -10402,8 +11028,8 @@
     },
     {
       "teamId": "9",
-      "name": "MASOOD the SHIT out of zain",
-      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/a8543c9e5627bc4cde728c33982e24fc158efbb05baac36aa3d3067b67d02c6d.jpg",
+      "name": "The Purdverts",
+      "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/f3c7f3e7c3459d859d769cc5227e2829b3300ffd3398edabb316af5128a6428e.jpg",
       "managerName": "Sydaddy",
       "managerId": "9",
       "divisionId": null,
@@ -10411,7 +11037,7 @@
     },
     {
       "teamId": "10",
-      "name": "Swole Boy",
+      "name": "Slap City",
       "iconUrl": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/dafed6d4da49d548f33cdcd39967717dc944a0106b6b294017ac670197ff63df.jpg",
       "managerName": "Abraar Kazi",
       "managerId": "10",
@@ -10476,7 +11102,7 @@
       },
       {
         "teamId": "2",
-        "teamName": "Calandar MAN",
+        "teamName": "Not a pussy unlike y'all",
         "managerName": "WC",
         "rank": 8,
         "record": "2-2",
@@ -10511,7 +11137,7 @@
       },
       {
         "teamId": "3",
-        "teamName": "Calendar MAN",
+        "teamName": "MY LEG!!!",
         "managerName": "Shaun",
         "rank": 12,
         "record": "0-4",
@@ -10546,7 +11172,7 @@
       },
       {
         "teamId": "4",
-        "teamName": "RKO the shit out of Syed",
+        "teamName": "RKO Abraar",
         "managerName": "Zain",
         "rank": 3,
         "record": "2-2",
@@ -10616,7 +11242,7 @@
       },
       {
         "teamId": "6",
-        "teamName": "Suck the Sag",
+        "teamName": "BigBird",
         "managerName": "Bilal",
         "rank": 2,
         "record": "4-0",
@@ -10651,7 +11277,7 @@
       },
       {
         "teamId": "7",
-        "teamName": "Calander MAN",
+        "teamName": "Not a halal gap unlike y'all",
         "managerName": "Ammar",
         "rank": 11,
         "record": "1-3",
@@ -10721,7 +11347,7 @@
       },
       {
         "teamId": "9",
-        "teamName": "MASOOD the SHIT out of zain",
+        "teamName": "The Purdverts",
         "managerName": "Sydaddy",
         "rank": 1,
         "record": "4-0",
@@ -10756,7 +11382,7 @@
       },
       {
         "teamId": "10",
-        "teamName": "Swole Boy",
+        "teamName": "Slap City",
         "managerName": "Abraar Kazi",
         "rank": 6,
         "record": "2-2",
@@ -10864,7 +11490,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 133.7,
-        "team": "Swole Boy",
+        "team": "Slap City",
         "evidence": "Week 1: left Kyle Monangai on the bench for DK Metcalf, costing 13.4 points; Week 3: left Brock Bowers on the bench for Kyle Monangai, costing 19.5 points; Week 3: left Terry McLaurin on the bench for Kyle Monangai, costing 13.6 points; Week 4: left DK Metcalf on the bench for Terry McLaurin, costing 14 points; Week 4: left Kyle Monangai on the bench for David Montgomery, costing 23.2 points",
         "occurrences": 5,
         "pointsLeft": 83.7
@@ -10872,7 +11498,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 125.9,
-        "team": "Calander MAN",
+        "team": "Not a halal gap unlike y'all",
         "evidence": "Week 1: left Christian Watson on the bench for DeVonta Smith, costing 22.9 points; Week 2: left George Kittle on the bench for Devin Singletary, costing 15.1 points; Week 3: left George Kittle on the bench for Dalton Schultz, costing 18.7 points; Week 3: left Michael Wilson on the bench for DeVonta Smith, costing 10.9 points; Week 4: left RJ Harvey on the bench for Jeremiyah Love, costing 8.3 points",
         "occurrences": 5,
         "pointsLeft": 75.9
@@ -10880,14 +11506,14 @@
       {
         "type": "pickup_payoff",
         "priority": 95.4,
-        "team": "MASOOD the SHIT out of zain",
+        "team": "The Purdverts",
         "player": "Brock Purdy",
         "evidence": "After being acquired, Brock Purdy scored 32.5, 39.3, 23.6 across 3 weeks, averaging 31.8."
       },
       {
         "type": "player_carry",
         "priority": 87.3,
-        "team": "Suck the Sag",
+        "team": "BigBird",
         "player": "Josh Allen",
         "evidence": "Scored 46.8, 19, 21.5 over Weeks 2, 3, 4, averaging 29.1."
       },
@@ -10915,7 +11541,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 80.1,
-        "team": "Calendar MAN",
+        "team": "MY LEG!!!",
         "evidence": "Week 1: left Jalen Coker on the bench for Courtland Sutton, costing 27.7 points; Week 1: left Travis Kelce on the bench for Kyle Pitts Sr., costing 8.6 points; Week 4: left Bryce Young on the bench for Matthew Stafford, costing 13.8 points",
         "occurrences": 3,
         "pointsLeft": 50.1
@@ -10923,7 +11549,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 79.2,
-        "team": "RKO the shit out of Syed",
+        "team": "RKO Abraar",
         "evidence": "Week 3: left Matthew Golden on the bench for Ladd McConkey, costing 9.9 points; Week 4: left Mike Evans on the bench for Ladd McConkey, costing 10.1 points; Week 4: left Kenny Gainwell on the bench for Ladd McConkey, costing 9.7 points; Week 4: left Malik Washington on the bench for Ladd McConkey, costing 9.5 points",
         "occurrences": 4,
         "pointsLeft": 39.2
@@ -10931,28 +11557,28 @@
       {
         "type": "player_carry",
         "priority": 78.5,
-        "team": "Suck the Sag",
+        "team": "BigBird",
         "player": "Jaxon Smith-Njigba",
         "evidence": "Scored 38, 30.4, 10.1 over Weeks 2, 3, 4, averaging 26.2."
       },
       {
         "type": "pickup_payoff",
         "priority": 76.9,
-        "team": "RKO the shit out of Syed",
+        "team": "RKO Abraar",
         "player": "Patrick Mahomes",
         "evidence": "After being acquired, Patrick Mahomes scored 35, 20.9, 21 across 3 weeks, averaging 25.6."
       },
       {
         "type": "player_carry",
         "priority": 76.5,
-        "team": "Calandar MAN",
+        "team": "Not a pussy unlike y'all",
         "player": "Joe Burrow",
         "evidence": "Scored 20.2, 28.6, 27.7 over Weeks 2, 3, 4, averaging 25.5."
       },
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 65.3,
-        "team": "MASOOD the SHIT out of zain",
+        "team": "The Purdverts",
         "evidence": "Week 4: left Brock Purdy on the bench for Trevor Lawrence, costing 8.5 points; Week 4: left Carnell Tate on the bench for Stefon Diggs, costing 11 points; Week 4: left Brian Robinson on the bench for Luther Burden III, costing 15.8 points",
         "occurrences": 3,
         "pointsLeft": 35.3
@@ -10968,7 +11594,7 @@
       {
         "type": "scoring_drop",
         "priority": 59.9,
-        "team": "MASOOD the SHIT out of zain",
+        "team": "The Purdverts",
         "evidence": "Latest score fell 59.9 points from the prior week."
       },
       {
@@ -10982,14 +11608,14 @@
       {
         "type": "pickup_payoff",
         "priority": 53,
-        "team": "MASOOD the SHIT out of zain",
+        "team": "The Purdverts",
         "player": "Spencer Shrader",
         "evidence": "After being acquired, Spencer Shrader scored 15.9, 19.7, 17.4 across 3 weeks, averaging 17.7."
       },
       {
         "type": "pickup_payoff",
         "priority": 50.7,
-        "team": "Calander MAN",
+        "team": "Not a halal gap unlike y'all",
         "player": "Tyler Shough",
         "evidence": "After being acquired, Tyler Shough scored 32.8, 17.9 across 2 weeks, averaging 25.4."
       },
@@ -11002,7 +11628,7 @@
       {
         "type": "repeated_start_sit_mistakes",
         "priority": 44.7,
-        "team": "Calandar MAN",
+        "team": "Not a pussy unlike y'all",
         "evidence": "Week 2: left Matthew Stafford on the bench for Joe Burrow, costing 15.8 points; Week 4: left KC Concepcion Jr. on the bench for Rashee Rice, costing 8.9 points",
         "occurrences": 2,
         "pointsLeft": 24.7
@@ -11010,13 +11636,13 @@
       {
         "type": "blowout",
         "priority": 44,
-        "team": "Calandar MAN",
+        "team": "Not a pussy unlike y'all",
         "evidence": "Won by 44 points."
       },
       {
         "type": "pickup_payoff",
         "priority": 42.1,
-        "team": "Calendar MAN",
+        "team": "MY LEG!!!",
         "player": "Bryce Young",
         "evidence": "After being acquired, Bryce Young scored 16.6, 25.5 across 2 weeks, averaging 21.1."
       },
@@ -11030,7 +11656,7 @@
       {
         "type": "scoring_surge",
         "priority": 41.3,
-        "team": "Calandar MAN",
+        "team": "Not a pussy unlike y'all",
         "evidence": "Latest score rose 41.3 points from the prior week."
       },
       {
@@ -11044,26 +11670,26 @@
       {
         "type": "pickup_payoff",
         "priority": 40.8,
-        "team": "Swole Boy",
+        "team": "Slap City",
         "player": "C.J. Stroud",
         "evidence": "After being acquired, C.J. Stroud scored 13.7, 27.1 across 2 weeks, averaging 20.4."
       },
       {
         "type": "streak",
         "priority": 40,
-        "team": "Calendar MAN",
+        "team": "MY LEG!!!",
         "evidence": "4-game L streak."
       },
       {
         "type": "streak",
         "priority": 40,
-        "team": "Suck the Sag",
+        "team": "BigBird",
         "evidence": "4-game W streak."
       },
       {
         "type": "streak",
         "priority": 40,
-        "team": "MASOOD the SHIT out of zain",
+        "team": "The Purdverts",
         "evidence": "4-game W streak."
       },
       {
