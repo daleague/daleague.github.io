@@ -20,6 +20,11 @@ on:
         description: "Optional creative theme for the AI-generated newsletter (e.g. Game of Thrones, noir detective, sports talk radio)"
         required: false
         type: string
+      preview_only:
+        description: "Generate a downloadable preview artifact without committing or deploying the newsletter"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -42,7 +47,7 @@ env:
 
 jobs:
   generate:
-    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != ''
+    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true
     runs-on: ubuntu-latest
     environment:
       name: general
@@ -84,7 +89,7 @@ jobs:
 
       - name: Generate newsletter
         env:
-          NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '') && 'true' || 'false' }}
+          NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true) && 'true' || 'false' }}
           NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
           NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
           NEWSLETTER_FALLBACK_MODEL: ${{ env.NEWSLETTER_FALLBACK_MODEL }}
@@ -110,8 +115,32 @@ jobs:
           else
             npm run newsletter:generate
           fi
+      - name: Determine preview week
+        id: preview
+        if: success() && inputs.preview_only == true
+        env:
+          NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
+        run: |
+          if [ -n "$NEWSLETTER_WEEK" ]; then
+            week="$NEWSLETTER_WEEK"
+          else
+            week=$(node -e 'const l=require("./data/current/league.json"); console.log(Math.max(...(l.completedWeeks || [])))')
+          fi
+          echo "week=$week" >> "$GITHUB_OUTPUT"
+
+      - name: Upload newsletter preview
+        if: success() && inputs.preview_only == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-preview
+          path: |
+            newsletter/output/week-${{ steps.preview.outputs.week }}.md
+            newsletter/data/week-${{ steps.preview.outputs.week }}.json
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Commit newsletter
-        if: success()
+        if: success() && inputs.preview_only != true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
