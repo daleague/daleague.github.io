@@ -112,6 +112,9 @@ jobs:
               echo "Generating newsletter for Week $week"
               NEWSLETTER_WEEK="$week" NEWSLETTER_FORCE=true npm run newsletter:generate
             done
+          elif [ "${{ inputs.preview_only }}" = "true" ]; then
+            # Preview runs must regenerate even when a published newsletter already exists.
+            NEWSLETTER_FORCE=true npm run newsletter:generate
           else
             npm run newsletter:generate
           fi
