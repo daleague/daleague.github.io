@@ -915,38 +915,86 @@ async function main() {
   });
 
   const theme = process.env.NEWSLETTER_THEME?.trim();
-  const themedPrompt = theme
-    ? prompt + "\n\nCREATIVE THEME (user-provided): " + theme +
-      "\nApply this theme to the newsletter's voice, framing, metaphors, and section presentation where appropriate. " +
-      "Keep all league facts, scores, player details, and analysis accurate. Do not invent events or let the theme override the newsletter instructions or data."
-    : prompt;
-
   const provider = (process.env.NEWSLETTER_PROVIDER || "openai").toLowerCase();
   const model = required("NEWSLETTER_MODEL");
+  const themedPrompt = theme
+    ? prompt + `
 
-  let generated;
-  if (provider === "openai") {
-    generated = await generateWithOpenAI(themedPrompt, model, required("OPENAI_API_KEY"));
-  } else if (provider === "gemini") {
-    const apiKey = required("GEMINI_API_KEY");
-    const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
+THEME DIRECTIVE — MANDATORY, HIGH-INTENSITY EDITORIAL MODE
+User-provided theme: ${theme}
 
-    try {
-      generated = await generateWithGemini(themedPrompt, model, apiKey);
-    } catch (error) {
-      if (!fallbackModel || fallbackModel === model) throw error;
+The theme is the newsletter's creative premise, not optional decoration. Make the result unmistakably and consistently belong to this theme from the opening paragraph through the final preview. Do not merely add a few references, names, catchphrases, or isolated metaphors to otherwise generic sports copy.
 
-      console.warn(
-        `[newsletter] Gemini ${model} failed; falling back to ${fallbackModel}: ${error instanceof Error ? error.message : String(error)}`,
-      );
-      generated = await generateWithGemini(themedPrompt, fallbackModel, apiKey, {
-        maxAttempts: 2,
-      });
+First interpret the supplied theme, whatever its form: a fictional universe, franchise, genre, historical era, profession, place, aesthetic, broad concept, mood, or unusual phrase. If it is abstract or unfamiliar, infer a coherent set of motifs, vocabulary, roles, conflicts, imagery, and narrative conventions from the wording. Do not ask the user to clarify it. Do not silently fall back to generic fantasy-football writing.
+
+Build a coherent editorial adaptation:
+- Establish a recognizable theme-specific framing device in the opening and sustain it throughout.
+- Map real league dynamics to fitting theme concepts (roles, factions, missions, rivalries, trials, investigations, campaigns, rituals, or equivalent concepts appropriate to this theme). Keep mappings intuitive and internally consistent.
+- Make every major section participate: league-wide recap, every matchup, manager moves, verdicts, upcoming matchups, and League Watch. Use theme-aware subsection headings or framing when it improves the effect, while retaining all required information and clear matchup/team identification.
+- Use a small, consistent vocabulary of recurring motifs and vary the writing so references feel integrated rather than repetitive. Let the theme shape the metaphors, narrative logic, jokes, pacing, and presentation—not just nouns.
+- Preserve the requested sarcastic, witty fantasy-football columnist voice. Make the theme enhance the jokes and storylines rather than replace analysis with lore.
+- Aim for a strongly themed, immersive result (roughly 8–9/10), while keeping the newsletter readable to league members who may not know every reference.
+
+FACTUALITY AND LEAGUE COVERAGE ARE NON-NEGOTIABLE:
+- The supplied league JSON and existing newsletter instructions remain the sole authority for scores, records, standings, players, transactions, and outcomes. Never alter, omit, or embellish facts to fit the theme.
+- Theme analogies must be clearly analogies; never present fictional events, powers, characters, injuries, quotes, or plot events as real league facts.
+- Cover every completed matchup exactly once and every upcoming matchup exactly once. Preserve actual names, scores, records, player details, and sourced facts.
+- Keep all required sections and all required matchup analysis. Theme framing may rename or decorate headings, but must not make the report difficult to navigate.
+- Do not let the theme excuse weak analysis, repetitive catchphrases, forced references in every sentence, or invented causal explanations.
+- Return the complete newsletter in Markdown only, without explaining the prompt or your process.
+`
+    : prompt;
+
+  async function generateWithConfiguredProvider(inputPrompt: string): Promise<{ text: string; sources: Source[] }> {
+    if (provider === "openai") {
+      return generateWithOpenAI(inputPrompt, model, required("OPENAI_API_KEY"));
     }
-  } else {
-    throw new Error(
-      `Unsupported NEWSLETTER_PROVIDER="${provider}". Use "openai" or "gemini".`,
-    );
+    if (provider === "gemini") {
+      const apiKey = required("GEMINI_API_KEY");
+      const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
+      try {
+        return await generateWithGemini(inputPrompt, model, apiKey);
+      } catch (error) {
+        if (!fallbackModel || fallbackModel === model) throw error;
+        console.warn(
+          `[newsletter] Gemini ${model} failed; falling back to ${fallbackModel}: ${error instanceof Error ? error.message : String(error)}`,
+        );
+        return generateWithGemini(inputPrompt, fallbackModel, apiKey, { maxAttempts: 2 });
+      }
+    }
+    throw new Error(`Unsupported NEWSLETTER_PROVIDER="${provider}". Use "openai" or "gemini".`);
+  }
+
+  let generated = await generateWithConfiguredProvider(themedPrompt);
+
+  if (theme) {
+    console.log(`[newsletter] running theme-quality revision pass for "${theme}"...`);
+    const revisionPrompt = `You are the senior editor performing a mandatory theme-integration revision on a fantasy-football newsletter.
+
+USER THEME: ${theme}
+
+SOURCE-OF-TRUTH LEAGUE DATA (all numbers and real-world league facts must remain consistent with this data):
+${serializedPromptContext}
+
+EDITORIAL REQUIREMENTS:
+- Make the theme unmistakable and deeply integrated. The first draft below is a starting point, not a constraint; substantially rewrite generic passages that only sprinkle in references.
+- Interpret any theme input robustly, including abstract concepts, genres, settings, aesthetics, or unusual phrases. Infer a coherent motif system; do not fall back to generic sports prose just because the theme is not a well-known franchise.
+- Carry the theme through the opening, league-wide narrative, every matchup analysis and verdict, manager-move discussion, next-week preview, and League Watch. Keep a consistent world/voice and vary the references.
+- Preserve sharp, witty, sarcastic fantasy-football analysis. Theme should shape the storytelling and humor, not obscure scores or replace actual analysis.
+- Retain every required section and cover each matchup exactly once. Keep teams, players, scores, records, standings, transactions, and causal claims accurate to the source data. Do not invent lore as if it were a real league event.
+- Keep matchup identities and score lines immediately recognizable. Maintain Markdown and preserve all valid source links/citations. Remove repetitive, awkward, or token references; prioritize coherent framing over sheer reference count.
+- Before returning, check the draft against these criteria: (1) theme is obvious from the opening, (2) theme affects the narrative structure and metaphors throughout, (3) all major sections participate, (4) references are varied and coherent, (5) factual integrity and matchup coverage are intact. Revise any weak criterion.
+
+Return only the complete revised newsletter in Markdown. Do not include an editor's note, checklist, or explanation.
+
+FIRST DRAFT:
+${generated.text}`;
+
+    const revised = await generateWithConfiguredProvider(revisionPrompt);
+    generated = {
+      text: revised.text,
+      sources: uniqueSources([...generated.sources, ...revised.sources]),
+    };
   }
 
   const newsletter = appendSources(generated.text, generated.sources);
