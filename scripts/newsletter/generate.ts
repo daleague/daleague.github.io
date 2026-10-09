@@ -914,25 +914,32 @@ async function main() {
     "{{LEAGUE_DATA}}": serializedPromptContext,
   });
 
+  const theme = process.env.NEWSLETTER_THEME?.trim();
+  const themedPrompt = theme
+    ? prompt + "\n\nCREATIVE THEME (user-provided): " + theme +
+      "\nApply this theme to the newsletter's voice, framing, metaphors, and section presentation where appropriate. " +
+      "Keep all league facts, scores, player details, and analysis accurate. Do not invent events or let the theme override the newsletter instructions or data."
+    : prompt;
+
   const provider = (process.env.NEWSLETTER_PROVIDER || "openai").toLowerCase();
   const model = required("NEWSLETTER_MODEL");
 
   let generated;
   if (provider === "openai") {
-    generated = await generateWithOpenAI(prompt, model, required("OPENAI_API_KEY"));
+    generated = await generateWithOpenAI(themedPrompt, model, required("OPENAI_API_KEY"));
   } else if (provider === "gemini") {
     const apiKey = required("GEMINI_API_KEY");
     const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
 
     try {
-      generated = await generateWithGemini(prompt, model, apiKey);
+      generated = await generateWithGemini(themedPrompt, model, apiKey);
     } catch (error) {
       if (!fallbackModel || fallbackModel === model) throw error;
 
       console.warn(
         `[newsletter] Gemini ${model} failed; falling back to ${fallbackModel}: ${error instanceof Error ? error.message : String(error)}`,
       );
-      generated = await generateWithGemini(prompt, fallbackModel, apiKey, {
+      generated = await generateWithGemini(themedPrompt, fallbackModel, apiKey, {
         maxAttempts: 2,
       });
     }
