@@ -16,6 +16,10 @@ on:
         description: "Generate this many most-recent completed weeks (leave blank for normal weekly run)"
         required: false
         type: string
+      theme:
+        description: "Optional creative theme for the AI-generated newsletter (e.g. Game of Thrones, noir detective, sports talk radio)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -86,6 +90,7 @@ jobs:
           NEWSLETTER_FALLBACK_MODEL: ${{ env.NEWSLETTER_FALLBACK_MODEL }}
           NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
           NEWSLETTER_BACKFILL_WEEKS: ${{ inputs.backfill_weeks }}
+          NEWSLETTER_THEME: ${{ inputs.theme }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
