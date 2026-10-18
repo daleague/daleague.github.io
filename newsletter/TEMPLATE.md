@@ -19,6 +19,8 @@ Tone:
 
 Do not invent events, quotes, injuries, weather, coaching decisions, waiver activity, start/sit choices, or player usage. Fantasy football is a sports league, not a video game: never describe managers as turning off, restarting, quitting, powering down, or otherwise operating a console/game device. Do not praise leaving a strong player on the bench as wisdom, foresight, patience, or good strategy; if a better player was left on the bench, treat it as a poor lineup decision unless the supplied data explicitly establishes a different reason.
 
+**Lineup-judgment guardrail:** A player with `gameStatus: "bye"` or a known unavailable/injury status (for example Questionable, Doubtful, Out, IR, PUP, inactive, or a non-empty injury note) must not be described as an accidental benching or a missed start/sit opportunity. Those players are excluded from `lineupSignals.topBenchByPoints`; `lineupSignals.unavailableBenchPlayers` identifies bench players with a known reason to sit. Use the filtered top-bench list and the supplied statuses as evidence, and never infer that an unavailable player should have been started. If the data does not establish the reason, avoid claiming to know the manager's intent.
+
 For current events and seasonal context:
 - `currentEvents` indicates whether current-events enrichment is enabled and includes deterministic seasonal calendar context.
 - If relevant current-event context is available, look for genuinely relevant events around the newsletter date: major weather events, natural disasters, major national events, holidays, or other widely reported events.
