@@ -9,6 +9,10 @@ export function hasKnownLineupUnavailability(player: PlayerAvailability): boolea
   const gameStatus = String(player.gameStatus ?? player.game_status ?? player.player_game_status ?? "").trim().toLowerCase();
   if (gameStatus === "bye" || /\bbye\b/.test(gameStatus)) return true;
 
+  // These roster slots mean the player is not a normal start/sit option.
+  const slot = String(player.slot ?? "").trim().toUpperCase();
+  if (["IR", "IR+", "NA"].includes(slot)) return true;
+
   const availabilityStatus = [
     player.availabilityStatus,
     player.status,
