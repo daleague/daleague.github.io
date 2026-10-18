@@ -81,6 +81,8 @@ export interface PlayerScore {
   availabilityStatus?: string;
   /** Yahoo injury note, when supplied. */
   injuryNote?: string;
+  /** NFL bye week numbers reported by Yahoo, used to identify intentional benchings. */
+  byeWeeks?: number[];
   points: number;
   headshotUrl?: string;
   isStarter: boolean;
