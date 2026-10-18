@@ -257,7 +257,7 @@ describe("superlatives", () => {
     playerId: id, name, slot, actualPosition: actual, points, isStarter: slot !== "BN",
   });
 
-  it("awards team of the week, dumpster fire, pain, statement, and The Fraud", () => {
+  it("awards team of the week, dumpster fire, Not Good Enough, statement, and The Fraud", () => {
     const matchups = [
       matchup(1, side("1", 160), side("2", 155), "1"),
       matchup(1, side("3", 70), side("4", 90), "4"),
@@ -266,7 +266,7 @@ describe("superlatives", () => {
     const byTitle = Object.fromEntries(awards.map((a) => [a.title, a]));
     expect(byTitle["Team of the Week"].teamId).toBe("1");
     expect(byTitle["Dumpster Fire of the Week"].teamId).toBe("3");
-    expect(byTitle["Pain of the Week"].teamId).toBe("2");
+    expect(byTitle["Not Good Enough"].teamId).toBe("2");
     expect(byTitle["Statement Win"].teamId).toBe("4");
     expect(byTitle["The Fraud"].teamId).toBe("4");
     expect(byTitle["Brick Wall"]).toBeUndefined();
