@@ -475,6 +475,19 @@ function eligibleStarterSlots(player: PlayerScore): string[] {
   return [];
 }
 
+function hasKnownPlayerUnavailability(player: PlayerScore, week: number): boolean {
+  if (player.gameStatus === "bye" || player.byeWeeks?.includes(week)) return true;
+  if (["IR", "IR+", "NA"].includes(String(player.slot).toUpperCase())) return true;
+
+  const status = String(player.availabilityStatus ?? "").trim().toLowerCase();
+  if (/\b(?:q|questionable|d|doubtful|o|out|ir|injured reserve|pup|physically unable to perform|nfi|non-football injury|susp|suspended|inactive|dnp|did not play|not active)\b/i.test(status)) {
+    return true;
+  }
+
+  const note = String(player.injuryNote ?? "").trim();
+  return Boolean(note && !/^(?:none|no injury|n\/?a|healthy|active|[-—])$/i.test(note));
+}
+
 export function findDonkey(matchups: Matchup[], week: number, season: number): Superlative | null {
   const finalMatchups = matchups.filter((m) => m.week === week && m.status === "final");
   let best: { teamId: string; matchupId: string; player: PlayerScore; gain: number; wouldWinBy: number } | null = null;
@@ -486,6 +499,7 @@ export function findDonkey(matchups: Matchup[], week: number, season: number): S
       const bench = own.players.filter((p) => !p.isStarter || ["BN", "IR", "IR+", "NA"].includes(String(p.slot).toUpperCase()));
 
       for (const player of bench) {
+        if (hasKnownPlayerUnavailability(player, week)) continue;
         const slots = eligibleStarterSlots(player);
         if (slots.length === 0) continue;
         const replaceable = starters.filter((starter) => slots.includes(String(starter.slot).toUpperCase()));
