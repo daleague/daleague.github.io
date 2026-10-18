@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import { join } from "node:path";
+import { hasKnownLineupUnavailability } from "./lineup.js";
 
 type Json = Record<string, unknown>;
 
@@ -62,7 +63,10 @@ function playerBrief(player: Json): Json {
     slot: player.slot,
     actualPosition: player.actualPosition,
     points: player.points,
+    isStarter: player.isStarter,
     gameStatus: player.gameStatus,
+    availabilityStatus: player.availabilityStatus,
+    injuryNote: player.injuryNote,
     nflTeam: player.nflTeam,
     opponent: player.opponent,
   };
@@ -84,7 +88,9 @@ function matchupWithSignals(matchup: Json, teamById: Map<string, Json>, useManag
       winProbability: side.winProbability,
       players: players.map(playerBrief),
       lineupSignals: {
-        topBenchByPoints: [...bench].sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0)).slice(0, 3).map(playerBrief),
+        // Only players without a known bye/injury/unavailable status can be cited as missed start/sit opportunities.
+        topBenchByPoints: bench.filter((player) => !hasKnownLineupUnavailability(player)).sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0)).slice(0, 3).map(playerBrief),
+        unavailableBenchPlayers: bench.filter((player) => hasKnownLineupUnavailability(player)).map(playerBrief),
         lowestScoringStarters: [...starters].sort((a, b) => Number(a.points ?? 0) - Number(b.points ?? 0)).slice(0, 3).map(playerBrief),
       },
     };
@@ -124,6 +130,7 @@ function buildMultiWeekStoryCandidates(finals: Json[], transactions: Json[], tea
       const starters = players.filter((p) => p.isStarter);
       const bench = players.filter((p) => !p.isStarter);
       for (const benched of bench) {
+        if (hasKnownLineupUnavailability(benched)) continue;
         const pos = String(benched.actualPosition ?? "").toUpperCase();
         const eligible = starters.filter((s) => {
           const slot = String(s.slot ?? "").toUpperCase();
@@ -292,6 +299,7 @@ function buildNarrativeContext(
       const starters = players.filter((p) => p.isStarter);
       const bench = players.filter((p) => !p.isStarter);
       for (const benched of bench) {
+        if (hasKnownLineupUnavailability(benched)) continue;
         const position = String(benched.actualPosition ?? "").toUpperCase();
         const eligible = starters.filter((s) => {
           const slot = String(s.slot ?? "").toUpperCase();
