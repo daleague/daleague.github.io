@@ -171,11 +171,20 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
           : gameStatusRaw.includes("in") || gameStatusRaw.includes("live") || gameStatusRaw.includes("progress")
             ? "in_progress" as const
             : undefined;
+    const availabilityStatus = [
+      first(p, "status"),
+      first(p, "status_full"),
+      first(p, "player_status"),
+      first(p, "injury_status"),
+    ].map((item) => str(item, "").trim()).filter(Boolean).join(" / ") || undefined;
+    const injuryNote = str(first(p, "injury_note") || first(p, "injuryNote") || "", "").trim() || undefined;
     const parsed: PlayerScore = {
       playerId,
       name,
       slot,
       actualPosition: actual,
+      availabilityStatus,
+      injuryNote,
       nflTeam: str(p.editorial_team_abbr, "") || undefined,
       opponent: str(p.opponent, "") || undefined,
       points: points !== 0 ? points : num(p.points),
