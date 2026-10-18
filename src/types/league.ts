@@ -77,6 +77,10 @@ export interface PlayerScore {
   actualPosition?: "QB" | "RB" | "WR" | "TE" | string;
   nflTeam?: string;
   opponent?: string;
+  /** Yahoo-reported player availability/injury status, when supplied. */
+  availabilityStatus?: string;
+  /** Yahoo injury note, when supplied. */
+  injuryNote?: string;
   points: number;
   headshotUrl?: string;
   isStarter: boolean;
