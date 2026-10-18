@@ -135,6 +135,26 @@ export function parseStandings(raw: unknown): TeamStanding[] {
   return ranked;
 }
 
+function extractByeWeeks(node: unknown): number[] {
+  const weeks = new Set<number>();
+  const visit = (value: unknown): void => {
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    if (value && typeof value === "object") {
+      for (const [key, nested] of Object.entries(value as Record<string, unknown>)) {
+        if (["week", "bye_week", "bye_weeks", "value"].includes(key.toLowerCase())) visit(nested);
+      }
+      return;
+    }
+    const week = Number(value);
+    if (Number.isInteger(week) && week >= 1 && week <= 18) weeks.add(week);
+  };
+  visit(node);
+  return [...weeks].sort((a, b) => a - b);
+}
+
 function slotOf(player: Record<string, unknown>): string {
   const selected = mergeYahooRecord(findObjects(player, "selected_position")[0] || player.selected_position);
   const position = str(selected.position || first(selected, "position"));
@@ -178,6 +198,10 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
       first(p, "injury_status"),
     ].map((item) => str(item, "").trim()).filter(Boolean).join(" / ") || undefined;
     const injuryNote = str(first(p, "injury_note") || first(p, "injuryNote") || "", "").trim() || undefined;
+    const byeWeeks = [...new Set([
+      ...extractByeWeeks(p.bye_weeks),
+      ...extractByeWeeks(p.bye_week),
+    ])];
     const parsed: PlayerScore = {
       playerId,
       name,
@@ -185,6 +209,7 @@ export function parsePlayerScores(raw: unknown): PlayerScore[] {
       actualPosition: actual,
       availabilityStatus,
       injuryNote,
+      byeWeeks: byeWeeks.length ? byeWeeks : undefined,
       nflTeam: str(p.editorial_team_abbr, "") || undefined,
       opponent: str(p.opponent, "") || undefined,
       points: points !== 0 ? points : num(p.points),
@@ -647,10 +672,13 @@ export function attachRosters(matchups: Matchup[], rosterByWeekAndTeam: Map<stri
   return matchups.map((m) => {
     const homePlayers = rosterByWeekAndTeam.get(`${m.week}|${m.home.teamId}`) || m.home.players;
     const awayPlayers = rosterByWeekAndTeam.get(`${m.week}|${m.away.teamId}`) || m.away.players;
+    const applyWeekSpecificByeStatus = (players: PlayerScore[]) => players.map((player) =>
+      player.byeWeeks?.includes(m.week) ? { ...player, gameStatus: "bye" as const } : player
+    );
     return {
       ...m,
-      home: { ...m.home, players: homePlayers },
-      away: { ...m.away, players: awayPlayers },
+      home: { ...m.home, players: applyWeekSpecificByeStatus(homePlayers) },
+      away: { ...m.away, players: applyWeekSpecificByeStatus(awayPlayers) },
     };
   });
 }
