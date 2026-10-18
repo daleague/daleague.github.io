@@ -5,6 +5,7 @@ import {
   deriveStandings,
   findDonkey,
   makeSuperlatives,
+  attachRosters,
   parseMatchups,
   parsePlayerScores,
   parseStandings,
@@ -138,6 +139,34 @@ describe("domain parsers", () => {
     expect(hurts.points).toBeCloseTo(24.6);
     expect(bench.slot).toBe("BN");
     expect(bench.isStarter).toBe(false);
+  });
+
+  it("parses Yahoo bye weeks and marks players as on bye for the matching matchup week", () => {
+    const raw = {
+      roster: {
+        players: {
+          0: {
+            player: [
+              [
+                { player_key: "470.p.44" },
+                { player_id: "44" },
+                { name: { full: "Bye Week Back" } },
+                { display_position: "RB" },
+                { bye_weeks: [{ week: "6" }] },
+              ],
+              { selected_position: [{ position: "BN" }] },
+              { player_points: [{ total: "0" }] },
+            ],
+          },
+        },
+      },
+    };
+    const players = parsePlayerScores(raw);
+    expect(players[0].byeWeeks).toEqual([6]);
+
+    const weekSix = [matchup(6, side("1", 80), side("2", 90), "2", "final")];
+    const attached = attachRosters(weekSix, new Map([["6|1", players]]));
+    expect(attached[0].home.players[0].gameStatus).toBe("bye");
   });
 
   it("parses explicit player game status when Yahoo provides it", () => {
