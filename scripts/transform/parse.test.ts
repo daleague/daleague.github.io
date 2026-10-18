@@ -330,6 +330,19 @@ describe("superlatives", () => {
     expect(donkey!.value).toContain("Bench RB");
   });
 
+  it("does not treat bye-week or injured bench players as a start/sit mistake", () => {
+    const loserPlayers = [
+      qb("1", "Start QB", "QB", 10),
+      qb("2", "Start RB", "RB", 5, "RB"),
+      { ...qb("3", "Bye Week RB", "BN", 25, "RB"), gameStatus: "bye" as const },
+      { ...qb("4", "Out WR", "BN", 30, "WR"), availabilityStatus: "Out" },
+    ];
+    const matchups = [
+      matchup(6, side("1", 80, loserPlayers), side("2", 90, [qb("9", "Opp", "QB", 20)]), "2"),
+    ];
+    expect(findDonkey(matchups, 6, 2026)).toBeNull();
+  });
+
   it("does not award Donkey when the bench player would not have won the matchup", () => {
     const loserPlayers = [
       qb("1", "Start RB", "RB", 10, "RB"),
