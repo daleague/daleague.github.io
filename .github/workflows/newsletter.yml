@@ -2,10 +2,10 @@ name: Weekly Newsletter
 
 on:
   schedule:
-    # 8:17 AM Central every Tuesday. Keep this off the top of the hour to reduce scheduler contention.
-    # The cron change also refreshes GitHub's schedule registration on the default branch.
-    - cron: "17 8 * * 2"
-      timezone: "America/Chicago"
+    # 7:00 AM Eastern Time every Tuesday.
+    # Use a named timezone so the schedule follows Eastern daylight-saving changes.
+    - cron: "0 7 * * 2"
+      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       newsletter_week:
