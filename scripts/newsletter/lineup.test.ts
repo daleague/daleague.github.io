@@ -17,6 +17,10 @@ describe("hasKnownLineupUnavailability", () => {
     expect(hasKnownLineupUnavailability({ injuryNote: "Ankle" })).toBe(true);
   });
 
+  it.each(["IR", "IR+", "NA"])("excludes unavailable roster slots %s", (slot) => {
+    expect(hasKnownLineupUnavailability({ slot })).toBe(true);
+  });
+
   it("does not exclude active players or players with unknown status", () => {
     expect(hasKnownLineupUnavailability({ availabilityStatus: "Active", gameStatus: "in_progress" })).toBe(false);
     expect(hasKnownLineupUnavailability({})).toBe(false);
