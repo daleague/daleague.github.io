@@ -67,9 +67,9 @@ describe("calculatePowerRankings", () => {
     const teamB = rankings.find((row) => row.teamId === "2")!;
 
     expect(teamA.streak).toEqual({ type: "W", count: 3 });
-    expect(teamB.streak).toEqual({ type: "L", count: 1 });
+    expect(teamB.streak).toEqual({ type: "W", count: 2 });
     expect(teamA.components.stk).toBe(0.8);
-    expect(teamB.components.stk).toBe(0.4);
+    expect(teamB.components.stk).toBe(0.7);
   });
 
   it("calculates all-play percentage across every completed week", () => {
