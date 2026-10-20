@@ -70,6 +70,74 @@ jobs:
           mkdir -p public/newsletter/output
           if [ -d newsletter/output ]; then cp -R newsletter/output/. public/newsletter/output/; fi
 
+      - name: Generate WhatsApp newsletter share preview
+        run: |
+          node --input-type=module <<'NODE'
+          import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises';
+          import path from 'node:path';
+
+          const outputDir = 'newsletter/output';
+          let files = [];
+          try {
+            files = (await readdir(outputDir))
+              .map(name => {
+                const match = name.match(/^week-(\d+)\.md$/);
+                return match ? { name, week: Number(match[1]) } : null;
+              })
+              .filter(Boolean)
+              .sort((a, b) => b.week - a.week);
+          } catch {}
+
+          let title = 'The League — Weekly Newsletter';
+          let description = 'The latest fantasy football recap, matchups, and league drama.';
+          if (files.length) {
+            const markdown = await readFile(path.join(outputDir, files[0].name), 'utf8');
+            const heading = markdown.match(/^#\s+(.+)$/m);
+            if (heading) title = heading[1].replace(/\*\*/g, '').replace(/\*/g, '').trim();
+            const plain = markdown
+              .replace(/^#.*$/gm, '')
+              .replace(/[*_`\[\]()>#]/g, '')
+              .replace(/\s+/g, ' ')
+              .trim();
+            if (plain) description = plain.slice(0, 220);
+          }
+
+          const escapeHtml = value => value
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+          const safeTitle = escapeHtml(title);
+          const safeDescription = escapeHtml(description);
+          const target = 'https://daleague.github.io/#/newsletter';
+          const html = `<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>${safeTitle}</title>
+            <meta name="description" content="${safeDescription}">
+            <meta property="og:type" content="article">
+            <meta property="og:site_name" content="The League">
+            <meta property="og:title" content="${safeTitle}">
+            <meta property="og:description" content="${safeDescription}">
+            <meta property="og:url" content="https://daleague.github.io/newsletter-share/">
+            <meta name="twitter:card" content="summary">
+            <meta name="twitter:title" content="${safeTitle}">
+            <meta name="twitter:description" content="${safeDescription}">
+            <meta http-equiv="refresh" content="0;url=${target}">
+            <link rel="canonical" href="${target}">
+          </head>
+          <body>
+            <p>Opening the latest newsletter: <a href="${target}">${safeTitle}</a></p>
+            <script>window.location.replace(${JSON.stringify(target)});</script>
+          </body>
+          </html>
+          `;
+          await mkdir('public/newsletter-share', { recursive: true });
+          await writeFile('public/newsletter-share/index.html', html);
+          console.log(`Generated share metadata for: ${title}`);
+          NODE
+
       - name: Build
         env:
           VITE_USE_MOCK_DATA: ${{ env.YAHOO_API_ENABLED == 'true' && 'false' || 'true' }}
