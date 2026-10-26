@@ -131,9 +131,8 @@ function ownTeamOpponentClaim(text: string, player: PlayerReference): string | u
 
   while ((playerMatch = playerPattern.exec(text)) !== null) {
     const afterPlayer = text.slice(playerMatch.index + player.name.length, playerMatch.index + player.name.length + 180);
-    let phraseMatch: RegExpExecArray | null;
     opponentPhrase.lastIndex = 0;
-    while ((phraseMatch = opponentPhrase.exec(afterPlayer)) !== null) {
+    while (opponentPhrase.exec(afterPlayer) !== null) {
       const target = afterPlayer.slice(opponentPhrase.lastIndex, opponentPhrase.lastIndex + 55).replace(/^[\s"'(]+/, "");
       for (const alias of aliases) {
         const aliasMatch = new RegExp("^" + escapeRegExp(alias) + "(?=\\b|$)", "i").exec(target);
