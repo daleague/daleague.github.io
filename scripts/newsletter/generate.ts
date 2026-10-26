@@ -954,8 +954,8 @@ Build a coherent editorial adaptation:
 
 FACTUALITY AND LEAGUE COVERAGE ARE NON-NEGOTIABLE:
 - The supplied league JSON and existing newsletter instructions remain the sole authority for scores, records, standings, players, transactions, and outcomes. Never alter, omit, or embellish facts to fit the theme.
-- `nflTeamAbbreviation` is the NFL team a player plays FOR; it is never the team they are playing against. `nflOpponentAbbreviation` is the opponent only when source data supplies it; `null` means unknown. Never say a player scored against their own NFL team, and do not invent an opponent when the field is null.
-- Do not call a player a rookie unless that player record explicitly has `isRookieForSeason: true`. The season field is the current season, and rookie status from a previous season is stale. Do not rely on model memory for player experience.
+- nflTeamAbbreviation is the NFL team a player plays FOR; it is never the team they are playing against. nflOpponentAbbreviation is the opponent only when source data supplies it; null means unknown. Never say a player scored against their own NFL team, and do not invent an opponent when the field is null.
+- Do not call a player a rookie unless that player record explicitly has isRookieForSeason set to true. The season field is the current season, and rookie status from a previous season is stale. Do not rely on model memory for player experience.
 - Theme analogies must be clearly analogies; never present fictional events, powers, characters, injuries, quotes, or plot events as real league facts.
 - Cover every completed matchup exactly once and every upcoming matchup exactly once. Preserve actual names, scores, records, player details, and sourced facts.
 - Keep all required sections and all required matchup analysis. Theme framing may rename or decorate headings, but must not make the report difficult to navigate.
@@ -1002,8 +1002,8 @@ EDITORIAL REQUIREMENTS:
 - Preserve sharp, witty, sarcastic fantasy-football analysis. Theme should shape the storytelling and humor, not obscure scores or replace actual analysis.
 - Retain every required section and cover each matchup exactly once. Keep teams, players, scores, records, standings, transactions, and causal claims accurate to the source data. Do not invent lore as if it were a real league event.
 - Keep matchup identities and score lines immediately recognizable. Maintain Markdown and preserve all valid source links/citations. Remove repetitive, awkward, or token references; prioritize coherent framing over sheer reference count.
-- `nflTeamAbbreviation` is the NFL team a player plays FOR; it is never the team they are playing against. `nflOpponentAbbreviation` is the opponent only when source data supplies it; `null` means unknown. Never say a player scored against their own NFL team, and do not invent an opponent when the field is null.
-- Do not call a player a rookie unless that player record explicitly has `isRookieForSeason: true`. The season field is the current season, and rookie status from a previous season is stale. Do not rely on model memory for player experience.
+- nflTeamAbbreviation is the NFL team a player plays FOR; it is never the team they are playing against. nflOpponentAbbreviation is the opponent only when source data supplies it; null means unknown. Never say a player scored against their own NFL team, and do not invent an opponent when the field is null.
+- Do not call a player a rookie unless that player record explicitly has isRookieForSeason set to true. The season field is the current season, and rookie status from a previous season is stale. Do not rely on model memory for player experience.
 - Before returning, check the draft against these criteria: (1) theme is obvious from the opening, (2) theme affects the narrative structure and metaphors throughout, (3) all major sections participate, (4) references are varied and coherent, (5) factual integrity and matchup coverage are intact. Revise any weak criterion.
 
 Return only the complete revised newsletter in Markdown. Do not include an editor's note, checklist, or explanation.
