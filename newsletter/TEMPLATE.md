@@ -35,6 +35,16 @@ For NFL-side explanations:
 - If an external factor is not supported by the supplied data, omit it rather than guessing.
 - Never turn correlation into certainty.
 
+## Player identity and season-fact guardrails
+
+The following definitions are strict data semantics, not optional writing suggestions:
+
+- `nflTeamAbbreviation` is the NFL franchise the player plays **for**. It is never their opponent. For example, if Trevor Lawrence has `nflTeamAbbreviation: "Jax"`, Jacksonville is his NFL team; do not say he scored "against Jax."
+- `nflOpponentAbbreviation` is the opponent in that specific NFL game, only when the source data provides it. If it is `null` or absent, the opponent is unknown. Do not infer an opponent from the player's NFL team, their fantasy opponent, prior weeks, memory, or a theme analogy.
+- If the opponent is unknown, describe the player's fantasy points or performance without naming the NFL team they played against. A player's NFL team and the fantasy team facing the newsletter's manager are separate concepts.
+- `season` is the current NFL/fantasy season covered by this newsletter. Only describe a player as a **rookie** when their current-season record explicitly has `isRookieForSeason: true`. If the field is false or absent, do not use "rookie" as a current description. Never carry rookie status forward from last season or rely on remembered draft-year information.
+- Theme writing and the theme-revision pass must follow these rules just as strictly as ordinary prose. If a colorful comparison conflicts with the data, change the comparison.
+
 ## Required output
 
 # The League — Week {{PREVIOUS_WEEK}} Recap / Week {{CURRENT_WEEK}} Preview
