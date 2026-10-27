@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T11:01:32.348Z",
+  "generatedAt": "2026-10-27T16:10:09.388Z",
   "season": 2026,
   "league": {
     "name": "The Derrick Rose Fan Club",
@@ -478,7 +478,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Groin",
               "nflTeamAbbreviation": "Hou",
               "nflOpponentAbbreviation": null,
@@ -491,7 +491,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Toe",
               "nflTeamAbbreviation": "Chi",
               "nflOpponentAbbreviation": null,
@@ -593,7 +593,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Groin",
                 "nflTeamAbbreviation": "Hou",
                 "nflOpponentAbbreviation": null,
@@ -606,7 +606,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Toe",
                 "nflTeamAbbreviation": "Chi",
                 "nflOpponentAbbreviation": null,
@@ -809,7 +809,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "KC",
               "nflOpponentAbbreviation": null,
@@ -887,7 +887,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "KC",
                 "nflOpponentAbbreviation": null,
@@ -1084,7 +1084,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
@@ -1190,7 +1190,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "SF",
                 "nflOpponentAbbreviation": null,
@@ -1422,7 +1422,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Concussion",
               "nflTeamAbbreviation": "TB",
               "nflOpponentAbbreviation": null,
@@ -1526,7 +1526,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Concussion",
                 "nflTeamAbbreviation": "TB",
                 "nflOpponentAbbreviation": null,
@@ -1727,7 +1727,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Knee - ACL",
               "nflTeamAbbreviation": "Sea",
               "nflOpponentAbbreviation": null,
@@ -1740,7 +1740,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Achilles",
               "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
@@ -1859,7 +1859,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Knee - ACL",
                 "nflTeamAbbreviation": "Sea",
                 "nflOpponentAbbreviation": null,
@@ -1872,7 +1872,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Achilles",
                 "nflTeamAbbreviation": "SF",
                 "nflOpponentAbbreviation": null,
@@ -2353,7 +2353,7 @@
               "actualPosition": "QB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Ankle",
               "nflTeamAbbreviation": "Bal",
               "nflOpponentAbbreviation": null,
@@ -2469,7 +2469,7 @@
                 "actualPosition": "QB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Ankle",
                 "nflTeamAbbreviation": "Bal",
                 "nflOpponentAbbreviation": null,
@@ -3022,7 +3022,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Quadriceps",
               "nflTeamAbbreviation": "NYJ",
               "nflOpponentAbbreviation": null,
@@ -3140,7 +3140,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Quadriceps",
                 "nflTeamAbbreviation": "NYJ",
                 "nflOpponentAbbreviation": null,
@@ -3321,7 +3321,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "Phi",
               "nflOpponentAbbreviation": null,
@@ -3346,7 +3346,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "Atl",
               "nflOpponentAbbreviation": null,
@@ -3385,7 +3385,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Ankle",
               "nflTeamAbbreviation": "Ari",
               "nflOpponentAbbreviation": null,
@@ -3452,7 +3452,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "Phi",
                 "nflOpponentAbbreviation": null,
@@ -3465,7 +3465,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "Atl",
                 "nflOpponentAbbreviation": null,
@@ -3504,7 +3504,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Ankle",
                 "nflTeamAbbreviation": "Ari",
                 "nflOpponentAbbreviation": null,
@@ -3689,7 +3689,7 @@
               "actualPosition": "TE",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Groin",
               "nflTeamAbbreviation": "Ind",
               "nflOpponentAbbreviation": null,
@@ -3782,7 +3782,7 @@
                 "actualPosition": "TE",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Groin",
                 "nflTeamAbbreviation": "Ind",
                 "nflOpponentAbbreviation": null,
@@ -4164,21 +4164,6 @@
       }
     ],
     "transactions": [
-      {
-        "timestamp": "2026-10-20T13:23:55.000Z",
-        "type": "drop",
-        "teamId": "8",
-        "playersAdded": [],
-        "playersDropped": [
-          {
-            "playerId": "40896",
-            "name": "Jayden Daniels",
-            "nflTeam": "Was"
-          }
-        ],
-        "faabAmount": null,
-        "note": null
-      },
       {
         "timestamp": "2026-10-20T16:37:50.000Z",
         "type": "drop",
@@ -10268,8 +10253,8 @@
           "teamName": "Muslim McCaffrey",
           "managerName": "Sameer",
           "score": 0,
-          "projectedScore": 90.6,
-          "winProbability": 44,
+          "projectedScore": 94.49,
+          "winProbability": 48,
           "players": [
             {
               "playerId": "40881",
@@ -10284,20 +10269,6 @@
               "isRookieForSeason": false
             },
             {
-              "playerId": "30121",
-              "name": "Christian McCaffrey",
-              "slot": "RB",
-              "actualPosition": "RB",
-              "points": 0,
-              "isStarter": true,
-              "gameStatus": "bye",
-              "availabilityStatus": "Q / Questionable",
-              "injuryNote": "Hamstring",
-              "nflTeamAbbreviation": "SF",
-              "nflOpponentAbbreviation": null,
-              "isRookieForSeason": false
-            },
-            {
               "playerId": "40962",
               "name": "Blake Corum",
               "slot": "RB",
@@ -10306,6 +10277,19 @@
               "isStarter": true,
               "availabilityStatus": "false",
               "nflTeamAbbreviation": "LAR",
+              "nflOpponentAbbreviation": null,
+              "isRookieForSeason": false
+            },
+            {
+              "playerId": "30972",
+              "name": "Saquon Barkley",
+              "slot": "RB",
+              "actualPosition": "RB",
+              "points": 0,
+              "isStarter": true,
+              "availabilityStatus": "Q / Questionable",
+              "injuryNote": "Back",
+              "nflTeamAbbreviation": "Phi",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -10346,15 +10330,28 @@
               "isRookieForSeason": false
             },
             {
-              "playerId": "30972",
-              "name": "Saquon Barkley",
+              "playerId": "42693",
+              "name": "Antonio Williams",
               "slot": "W/R/T",
-              "actualPosition": "RB",
+              "actualPosition": "WR",
               "points": 0,
               "isStarter": true,
+              "availabilityStatus": "false",
+              "nflTeamAbbreviation": "Was",
+              "nflOpponentAbbreviation": null,
+              "isRookieForSeason": false
+            },
+            {
+              "playerId": "30121",
+              "name": "Christian McCaffrey",
+              "slot": "BN",
+              "actualPosition": "RB",
+              "points": 0,
+              "isStarter": false,
+              "gameStatus": "bye",
               "availabilityStatus": "Q / Questionable",
-              "injuryNote": "Back",
-              "nflTeamAbbreviation": "Phi",
+              "injuryNote": "Hamstring",
+              "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -10404,18 +10401,6 @@
               "isStarter": false,
               "availabilityStatus": "false",
               "nflTeamAbbreviation": "Bal",
-              "nflOpponentAbbreviation": null,
-              "isRookieForSeason": false
-            },
-            {
-              "playerId": "42693",
-              "name": "Antonio Williams",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "isStarter": false,
-              "availabilityStatus": "false",
-              "nflTeamAbbreviation": "Was",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -10512,6 +10497,20 @@
             ],
             "unavailableBenchPlayers": [
               {
+                "playerId": "30121",
+                "name": "Christian McCaffrey",
+                "slot": "BN",
+                "actualPosition": "RB",
+                "points": 0,
+                "isStarter": false,
+                "gameStatus": "bye",
+                "availabilityStatus": "Q / Questionable",
+                "injuryNote": "Hamstring",
+                "nflTeamAbbreviation": "SF",
+                "nflOpponentAbbreviation": null,
+                "isRookieForSeason": false
+              },
+              {
                 "playerId": "42712",
                 "name": "Kaelon Black",
                 "slot": "BN",
@@ -10565,20 +10564,6 @@
                 "isRookieForSeason": false
               },
               {
-                "playerId": "30121",
-                "name": "Christian McCaffrey",
-                "slot": "RB",
-                "actualPosition": "RB",
-                "points": 0,
-                "isStarter": true,
-                "gameStatus": "bye",
-                "availabilityStatus": "Q / Questionable",
-                "injuryNote": "Hamstring",
-                "nflTeamAbbreviation": "SF",
-                "nflOpponentAbbreviation": null,
-                "isRookieForSeason": false
-              },
-              {
                 "playerId": "40962",
                 "name": "Blake Corum",
                 "slot": "RB",
@@ -10587,6 +10572,19 @@
                 "isStarter": true,
                 "availabilityStatus": "false",
                 "nflTeamAbbreviation": "LAR",
+                "nflOpponentAbbreviation": null,
+                "isRookieForSeason": false
+              },
+              {
+                "playerId": "30972",
+                "name": "Saquon Barkley",
+                "slot": "RB",
+                "actualPosition": "RB",
+                "points": 0,
+                "isStarter": true,
+                "availabilityStatus": "Q / Questionable",
+                "injuryNote": "Back",
+                "nflTeamAbbreviation": "Phi",
                 "nflOpponentAbbreviation": null,
                 "isRookieForSeason": false
               }
@@ -10598,8 +10596,8 @@
           "teamName": "I ❤️ Packers",
           "managerName": "Isbah",
           "score": 0,
-          "projectedScore": 96.26,
-          "winProbability": 56,
+          "projectedScore": 96.34,
+          "winProbability": 52,
           "players": [
             {
               "playerId": "32993",
@@ -10879,8 +10877,8 @@
           "teamName": "Last",
           "managerName": "WC",
           "score": 0,
-          "projectedScore": 93.24,
-          "winProbability": 27,
+          "projectedScore": 93.88,
+          "winProbability": 28,
           "players": [
             {
               "playerId": "32671",
@@ -11023,7 +11021,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "KC",
               "nflOpponentAbbreviation": null,
@@ -11114,7 +11112,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "KC",
                 "nflOpponentAbbreviation": null,
@@ -11166,8 +11164,8 @@
           "teamName": "First",
           "managerName": "Sydaddy",
           "score": 0,
-          "projectedScore": 119.16,
-          "winProbability": 73,
+          "projectedScore": 118.11,
+          "winProbability": 72,
           "players": [
             {
               "playerId": "33389",
@@ -11310,7 +11308,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Quadriceps",
               "nflTeamAbbreviation": "NYJ",
               "nflOpponentAbbreviation": null,
@@ -11440,7 +11438,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Quadriceps",
                 "nflTeamAbbreviation": "NYJ",
                 "nflOpponentAbbreviation": null,
@@ -11515,7 +11513,7 @@
           "teamName": "I'LL RKO MYSELF",
           "managerName": "Shaun",
           "score": 0,
-          "projectedScore": 102.44,
+          "projectedScore": 102.68,
           "winProbability": 70,
           "players": [
             {
@@ -11675,7 +11673,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Concussion",
               "nflTeamAbbreviation": "TB",
               "nflOpponentAbbreviation": null,
@@ -11781,7 +11779,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Concussion",
                 "nflTeamAbbreviation": "TB",
                 "nflOpponentAbbreviation": null,
@@ -11834,7 +11832,7 @@
           "teamName": "Lovebirds",
           "managerName": "Owais",
           "score": 0,
-          "projectedScore": 81.93,
+          "projectedScore": 81.81,
           "winProbability": 30,
           "players": [
             {
@@ -11955,7 +11953,7 @@
               "actualPosition": "TE",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Groin",
               "nflTeamAbbreviation": "Ind",
               "nflOpponentAbbreviation": null,
@@ -12071,7 +12069,7 @@
                 "actualPosition": "TE",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Groin",
                 "nflTeamAbbreviation": "Ind",
                 "nflOpponentAbbreviation": null,
@@ -12132,8 +12130,8 @@
           "teamName": "Shaun might RKO my ass 🍑",
           "managerName": "Zain",
           "score": 0,
-          "projectedScore": 119.58,
-          "winProbability": 78,
+          "projectedScore": 118.78,
+          "winProbability": 77,
           "players": [
             {
               "playerId": "29369",
@@ -12277,7 +12275,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Knee - ACL",
               "nflTeamAbbreviation": "Sea",
               "nflOpponentAbbreviation": null,
@@ -12291,7 +12289,7 @@
               "points": 0,
               "isStarter": false,
               "gameStatus": "bye",
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Achilles",
               "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
@@ -12396,7 +12394,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Knee - ACL",
                 "nflTeamAbbreviation": "Sea",
                 "nflOpponentAbbreviation": null,
@@ -12410,7 +12408,7 @@
                 "points": 0,
                 "isStarter": false,
                 "gameStatus": "bye",
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Achilles",
                 "nflTeamAbbreviation": "SF",
                 "nflOpponentAbbreviation": null,
@@ -12476,8 +12474,8 @@
           "teamName": "Auto draft nonsense",
           "managerName": "Farhan",
           "score": 0,
-          "projectedScore": 86.55,
-          "winProbability": 22,
+          "projectedScore": 86.58,
+          "winProbability": 23,
           "players": [
             {
               "playerId": "7200",
@@ -12595,7 +12593,7 @@
               "actualPosition": "QB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Ankle",
               "nflTeamAbbreviation": "Bal",
               "nflOpponentAbbreviation": null,
@@ -12712,7 +12710,7 @@
                 "actualPosition": "QB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Ankle",
                 "nflTeamAbbreviation": "Bal",
                 "nflOpponentAbbreviation": null,
@@ -12787,8 +12785,8 @@
           "teamName": "Allen’s Wrenches",
           "managerName": "Bilal",
           "score": 0,
-          "projectedScore": 86.92,
-          "winProbability": 37,
+          "projectedScore": 85.14,
+          "winProbability": 31,
           "players": [
             {
               "playerId": "31833",
@@ -13099,8 +13097,8 @@
           "teamName": "Slap City",
           "managerName": "Abraar Kazi",
           "score": 0,
-          "projectedScore": 100.62,
-          "winProbability": 63,
+          "projectedScore": 105.6,
+          "winProbability": 69,
           "players": [
             {
               "playerId": "40900",
@@ -13133,7 +13131,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": true,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Toe",
               "nflTeamAbbreviation": "Chi",
               "nflOpponentAbbreviation": null,
@@ -13232,7 +13230,7 @@
               "points": 0,
               "isStarter": false,
               "gameStatus": "bye",
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Groin",
               "nflTeamAbbreviation": "Hou",
               "nflOpponentAbbreviation": null,
@@ -13325,7 +13323,7 @@
                 "points": 0,
                 "isStarter": false,
                 "gameStatus": "bye",
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Groin",
                 "nflTeamAbbreviation": "Hou",
                 "nflOpponentAbbreviation": null,
@@ -13377,7 +13375,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": true,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Toe",
                 "nflTeamAbbreviation": "Chi",
                 "nflOpponentAbbreviation": null,
@@ -13400,8 +13398,8 @@
           "teamName": "Cursed by Wafi",
           "managerName": "Ammar",
           "score": 0,
-          "projectedScore": 95.59,
-          "winProbability": 50,
+          "projectedScore": 107.49,
+          "winProbability": 61,
           "players": [
             {
               "playerId": "40896",
@@ -13434,7 +13432,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": true,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Ankle",
               "nflTeamAbbreviation": "Ari",
               "nflOpponentAbbreviation": null,
@@ -13545,7 +13543,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "Atl",
               "nflOpponentAbbreviation": null,
@@ -13558,7 +13556,7 @@
               "actualPosition": "WR",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "Phi",
               "nflOpponentAbbreviation": null,
@@ -13675,7 +13673,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "Atl",
                 "nflOpponentAbbreviation": null,
@@ -13688,7 +13686,7 @@
                 "actualPosition": "WR",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "Phi",
                 "nflOpponentAbbreviation": null,
@@ -13740,7 +13738,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": true,
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Ankle",
                 "nflTeamAbbreviation": "Ari",
                 "nflOpponentAbbreviation": null,
@@ -13754,8 +13752,8 @@
           "teamName": "Tuten Brown Shite",
           "managerName": "Faizan",
           "score": 0,
-          "projectedScore": 95.3,
-          "winProbability": 50,
+          "projectedScore": 94.95,
+          "winProbability": 39,
           "players": [
             {
               "playerId": "29235",
@@ -13898,7 +13896,7 @@
               "points": 0,
               "isStarter": false,
               "gameStatus": "bye",
-              "availabilityStatus": "O / Out",
+              "availabilityStatus": "Q / Questionable",
               "injuryNote": "Hamstring",
               "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
@@ -14002,7 +14000,7 @@
                 "points": 0,
                 "isStarter": false,
                 "gameStatus": "bye",
-                "availabilityStatus": "O / Out",
+                "availabilityStatus": "Q / Questionable",
                 "injuryNote": "Hamstring",
                 "nflTeamAbbreviation": "SF",
                 "nflOpponentAbbreviation": null,
@@ -14068,21 +14066,6 @@
           "isStarter": true
         },
         {
-          "playerId": "30121",
-          "name": "Christian McCaffrey",
-          "slot": "RB",
-          "actualPosition": "RB",
-          "availabilityStatus": "Q / Questionable",
-          "injuryNote": "Hamstring",
-          "byeWeeks": [
-            8
-          ],
-          "nflTeam": "SF",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/hidp2GbL3wMTfnQeMjwvnw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/30121.1.png",
-          "isStarter": true
-        },
-        {
           "playerId": "40962",
           "name": "Blake Corum",
           "slot": "RB",
@@ -14094,6 +14077,21 @@
           "nflTeam": "LAR",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/VMUSaW4q_.UehllmRZwFXA--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252025/40962.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "30972",
+          "name": "Saquon Barkley",
+          "slot": "RB",
+          "actualPosition": "RB",
+          "availabilityStatus": "Q / Questionable",
+          "injuryNote": "Back",
+          "byeWeeks": [
+            10
+          ],
+          "nflTeam": "Phi",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/VXOmjaMBllUqGug6vTs48A--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/30972.1.png",
           "isStarter": true
         },
         {
@@ -14139,19 +14137,33 @@
           "isStarter": true
         },
         {
-          "playerId": "30972",
-          "name": "Saquon Barkley",
+          "playerId": "42693",
+          "name": "Antonio Williams",
           "slot": "W/R/T",
+          "actualPosition": "WR",
+          "availabilityStatus": "false",
+          "byeWeeks": [
+            7
+          ],
+          "nflTeam": "Was",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/iMp_n0ptAQqeYqF_mBWLsw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/42693.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "30121",
+          "name": "Christian McCaffrey",
+          "slot": "BN",
           "actualPosition": "RB",
           "availabilityStatus": "Q / Questionable",
-          "injuryNote": "Back",
+          "injuryNote": "Hamstring",
           "byeWeeks": [
-            10
+            8
           ],
-          "nflTeam": "Phi",
+          "nflTeam": "SF",
           "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/VXOmjaMBllUqGug6vTs48A--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/30972.1.png",
-          "isStarter": true
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/hidp2GbL3wMTfnQeMjwvnw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/30121.1.png",
+          "isStarter": false
         },
         {
           "playerId": "40641",
@@ -14207,20 +14219,6 @@
           "nflTeam": "Bal",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/lCeIOJ6Y7k_b4Yw.Wj4AEQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/42702.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "42693",
-          "name": "Antonio Williams",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "availabilityStatus": "false",
-          "byeWeeks": [
-            7
-          ],
-          "nflTeam": "Was",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/iMp_n0ptAQqeYqF_mBWLsw--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252026/42693.1.png",
           "isStarter": false
         },
         {
@@ -14442,7 +14440,7 @@
           "name": "Rashee Rice",
           "slot": "IR",
           "actualPosition": "WR",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Hamstring",
           "byeWeeks": [
             5
@@ -14659,7 +14657,7 @@
           "name": "Emeka Egbuka",
           "slot": "IR",
           "actualPosition": "WR",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Concussion",
           "byeWeeks": [
             10
@@ -14860,7 +14858,7 @@
           "name": "Zach Charbonnet",
           "slot": "BN",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Knee - ACL",
           "byeWeeks": [
             11
@@ -14875,7 +14873,7 @@
           "name": "Mike Evans",
           "slot": "IR",
           "actualPosition": "WR",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Achilles",
           "byeWeeks": [
             8
@@ -15389,7 +15387,7 @@
           "name": "Jeremiyah Love",
           "slot": "RB",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Ankle",
           "byeWeeks": [
             14
@@ -15516,7 +15514,7 @@
           "name": "Brian Robinson Jr.",
           "slot": "BN",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Hamstring",
           "byeWeeks": [
             11
@@ -15531,7 +15529,7 @@
           "name": "DeVonta Smith",
           "slot": "IR",
           "actualPosition": "WR",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Hamstring",
           "byeWeeks": [
             10
@@ -15746,7 +15744,7 @@
           "name": "Deebo Samuel Sr.",
           "slot": "IR",
           "actualPosition": "WR",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Hamstring",
           "byeWeeks": [
             8
@@ -15959,7 +15957,7 @@
           "name": "Breece Hall",
           "slot": "IR",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Quadriceps",
           "byeWeeks": [
             13
@@ -16061,7 +16059,7 @@
           "name": "Kyle Monangai",
           "slot": "RB",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Toe",
           "byeWeeks": [
             10
@@ -16174,7 +16172,7 @@
           "name": "David Montgomery",
           "slot": "BN",
           "actualPosition": "RB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Groin",
           "byeWeeks": [
             8
@@ -16359,7 +16357,7 @@
           "name": "Lamar Jackson",
           "slot": "BN",
           "actualPosition": "QB",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Ankle",
           "byeWeeks": [
             13
@@ -16574,7 +16572,7 @@
           "name": "Tyler Warren",
           "slot": "BN",
           "actualPosition": "TE",
-          "availabilityStatus": "O / Out",
+          "availabilityStatus": "Q / Questionable",
           "injuryNote": "Groin",
           "byeWeeks": [
             13
@@ -16645,7 +16643,7 @@
   },
   "currentEvents": {
     "enabled": false,
-    "date": "2026-10-27T11:01:32.348Z",
+    "date": "2026-10-27T16:10:09.388Z",
     "calendarContext": [
       "Halloween season"
     ],
