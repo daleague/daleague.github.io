@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T10:38:44.693Z",
+  "generatedAt": "2026-10-27T10:55:52.269Z",
   "season": 2026,
   "league": {
     "name": "The Derrick Rose Fan Club",
@@ -16645,7 +16645,7 @@
   },
   "currentEvents": {
     "enabled": false,
-    "date": "2026-10-27T10:38:44.693Z",
+    "date": "2026-10-27T10:55:52.269Z",
     "calendarContext": [
       "Halloween season"
     ],
@@ -17268,14 +17268,6 @@
       },
       {
         "type": "repeated_start_sit_mistakes",
-        "priority": 60.8,
-        "team": "Auto draft nonsense",
-        "evidence": "Week 1: left Tucker Kraft on the bench for Colston Loveland, costing 8 points; Week 4: left Emanuel Wilson on the bench for Tony Pollard, costing 13.5 points; Week 6: left Colston Loveland on the bench for Tucker Kraft, costing 9.3 points",
-        "occurrences": 3,
-        "pointsLeft": 30.8
-      },
-      {
-        "type": "repeated_start_sit_mistakes",
         "priority": 59.4,
         "team": "I ❤️ Packers",
         "evidence": "Week 1: left Jakobi Meyers on the bench for Jaylen Waddle, costing 10.5 points; Week 3: left Jakobi Meyers on the bench for Jaylen Waddle, costing 10.5 points; Week 4: left Jameson Williams on the bench for Jakobi Meyers, costing 8.4 points",
@@ -17352,6 +17344,14 @@
         "evidence": "Week 2: left Matthew Stafford on the bench for Joe Burrow, costing 15.8 points; Week 4: left KC Concepcion Jr. on the bench for Rashee Rice, costing 8.9 points",
         "occurrences": 2,
         "pointsLeft": 24.7
+      },
+      {
+        "type": "repeated_start_sit_mistakes",
+        "priority": 42.8,
+        "team": "Auto draft nonsense",
+        "evidence": "Week 4: left Emanuel Wilson on the bench for Tony Pollard, costing 13.5 points; Week 6: left Colston Loveland on the bench for Tucker Kraft, costing 9.3 points",
+        "occurrences": 2,
+        "pointsLeft": 22.8
       },
       {
         "type": "repeated_start_sit_mistakes",
