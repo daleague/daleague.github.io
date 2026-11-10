@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T15:28:41.391Z",
+  "generatedAt": "2026-11-10T19:13:09.704Z",
   "season": 2026,
   "league": {
     "name": "The Derrick Rose Fan Club",
@@ -1645,7 +1645,7 @@
               "actualPosition": "RB",
               "points": 13.3,
               "isStarter": true,
-              "availabilityStatus": "Q / Questionable",
+              "availabilityStatus": "D / Doubtful",
               "injuryNote": "Knee",
               "nflTeamAbbreviation": "NE",
               "nflOpponentAbbreviation": null,
@@ -2344,7 +2344,7 @@
               "points": 4.6,
               "isStarter": true,
               "availabilityStatus": "false",
-              "nflTeamAbbreviation": "Ind",
+              "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -2549,7 +2549,7 @@
                 "points": 4.6,
                 "isStarter": true,
                 "availabilityStatus": "false",
-                "nflTeamAbbreviation": "Ind",
+                "nflTeamAbbreviation": "SF",
                 "nflOpponentAbbreviation": null,
                 "isRookieForSeason": false
               },
@@ -9159,7 +9159,7 @@
           {
             "playerId": "26699",
             "name": "Keenan Allen",
-            "nflTeam": "Ind"
+            "nflTeam": "SF"
           }
         ],
         "playersDropped": [],
@@ -9998,8 +9998,8 @@
           "teamName": "Muslim McCaffrey",
           "managerName": "Sameer",
           "score": 0,
-          "projectedScore": 108.44,
-          "winProbability": 69,
+          "projectedScore": 109.27,
+          "winProbability": 70,
           "players": [
             {
               "playerId": "40881",
@@ -10339,8 +10339,8 @@
           "teamName": "This Is Ja'MarrIca",
           "managerName": "Farhan",
           "score": 0,
-          "projectedScore": 87.58,
-          "winProbability": 31,
+          "projectedScore": 87.91,
+          "winProbability": 30,
           "players": [
             {
               "playerId": "41969",
@@ -10421,7 +10421,7 @@
               "actualPosition": "RB",
               "points": 0,
               "isStarter": false,
-              "availabilityStatus": "Q / Questionable",
+              "availabilityStatus": "D / Doubtful",
               "injuryNote": "Knee",
               "nflTeamAbbreviation": "NE",
               "nflOpponentAbbreviation": null,
@@ -10565,7 +10565,7 @@
                 "actualPosition": "RB",
                 "points": 0,
                 "isStarter": false,
-                "availabilityStatus": "Q / Questionable",
+                "availabilityStatus": "D / Doubtful",
                 "injuryNote": "Knee",
                 "nflTeamAbbreviation": "NE",
                 "nflOpponentAbbreviation": null,
@@ -10704,8 +10704,8 @@
           "teamName": "Shaun's saving my spot in Last",
           "managerName": "WC",
           "score": 0,
-          "projectedScore": 104.33,
-          "winProbability": 49,
+          "projectedScore": 104.71,
+          "winProbability": 48,
           "players": [
             {
               "playerId": "32671",
@@ -11030,8 +11030,8 @@
           "teamName": "I ❤️ Packers",
           "managerName": "Isbah",
           "score": 0,
-          "projectedScore": 104.91,
-          "winProbability": 51,
+          "projectedScore": 106.49,
+          "winProbability": 52,
           "players": [
             {
               "playerId": "34042",
@@ -11358,8 +11358,8 @@
           "teamName": "Steve’s Ballad",
           "managerName": "Shaun",
           "score": 0,
-          "projectedScore": 74.39,
-          "winProbability": 22,
+          "projectedScore": 86.94,
+          "winProbability": 35,
           "players": [
             {
               "playerId": "40030",
@@ -11410,6 +11410,18 @@
               "isRookieForSeason": false
             },
             {
+              "playerId": "41293",
+              "name": "Jalen Coker",
+              "slot": "WR",
+              "actualPosition": "WR",
+              "points": 0,
+              "isStarter": true,
+              "availabilityStatus": "false",
+              "nflTeamAbbreviation": "Car",
+              "nflOpponentAbbreviation": null,
+              "isRookieForSeason": false
+            },
+            {
               "playerId": "26686",
               "name": "Travis Kelce",
               "slot": "TE",
@@ -11455,18 +11467,6 @@
               "gameStatus": "bye",
               "availabilityStatus": "false",
               "nflTeamAbbreviation": "TB",
-              "nflOpponentAbbreviation": null,
-              "isRookieForSeason": false
-            },
-            {
-              "playerId": "41293",
-              "name": "Jalen Coker",
-              "slot": "BN",
-              "actualPosition": "WR",
-              "points": 0,
-              "isStarter": false,
-              "availabilityStatus": "false",
-              "nflTeamAbbreviation": "Car",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -11560,18 +11560,6 @@
                 "isRookieForSeason": false
               },
               {
-                "playerId": "41293",
-                "name": "Jalen Coker",
-                "slot": "BN",
-                "actualPosition": "WR",
-                "points": 0,
-                "isStarter": false,
-                "availabilityStatus": "false",
-                "nflTeamAbbreviation": "Car",
-                "nflOpponentAbbreviation": null,
-                "isRookieForSeason": false
-              },
-              {
                 "playerId": "30295",
                 "name": "Aaron Jones Sr.",
                 "slot": "BN",
@@ -11580,6 +11568,18 @@
                 "isStarter": false,
                 "availabilityStatus": "false",
                 "nflTeamAbbreviation": "Min",
+                "nflOpponentAbbreviation": null,
+                "isRookieForSeason": false
+              },
+              {
+                "playerId": "40231",
+                "name": "Chris Rodriguez Jr.",
+                "slot": "BN",
+                "actualPosition": "RB",
+                "points": 0,
+                "isStarter": false,
+                "availabilityStatus": "false",
+                "nflTeamAbbreviation": "Jax",
                 "nflOpponentAbbreviation": null,
                 "isRookieForSeason": false
               }
@@ -11670,8 +11670,8 @@
           "teamName": "Tuten Brown Shite",
           "managerName": "Faizan",
           "score": 0,
-          "projectedScore": 101.03,
-          "winProbability": 78,
+          "projectedScore": 101.81,
+          "winProbability": 65,
           "players": [
             {
               "playerId": "29235",
@@ -12017,8 +12017,8 @@
           "teamName": "K9 Unit",
           "managerName": "Zain",
           "score": 0,
-          "projectedScore": 116.27,
-          "winProbability": 48,
+          "projectedScore": 118.46,
+          "winProbability": 51,
           "players": [
             {
               "playerId": "30123",
@@ -12343,8 +12343,8 @@
           "teamName": "Allen’s Wrenches",
           "managerName": "Bilal",
           "score": 0,
-          "projectedScore": 118.52,
-          "winProbability": 52,
+          "projectedScore": 117.75,
+          "winProbability": 49,
           "players": [
             {
               "playerId": "30977",
@@ -12419,14 +12419,26 @@
               "isRookieForSeason": false
             },
             {
-              "playerId": "26699",
-              "name": "Keenan Allen",
+              "playerId": "40981",
+              "name": "Braelon Allen",
               "slot": "W/R/T",
-              "actualPosition": "WR",
+              "actualPosition": "RB",
               "points": 0,
               "isStarter": true,
               "availabilityStatus": "false",
-              "nflTeamAbbreviation": "Ind",
+              "nflTeamAbbreviation": "NYJ",
+              "nflOpponentAbbreviation": null,
+              "isRookieForSeason": false
+            },
+            {
+              "playerId": "26699",
+              "name": "Keenan Allen",
+              "slot": "BN",
+              "actualPosition": "WR",
+              "points": 0,
+              "isStarter": false,
+              "availabilityStatus": "false",
+              "nflTeamAbbreviation": "SF",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -12452,18 +12464,6 @@
               "isStarter": false,
               "availabilityStatus": "false",
               "nflTeamAbbreviation": "Min",
-              "nflOpponentAbbreviation": null,
-              "isRookieForSeason": false
-            },
-            {
-              "playerId": "40981",
-              "name": "Braelon Allen",
-              "slot": "BN",
-              "actualPosition": "RB",
-              "points": 0,
-              "isStarter": false,
-              "availabilityStatus": "false",
-              "nflTeamAbbreviation": "NYJ",
               "nflOpponentAbbreviation": null,
               "isRookieForSeason": false
             },
@@ -12533,6 +12533,18 @@
           "lineupSignals": {
             "topBenchByPoints": [
               {
+                "playerId": "26699",
+                "name": "Keenan Allen",
+                "slot": "BN",
+                "actualPosition": "WR",
+                "points": 0,
+                "isStarter": false,
+                "availabilityStatus": "false",
+                "nflTeamAbbreviation": "SF",
+                "nflOpponentAbbreviation": null,
+                "isRookieForSeason": false
+              },
+              {
                 "playerId": "40042",
                 "name": "Jordan Addison",
                 "slot": "BN",
@@ -12541,18 +12553,6 @@
                 "isStarter": false,
                 "availabilityStatus": "false",
                 "nflTeamAbbreviation": "Min",
-                "nflOpponentAbbreviation": null,
-                "isRookieForSeason": false
-              },
-              {
-                "playerId": "40981",
-                "name": "Braelon Allen",
-                "slot": "BN",
-                "actualPosition": "RB",
-                "points": 0,
-                "isStarter": false,
-                "availabilityStatus": "false",
-                "nflTeamAbbreviation": "NYJ",
                 "nflOpponentAbbreviation": null,
                 "isRookieForSeason": false
               },
@@ -12664,8 +12664,8 @@
           "teamName": "The Accursed",
           "managerName": "Ammar",
           "score": 0,
-          "projectedScore": 74.74,
-          "winProbability": 45,
+          "projectedScore": 74.36,
+          "winProbability": 44,
           "players": [
             {
               "playerId": "41825",
@@ -13022,8 +13022,8 @@
           "teamName": "Slap City",
           "managerName": "Abraar Kazi",
           "score": 0,
-          "projectedScore": 79,
-          "winProbability": 55,
+          "projectedScore": 80.15,
+          "winProbability": 56,
           "players": [
             {
               "playerId": "40900",
@@ -13347,8 +13347,8 @@
           "teamName": "LOVEBIRDS",
           "managerName": "Sydaddy",
           "score": 0,
-          "projectedScore": 120.94,
-          "winProbability": 61,
+          "projectedScore": 122.99,
+          "winProbability": 63,
           "players": [
             {
               "playerId": "34218",
@@ -13647,8 +13647,8 @@
           "teamName": "Lovebirds",
           "managerName": "Owais",
           "score": 0,
-          "projectedScore": 108.32,
-          "winProbability": 39,
+          "projectedScore": 107.19,
+          "winProbability": 37,
           "players": [
             {
               "playerId": "32696",
@@ -14448,6 +14448,20 @@
           "isStarter": true
         },
         {
+          "playerId": "41293",
+          "name": "Jalen Coker",
+          "slot": "WR",
+          "actualPosition": "WR",
+          "availabilityStatus": "false",
+          "byeWeeks": [
+            5
+          ],
+          "nflTeam": "Car",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/65k_7o4BvaoaSdVEIhckoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/41293.1.png",
+          "isStarter": true
+        },
+        {
           "playerId": "26686",
           "name": "Travis Kelce",
           "slot": "TE",
@@ -14501,20 +14515,6 @@
           "nflTeam": "TB",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/oa3IjOXHfHvlhvd8L3dGYQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08242026/41804.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "41293",
-          "name": "Jalen Coker",
-          "slot": "BN",
-          "actualPosition": "WR",
-          "availabilityStatus": "false",
-          "byeWeeks": [
-            5
-          ],
-          "nflTeam": "Car",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/65k_7o4BvaoaSdVEIhckoQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062026/41293.1.png",
           "isStarter": false
         },
         {
@@ -15136,18 +15136,32 @@
           "isStarter": true
         },
         {
-          "playerId": "26699",
-          "name": "Keenan Allen",
+          "playerId": "40981",
+          "name": "Braelon Allen",
           "slot": "W/R/T",
-          "actualPosition": "WR",
+          "actualPosition": "RB",
           "availabilityStatus": "false",
           "byeWeeks": [
             13
           ],
-          "nflTeam": "Ind",
+          "nflTeam": "NYJ",
+          "points": 0,
+          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/44krz6SBfyvO2QoseAeVCQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/40981.1.png",
+          "isStarter": true
+        },
+        {
+          "playerId": "26699",
+          "name": "Keenan Allen",
+          "slot": "BN",
+          "actualPosition": "WR",
+          "availabilityStatus": "false",
+          "byeWeeks": [
+            8
+          ],
+          "nflTeam": "SF",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/N9Ex2yLe48NYH7puaxSFkQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/11052026/26699.1.png",
-          "isStarter": true
+          "isStarter": false
         },
         {
           "playerId": "32705",
@@ -15175,20 +15189,6 @@
           "nflTeam": "Min",
           "points": 0,
           "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/nn3eSJYNQea549YDPeNwQg--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08192026/40042.1.png",
-          "isStarter": false
-        },
-        {
-          "playerId": "40981",
-          "name": "Braelon Allen",
-          "slot": "BN",
-          "actualPosition": "RB",
-          "availabilityStatus": "false",
-          "byeWeeks": [
-            13
-          ],
-          "nflTeam": "NYJ",
-          "points": 0,
-          "headshotUrl": "https://s.yimg.com/iu/api/res/1.2/44krz6SBfyvO2QoseAeVCQ--~C/YXBwaWQ9eXNwb3J0cztjaD0yMzM2O2NyPTE7Y3c9MTc5MDtkeD04NTc7ZHk9MDtmaT11bGNyb3A7aD02MDtxPTEwMDt3PTQ2/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08212026/40981.1.png",
           "isStarter": false
         },
         {
@@ -16229,7 +16229,7 @@
           "name": "Rhamondre Stevenson",
           "slot": "BN",
           "actualPosition": "RB",
-          "availabilityStatus": "Q / Questionable",
+          "availabilityStatus": "D / Doubtful",
           "injuryNote": "Knee",
           "byeWeeks": [
             11
@@ -16572,7 +16572,7 @@
   },
   "currentEvents": {
     "enabled": false,
-    "date": "2026-11-10T15:28:41.391Z",
+    "date": "2026-11-10T19:13:09.704Z",
     "calendarContext": [],
     "searchContext": "Live web search is not part of the newsletter configuration; use only the supplied calendar context and available fantasy/NFL data."
   },
