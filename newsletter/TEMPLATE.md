@@ -7,6 +7,34 @@ The generator replaces:
 - `{{CURRENT_WEEK}}` with the upcoming/current fantasy week number.
 - `{{LEAGUE_DATA}}` with the sanitized per-week JSON input package.
 
+## This edition's creative theme: 2000–2015 pop-culture time capsule
+
+Make this week's newsletter feel like a trip through the 2000–2015 era: early social media, iconic technology, TV, movies, music, gaming, sports moments, and internet culture. The period is inclusive of 2000 through 2015. The theme should be obvious from the opening and remain present in the league-wide recap, matchup analysis, manager-move commentary, verdicts, next-week preview, and League Watch. Keep the underlying fantasy-football analysis clear and recognizable.
+
+Treat the references below as a creative toolbox, not a checklist. Choose references that genuinely fit the data and rotate them so the newsletter feels clever rather than overloaded. Use several distinct references across the full edition; a matchup does not need a reference if none fits naturally.
+
+### Reference bank
+
+- **Early internet and technology:** the Y2K bug and millennium countdown; dial-up connection sounds and loading bars; AOL Instant Messenger away messages; MSN Messenger nudges; Myspace profiles and the Top 8; Facebook pokes; BlackBerry emails; Motorola Razr flip phones; iPods and shuffle mode; ringtone culture; the early days of YouTube.
+- **Television and movies:** *Lost* and its unanswered mysteries; *24* and its ticking-clock tension; *The Office*; *American Idol*; *TRL* countdowns; *Jersey Shore*; *Survivor*; *Harry Potter*; *The Lord of the Rings*; *Twilight*; and the early-2010s superhero/blockbuster era.
+- **Music and viral internet:** Eminem, OutKast, Beyoncé, 50 Cent, Rihanna, Lady Gaga, the Black Eyed Peas, Soulja Boy, and early Justin Bieber; the Rickroll, Numa Numa, Keyboard Cat, Charlie Bit My Finger, Double Rainbow, Harlem Shake, Gangnam Style, the 2014 Ice Bucket Challenge, and the 2015 blue/black-or-white/gold dress debate. Do not quote song lyrics.
+- **Gaming:** Wii Sports, Guitar Hero, Rock Band, Halo, Call of Duty: Modern Warfare 2, Nintendo DS, and the era of split-screen multiplayer.
+- **Sports and major sports-culture moments:** the Lakers' early-2000s three-peat; the Patriots' 2000s dynasty; LeBron's 2010 Decision; Tebowmania in 2011; Linsanity in 2012; the 2010 World Cup and its vuvuzelas; the 2011 *Moneyball* era; and the Seahawks' Legion of Boom / Beast Mode period.
+- **Era-specific framing devices:** “Previously on…” season recaps; a *TRL*-style countdown; a Myspace Top 8; a Y2K panic meter; a *24*-style countdown for a genuinely close result; a *Lost*-style mystery for an unresolved standings race; a Guitar Hero encore for a standout performance; an iPod Shuffle for a truly unpredictable result; or “The Decision” for an actual consequential roster move.
+
+### How to apply the theme to league data
+
+Use the supplied facts to decide which comparisons fit:
+- A real upset or breakout can earn a Tebowmania- or Linsanity-style comparison; do not label an ordinary good week an all-time phenomenon.
+- A genuinely dominant team or sustained run can be compared with a dynasty; one win alone does not establish a dynasty.
+- A close score can get a ticking-clock, *24*, or season-finale treatment. Do not invent a last-second play or describe the real NFL game as close unless the data says so.
+- A costly bench decision can be framed as a Myspace Top 8 snub or a forgotten iPod track, while still explaining the actual points left unused.
+- A major, documented transaction can get a “Decision”-era comparison. Do not invent a trade, waiver move, announcement, or manager motive.
+- Use Y2K, dial-up, or a loading-bar comparison for a collapse, stall, or suspenseful wait only when the actual result supports it.
+- A *TRL* countdown or Myspace Top 8 can frame rankings only when the supplied standings or scores support the ordering.
+
+The references are analogies, not claims that league members participated in those events. Never fabricate quotations, plot details, real-world news, player usage, injuries, weather, or causation to make a reference work. Avoid references from before 2000 or after 2015, current social-media slang, and post-2015 cultural touchstones. Do not quote copyrighted song lyrics or long dialogue. Do not let nostalgia overwhelm the actual scores, names, records, player performances, and matchup stories. Preserve the established sarcastic sports-columnist voice and the league-specific roasts.
+
 ## Editorial voice
 
 Write like a sarcastic sports columnist who has watched every team make preventable mistakes all season.
