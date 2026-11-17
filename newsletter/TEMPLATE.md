@@ -7,45 +7,62 @@ The generator replaces:
 - `{{CURRENT_WEEK}}` with the upcoming/current fantasy week number.
 - `{{LEAGUE_DATA}}` with the sanitized per-week JSON input package.
 
-## This edition's creative theme: 2000s NBA (2000–2009)
+## This edition's creative theme: 2000–2015 NBA basketball
 
-Make this week's newsletter feel like coverage of the NBA in the 2000–2009 era. This is specifically an **NBA basketball** theme—not general 2000s pop culture. Build comparisons around the era's teams, superstars, playing styles, rivalries, playoff runs, iconic moments, and public beefs. Let the fantasy league's real results determine which NBA parallels fit.
+Make this week's newsletter feel like coverage of NBA basketball from **2000 through 2015 inclusive**. This is specifically an NBA theme: teams, superstars, coaches, playing styles, rivalries, playoff runs, signature performances, and the era's famous on-court beefs. Do not drift into general 2000s pop culture. Build every comparison from the actual fantasy results and use basketball as an editorial lens—not as a substitute for fantasy-football analysis.
 
-The NBA framing should be obvious from the opening and carry through the league-wide recap, each matchup, manager moves, verdicts, next-week preview, and League Watch. Keep fantasy-football matchups, scores, players, records, and actual causes unmistakable. Use basketball as an editorial lens, not as a replacement for the league's real data.
+The NBA framing should be obvious from the opening and carry through the league-wide recap, each matchup, manager moves, verdicts, next-week preview, and League Watch. Keep fantasy-football matchup identities, scores, players, records, and actual causes unmistakable.
 
-Treat the reference bank as a toolbox rather than a checklist. Use specific, varied references across the edition, but do not cram an NBA analogy into every sentence or every matchup. Avoid repetitive lazy comparisons. Keep the wit, competitive edge, and manager-specific roasting at the established 6–7/10 level.
+Treat the references below as a toolbox, not a checklist. Use a variety of specific references across the full edition. Do not cram a comparison into every paragraph, force the same Lakers/LeBron reference repeatedly, or assume that a strong fantasy performance automatically deserves a superstar comparison. Keep the wit, competitive edge, and manager-specific roasting at the established 6–7/10 level.
 
-### 2000s NBA reference bank
+### 2000–2015 NBA reference bank
 
-- **Shaq and Kobe / Lakers three-peat (2000–2002):** a dominant two-headed force, an unstoppable pairing, championship expectations, and the famous tension between two stars whose partnership was brilliant but combustible. Use the feud only as an analogy when there is a real clash of egos, competing performances, or friction in the fantasy story.
-- **The 2002 Kings–Lakers Western Conference Finals:** a heavyweight rivalry, controversial-feeling close calls, and a series that seemed to swing on every possession. Never imply real officiating controversy or invent a dubious call in the fantasy matchup.
-- **Tim Duncan, David Robinson, and the Spurs:** disciplined consistency, understated excellence, defensive fundamentals, and a dynasty built on repeatable execution rather than noise.
-- **Allen Iverson and the 2001 76ers:** carrying an entire team, fearless scoring, relentless individual production, and a star asked to do almost everything. Iverson's famous practice-era reputation can be referenced without quoting him.
-- **Vince Carter and Tracy McGrady:** explosive upside, highlight-reel stretches, athletic takeover performances, and the Toronto era. Use them for a genuine individual eruption, not for a routine good score.
-- **Jason Kidd and the New Jersey Nets:** transition offense, an orchestrator making everyone better, and a team that can turn a string of small advantages into a run.
-- **The 2004 Pistons and the Pacers rivalry:** the “Goin' to Work” Pistons, Ben Wallace, Chauncey Billups, Rip Hamilton, Rasheed Wallace, and a defense-first identity. The Pacers–Pistons rivalry and 2004 Malice at the Palace may be referenced as a notorious moment of NBA history, but never glorify violence or suggest real-world violence occurred in the fantasy league.
-- **Dwyane Wade and the 2006 Heat:** a true superstar taking over a Finals run, paired with Shaq's presence. Reserve this for a real one-manager carry job or a performance that decisively swung a matchup.
-- **Steve Nash and the “Seven Seconds or Less” Suns:** pace, offensive fireworks, quick scoring bursts, and a team that could turn a game into a track meet. Use when the fantasy data actually supports a high-scoring shootout or fast-changing lead.
-- **Dirk Nowitzki and the 2000s Mavericks:** singular star power, tough shot-making, and a team repeatedly in the championship conversation. Do not import the 2011 title into this decade's references.
-- **LeBron James and the mid/late-2000s Cavaliers:** a young superstar carrying a heavy load, the 2007 Finals run, and an underdog team built around one transcendent player.
-- **The “We Believe” Warriors (2007):** a genuine underdog upset and a team outperforming expectations. Use only when the fantasy result is actually an upset.
-- **The 2008 Celtics Big Three:** Paul Pierce, Kevin Garnett, and Ray Allen; a newly assembled powerhouse, complementary stars, and championship-level expectations. Use for a genuinely stacked roster or a strong collective performance.
-- **Other era touchstones:** Gilbert Arenas and the Wizards, Yao Ming and the Rockets, Dwight Howard's Orlando Magic, the early-2000s Kings, the late-2000s Cavaliers, and the era's intense East/West conference arms race.
+**2000s foundations and rivalries**
+- **Shaq and Kobe's Lakers three-peat (2000–2002):** overwhelming talent, a dominant two-headed force, championship expectations, and a partnership that became combustible. The Shaq–Kobe feud can frame genuine tension or competing stars, but do not invent a personal feud between fantasy managers.
+- **The 2002 Kings–Lakers Western Conference Finals:** a heavyweight rivalry, a series that swung back and forth, and the feeling that every possession mattered. Never invent an officiating controversy or claim a fantasy result was stolen.
+- **Tim Duncan's Spurs:** repeatable excellence, fundamentals, defense, calm execution, and a dynasty built on consistency. Include Tony Parker, Manu Ginóbili, and the Spurs' evolving core where relevant.
+- **Allen Iverson's 2001 76ers:** a one-man carry job, relentless usage, fearless scoring, and a team leaning heavily on its star. His 2001 MVP and Finals run are in scope.
+- **Vince Carter's Raptors and Tracy McGrady's early career:** explosive highlights and individual takeover performances. Don't use a highlight comparison for a routine score.
+- **Jason Kidd's New Jersey Nets:** transition offense, orchestration, and making teammates better through a collective system.
+- **The 2004 Pistons and Pacers rivalry:** the “Goin' to Work” Pistons—Ben Wallace, Chauncey Billups, Rip Hamilton, Tayshaun Prince, and Rasheed Wallace—against the Pacers. The 2004 Malice at the Palace is a notorious historical reference; do not glorify violence or imply anything like it occurred in the fantasy league.
+- **Dwyane Wade and the 2006 Heat:** a superstar taking over a Finals run, with Shaq as a major supporting presence. Use only for a true carry job or decisive performance.
+- **Steve Nash's “Seven Seconds or Less” Suns:** pace, scoring fireworks, and a track-meet style. Use for an actually high-scoring fantasy shootout.
+- **Dirk Nowitzki's Mavericks:** singular star power, tough shot-making, repeated contention, and the 2006 Finals run; the 2011 championship is also within this theme window.
+- **LeBron's first Cavaliers era (through 2010):** a young superstar carrying an enormous load, including the 2007 Finals run.
+- **The “We Believe” Warriors (2007):** an authentic underdog upset and a team outperforming expectations. Only use when the fantasy winner was genuinely an underdog.
+- **The 2008 Celtics Big Three:** Paul Pierce, Kevin Garnett, and Ray Allen; complementary stars assembled into a title contender. Use for a genuinely stacked roster or balanced team performance.
+- Other 2000s touchstones include Gilbert Arenas and the Wizards, Yao Ming and the Rockets, Dwight Howard's Orlando Magic, the early-2000s Kings, the late-2000s Cavaliers, and the Lakers–Celtics rivalry.
+
+**Early-to-mid 2010s teams and stars**
+- **Derrick Rose's Chicago Bulls (2010–2015):** Rose's 2011 MVP season, explosive downhill scoring, Tom Thibodeau's defense-first identity, Joakim Noah's energy and playmaking, Luol Deng's two-way work, and the Bulls' persistent battles with the Heat. Use for a team built around an explosive lead star, a gritty defensive group, or a squad that keeps competing despite setbacks. Do not suggest Rose's injuries or career arc map to a fantasy manager unless the actual data supports the analogy.
+- **“Lob City” Clippers (2011–2015):** Chris Paul orchestrating, Blake Griffin attacking the rim, DeAndre Jordan finishing above the basket, and a team defined by spectacular connections and high-octane offense. Use for a genuine star pairing, a high-scoring tandem, or a team whose contributors feed each other. Don't invent an assist or connection between fantasy players.
+- **The Miami Heatles (2010–2014):** LeBron James, Dwyane Wade, and Chris Bosh; a superstar trio, enormous expectations, villain-era confidence, and four straight Finals appearances with titles in 2012 and 2013. Use for a truly loaded roster or a team that draws league-wide attention—not any random winning streak.
+- **Oklahoma City Thunder (2009–2015):** Kevin Durant, Russell Westbrook, and James Harden before Harden's departure; then Durant and Westbrook's star partnership and the 2012 Finals run. A franchise with multiple elite options, explosive individual nights, and the “what could have been” angle can fit where supported.
+- **Memphis Grizzlies' “Grit and Grind” era:** Zach Randolph, Marc Gasol, Mike Conley, and Tony Allen; physical, patient, defensive, and stubbornly difficult to beat. Use for a gritty, low-scoring, team-wide effort—not just a generic insult about a manager's roster.
+- **Indiana Pacers vs. Miami Heat (2012–2014):** Paul George, Roy Hibbert, Lance Stephenson, and the Heat rivalry; a tense Eastern Conference matchup and recurring playoff obstacle. Use for a real head-to-head rivalry or a team trying to break through a dominant rival. Do not make up personal beef or behavior.
+- **The 2011 Mavericks:** Dirk's title run and a veteran team disrupting the expected order. Use for a real underdog title-contender story, not a routine upset.
+- **The 2012–2013 Knicks and Linsanity (2012):** Carmelo Anthony's scoring, the Knicks' high-profile run, and Jeremy Lin's brief but spectacular February 2012 breakout. Use Linsanity only for an unexpectedly explosive breakout that the actual data justifies.
+- **Houston Rockets / James Harden (2012–2015):** elite individual production, offense running through one star, and a team built around Harden. Use for a genuine one-player offensive engine.
+- **The 2013–2014 Spurs:** the “Beautiful Game,” ball movement, unselfishness, precision, and the 2014 Finals dismantling of Miami. Use for a balanced, collective performance where no single contributor explains the result.
+- **Golden State's rise (2014–2015):** Stephen Curry, Klay Thompson, Draymond Green, the “Splash Brothers,” and the 2015 championship team. Use for a dangerous scoring duo, a team whose strengths complement one another, or an emerging contender. Don't project the later dynasty backward into the 2014–15 snapshot.
+- **Other early/mid-2010s touchstones:** Dwight Howard's Lakers season and move to Houston, the Brooklyn Nets' veteran superteam experiment, the 2013–2014 Toronto Raptors rise, the Washington Wizards backcourt, and the 2014–2015 Hawks' team-first run.
 
 ### How to apply the NBA theme to this fantasy league
 
-- Map dominant teams, sustained winning, and league leaders to the era's dynasties or title contenders only when the records and scoring support it. One victory does not make a dynasty.
-- A true underdog win can get a “We Believe” or 2007 Warriors comparison. Confirm that the winner was actually an underdog using the supplied matchup context or standings.
-- A close matchup can be framed like a seven-game series, a Game 7, or a final-possession finish only when the score margin supports a close contest. Do not invent a buzzer-beater, comeback, possession, or last-second sequence.
-- A high-scoring shootout can evoke Nash's Suns. A low-scoring defensive slog can evoke the 2004 Pistons or Spurs. Let the actual scores guide the comparison.
-- A one-manager carry job can evoke Iverson in 2001, LeBron's Cavaliers, or Wade in 2006. Use the right reference for the evidence; do not confuse an individual's output with the entire team's contribution.
-- A costly bench decision can be treated as a coaching rotation mistake, a star left on the bench, or a questionable substitution. Explain the real points left unused and do not invent the manager's motives.
-- A major documented roster move can be framed as a front-office gamble, a blockbuster acquisition, or a franchise-altering trade. Do not invent a trade, signing, waiver move, or announcement.
-- A genuine rivalry between managers or teams can be framed as a long-running NBA series, but do not invent personal animosity or claim that a real NBA beef maps one-to-one to a manager's real feelings.
-- A dominant roster assembled from multiple strong contributors can be compared to the 2008 Celtics; do not use that comparison for a one-player performance.
-- A team collapsing after a promising start can be described as falling out of title contention only when its results and standings justify it.
+- Map dominant teams, sustained winning, and league leaders to NBA dynasties or title contenders only when the records and scoring support it. One victory does not make a dynasty.
+- A true underdog win can get a “We Believe” Warriors or 2011 Mavericks comparison. Confirm that the winner was actually an underdog using the supplied matchup context or standings.
+- A close matchup can be framed like a seven-game series, Game 7, or final-possession finish only when the score margin supports a close contest. Do not invent a buzzer-beater, comeback, possession, or last-second sequence.
+- A high-scoring shootout can evoke Nash's Suns, Lob City, or the Splash Brothers. A low-scoring defensive slog can evoke the 2004 Pistons, Grit and Grind Grizzlies, or Spurs. Let the actual scores and team-wide contributions guide the comparison.
+- A one-manager carry job can evoke Iverson in 2001, LeBron's Cavaliers, Wade in 2006, Rose's 2011 Bulls, or Harden's Rockets. Use the right reference for the evidence; do not confuse one player's output with the entire team's contribution.
+- A dominant trio or assembled superteam can evoke the Heatles, Thunder, or 2008 Celtics only when several real contributors support the comparison.
+- A star pairing or explosive tandem can evoke Kobe and Shaq, CP3 and Blake in Lob City, or Curry and Klay. Do not imply the same basketball roles or actual relationship beyond the analogy.
+- A balanced performance with multiple contributors can evoke the 2014 Spurs. A gritty, collectively earned win can evoke the Grit and Grind Grizzlies.
+- A costly bench decision can be framed as a questionable rotation or coaching decision. Explain the actual points left unused and do not invent the manager's motives.
+- A major documented roster move can be framed as a front-office gamble, blockbuster acquisition, or franchise-altering trade. Do not invent a trade, signing, waiver move, announcement, or manager motive.
+- A real rivalry in the league can be framed as a recurring NBA playoff series, such as Bulls–Heat, Pacers–Heat, or Lakers–Kings. Do not invent personal animosity or claim the NBA players' real-life beef maps directly to the managers' feelings.
+- A team collapsing after a promising start can be described as falling out of title contention only when the results and standings justify it.
 
-All NBA names, franchises, moments, and rivalries are **analogies**. They must never be presented as real league events or facts about the fantasy managers. Do not fabricate a fantasy trade, feud, injury, coach's decision, quote, comeback, buzzer-beater, playoff result, or causal explanation to make an NBA comparison fit. Do not use NBA references outside the 2000–2009 window as the main theme (for example, do not use LeBron's 2010 Decision or the 2011 Mavericks championship). No non-NBA 2000s pop-culture references. No current NBA news unless it is supplied and directly relevant. Do not quote copyrighted broadcasts or player interviews. Preserve the league's real names, scores, records, player performances, and all required newsletter sections.
+All NBA names, franchises, moments, and rivalries are **analogies**. They must never be presented as real events in this fantasy league or as facts about the fantasy managers. Do not fabricate a fantasy trade, feud, injury, coach's decision, quote, comeback, buzzer-beater, playoff result, or causal explanation to make an NBA comparison fit. Keep the reference window to **2000–2015 inclusive**; no later NBA eras or current NBA news unless supplied and directly relevant. No non-NBA pop-culture references. Do not quote copyrighted broadcasts or player interviews. Preserve the league's real names, scores, records, player performances, and all required newsletter sections.
 
 ## Editorial voice
 
