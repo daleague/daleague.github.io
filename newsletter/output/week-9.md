@@ -1,12 +1,16 @@
 # The League — Week 9 Recap / Week 10 Preview
 
-Generated: 2026-11-10T15:28:41.391Z
+Generated: 2026-11-17T04:41:04.432Z
 
 ## 1. This Week in the League
 
-Week 9 brought a healthy mix of soaring highs, tragic floor collapses, and the kind of self-sabotage that keeps this league entertaining. At the top of the food chain, Farhan’s **This Is Ja'MarrIca** quietly extended their winning streak to a terrifying seven games, sitting pretty at 7-2 despite a relatively modest 118.7-point output this week. Meanwhile, Sydaddy’s **LOVEBIRDS** learned a harsh lesson in cosmic injustice, hanging a stellar 130.3 points on the board only to run headfirst into Ammar’s **The Accursed**, who scraped together a league-high 133.0 points to steal the week's top honors and stretch their own winning streak to five.
+Welcome back to the floor, where the hardwood is polished, the egos are bruised, and the 2000–2015 NBA mixtape is blasting through the arena speakers. Week 9 felt less like a professional sporting slate and more like the peak grit-and-grind era of Western Conference basketball—except without the defensive discipline. 
 
-Down in the trenches, Bilal’s **Allen’s Wrenches** suffered the most catastrophic plummet of the week, nose-diving 87.9 points from their previous outing to limp across the finish line with a meager 80.5. Slap City continues to provide free therapy sessions for its opponents, stretching an agonizing losing streak to six games despite a respectable 114.9 effort against WC. As we barrel into Week 10, the playoff picture is taking shape, but half the league is still one bad roster lock away from administrative exile.
+At the top of the standings, Farhan’s **This Is Ja'MarrIca** is operating with the terrifying, inevitable efficiency of the Tim Duncan Spurs. Sporting a pristine 7-2 record and riding a blistering seven-game winning streak, this franchise doesn't need flash; it just executes fundamentals until the opponent surrenders. Meanwhile, Sydaddy’s **Not giving up on love** is playing like the 2004–2005 Phoenix Suns—running a relentless track meet and putting up staggering scoring numbers (averaging 127.7 points over their last four), only to suffer a brutal heartbreak like a missed Steve Nash game-winner. Sydaddy dropped a 130.3-point masterpiece in Week 9 and still walked away empty-handed, taking home the week's most tragic "Not Good Enough" honors.
+
+Down in the lottery tier, Bilal’s **Allen’s Wrenches** experienced a catastrophic freefall, coughing up a staggering 87.9-point drop from their previous outing to hit a flat tire against Isbah’s **I ❤️ Packers**. It was the fantasy equivalent of a 2011 Derrick Bulls offensive drought—plenty of high-end parts, but absolutely zero momentum when the lights turned on. Elsewhere, Shough if you Buck engineered a classic "We Believe" Warriors upset, storming past the projections as an 17.8-point underdog behind a 133.0-point explosion to capture Team of the Week honors. 
+
+As we stare down Week 10, the playoff race is tightening faster than a Gregg Popovich post-game press conference. Let’s break down the tape.
 
 ## 2. Matchup Summaries
 
@@ -14,124 +18,132 @@ Down in the trenches, Bilal’s **Allen’s Wrenches** suffered the most catastr
 
 **What happened**
 
-Zain’s **K9 Unit** engineered a crisp 45.1-point rebound from last week's dud, powered by a massive 34.3 points from Kenneth Walker III and a 27.4-point explosion out of Matthew Golden. Sameer’s **Muslim McCaffrey** put up a respectable fight behind Drake Maye’s 27.26 and Christian McCaffrey’s 21.7, but a sluggish 4-point outing from Antonio Williams ultimately left Sameer's squad gasping for air.
+Zain’s K9 Unit put on an absolute shooting clinic that would make the Lob City Clippers proud, cruising past Sameer’s squad behind Matthew Mahomes and a massive 34.3-point eruption from Kenneth Walker III (despite carrying an Out tag). Matthew Golden chipped in 27.4 points of pure perimeter scoring to secure the victory. Sameer fought valiantly behind Drake Maye’s 27.26-point engine and Christian McCaffrey’s 21.7 points, but a quiet 4-point outing from Antonio Williams grounded the offense.
 
 **Manager moves**
 
-Zain left 9.4 points on the bench in Emmett Johnson and another 9.1 in Zach Charbonnet, continuing a rather impressive season-long tradition of bench hoarding. Sameer similarly admired the view from his pine-riding department, keeping Jadarian Price (9.8) and Makai Lemon (9.1) safely out of harm's way. 
+Zain left Dak Prescott’s 23.5 points rotting on the bench, but it didn’t matter because the starters carried the mail. Sameer, meanwhile, kept Jadarian Price (9.8 points) and Makai Lemon (9.1 points) stashed away while watching his starting lineup hit turbulence at the flex spots.
 
 **Why it happened**
 
-When your primary running back drops over thirty points and your wideout room actually remembers how to catch footballs, good things happen. Zain caught all the right variance while Sameer’s lineup suffered from the usual mid-tier scoring drag.
+When you roll out multiple players putting up over twenty points in a single afternoon, the projection model is going to look foolish. Zain caught lightning in a bottle while Sameer's supporting cast simply hit the side of the backboard.
 
-> **Verdict:** Zain built a kennel that actually bites back, leaving Sameer's squad howling at the moon.
+> **Verdict:** Zain built a fast break that Sameer’s half-court defense simply couldn’t catch.
 
-### Slap City 114.86 — Shaun's saving my spot in Last 124.94
+---
+
+### Likely to come in last 124.94 — Slap City 114.86
 
 **What happened**
 
-WC’s squad pulled off a +26.5 explosion over its season average, fueled entirely by Joe Burrow casually dropping an atomic 35.54 points. Abraar's **Slap City** tried to claw back behind Bijan Robinson (23.7) and Brock Bowers (18.8), but getting a combined 7.6 points from Zay Flowers and Kyle Pitts Sr. will usually derail an evening.
+WC’s squad channeled the absolute peak of 2004 Carmelo Anthony takeover mode, spearheaded by Joe Burrow orchestrating a masterclass with 35.54 points. Isaiah Likely added a sturdy 13.8 points to keep the engine humming. Abraar’s Slap City fought back with strong outings from Caleb Williams (20.76 points) and Bijan Robinson (23.7 points), but a dreadful 3-point performance from the Bengals defense and matching 3.8-point duds from Zay Flowers and Kyle Pitts Sr. sealed a sixth straight loss—extending a losing streak longer than a Vin Baker contract dispute.
 
 **Manager moves**
 
-Abraar left Austin Ekeler on the bench while watching his starters stall out, though it hardly mattered with a roster currently weathering a six-game skid. WC wisely kept KC Concepcion Jr.'s 16.8 points on the pine, because why let a good bench score ruin a perfectly fine victory?
+The bench management here was criminal defense negligence. WC left KC Concepcion Jr.’s 16.8 points sitting comfortably on the pine while accepting lower returns elsewhere. Abraar countered by keeping Austin Ekeler’s 4.4 points benched, which was actually a mercy killing given the alternative.
 
 **Why it happened**
 
-Joe Burrow decided to single-handedly rescue WC from the basement conversation, while Slap City's supporting cast took a collective nap just when a win was desperately needed.
+Burrow is playing like a prime MVP candidate right now, carrying an offense that occasionally forgets how to dribble. Slap City simply ran into a buzzsaw while their secondary options put up empty possessions.
 
-> **Verdict:** Joe Burrow is doing all heavy lifting for WC, while Slap City's losing streak is legally old enough to vote.
+> **Verdict:** Slap City is currently playing defense like the 2014 Lakers—which is to say, they aren't.
 
-### This Is Ja'MarrIca 118.68 — Steve’s Ballad 82.22
+---
+
+### This Is Ja'MarrIca 118.68 — Ghostbuster 82.22
 
 **What happened**
 
-Farhan kept the wagon rolling to claim win number seven, leaning heavily on Ja'Marr Chase's 26.5 points and Bo Nix's steady 20.68. Shaun’s **Steve’s Ballad** flatlined, managing a brutal 82.2 points despite Travis Kelce's 15.3 and Matthew Stafford's 14.22, as Ashton Jeanty (4.5) and Devin Singletary (4.9) turned in absolute ghosts of performances.
+Farhan’s juggernaut kept the dynasty wheels turning with the quiet, suffocating efficiency of the 2014 San Antonio Spurs. Ja'Marr Chase led the charge with a blazing 26.5 points, backed by Bo Nix’s 20.68. Shaun’s Ghostbuster team, on the other hand, stumbled through a horrific shooting night reminiscent of the worst parts of the post-Jordan Wizards era; Ashton Jeanty and Devin Singletary managed a combined 9.4 points, rendering Travis Kelce’s 15.3-point effort entirely moot.
 
 **Manager moves**
 
-The headline here is cinematic: Shaun left C.J. Stroud’s staggering 46.36 points rotting on the bench while rolling with Matthew Stafford. That single blunder cost a cool 32.1 points—a margin that would have blown this matchup wide open.
+Shaun committed the ultimate rotation blunder by leaving C.J. Stroud’s massive 46.36-point explosion sitting on the bench in favor of Matthew Stafford’s 14.22. That is the fantasy equivalent of benching Kobe Bryant for Smush Parker in a Game 7. 
 
 **Why it happened**
 
-When you bench a quarterback who drops nearly fifty fantasy points, the fantasy gods demand a sacrifice, and Shaun happily handed over the match points on a silver platter.
+When you leave 46 points on your bench, you aren't just losing a matchup; you're participating in a self-inflicted roster demolition. Farhan didn’t even need his best stuff to take the W.
 
-> **Verdict:** Leaving 46 points on the bench is a bold tactical choice if your goal is securing the first overall pick next year.
+> **Verdict:** Leaving C.J. Stroud on the bench is a coaching decision that belongs on Shaqtin' a Fool.
 
-### Allen’s Wrenches 80.46 — I ❤️ Packers 89.12
+---
+
+### I ❤️ Packers 89.12 — Allen’s Wrenches 80.46
 
 **What happened**
 
-In a contest that can only be described as a race toward the bottom of the scoreboard, Isbah’s **I ❤️ Packers** managed to snag the win despite a horrifying 89.1-point total. CeeDee Lamb carried the entire franchise on his back with 28.5 points, safely outscoring Josh Jacobs' tragic 0.5-point disaster. Bilal’s **Allen’s Wrenches** suffered a catastrophic 87.9-point drop-off from their prior week, getting single-digit duds from D'Andre Swift (3.1), Keenan Allen (4.6), and Quinshon Judkins (5.0).
+This was the offensive equivalent of a 74–72 grit-and-grind slugfest between the Memphis Grizzlies and Indiana Pacers in 2013—ugly, brutal, and entirely reliant on sheer survival. Isbah’s squad survived a zero-point disaster from the injured Josh Jacobs thanks to CeeDee Lamb’s magnificent 28.5-point carry job. Bilal’s Wrenches suffered a stunning offensive collapse, falling 87.9 points from their previous high-water mark as Josh Allen (15.86 points) and Nico Collins (13.5) found themselves stranded on a lonely island without support.
 
 **Manager moves**
 
-Bilal left Dylan Sampson's 6.3 points on the bench, which ultimately wouldn't have saved an 80-point team. Isbah benefited from Caleb Douglas putting up 10 points in reserve, though the starting lineup decisions required plenty of crossed fingers.
+Isbah found 10 points of life from Caleb Douglas on the bench, while Bilal kept Dylan Sampson’s 6.3 points stashed away while watching his starters clang shot after shot off the rim.
 
 **Why it happened**
 
-Josh Jacobs' finger injury flattened Isbah's backfield, but Bilal's entire starting lineup decided to take an early holiday, turning what should have been a powerhouse showing into an ugly rock fight.
+Injuries and bad shooting nights turned what was supposed to be a modern-era shootout into a defensive mud-wrestle where both teams looked like they were playing underwater.
 
-> **Verdict:** Winning with 89 points is less of a triumph and more of a witness protection program for Isbah's starting roster.
+> **Verdict:** A matchup so offensively challenged it belongs in the early-2000s Eastern Conference.
 
-### LOVEBIRDS 130.28 — The Accursed 132.96
+---
+
+### Shough if you Buck 132.96 — Not giving up on love 130.28
 
 **What happened**
 
-The game of the week lived up to every ounce of its billing. Sydaddy’s **LOVEBIRDS** dropped a heavy 130.3 points behind Brock Purdy's 30.28, only to suffer the ultimate heartbreak. Ammar’s **The Accursed** countered with a league-best 133.0 points, fueled by Puka Nacua (28.0), Christian Watson (26.6), and Bucky Irving (26.5) to steal the win and extend their streak to five.
+Game of the week. Amara’s squad pulled off the ultimate "We Believe" Warriors upset, riding a 28-point explosion from Puka Nacua (IR designation aside, the points counted!), 26.5 from Bucky Irving, and 26.6 from Christian Watson to shock the league. Sydaddy’s high-octane attack was like the 2006 Phoenix Suns—pushing the pace with Brock Purdy’s 30.28 points, Tee Higgins (17.7), and Luther Burden III (17.2), but ultimately coming up one possession short in a legendary heavyweight shootout.
 
 **Manager moves**
 
-Ammar left Tyler Shough's 21.7 points on the bench, but with the starting lineup clicking for 132.9 points, nobody in Ammar's camp is filing complaints. Sydaddy kept Trevor Lawrence's 15.58 points safely in reserve behind Purdy.
+Amara wisely kept Tyler Shough’s 21.7 points on the bench, but the active starters did more than enough heavy lifting to slay the giant. Sydaddy left Trevor Lawrence’s 15.58 points in reserve, though Purdy’s massive night made that a moot point.
 
 **Why it happened**
 
-Sydaddy ran into the absolute buzzsaw of Ammar's injury-defying wide receiver corps, proving once again that high-scoring losses are the most efficient way to induce gray hair.
+When two elite scoring engines collide, it comes down to who hits the final jumper. Christian Watson and Bucky Irving drained clutch shots all afternoon to outpace Sydaddy’s star-studded lineup.
 
-> **Verdict:** Scoring 130 points and losing is the fantasy equivalent of stepping on an invisible Lego brick while carrying a winning lottery ticket.
+> **Verdict:** Amara just engineered a 2011 Mavericks-style title run upset against a heavily favored contender.
 
-### Lovebirds 118.16 — Tuten Brown Shite 72.60
+---
+
+### Lovebirds 118.16 — Tuten Brown Shite 72.6
 
 **What happened**
 
-Owais’s **Lovebirds** cruised to an easy statement victory, anchored by Jordan Love's monster 42.18-point masterclass. Faizan’s **Tuten Brown Shite** completely imploded, managing a pathetic 72.6 points as Jared Goff (6.3), Jonathan Taylor (6.9), and Mike Gesicki (2.1) put on a clinic in offensive inefficiency.
+Owais’s Lovebirds uncorked a vintage Dwyane Wade 2006 Finals performance, led by Jordan Love throwing absolute dimes for 42.18 fantasy points. Amon-Ra St. Brown (12.6) and Chris Olave (13.3) kept the scoreboard operator sweating. Faizan’s Tuten Brown Shite, meanwhile, turned in a dismal dumpster fire of an outing, anchored by Jared Goff’s paltry 6.3 points and single-digit duds across nearly every skill position.
 
 **Manager moves**
 
-Faizan kept Kirk Cousins' 17.64 points locked on the bench in favor of Goff's disaster class, leaving valuable points on the table. Owais stashed DeMario Douglas's 12.7 points on the bench, though the starters had already done the heavy lifting.
+Faizan committed a cardinal sin of roster construction by keeping Kirk Cousins’s 17.64 points locked on the bench while watching Goff lay an absolute egg. Owais left Justin Herbert’s 13.42 points in the locker room, but Love’s nuclear explosion rendered it completely irrelevant.
 
 **Why it happened**
 
-Jordan Love decided to throw a touchdown every time Faizan blinked, leaving Tuten Brown Shite to drown in a sea of single-digit positional scores.
+Jordan Love decided to play like prime LeBron James taking over a closeout game, while Faizan’s entire starting lineup went cold simultaneously. 
 
-> **Verdict:** Jordan Love outscored Faizan's entire running back and quarterback slate combined, which feels mildly illegal.
+> **Verdict:** Faizan's team played with the offensive rhythm of a lockout-shortened December game.
+
+---
 
 ## 3. Next Week Preview
 
-### Muslim McCaffrey (5-4) vs. This Is Ja'MarrIca (7-2)
+The schedule flips to Week 10, and the pressure cooker is officially hitting 2011 NBA Finals levels of intensity. 
 
-Farhan rolls his seven-game winning streak into a clash with Sameer, though the projected numbers favor Muslim McCaffrey at 108.44 to 87.58. Farhan is dealing with some lingering minor injuries and a few players on bye, making this a prime spot for Sameer to snap his two-game skid—if his roster stops underperforming.
+**Muslim McCaffrey (5-4) vs. This Is Ja'MarrIca (7-2)**
+Farhan’s juggernaut looks to extend its historic win streak against Sameer’s reeling squad. With Drake Maye carrying an ankle tag and Christian McCaffrey expected to shoulder the offensive load, Sameer needs a vintage performance to slow down the league's most methodical machine.
 
-### Shaun's saving my spot in Last (4-5) vs. I ❤️ Packers (4-5)
+**Likely to come in last (4-5) vs. I ❤️ Packers (4-5)**
+A battle for bubble positioning that feels like a desperate play-in tournament game. WC is riding high behind Joe Burrow’s ridiculous recent stretch, while Isbah looks to recapture some consistency after a shaky Week 9 escape.
 
-A battle for bubble survival as WC and Isbah square off. Projected at a tight 104.33 to 104.91, this one is a coin flip. WC is riding high on Joe Burrow's recent heroics, while Isbah hopes Josh Jacobs can actually suit up and put up more than half a point this time around.
+**Ghostbuster (2-7) vs. Tuten Brown Shite (3-6)**
+Two lottery-bound franchises desperate to salvage some pride. Shaun will need to remember to actually start C.J. Stroud this time around if he wants to keep pace with Faizan's squad.
 
-### Steve’s Ballad (2-7) vs. Tuten Brown Shite (3-6)
+**K9 Unit (6-3) vs. Allen’s Wrenches (6-3)**
+A colossal clash of heavyweights. Zain is riding a massive momentum wave after a 132-point explosion, while Bilal is looking to bounce back from an uncharacteristic offensive flat tire. Expect fireworks reminiscent of a vintage Lakers–Kings playoff battle.
 
-The basement bowl features two managers desperately searching for dignity. Shaun is projected at 74.39 against Faizan's 101.03. After leaving 46 points on the bench last week, Shaun really needs C.J. Stroud to replicate his magic without requiring a benching catastrophe.
+**Shough if you Buck (6-3) vs. Slap City (2-7)**
+Amara enters the week riding a five-game win streak after pulling off the upset of the year, while Abraar is searching for literally any spark to snap a brutal six-game slide. 
 
-### K9 Unit (6-3) vs. Allen’s Wrenches (6-3)
-
-A heavyweight matchup between two 6-3 squads looking to bounce back from wildly different weeks. Zain enters with momentum, while Bilal tries to wash off the stench of an 80-point disaster. Projections have Allen's Wrenches slightly favored at 118.52 to 116.27.
-
-### The Accursed (6-3) vs. Slap City (2-7)
-
-Ammar looks to stretch a five-game win streak against Abraar's six-game slide. Slap City is projected at 79.0 against Ammar's 74.74, suggesting the universe might finally throw Abraar a bone—unless Puka Nacua and company decide to ruin another Sunday afternoon.
-
-### LOVEBIRDS (6-3) vs. Lovebirds (3-6)
-
-It's the battle of the birds, with Sydaddy looking to bounce back from a heartbreaking high-score loss against Owais's surging squad. Projected at 120.94 to 108.32 in favor of Sydaddy, expect plenty of fireworks if Jordan Love keeps up his recent pace.
+**Not giving up on love (6-3) vs. Lovebirds (3-6)**
+Sydaddy looks to bounce back from a heartbreaking high-scoring loss against an Owais team that just found its stride behind Jordan Love’s historic arm. 
 
 ### League Watch
 
-All eyes are locked on the **K9 Unit vs. Allen’s Wrenches** showdown. Bilal needs to prove last week's 80-point drop was a fluke, while Zain is trying to prove his roster can win without needing a miracle on the bench. Meanwhile, Abraar's Slap City enters Week 10 desperate to halt a freefall before mathematical elimination becomes an inevitability.
+Keep all eyes on the five-game winning streak of **Shough if you Buck**. Amara has transformed from an early-season afterthought into the most dangerous team in the conference. If they keep shooting like this, the top-tier powerhouses better clear out space in the finals.
