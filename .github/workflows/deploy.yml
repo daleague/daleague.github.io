@@ -108,6 +108,29 @@ jobs:
             .replace(/'/g, '&#39;');
           const safeTitle = escapeHtml(title);
           const safeDescription = escapeHtml(description);
+
+          // HashRouter routes are invisible to static crawlers: WhatsApp requests
+          // only the path before "#". Put the newsletter preview metadata in the
+          // root HTML so the normal /#/newsletter URL gets the correct preview.
+          const defaultPageMetadata = [
+            '    <meta property="og:type" content="article">',
+            '    <meta property="og:site_name" content="The League">',
+            '    <meta property="og:title" content="' + safeTitle + '">',
+            '    <meta property="og:description" content="' + safeDescription + '">',
+            '    <meta property="og:url" content="https://daleague.github.io/#/newsletter">',
+            '    <meta name="twitter:card" content="summary">',
+            '    <meta name="twitter:title" content="' + safeTitle + '">',
+            '    <meta name="twitter:description" content="' + safeDescription + '">',
+            '    <link rel="canonical" href="https://daleague.github.io/#/newsletter">'
+          ].join('\\n');
+          let indexHtml = await readFile('index.html', 'utf8');
+          indexHtml = indexHtml
+            .replace(/<title>[\\s\\S]*?<\\/title>/, '<title>' + safeTitle + '</title>')
+            .replace(/<meta name="description"[^>]*\\/?>/, '<meta name="description" content="' + safeDescription + '" />')
+            .replace('</head>', defaultPageMetadata + '\\n  </head>');
+          await writeFile('index.html', indexHtml);
+          console.log('Injected the latest newsletter preview metadata into the default page.');
+
           const target = 'https://daleague.github.io/#/newsletter';
           const html = `<!doctype html>
           <html lang="en">
