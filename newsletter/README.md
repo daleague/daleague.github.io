@@ -39,6 +39,16 @@ The complete AI prompt lives in [`newsletter/TEMPLATE.md`](./TEMPLATE.md). It co
 
 To change the newsletter's theme for a future edition, edit `newsletter/TEMPLATE.md`. There is intentionally no workflow-dispatch theme input and no `NEWSLETTER_THEME` repository variable; the checked-in Markdown file is the single source of truth.
 
+## Sharing and WhatsApp previews
+
+Share the normal newsletter page URL:
+
+`https://daleague.github.io/#/newsletter`
+
+During deployment, the workflow derives the latest newsletter's title and description and injects Open Graph and Twitter preview metadata into the root `index.html` before the Vite build. This is necessary because the site uses React Router's `HashRouter`: URL fragments (the part after `#`) are not sent to GitHub Pages, so WhatsApp's crawler receives the root HTML rather than the rendered React newsletter.
+
+The older `https://daleague.github.io/newsletter-share/` URL remains available as a compatibility redirect, but it is no longer needed for new shares. Because GitHub Pages serves one root HTML document for all hash routes, the root preview metadata describes the latest newsletter even when another client-side route is shared.
+
 ## Providers
 
 The generator is designed around a provider switch:
