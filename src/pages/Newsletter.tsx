@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type LeagueContext = {
   league: {
@@ -8,97 +10,70 @@ type LeagueContext = {
   };
 };
 
-function inline(text: string) {
-  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^\)]+\))/g);
-  return parts.map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={index} className="font-semibold text-ink">{part.slice(2, -2)}</strong>;
-    }
-    const link = part.match(/^\[([^\]]+)\]\(([^\)]+)\)$/);
-    if (link) {
-      return (
-        <a key={index} href={link[2]} target="_blank" rel="noreferrer" className="text-gold underline underline-offset-2">
-          {link[1]}
-        </a>
-      );
-    }
-    return part;
-  });
-}
+const markdownComponents: import("react-markdown").Components = {
+  h1: ({ children }) => (
+    <h1 className="font-display text-3xl font-semibold tracking-wide text-ink">{children}</h1>
+  ),
+  h2: ({ children }) => (
+    <h2 className="mt-10 border-b border-hairline pb-2 font-display text-xl font-semibold tracking-wide text-ink">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }) => (
+    <h3 className="mt-7 font-display text-lg font-semibold tracking-wide text-ink">{children}</h3>
+  ),
+  p: ({ children }) => <p className="mt-4 leading-7 text-muted">{children}</p>,
+  strong: ({ children }) => <strong className="font-semibold text-ink">{children}</strong>,
+  em: ({ children }) => <em className="italic text-ink/90">{children}</em>,
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="text-gold underline underline-offset-2"
+    >
+      {children}
+    </a>
+  ),
+  ul: ({ children }) => (
+    <ul className="mt-4 list-disc space-y-2 pl-6 text-muted">{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="mt-4 list-decimal space-y-2 pl-6 text-muted">{children}</ol>
+  ),
+  li: ({ children }) => <li className="leading-7">{children}</li>,
+  blockquote: ({ children }) => (
+    <blockquote className="mt-5 border-l-2 border-gold/50 pl-4 font-display text-sm italic leading-6 text-ink/80 [&>p]:mt-0">
+      {children}
+    </blockquote>
+  ),
+  hr: () => <hr className="my-8 border-hairline" />,
+  table: ({ children }) => (
+    <div className="my-5 overflow-x-auto">
+      <table className="w-full border-collapse text-left text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="border-b border-hairline text-ink">{children}</thead>,
+  th: ({ children }) => <th className="px-3 py-2 font-semibold">{children}</th>,
+  td: ({ children }) => <td className="border-b border-hairline px-3 py-2 text-muted">{children}</td>,
+  code: ({ children, className }) => (
+    <code className={className ?? "rounded bg-base px-1.5 py-0.5 font-mono text-[0.9em] text-ink"}>
+      {children}
+    </code>
+  ),
+  pre: ({ children }) => (
+    <pre className="mt-4 overflow-x-auto rounded-xl bg-base p-4 text-sm">{children}</pre>
+  ),
+};
 
 function Markdown({ markdown }: { markdown: string }) {
-  const lines = markdown.replace(/\r/g, "").split("\n");
-  const blocks: JSX.Element[] = [];
-  let paragraph: string[] = [];
-  let list: string[] = [];
-
-  const flush = () => {
-    if (paragraph.length) {
-      blocks.push(
-        <p key={blocks.length} className="mt-4 leading-7 text-muted">
-          {inline(paragraph.join(" "))}
-        </p>,
-      );
-      paragraph = [];
-    }
-    if (list.length) {
-      blocks.push(
-        <ul key={blocks.length} className="mt-4 list-disc space-y-2 pl-6 text-muted">
-          {list.map((item, i) => <li key={i}>{inline(item)}</li>)}
-        </ul>,
-      );
-      list = [];
-    }
-  };
-
-  lines.forEach((line, index) => {
-    if (!line.trim()) {
-      flush();
-      return;
-    }
-
-    const heading = line.match(/^(#{1,3})\s+(.+)$/);
-    if (heading) {
-      flush();
-      const level = heading[1].length;
-      const className = level === 1
-        ? "font-display text-3xl font-semibold tracking-wide text-ink"
-        : level === 2
-          ? "mt-10 border-b border-hairline pb-2 font-display text-xl font-semibold tracking-wide text-ink"
-          : "mt-7 font-display text-lg font-semibold tracking-wide text-ink";
-      const Tag = level === 1 ? "h1" : level === 2 ? "h2" : "h3";
-      blocks.push(<Tag key={index} className={className}>{inline(heading[2])}</Tag>);
-      return;
-    }
-
-    if (line.startsWith("> ")) {
-      flush();
-      blocks.push(
-        <blockquote key={index} className="mt-5 border-l-2 border-gold/50 pl-4 font-display text-sm italic leading-6 text-ink/80">
-          {inline(line.slice(2))}
-        </blockquote>,
-      );
-      return;
-    }
-
-    const bullet = line.match(/^[-*]\s+(.+)$/);
-    if (bullet) {
-      if (paragraph.length) flush();
-      list.push(bullet[1]);
-      return;
-    }
-
-    if (/^---+$/.test(line.trim())) {
-      flush();
-      blocks.push(<hr key={index} className="my-8 border-hairline" />);
-      return;
-    }
-
-    paragraph.push(line);
-  });
-
-  flush();
-  return <div>{blocks}</div>;
+  return (
+    <div>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+        {markdown}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
 export function Newsletter() {
