@@ -1,11 +1,6 @@
 name: Weekly Newsletter
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".newsletter-generate-once"
   schedule:
     # Retry during the 5 AM Central hour; newsletter generation is idempotent.
     # Once this week's output exists, later attempts skip the model call.
@@ -48,7 +43,7 @@ env:
 
 jobs:
   generate:
-    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true || (github.event_name == 'push' && github.event.head_commit.message == 'chore(newsletter): trigger 2000s themed generation')
+    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true
     runs-on: ubuntu-latest
     environment:
       name: general
