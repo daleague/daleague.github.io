@@ -1,11 +1,6 @@
 name: Weekly Newsletter
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".newsletter-generate-once"
   schedule:
     # Retry during the 5 AM Central hour; newsletter generation is idempotent.
     # Once this week's output exists, later attempts skip the model call.
@@ -48,7 +43,7 @@ env:
 
 jobs:
   generate:
-    if: github.event_name == 'push' || vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true
+    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true
     runs-on: ubuntu-latest
     environment:
       name: general
@@ -90,13 +85,12 @@ jobs:
 
       - name: Generate newsletter
         env:
-          NEWSLETTER_ENABLED: ${{ (github.event_name == 'push' || vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true) && 'true' || 'false' }}
+          NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true) && 'true' || 'false' }}
           NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
           NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
           NEWSLETTER_FALLBACK_MODEL: ${{ env.NEWSLETTER_FALLBACK_MODEL }}
           NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
           NEWSLETTER_BACKFILL_WEEKS: ${{ inputs.backfill_weeks }}
-          NEWSLETTER_FORCE: ${{ github.event_name == 'push' && 'true' || '' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
