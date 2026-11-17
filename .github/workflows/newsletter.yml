@@ -2,10 +2,10 @@ name: Weekly Newsletter
 
 on:
   schedule:
-    # 7:00 AM Eastern Time every Tuesday.
-    # Use a named timezone so the schedule follows Eastern daylight-saving changes.
-    - cron: "0 7 * * 2"
-      timezone: "America/New_York"
+    # Retry during the 5 AM Central hour; newsletter generation is idempotent.
+    # Once this week's output exists, later attempts skip the model call.
+    - cron: "5,20,35,50 5 * * 2"
+      timezone: "America/Chicago"
   workflow_dispatch:
     inputs:
       newsletter_week:
