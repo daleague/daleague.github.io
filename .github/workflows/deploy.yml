@@ -122,12 +122,12 @@ jobs:
             '    <meta name="twitter:title" content="' + safeTitle + '">',
             '    <meta name="twitter:description" content="' + safeDescription + '">',
             '    <link rel="canonical" href="https://daleague.github.io/#/newsletter">'
-          ].join('\\n');
+          ].join('\n');
           let indexHtml = await readFile('index.html', 'utf8');
           indexHtml = indexHtml
-            .replace(/<title>[\\s\\S]*?<\\/title>/, '<title>' + safeTitle + '</title>')
-            .replace(/<meta name="description"[^>]*\\/?>/, '<meta name="description" content="' + safeDescription + '" />')
-            .replace('</head>', defaultPageMetadata + '\\n  </head>');
+            .replace(/<title>[\s\S]*?<\/title>/, '<title>' + safeTitle + '</title>')
+            .replace(/<meta name="description"[^>]*\/?>/, '<meta name="description" content="' + safeDescription + '" />')
+            .replace('</head>', defaultPageMetadata + '\n  </head>');
           await writeFile('index.html', indexHtml);
           console.log('Injected the latest newsletter preview metadata into the default page.');
 
