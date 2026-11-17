@@ -33,6 +33,12 @@ The Tuesday workflow will:
 
 The same pipeline can be run manually for recovery or editing.
 
+## Prompt and theme
+
+The complete AI prompt lives in [`newsletter/TEMPLATE.md`](./TEMPLATE.md). It contains the editorial rules, output structure, and the active edition's creative theme. The generator reads this file on every run, substitutes the week/date/data placeholders, and sends the rendered Markdown directly to the configured provider.
+
+To change the newsletter's theme for a future edition, edit `newsletter/TEMPLATE.md`. There is intentionally no workflow-dispatch theme input and no `NEWSLETTER_THEME` repository variable; the checked-in Markdown file is the single source of truth.
+
 ## Providers
 
 The generator is designed around a provider switch:
