@@ -961,7 +961,7 @@ async function main() {
     console.warn(`[newsletter] factual QA found ${factualIssues.length} player-identity/rookie issue(s); running a targeted repair pass.`);
     const factRepairPrompt = `You are performing a mandatory factual repair on a fantasy-football newsletter. Return the entire corrected newsletter in Markdown, not a report about the errors.
 
-EDITORIAL THEME: 2000–2015 pop-culture nostalgia, as defined in newsletter/TEMPLATE.md.
+EDITORIAL THEME: 2000s NBA basketball (2000–2009), as defined in newsletter/TEMPLATE.md.
 CURRENT NFL/FANTASY SEASON: ${String(context.season)}
 
 SOURCE-OF-TRUTH DATA:
