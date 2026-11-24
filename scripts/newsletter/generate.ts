@@ -721,6 +721,10 @@ async function generateWithGroq(
       body: JSON.stringify({
         model,
         messages: [{ role: "user", content: prompt }],
+        // A complete six-matchup haiku edition fits comfortably here, and an
+        // explicit cap prevents the API from reserving more free-tier TPM than
+        // this fallback can use.
+        max_completion_tokens: 1_800,
       }),
     });
 
@@ -750,7 +754,6 @@ function buildNewsletterPromptContext(context: Json): Json {
   const league = context.league as Json;
   const previousWeek = context.previousWeek as Json;
   const upcomingWeek = context.upcomingWeek as Json;
-  const teams = Array.isArray(context.teams) ? context.teams as Json[] : [];
   const previousTransactions = Array.isArray(previousWeek.transactions)
     ? previousWeek.transactions as Json[]
     : [];
@@ -776,40 +779,39 @@ function buildNewsletterPromptContext(context: Json): Json {
     note: transaction.note,
   });
 
-  // The saved data package intentionally remains comprehensive, but sending every
-  // rostered player twice (in matchups and rosters) made the model request about
-  // 41k tokens. A concise, evidence-first prompt is more reliable on free tiers
-  // and still preserves the players and lineup decisions needed for each story.
+  // The saved data package intentionally remains comprehensive. The model receives
+  // a deliberately compact editorial brief so that the independent Groq free-tier
+  // fallback remains below its 8k TPM limit.
+  const promptPlayer = (player: Json): Json => ({
+    name: player.name,
+    position: player.actualPosition,
+    points: player.points,
+    nflTeamAbbreviation: typeof player.nflTeamAbbreviation === "string"
+      ? player.nflTeamAbbreviation
+      : typeof player.nflTeam === "string" && player.nflTeam ? player.nflTeam : null,
+    isRookieForSeason: player.isRookieForSeason === true,
+  });
+
   const compactSide = (side: Json): Json => {
     const players = Array.isArray(side.players) ? (side.players as Json[]) : [];
     const starters = players.filter((player) => player.isStarter).sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0));
     const bench = players.filter((player) => !player.isStarter).sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0));
     return {
-      teamId: side.teamId,
       teamName: side.teamName,
-      managerName: side.managerName,
       score: side.score,
-      projectedScore: side.projectedScore,
-      winProbability: side.winProbability,
-      players: [...starters.slice(0, 2), ...bench.slice(0, 1)].map(playerBrief),
+      players: [...starters.slice(0, 1), ...bench.slice(0, 1)].map(promptPlayer),
       lineupSignals: {
         topBenchByPoints: Array.isArray((side.lineupSignals as Json | undefined)?.topBenchByPoints)
-          ? ((side.lineupSignals as Json).topBenchByPoints as Json[]).slice(0, 1).map(playerBrief)
+          ? ((side.lineupSignals as Json).topBenchByPoints as Json[]).slice(0, 1).map(promptPlayer)
           : [],
         lowestScoringStarters: Array.isArray((side.lineupSignals as Json | undefined)?.lowestScoringStarters)
-          ? ((side.lineupSignals as Json).lowestScoringStarters as Json[]).slice(0, 1).map(playerBrief)
+          ? ((side.lineupSignals as Json).lowestScoringStarters as Json[]).slice(0, 1).map(promptPlayer)
           : [],
       },
     };
   };
 
   const compactMatchup = (matchup: Json): Json => ({
-    matchupId: matchup.matchupId,
-    week: matchup.week,
-    status: matchup.status,
-    winnerTeamId: matchup.winnerTeamId,
-    isPlayoffs: matchup.isPlayoffs,
-    playoffRound: matchup.playoffRound,
     home: compactSide(matchup.home as Json),
     away: compactSide(matchup.away as Json),
   });
@@ -818,10 +820,7 @@ function buildNewsletterPromptContext(context: Json): Json {
     generatedAt: context.generatedAt,
     season: context.season,
     dataDictionary: {
-      nflTeamAbbreviation: "The NFL franchise this player plays FOR. This is not their NFL opponent.",
-      nflOpponentAbbreviation: "The NFL franchise this player faces in this specific game, only when provided by source data. null means unknown; never infer it from nflTeamAbbreviation.",
-      isRookieForSeason: "true only when source data explicitly confirms the player is a rookie in the current season. false or missing means do not call the player a rookie.",
-      season: "The current NFL/fantasy season being covered. Do not carry rookie labels forward from prior seasons.",
+      playerSemantics: "nflTeamAbbreviation is the team a player plays FOR, never their opponent. Call a player a rookie only if isRookieForSeason is true.",
     },
     league: {
       name: league.name,
@@ -834,8 +833,16 @@ function buildNewsletterPromptContext(context: Json): Json {
       matchups: Array.isArray(previousWeek.matchups)
         ? (previousWeek.matchups as Json[]).map(compactMatchup)
         : [],
-      standings: previousWeek.standings,
-      transactions: previousTransactions.slice(0, 12).map(transactionBrief),
+      standings: Array.isArray(previousWeek.standings)
+        ? (previousWeek.standings as Json[]).map((standing) => ({
+            teamName: standing.teamName,
+            rank: standing.rank,
+            wins: standing.wins,
+            losses: standing.losses,
+            pointsFor: standing.pointsFor,
+          }))
+        : [],
+      transactions: previousTransactions.slice(0, 6).map(transactionBrief),
     },
     upcomingWeek: {
       week: upcomingWeek.week,
@@ -843,7 +850,6 @@ function buildNewsletterPromptContext(context: Json): Json {
         ? (upcomingWeek.matchups as Json[]).map(compactMatchup)
         : [],
     },
-    currentEvents: context.currentEvents,
     narrativeContext: {
       teamTrends: Array.isArray((context.narrativeContext as Json).teamTrends)
         ? ((context.narrativeContext as Json).teamTrends as Json[]).map((trend) => ({
@@ -858,7 +864,7 @@ function buildNewsletterPromptContext(context: Json): Json {
           }))
         : [],
       storyCandidates: Array.isArray((context.narrativeContext as Json).storyCandidates)
-        ? ((context.narrativeContext as Json).storyCandidates as Json[]).slice(0, 8)
+        ? ((context.narrativeContext as Json).storyCandidates as Json[]).slice(0, 4)
         : [],
     },
   };
