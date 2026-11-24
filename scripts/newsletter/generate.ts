@@ -760,19 +760,16 @@ function buildNewsletterPromptContext(context: Json): Json {
     type: transaction.type,
     teamId: transaction.teamId,
     playersAdded: Array.isArray(transaction.playersAdded)
-      ? (transaction.playersAdded as Json[]).map((player) => ({
-          playerId: player.playerId,
+      ? (transaction.playersAdded as Json[]).slice(0, 2).map((player) => ({
           name: player.name,
           actualPosition: player.actualPosition,
           nflTeamAbbreviation: typeof player.nflTeam === "string" && player.nflTeam ? player.nflTeam : null,
         }))
       : [],
     playersDropped: Array.isArray(transaction.playersDropped)
-      ? (transaction.playersDropped as Json[]).map((player) => ({
-          playerId: player.playerId,
+      ? (transaction.playersDropped as Json[]).slice(0, 2).map((player) => ({
           name: player.name,
           actualPosition: player.actualPosition,
-          nflTeamAbbreviation: typeof player.nflTeam === "string" && player.nflTeam ? player.nflTeam : null,
         }))
       : [],
     faabAmount: transaction.faabAmount,
@@ -794,8 +791,15 @@ function buildNewsletterPromptContext(context: Json): Json {
       score: side.score,
       projectedScore: side.projectedScore,
       winProbability: side.winProbability,
-      players: [...starters.slice(0, 3), ...bench.slice(0, 1)].map(playerBrief),
-      lineupSignals: side.lineupSignals,
+      players: [...starters.slice(0, 2), ...bench.slice(0, 1)].map(playerBrief),
+      lineupSignals: {
+        topBenchByPoints: Array.isArray((side.lineupSignals as Json | undefined)?.topBenchByPoints)
+          ? ((side.lineupSignals as Json).topBenchByPoints as Json[]).slice(0, 1).map(playerBrief)
+          : [],
+        lowestScoringStarters: Array.isArray((side.lineupSignals as Json | undefined)?.lowestScoringStarters)
+          ? ((side.lineupSignals as Json).lowestScoringStarters as Json[]).slice(0, 1).map(playerBrief)
+          : [],
+      },
     };
   };
 
@@ -831,8 +835,7 @@ function buildNewsletterPromptContext(context: Json): Json {
         ? (previousWeek.matchups as Json[]).map(compactMatchup)
         : [],
       standings: previousWeek.standings,
-      superlatives: previousWeek.superlatives,
-      transactions: previousTransactions.map(transactionBrief),
+      transactions: previousTransactions.slice(0, 12).map(transactionBrief),
     },
     upcomingWeek: {
       week: upcomingWeek.week,
@@ -841,15 +844,21 @@ function buildNewsletterPromptContext(context: Json): Json {
         : [],
     },
     currentEvents: context.currentEvents,
-    teams: teams.map((team) => ({
-      teamId: team.teamId,
-      name: team.name,
-      managerName: team.managerName,
-    })),
     narrativeContext: {
-      ...(context.narrativeContext as Json),
+      teamTrends: Array.isArray((context.narrativeContext as Json).teamTrends)
+        ? ((context.narrativeContext as Json).teamTrends as Json[]).map((trend) => ({
+            teamName: trend.teamName,
+            rank: trend.rank,
+            record: trend.record,
+            seasonAvg: trend.seasonAvg,
+            recent4Avg: trend.recent4Avg,
+            latestScore: trend.latestScore,
+            latestScoreDelta: trend.latestScoreDelta,
+            streak: trend.streak,
+          }))
+        : [],
       storyCandidates: Array.isArray((context.narrativeContext as Json).storyCandidates)
-        ? ((context.narrativeContext as Json).storyCandidates as Json[]).slice(0, 12)
+        ? ((context.narrativeContext as Json).storyCandidates as Json[]).slice(0, 8)
         : [],
     },
   };
