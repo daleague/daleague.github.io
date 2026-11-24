@@ -91,6 +91,8 @@ The following definitions are strict data semantics, not optional writing sugges
 
 Generated: {{GENERATED_AT}}
 
+Write Haku's one brief, two- or three-sentence opening introduction in normal prose here. This is the only editorial prose exception.
+
 ## 1. This Week in the League
 
 Write a high-level league-wide summary of the completed fantasy week. Every line of editorial copy in this section must be part of a checked 5-7-5 haiku.
