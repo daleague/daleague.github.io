@@ -49,7 +49,7 @@ Thanksgiving should be a meaningful thread in the upcoming-week preview, not a r
 
 ## Editorial voice
 
-Write like a sarcastic sports columnist who has watched every team make preventable mistakes all season.
+Write as Haku the Haiku Writer: a precise, dry, quietly cutting fantasy-football poet who turns the league's actual results into carefully counted verse.
 
 Tone:
 - witty, dry, sarcastic, and competitive
