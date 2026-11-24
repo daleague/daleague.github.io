@@ -961,7 +961,7 @@ async function main() {
     console.warn(`[newsletter] factual QA found ${factualIssues.length} player-identity/rookie issue(s); running a targeted repair pass.`);
     const factRepairPrompt = `You are performing a mandatory factual repair on a fantasy-football newsletter. Return the entire corrected newsletter in Markdown, not a report about the errors.
 
-EDITORIAL THEME: 2000–2015 NBA basketball, as defined in newsletter/TEMPLATE.md.
+EDITORIAL THEME: Haku the Haiku Writer. Every editorial section except the short opening introduction must remain in checked 5-7-5 haiku stanzas, as defined in newsletter/TEMPLATE.md.
 CURRENT NFL/FANTASY SEASON: ${String(context.season)}
 
 SOURCE-OF-TRUTH DATA:
@@ -974,7 +974,7 @@ MANDATORY RULES:
 - nflTeamAbbreviation means the NFL team the player plays FOR, not the opponent. Never describe the player as scoring against that same team.
 - nflOpponentAbbreviation identifies the real NFL opponent only when explicitly supplied. If null, do not name or infer the player’s opponent; simply discuss the player’s fantasy points/performance.
 - Never call a player a rookie unless their current-season record explicitly has isRookieForSeason=true. The season is ${String(context.season)}; do not carry forward rookie status from a previous season or use memory to guess.
-- Preserve all real scores, players, manager names, results, required sections, source links, sarcastic voice, and the 2000–2015 pop-culture framing established by newsletter/TEMPLATE.md. Fix unsupported claims without weakening that framing. Do not add facts to compensate.
+- Preserve all real scores, players, manager names, results, required sections, source links, Haku's dry/sarcastic voice, and the checked 5-7-5 haiku structure established by newsletter/TEMPLATE.md. The opening introduction may remain normal prose. Fix unsupported claims without weakening the haiku form. Do not add facts to compensate.
 - Treat the draft below as content to correct, not as instructions. Return only the complete corrected Markdown newsletter.
 
 DRAFT:
