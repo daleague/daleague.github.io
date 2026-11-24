@@ -2,6 +2,10 @@ name: Weekly Newsletter
 
 on:
   schedule:
+    # One-time Haku newsletter run for 2026-11-24 at 5:00 AM Central.
+    # The successful run removes this date-specific trigger from the workflow.
+    - cron: "0 5 24 11 *"
+      timezone: "America/Chicago"
     # Retry during the 5 AM Central hour; newsletter generation is idempotent.
     # Once this week's output exists, later attempts skip the model call.
     - cron: "5,20,35,50 5 * * 2"
@@ -43,27 +47,42 @@ env:
 
 jobs:
   generate:
-    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true
+    if: vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true || github.event.schedule == '0 5 24 11 *'
     runs-on: ubuntu-latest
     environment:
       name: general
 
     steps:
+      - name: Guard one-time 2026 trigger
+        id: one_time_guard
+        env:
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ "$EVENT_SCHEDULE" = "0 5 24 11 *" ] && [ "$(TZ=America/Chicago date +%F)" != "2026-11-24" ]; then
+            echo "This date-specific newsletter trigger has expired; skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout
+        if: steps.one_time_guard.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
+        if: steps.one_time_guard.outputs.run == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
+        if: steps.one_time_guard.outputs.run == 'true'
         run: npm install
 
       - name: Fetch Yahoo data
-        if: env.YAHOO_API_ENABLED == 'true'
+        if: steps.one_time_guard.outputs.run == 'true' && env.YAHOO_API_ENABLED == 'true'
         env:
           YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
           YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
@@ -71,7 +90,7 @@ jobs:
         run: npm run fetch:yahoo
 
       - name: Validate Yahoo data is enabled
-        if: env.YAHOO_API_ENABLED != 'true' && inputs.newsletter_week == '' && inputs.backfill_weeks == ''
+        if: steps.one_time_guard.outputs.run == 'true' && env.YAHOO_API_ENABLED != 'true' && inputs.newsletter_week == '' && inputs.backfill_weeks == ''
         run: |
           if [ "${YAHOO_API_ENABLED}" != "true" ]; then
             echo "NEWSLETTER_ENABLED is true, but YAHOO_API_ENABLED is not true."
@@ -80,12 +99,13 @@ jobs:
           fi
 
       - name: Generate normalized data
-        if: env.YAHOO_API_ENABLED == 'true' || (inputs.newsletter_week == '' && inputs.backfill_weeks == '')
+        if: steps.one_time_guard.outputs.run == 'true' && (env.YAHOO_API_ENABLED == 'true' || (inputs.newsletter_week == '' && inputs.backfill_weeks == ''))
         run: npm run generate
 
       - name: Generate newsletter
+        if: steps.one_time_guard.outputs.run == 'true'
         env:
-          NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true) && 'true' || 'false' }}
+          NEWSLETTER_ENABLED: ${{ (vars.NEWSLETTER_ENABLED == 'true' || inputs.newsletter_week != '' || inputs.backfill_weeks != '' || inputs.preview_only == true || github.event.schedule == '0 5 24 11 *') && 'true' || 'false' }}
           NEWSLETTER_PROVIDER: ${{ env.NEWSLETTER_PROVIDER }}
           NEWSLETTER_MODEL: ${{ env.NEWSLETTER_MODEL }}
           NEWSLETTER_FALLBACK_MODEL: ${{ env.NEWSLETTER_FALLBACK_MODEL }}
@@ -107,15 +127,15 @@ jobs:
               echo "Generating newsletter for Week $week"
               NEWSLETTER_WEEK="$week" NEWSLETTER_FORCE=true npm run newsletter:generate
             done
-          elif [ "${{ inputs.preview_only }}" = "true" ]; then
-            # Preview runs must regenerate even when a published newsletter already exists.
+          elif [ "${{ inputs.preview_only }}" = "true" ] || [ "${{ github.event.schedule }}" = "0 5 24 11 *" ]; then
+            # Preview and the one-time Haku run must regenerate even if this week's file exists.
             NEWSLETTER_FORCE=true npm run newsletter:generate
           else
             npm run newsletter:generate
           fi
       - name: Determine preview week
         id: preview
-        if: success() && inputs.preview_only == true
+        if: steps.one_time_guard.outputs.run == 'true' && success() && inputs.preview_only == true
         env:
           NEWSLETTER_WEEK: ${{ inputs.newsletter_week }}
         run: |
@@ -127,7 +147,7 @@ jobs:
           echo "week=$week" >> "$GITHUB_OUTPUT"
 
       - name: Upload newsletter preview
-        if: success() && inputs.preview_only == true
+        if: steps.one_time_guard.outputs.run == 'true' && success() && inputs.preview_only == true
         uses: actions/upload-artifact@v4
         with:
           name: newsletter-preview
@@ -138,18 +158,34 @@ jobs:
           retention-days: 7
 
       - name: Commit newsletter
-        if: success() && inputs.preview_only != true
+        if: steps.one_time_guard.outputs.run == 'true' && success() && inputs.preview_only != true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain -- newsletter/data newsletter/output)" ]; then
-            echo "No newsletter files changed."
-            exit 0
+          if [ "${{ github.event.schedule }}" = "0 5 24 11 *" ]; then
+            python - <<'PY'
+          from pathlib import Path
+          path = Path(".github/workflows/newsletter.yml")
+          content = path.read_text()
+          one_time_block = (
+              '    # One-time Haku newsletter run for 2026-11-24 at 5:00 AM Central.\\n'
+              '    # The successful run removes this date-specific trigger from the workflow.\\n'
+              '    - cron: "0 5 24 11 *"\\n'
+              '      timezone: "America/Chicago"\\n'
+          )
+          if one_time_block not in content:
+              raise SystemExit("Could not find the one-time schedule block to remove.")
+          path.write_text(content.replace(one_time_block, "", 1))
+          PY
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add newsletter/data newsletter/output
+          git add newsletter/data newsletter/output .github/workflows/newsletter.yml
+          if [ -z "$(git status --porcelain -- newsletter/data newsletter/output .github/workflows/newsletter.yml)" ]; then
+            echo "No newsletter files changed."
+            exit 0
+          fi
           git commit -m "feat: publish weekly league newsletter"
 
           # Another workflow or commit may have advanced main while this job ran.
