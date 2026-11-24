@@ -533,6 +533,21 @@ function extractGeminiText(body: Json): string {
     .trim();
 }
 
+function extractChatCompletionText(body: Json): string {
+  const choices = Array.isArray(body.choices) ? (body.choices as Json[]) : [];
+  const message = choices[0]?.message as Json | undefined;
+  const content = message?.content;
+  if (typeof content === "string") return content.trim();
+  if (Array.isArray(content)) {
+    return content
+      .map((part) => (typeof (part as Json).text === "string" ? String((part as Json).text) : ""))
+      .filter(Boolean)
+      .join("\n\n")
+      .trim();
+  }
+  return "";
+}
+
 async function generateWithOpenAI(
   prompt: string,
   model: string,
@@ -610,6 +625,16 @@ class GeminiGenerationError extends Error {
   }
 }
 
+class GroqGenerationError extends Error {
+  constructor(
+    readonly status: number,
+    message: string,
+  ) {
+    super(message);
+    this.name = "GroqGenerationError";
+  }
+}
+
 async function generateWithGemini(
   prompt: string,
   model: string,
@@ -677,6 +702,50 @@ async function generateWithGemini(
   throw new Error("Gemini newsletter generation exhausted all retry attempts.");
 }
 
+async function generateWithGroq(
+  prompt: string,
+  model: string,
+  apiKey: string,
+  options: { maxAttempts?: number } = {},
+): Promise<{ text: string; sources: Source[] }> {
+  const maxAttempts = options.maxAttempts ?? 2;
+  const retryableStatuses = new Set([429, 500, 502, 503, 504]);
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
+
+    const body = (await response.json()) as Json;
+    if (response.ok) {
+      const text = extractChatCompletionText(body);
+      if (!text) throw new Error("Groq returned no newsletter text.");
+      return { text, sources: uniqueSources(collectSources(body)) };
+    }
+
+    const message = `Groq newsletter generation failed (${response.status}): ${JSON.stringify(body).slice(0, 1000)}`;
+    if (!retryableStatuses.has(response.status) || attempt === maxAttempts) {
+      throw new GroqGenerationError(response.status, message);
+    }
+
+    const delayMs = geminiRetryDelayMs(response, body, attempt);
+    console.log(
+      `[newsletter] Groq ${model} returned ${response.status}; retrying in ${Math.ceil(delayMs / 1000)}s (attempt ${attempt + 1}/${maxAttempts})...`,
+    );
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  }
+
+  throw new Error("Groq newsletter generation exhausted all retry attempts.");
+}
+
 function buildNewsletterPromptContext(context: Json): Json {
   const league = context.league as Json;
   const previousWeek = context.previousWeek as Json;
@@ -710,6 +779,37 @@ function buildNewsletterPromptContext(context: Json): Json {
     note: transaction.note,
   });
 
+  // The saved data package intentionally remains comprehensive, but sending every
+  // rostered player twice (in matchups and rosters) made the model request about
+  // 41k tokens. A concise, evidence-first prompt is more reliable on free tiers
+  // and still preserves the players and lineup decisions needed for each story.
+  const compactSide = (side: Json): Json => {
+    const players = Array.isArray(side.players) ? (side.players as Json[]) : [];
+    const starters = players.filter((player) => player.isStarter).sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0));
+    const bench = players.filter((player) => !player.isStarter).sort((a, b) => Number(b.points ?? 0) - Number(a.points ?? 0));
+    return {
+      teamId: side.teamId,
+      teamName: side.teamName,
+      managerName: side.managerName,
+      score: side.score,
+      projectedScore: side.projectedScore,
+      winProbability: side.winProbability,
+      players: [...starters.slice(0, 3), ...bench.slice(0, 1)].map(playerBrief),
+      lineupSignals: side.lineupSignals,
+    };
+  };
+
+  const compactMatchup = (matchup: Json): Json => ({
+    matchupId: matchup.matchupId,
+    week: matchup.week,
+    status: matchup.status,
+    winnerTeamId: matchup.winnerTeamId,
+    isPlayoffs: matchup.isPlayoffs,
+    playoffRound: matchup.playoffRound,
+    home: compactSide(matchup.home as Json),
+    away: compactSide(matchup.away as Json),
+  });
+
   return {
     generatedAt: context.generatedAt,
     season: context.season,
@@ -727,14 +827,18 @@ function buildNewsletterPromptContext(context: Json): Json {
     },
     previousWeek: {
       week: previousWeek.week,
-      matchups: previousWeek.matchups,
+      matchups: Array.isArray(previousWeek.matchups)
+        ? (previousWeek.matchups as Json[]).map(compactMatchup)
+        : [],
       standings: previousWeek.standings,
       superlatives: previousWeek.superlatives,
       transactions: previousTransactions.map(transactionBrief),
     },
     upcomingWeek: {
       week: upcomingWeek.week,
-      matchups: upcomingWeek.matchups,
+      matchups: Array.isArray(upcomingWeek.matchups)
+        ? (upcomingWeek.matchups as Json[]).map(compactMatchup)
+        : [],
     },
     currentEvents: context.currentEvents,
     teams: teams.map((team) => ({
@@ -742,7 +846,12 @@ function buildNewsletterPromptContext(context: Json): Json {
       name: team.name,
       managerName: team.managerName,
     })),
-    narrativeContext: context.narrativeContext,
+    narrativeContext: {
+      ...(context.narrativeContext as Json),
+      storyCandidates: Array.isArray((context.narrativeContext as Json).storyCandidates)
+        ? ((context.narrativeContext as Json).storyCandidates as Json[]).slice(0, 12)
+        : [],
+    },
   };
 }
 
@@ -906,7 +1015,7 @@ async function main() {
   const serializedPromptContext = JSON.stringify(promptContext);
   const estimatedInputTokens = Math.ceil(serializedPromptContext.length / 4);
   const maxEstimatedInputTokens = Number(
-    process.env.NEWSLETTER_MAX_ESTIMATED_INPUT_TOKENS ?? 100_000,
+    process.env.NEWSLETTER_MAX_ESTIMATED_INPUT_TOKENS ?? 12_000,
   );
 
   console.log(
@@ -934,24 +1043,59 @@ async function main() {
   const provider = (process.env.NEWSLETTER_PROVIDER || "openai").toLowerCase();
   const model = required("NEWSLETTER_MODEL");
 
+  async function generateWithProvider(
+    selectedProvider: string,
+    selectedModel: string,
+    inputPrompt: string,
+  ): Promise<{ text: string; sources: Source[] }> {
+    if (selectedProvider === "openai") {
+      return generateWithOpenAI(inputPrompt, selectedModel, required("OPENAI_API_KEY"));
+    }
+    if (selectedProvider === "gemini") {
+      return generateWithGemini(inputPrompt, selectedModel, required("GEMINI_API_KEY"));
+    }
+    if (selectedProvider === "groq") {
+      return generateWithGroq(inputPrompt, selectedModel, required("GROQ_API_KEY"));
+    }
+    throw new Error(`Unsupported newsletter provider "${selectedProvider}". Use "openai", "gemini", or "groq".`);
+  }
+
   async function generateWithConfiguredProvider(inputPrompt: string): Promise<{ text: string; sources: Source[] }> {
-    if (provider === "openai") {
-      return generateWithOpenAI(inputPrompt, model, required("OPENAI_API_KEY"));
-    }
-    if (provider === "gemini") {
-      const apiKey = required("GEMINI_API_KEY");
-      const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
-      try {
-        return await generateWithGemini(inputPrompt, model, apiKey);
-      } catch (error) {
-        if (!fallbackModel || fallbackModel === model) throw error;
-        console.warn(
-          `[newsletter] Gemini ${model} failed; falling back to ${fallbackModel}: ${error instanceof Error ? error.message : String(error)}`,
-        );
-        return generateWithGemini(inputPrompt, fallbackModel, apiKey, { maxAttempts: 2 });
+    const fallbackModel = process.env.NEWSLETTER_FALLBACK_MODEL?.trim();
+    const backupProvider = process.env.NEWSLETTER_BACKUP_PROVIDER?.trim().toLowerCase();
+    const backupModel = process.env.NEWSLETTER_BACKUP_MODEL?.trim();
+
+    try {
+      return await generateWithProvider(provider, model, inputPrompt);
+    } catch (primaryError) {
+      let lastError = primaryError;
+      // NEWSLETTER_FALLBACK_MODEL is the existing Gemini-model fallback. Do not
+      // send that Gemini model ID to another provider when one is selected as
+      // the primary provider.
+      if (provider === "gemini" && fallbackModel && fallbackModel !== model) {
+        try {
+          console.warn(
+            `[newsletter] ${provider} ${model} failed; falling back to ${fallbackModel}: ${primaryError instanceof Error ? primaryError.message : String(primaryError)}`,
+          );
+          return await generateWithProvider(provider, fallbackModel, inputPrompt);
+        } catch (fallbackError) {
+          lastError = fallbackError;
+        }
       }
+
+      if (backupProvider && backupModel && backupProvider !== provider) {
+        const requiredKey = backupProvider === "groq" ? "GROQ_API_KEY" : backupProvider === "gemini" ? "GEMINI_API_KEY" : "OPENAI_API_KEY";
+        if (!process.env[requiredKey]) {
+          console.warn(`[newsletter] ${backupProvider} backup is configured but ${requiredKey} is unavailable; skipping it.`);
+        } else {
+          console.warn(
+            `[newsletter] ${provider} generation failed; trying ${backupProvider} ${backupModel}: ${lastError instanceof Error ? lastError.message : String(lastError)}`,
+          );
+          return generateWithProvider(backupProvider, backupModel, inputPrompt);
+        }
+      }
+      throw lastError;
     }
-    throw new Error(`Unsupported NEWSLETTER_PROVIDER="${provider}". Use "openai" or "gemini".`);
   }
 
   let generated = await generateWithConfiguredProvider(prompt);

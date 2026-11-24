@@ -54,12 +54,19 @@ The older `https://daleague.github.io/newsletter-share/` URL remains available a
 The generator is designed around a provider switch:
 - `NEWSLETTER_PROVIDER=openai`
 - `NEWSLETTER_PROVIDER=gemini`
+- `NEWSLETTER_PROVIDER=groq`
 
 Credentials stay in GitHub Actions secrets:
 - `OPENAI_API_KEY`
 - `GEMINI_API_KEY`
+- `GROQ_API_KEY`
 
-The model is selected with the repository variable `NEWSLETTER_MODEL`.
+The model is selected with the repository variable `NEWSLETTER_MODEL`. Gemini keeps
+its same-provider fallback through `NEWSLETTER_FALLBACK_MODEL`. If both Gemini
+models are unavailable or rate-limited, the workflow tries Groq's independent API
+with `openai/gpt-oss-20b`. Add a `GROQ_API_KEY` GitHub Actions secret from a Groq
+account to activate that backup; without it the workflow logs that the backup was
+unavailable and preserves the original failure.
 
 OpenAI's Responses API supports a built-in web-search tool, while Gemini supports Google Search grounding and returns grounding/citation metadata. This makes the AI layer replaceable without changing the newsletter data contract or template.
 
@@ -73,5 +80,10 @@ Until that variable is enabled, the workflow exits successfully without generati
 
 ## Schedule
 
-The workflow retries during the Tuesday 5:00 a.m. Central hour (5:05, 5:20, 5:35, and 5:50 a.m.) using GitHub Actions' timezone-aware schedule. The `America/Chicago` timezone keeps the local time aligned through daylight-saving changes. The generator is idempotent: once the week's newsletter is present, later retries skip the model call.
+The workflow retries during the Tuesday 5:00 a.m. Central hour (5:07, 5:27, and
+5:47 a.m.) using GitHub Actions' timezone-aware schedule. The `America/Chicago`
+timezone keeps the local time aligned through daylight-saving changes, and choosing
+off-hour minutes avoids GitHub's top-of-hour scheduling congestion. The generator
+is idempotent: once the week's newsletter is present, later retries skip the model
+call.
 
