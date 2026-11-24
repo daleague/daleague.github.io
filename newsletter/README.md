@@ -73,5 +73,5 @@ Until that variable is enabled, the workflow exits successfully without generati
 
 ## Schedule
 
-The workflow is intended to start just after midnight Tuesday Central Time. It uses GitHub Actions' timezone-aware schedule so the local time follows daylight saving changes.
+The workflow retries during the Tuesday 5:00 a.m. Central hour (5:05, 5:20, 5:35, and 5:50 a.m.) using GitHub Actions' timezone-aware schedule. The `America/Chicago` timezone keeps the local time aligned through daylight-saving changes. The generator is idempotent: once the week's newsletter is present, later retries skip the model call.
 
